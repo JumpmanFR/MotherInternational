@@ -1,23 +1,26 @@
 <html>
-	<head>
-		<title>MOTHER International</title>
-		<meta charset="UTF-8"/>
-		<link type="text/css" rel="stylesheet" href="./style.css"/>
-		<script type="text/javascript" src="./js/locale.js"></script>
-		<script type="text/javascript" src="./js/formats/zip.js"></script>
-		<script type="text/javascript" src="./js/formats/ups.js"></script>
-		<script type="text/javascript" src="./js/MarcFile.js"></script>
-		<script type="text/javascript" src="./js/motherinternational.js"></script>
-	</head>
-	<body>
-		<div id="drop">
-			<input type="file" id="rom-file">
-			<input type="button" id="rom-btn" data-localize="txtBrowse" onclick="document.getElementById('rom-file').click();" value="Browse…">
-			<label for="rom-btn" id="eltROMLabel" data-localize="txtNoRom">mother3_jp.gba</label>
-			<div id="msg-container">
-				<span id="msg" class="message" data-localize="txtSpecifyRom">Please specify the ROM to patch</span>
-			</div>
-			<button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled="">Apply patch</button>
-		</div>
-	</body>
+    <head>
+        <title>MOTHER International</title>
+        <meta charset="UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="./style.css"/>
+        <script type="text/javascript" src="./js/locale.js"></script>
+        <script type="text/javascript" src="./js/formats/zip.js"></script>
+        <script type="text/javascript" src="./js/formats/ups.js"></script>
+        <script type="text/javascript" src="./js/crc_tools.js"></script>
+        <script type="text/javascript" src="./js/rom_list.js"></script>
+        <script type="text/javascript" src="./js/MarcFile.js"></script>
+        <script type="text/javascript" src="./js/motherinternational.js"></script>
+    </head>
+    <body>
+        <div id="drop">
+            <input type="file" id="rom-file">
+            <input type="button" id="rom-btn" data-localize="txtBrowse" onclick="document.getElementById('rom-file').click();" value="Browse…">
+            <label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
+            <div id="msg-container">
+                <span id="msg" class="message" data-localize="txtSpecifyRom">Please specify the ROM to patch</span>
+            </div>
+            <select id="patch-select"></select>
+            <button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled="">Apply patch</button>
+        </div>
+    </body>
 </html>

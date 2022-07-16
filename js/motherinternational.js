@@ -15,18 +15,25 @@ MSG_CLASS[MSG_TYPE_ERROR] = "error";
 ELT_DROP = "drop";
 ELT_ROM_FILE = "rom-file";
 ELT_ROM_BTN = "rom-btn";
+ELT_ROM_LABEL = "rom-label";
 ELT_MSG = "msg";
+ELT_PATCH_SELECT = "patch-select";
 ELT_APPLY = "apply-btn";
 
 var gUserLanguage;
 var gIsBusy;
 
-var gFileRom;
+var gWorkerChecksum, gWorkerApply;
 
-/* Shortcuts */
+// Shortcuts
 function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
 function el(e){return document.getElementById(e)}
 function _(str){return gUserLanguage[str] || str}
+
+
+//=====================
+// EVENT METHODS
+//=====================
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById(ELT_APPLY).addEventListener('click', function(){/*TODO applyPatch(patch, romFile, false)*/})
@@ -36,27 +43,39 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById(ELT_DROP).addEventListener('drop',function(e){showDrag(false, e);})
 })
 
-/* Entry point */
-addEvent(window,'load',function() {
+addEvent(window,'load', init);
+
+gWorkerChecksum = new Worker('./js/worker_crc.js');
+
+gWorkerChecksum.onerror = event => { // listen for events from the worker
+	setMessage(event.message.replace('Error: ',''), MSG_TYPE_ERROR);
+};
+
+
+//=====================
+// ENTRY POINT
+//=====================
+
+function init() {
 	setLanguage("en");
 	gIsBusy = false;
 	updateUIState();
 	addEvent(el(ELT_ROM_FILE), 'change', function(){
-		gFileRom = new MarcFile(this, parseRom);
-		el(ELT_ROM_BTN).innerText = gFileRom.fileName;
+        var inputRom = new MarcFile(this, function() {parseInputRom(inputRom)});
+		el(ELT_ROM_LABEL).innerText = inputRom.fileName;
 	});
  	addEvent(el(ELT_DROP), 'drop', function(e) {
  		if (!this.classList.contains("disabled")) {
-			gFileRom = new MarcFile(e.dataTransfer, parseRom);
-			el(ELT_ROM_BTN).innerText = gFileRom.fileName;
+            var inputRom = new MarcFile(e.dataTransfer, function() {parseInputRom(inputRom)});
+			el(ELT_ROM_LABEL).innerText = inputRom.fileName;
  		}
  	});
-});
+}
 
 
-/*===================
-UI METHODS
-=====================*/
+//=====================
+// UI METHODS
+//=====================
 
 function setLanguage(langCode){
 	gUserLanguage=LOCALIZATION[langCode];
@@ -71,7 +90,7 @@ function setLanguage(langCode){
 	}
 }
 
-/* Enables fields and buttons depending on busy status, specified fields and errors */
+// Enables fields and buttons depending on busy status, specified fields and errors
 function updateUIState() {
 	
 }
@@ -109,17 +128,63 @@ function showDrag(val, e) {
 }
 
 
-/*===================
-PATCHING METHODS
-=====================*/
+//=====================
+// PATCHING METHODS
+//=====================
 
-function parseRom() {
+function parseInputRom(inputRom) {
 	gIsBusy = true;
 	updateUIState();
 	setMessage(_('txtAnalyzingRom'), MSG_TYPE_LOADING)
-	if(gFileRom.readString(4).startsWith(ZIP_MAGIC)){
-		// TODO
+	if(inputRom.readString(4).startsWith(ZIP_MAGIC)){
+        // TODO parseZIPFile(romFile);
+        gIsBusy = true;
+        updateUIState();
 	} else {
-		webWorkerCrc.postMessage({u8array:file._u8array, startOffset:startOffset}, [file._u8array.buffer]);
+        gWorkerChecksum.onmessage = event => {
+            onParsedInputRom(event.data, inputRom);
+        };
+		gWorkerChecksum.postMessage({u8array:inputRom._u8array, startOffset:0}, [inputRom._u8array.buffer]);
 	}
+}
+
+function onParsedInputRom(data, inputRom) {
+    inputRom._u8array = event.data.u8array;
+    inputRom._dataView = new DataView(event.data.u8array.buffer);
+    
+    var detectedRomId;
+    while (el(ELT_PATCH_SELECT).options.length > 0) {
+        el(ELT_PATCH_SELECT).remove(0);
+    }
+
+    var romCrc = crc32(inputRom);
+    for (var i in ROM_LIST) {
+        if (ROM_LIST[i].crc == romCrc) {
+            detectedRomId = i;
+            setMessage(ROM_LIST[i].baseDesc + " – " + ROM_LIST[i].romDesc);
+            for (var j in ROM_LIST) {
+                if (i != j && (ROM_LIST[i].baseRom == ROM_LIST[j].baseRom
+                               || i == ROM_LIST[j].baseRom || ROM_LIST[i].baseRom == j)
+                    && !ROM_LIST[j].latestVersion) {
+                    var opt = document.createElement("option");
+                    opt.value = j;
+                    opt.text = ROM_LIST[j].baseDesc + " – " + ROM_LIST[j].romDesc;
+                    el(ELT_PATCH_SELECT).add(opt);
+                }
+            }
+            break;
+        }
+    }
+    
+    gIsBusy = false;
+    updateUIState();
+
+    if (!detectedRomId) {
+        setMessage(_("txtErrUnknownRom"), MSG_TYPE_ERROR)
+    } else {
+        
+    }
+    
+    
+    // TODO validateSource(true);
 }

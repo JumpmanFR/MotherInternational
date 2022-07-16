@@ -2,7 +2,7 @@
 
 self.importScripts(
 	'./MarcFile.js',
-	'./crc.js',
+	'./crc_tools.js',
 	'./formats/ips.js',
 	'./formats/aps.js',
 	'./formats/ups.js',

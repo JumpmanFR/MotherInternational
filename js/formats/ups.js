@@ -1,4 +1,4 @@
-/* UPS module for Rom Patcher JS, Mother International version - Marc Robledo 2017-2018, JumpmanFR 2021-2022 */
+/* UPS module for Rom Patcher JS v20220315 - Marc Robledo 2017-2022 - http://www.marcrobledo.com/license */
 /* File format specification: http://www.romhacking.net/documents/392/ */
 
 const UPS_MAGIC='UPS1';
@@ -57,10 +57,20 @@ UPS.prototype.apply=function(romFile, validate){
 		throw new Error('error_crc_input');
 	}
 
+	/* fix the glitch that cut the end of the file if it's larger than the changed file patch was originally created with */
+	/* more info: https://github.com/marcrobledo/RomPatcher.js/pull/40#issuecomment-1069087423 */
+	sizeOutput = this.sizeOutput;
+	sizeInput = this.sizeInput;
+	if(!validate && sizeInput < romFile.fileSize){
+		sizeInput = romFile.fileSize;
+		if(sizeOutput < sizeInput){
+			sizeOutput = sizeInput;
+		}
+	}
 
 	/* copy original file */
-	tempFile=new MarcFile(this.sizeOutput);
-	romFile.copyToFile(tempFile, 0, this.sizeInput);
+	tempFile=new MarcFile(sizeOutput);
+	romFile.copyToFile(tempFile, 0, sizeInput);
 
 	romFile.seek(0);
 
