@@ -15,6 +15,7 @@ const LOCALIZATION={
 		'txtRomIdentified':			'ROM reconnue',
 
 		'txtErrNoRom':				'Aucune ROM spécifiée',
+		'txtErrNoRomInfo':			'Cette ROM n’a pas été analysée',
 		'txtErrAlreadyPatched':		'Cette ROM est déjà patchée',
 		'txtErrUnknownRom':			'ROM non reconnue',
 		'txtErrNoRomInZip':			'Aucune ROM trouvée dans l’archive',
@@ -41,6 +42,7 @@ const LOCALIZATION={
 		'txtRomIdentified':			'ROM identified',
 
 		'txtErrNoRom':				'No ROM specified',
+		'txtErrNoRomInfo':			'This ROM hasn’t been analyzed',
 		'txtErrAlreadyPatched':		'This ROM has already been patched',
 		'txtErrUnknownRom':			'Unknown ROM',
 		'txtErrNoRomInZip':			'No ROM has been found in this zip file',
