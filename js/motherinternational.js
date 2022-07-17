@@ -159,13 +159,13 @@ function updatePatchInfo() {
 	    el(ELT_INFO_WEBSITE).innerHTML = '';
 	}
 	if (id && ROM_LIST[id].hasDoc) {
-		el(ELT_INFO_DOC).innerHTML = '<a href=patches/"' + id + '.txt" target="_blank">' + _('txtReadDoc').replace("%", 42) + '</a>'
+		el(ELT_INFO_DOC).innerHTML = '<a href="patches/' + id + '.txt" target="_blank">' + _('txtReadDoc') + '</a>'
 	} else {
 	    el(ELT_INFO_DOC).innerHTML = '';
 	}
 	
 	if (id) {
-		el(ELT_INFO_NB_USES).innerHTML = _('txtNbUses')
+		el(ELT_INFO_NB_USES).innerHTML = _('txtNbUses').replace("%", "42")
 	} else {
 		el(ELT_INFO_NB_USES).innerHTML = '';
 	}
