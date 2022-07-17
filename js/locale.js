@@ -13,6 +13,10 @@ const LOCALIZATION={
 		'txtZipping':				'Création de l’archive',
 		
 		'txtRomIdentified':			'ROM reconnue',
+		
+		'txtVisitSite':				'Consultez le site de %',
+		'txtReadDoc':				'Lisez la documentation',
+		'txtNbUses':				'% utilisations pour ce patch.',
 
 		'txtErrNoRom':				'Aucune ROM spécifiée',
 		'txtErrNoRomInfo':			'Cette ROM n’a pas été analysée',
@@ -40,6 +44,10 @@ const LOCALIZATION={
 		'txtZipping':				'Creating zip file…',
 		
 		'txtRomIdentified':			'ROM identified',
+
+		'txtVisitSite':				'Visit %’s website',
+		'txtReadDoc':				'Read doc',
+		'txtNbUses':				'% uses for this patch.',
 
 		'txtErrNoRom':				'No ROM specified',
 		'txtErrNoRomInfo':			'This ROM hasn’t been analyzed',

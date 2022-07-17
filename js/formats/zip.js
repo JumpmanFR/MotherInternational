@@ -1,72 +1,50 @@
 /* ZIP module for Rom Patcher JS, Mother International version - Marc Robledo 2016-2019, JumpmanFR 2021-2022 */
 const ZIP_MAGIC='\x50\x4b\x03\x04';
 
-function parseZIPFile(zipFile, unzipEntryName){
-	var regex=(zipFile===patchFile)? /\.(ups)$/i : /\.(gba|agb|bin)$/i;
-	var txtRegex=(zipFile===patchFile)? /\.(txt)$/i : /^$/i;
-	setMessage('apply', _('unzipping'), 'loading');
+function parseZIPFile(zipFile, regex) {
+	
+	return new Promise((successCallback, failureCallback) => {
+		var arrayBuffer=zipFile._u8array.buffer;
+		zip.createReader(
+			new zip.BlobReader(new Blob([arrayBuffer])),
+			function (zipReader) {
+				zipReader.getEntries(function(zipEntries) {
+					var targetFile;
+					for(var i = 0; i < zipEntries.length; i++) {
+						if (regex.test(zipEntries[i].filename)) {
+							targetFile = zipEntries[i];
+							break;
+						}
+					}
 
-	var arrayBuffer=zipFile._u8array.buffer;
-	zip.createReader(
-		new zip.BlobReader(new Blob([arrayBuffer])),
-		function(zipReader){
-			zipReader.getEntries(function(zipEntries){
-				var zippedFiles=[];
-				var txtFile;
-				for(var i=0; i<zipEntries.length; i++){
-					if(typeof unzipEntryName==='string' && unzipEntryName === zipEntries[i].filename){
-						zippedFiles=[zipEntries[i]];
-						break;
-					}else if(regex.test(zipEntries[i].filename)){
-						zippedFiles.push(zipEntries[i]);
-					}else if(txtRegex.test(zipEntries[i].filename)){
-						txtFile=zipEntries[i];
+					if (targetFile) {
+						unzipEntry(targetFile)
+							.then(unzippedFile => {
+								successCallback(unzippedFile);
+							});
+					} else {
+						successCallback();
 					}
-				}
-
-				if(zippedFiles.length>=1){
-					if (txtFile) {
-						txtFile.isDocFile = true;
-						unzipEntry(txtFile);
-					}
-					zippedFiles[0].originalZipFile=zipFile;
-					unzipEntry(zippedFiles[0]);
-				}else{
-					if(zipFile===romFile){
-						romFile=null;
-						setMessage('apply', _('error_no_rom_in_archive'), 'error');
-					}else{
-						patchFile=null;
-						setMessage('apply', _('error_invalid_patch'), 'error');
-					}
-					setTabApplyEnabled(true);
-				}
-			});
-		},
-		function(zipReader){
-			setTabApplyEnabled(true);
-			setMessage('apply', _('error_unzipping'), 'error');
-		}
-	);
+				});
+			},
+			function (zipReader) {
+				failureCallback(); // TODO erreur dézip
+			}
+		);
+	});
 }
 
 function unzipEntry(zipEntry){
-	zipEntry.getData(new zip.BlobWriter(), function(blob){
-		var fileReader=new FileReader();
-		fileReader.onload=function(){
-			var unzippedFile=new MarcFile(this.result);
-			unzippedFile.fileName=zipEntry.filename;
-			if(zipEntry.originalZipFile===romFile){
-				romFile=unzippedFile;
-				_parseROM();
-			}else if(zipEntry.originalZipFile===patchFile){
-				patchFile=unzippedFile;
-				_readPatchFile();
-			}else if(zipEntry.isDocFile) {
-				docFile=unzippedFile;
-			}
-		};
-		fileReader.readAsArrayBuffer(blob);
+	return new Promise((successCallback, failureCallback) => {
+		zipEntry.getData(new zip.BlobWriter(), function(blob){
+			var fileReader = new FileReader();
+			fileReader.onload = function(){
+				var unzippedFile = new MarcFile(this.result);
+				unzippedFile.fileName = zipEntry.filename;
+				successCallback(unzippedFile);
+			};
+			fileReader.readAsArrayBuffer(blob);
+		});
 	});
 }
 
@@ -109,9 +87,4 @@ function addFilesToZIP(zipWriter, entryFiles, callback) {
 			callback();
 		}
 	}
-}
-
-function _evtClickZipEntry(evt){
-	document.body.removeChild(this.parentElement.parentElement.parentElement);
-	unzipEntry(this.zipEntry);
 }
