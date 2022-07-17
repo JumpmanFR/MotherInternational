@@ -1,4 +1,5 @@
-/* UPS module for Rom Patcher JS v20220315 - Marc Robledo 2017-2022 - http://www.marcrobledo.com/license */
+/* UPS module for Rom Patcher JS v20220315 - Marc Robledo 2017-2022 - http://www.marcrobledo.com/license
++ a few changes made by JumpmanFR for Mother International */
 /* File format specification: http://www.romhacking.net/documents/392/ */
 
 const UPS_MAGIC='UPS1';
@@ -51,11 +52,16 @@ UPS.prototype.export=function(fileName){
 
 	return tempFile
 }
-UPS.prototype.validateSource=function(romFile,headerSize){return crc32(romFile,headerSize)===this.checksumInput}
+
+UPS.prototype.validateSource=function(romFile,headerSize){return crc32(romFile,headerSize)===this.checksumInput || crc32(romFile,headerSize)===this.checksumOutput} // changed for Mother International !
+
 UPS.prototype.apply=function(romFile, validate){
+
 	if(validate && !this.validateSource(romFile)){
 		throw new Error('error_crc_input');
 	}
+
+	var reverseMode = crc32(romFile) === this.checksumOutput; // added for Mother International !
 
 	/* fix the glitch that cut the end of the file if it's larger than the changed file patch was originally created with */
 	/* more info: https://github.com/marcrobledo/RomPatcher.js/pull/40#issuecomment-1069087423 */
@@ -87,9 +93,12 @@ UPS.prototype.apply=function(romFile, validate){
 		tempFile.skip(1);
 		romFile.skip(1);
 	}
-
-	if(validate && crc32(tempFile)!==this.checksumOutput){
-		throw new Error('error_crc_output');
+	
+	if (validate) { // changed for Mother International !
+		if ((!reverseMode && crc32(tempFile) !== this.checksumOutput)
+		|| (reverseMode && crc32(tempFile) !== this.checksumInput)) {
+			throw new Error('error_crc_output');
+		}
 	}
 
 	return tempFile

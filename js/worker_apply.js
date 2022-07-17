@@ -9,7 +9,7 @@ self.importScripts(
 	'./formats/bps.js',
 	'./formats/rup.js',
 	'./formats/ppf.js',
-	'./formats/pmsr.js',
+	//'./formats/pmsr.js',
 	'./formats/vcdiff.js'
 );
 

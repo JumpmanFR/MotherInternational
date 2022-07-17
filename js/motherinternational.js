@@ -52,10 +52,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 })
 
 gWorkerChecksum = new Worker('./js/worker_crc.js');
-
-gWorkerChecksum.onerror = event => { // listen for events from the worker
-	setMessage(event.message.replace('Error: ',''), MSG_TYPE_ERROR);
-};
+gWorkerApply = new Worker('./js/worker_apply.js');
 
 function onLoad() {
 	setLanguage("en");
@@ -108,10 +105,19 @@ function setLanguage(langCode){
 
 // Enables fields and buttons depending on busy status, specified fields and errors
 function updateUIState() {
-	el(ELT_ROM_FILE).disabled = gIsBusy;
-	el(ELT_ROM_BTN).disabled = gIsBusy;
-	el(ELT_PATCH_SELECT).disabled = gIsBusy || el(ELT_PATCH_SELECT).options.length == 0;
-	el(ELT_APPLY).disabled = gIsBusy || !patchSelectVal() || !gInputRom;
+	if (gIsBusy) {
+		el(ELT_ROM_FILE).disabled = true;
+		el(ELT_ROM_BTN).disabled = true;
+		el(ELT_PATCH_SELECT).disabled = true;
+		el(ELT_APPLY).disabled = true;
+		el(ELT_DROP).classList.add('disabled');
+	} else {
+		el(ELT_ROM_FILE).disabled = false;
+		el(ELT_ROM_BTN).disabled = false;
+		el(ELT_PATCH_SELECT).disabled = el(ELT_PATCH_SELECT).options.length == 0;
+		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
+		el(ELT_DROP).classList.remove('disabled');
+	}
 }
 
 function setMessage(msg, type) {
@@ -170,6 +176,10 @@ function parseInputRom() {
         gWorkerChecksum.onmessage = event => {
             onParsedInputRom(event.data);
         };
+		gWorkerChecksum.onerror = event => {
+			setMessage(_(event.message.replace('Error: ','')), MSG_TYPE_ERROR);
+		};
+
 		gWorkerChecksum.postMessage({u8array:gInputRom._u8array, startOffset:0}, [gInputRom._u8array.buffer]);
 	}
 }
@@ -181,7 +191,7 @@ function onParsedInputRom(data) {
     gInputRomId = null;
     clearPatchSelect();
 
-    var romCrc = crc32(gInputRom);
+    var romCrc = data.crc32;
     for (var i in ROM_LIST) {
         if (ROM_LIST[i].crc == romCrc) {
             gInputRomId = i;
@@ -211,6 +221,7 @@ function onParsedInputRom(data) {
 // May be recursive ; sees what the current input ROM is, what the patch selector is, and decides what to do from that
 function processPatchingTasks(rom, romId) {
 	gIsBusy = true;
+    updateUIState();
 	if (!rom) {
 		setMessage(_("txtErrNoRom"), MSG_TYPE_ERROR);
 		return;
@@ -222,10 +233,10 @@ function processPatchingTasks(rom, romId) {
 	
 	if (romId == patchSelectVal()) {
 		// The romId is equal to what the user wanted, so our process is finished now!
+		deliverFinalRom(rom);
 		
 	} else {
-		var patchId;
-		var nextRomIdAfterPatch;
+		var patchId,nextRomIdAfterPatch;
 		// If a baserom is specified, then our input is not the baserom
 		if (!!(ROM_LIST[romId].baseRom)) {
 			patchId = romId;
@@ -235,37 +246,84 @@ function processPatchingTasks(rom, romId) {
 			nextRomIdAfterPatch = patchId;
 		}
 	
-		/*downloadPatch(patchId, function(patch) {
-			applyPatch(gInputRom, patch, ROM_LIST[nextRomIdAfterPatch].crc, function(outputRom) {
-				processPatchingTasks(outputRom, nextRomIdAfterPatch);
-			});
-		});*/
-		
-		downloadPatch(patchId)
-			.then(function(patch) {
-				return applyPatch(gInputRom, patch, ROM_LIST[nextRomIdAfterPatch].crc);
+		downloadPatch(patchId, rom)
+			.then(function(patchFile) {
+				return applyPatch(rom, patchFile, ROM_LIST[nextRomIdAfterPatch].crc);
 			})
 			.then(function(outputRom) {
 				processPatchingTasks(outputRom, nextRomIdAfterPatch);
+			})
+			.catch(function(e) {
+				gIsBusy = false;
+				updateUIState();
 			});
 	}
 }
 
 // Downloads the patch file, makes sure it’s valid, and converts it to patch object
-function downloadPatch(patchId) {
-	setMessage(_("txtDownloading"), MSG_TYPE_LOADING);
-	fetch(PATCH_FOLDER_PATH + patchId + ".ups")
-		.then(function(response) {
-			if (response.ok) {
-				setMessage("Downloaded !");
-			} else {
-				setMessage(_('txtErrDownloading'), MSG_TYPE_ERROR);
-			}
-		});
+// The “rom” parameter is here to check validity.
+function downloadPatch(patchId, rom) {
+	return new Promise((successCallback, failureCallback) => {
+		setMessage(_("txtDownloading"), MSG_TYPE_LOADING);
+		//console.log("txtDownloading");
+		fetch(PATCH_FOLDER_PATH + patchId + ".ups")
+				.then(function(response) {
+					if (response.ok) {
+						return response.arrayBuffer()
+					} else {
+						throw Error(response.statusText);
+					}
+				})
+				.then(arrayBuffer => {
+					var patchFile = new MarcFile(arrayBuffer);
+					var header = patchFile.readString(6);
+					if (header.startsWith(UPS_MAGIC)) {
+						var patch = parseUPSFile(patchFile);
+						if (patch.validateSource && !patch.validateSource(rom)) {
+							failureCallback();
+						} else {
+							successCallback(patchFile);
+						}
+					} else {
+						setMessage(_('txtErrInvalidPatch'), MSG_TYPE_ERROR);
+						failureCallback();
+					}
+				}).catch(function(e){
+					setMessage(_('txtErrDownloading'), MSG_TYPE_ERROR);
+				});
+	});
 }
 
 // Applies the patch and makes sure the output file has the right checksum
-function applyPatch(rom, patch, expectedChecksum) {
-	setMessage(_("txtApplyingPatch"), MSG_TYPE_LOADING);
+function applyPatch(romFile, patchFile, expectedChecksum) {
+	return new Promise((successCallback, failureCallback) => {
+		setMessage(_("txtApplyingPatch"), MSG_TYPE_LOADING);
+		//console.log("txtApplyingPatch");
+		gWorkerApply.onmessage = event => {
+			var patchedRom = new MarcFile(event.data.patchedRomU8Array.buffer);
+			successCallback(patchedRom);
+		}
+		gWorkerApply.onerror = event => {
+			setMessage(_(event.message.replace('Error: ','')), MSG_TYPE_ERROR);
+			failureCallback();
+		};
+
+		gWorkerApply.postMessage({
+			romFileU8Array: romFile._u8array,
+			patchFileU8Array: patchFile._u8array,
+			validateChecksums: true
+		},[
+			romFile._u8array.buffer,
+			patchFile._u8array.buffer
+		]);
+		
+	});
 }
 
+function deliverFinalRom(finalRomFile) {
+	updateUIState();
+	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ' (patched_' + patchSelectVal() + ').$1');
+	finalRomFile.save();
+	setMessage('');
+	gIsBusy = false;
+}

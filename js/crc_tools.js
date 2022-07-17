@@ -1,4 +1,5 @@
-/* Rom Patcher JS, Mother International version - CRC32/MD5/SHA-1/checksums calculators - Marc Robledo 2016-2020, JumpmanFR 2021-2022 */
+/* Rom Patcher JS - CRC32/MD5/SHA-1/checksums calculators - Marc Robledo 2016-2020
++ a few changes from JumpmanFR (2022) for Mother International */
 
 function padZeroes(intVal, nBytes){
 	var hexString=intVal.toString(16);
@@ -59,16 +60,20 @@ const CRC32_TABLE=(function(){
 	return crcTable;
 }());
 
+// Change for Mother International: store the crc value in the file object
 function crc32(marcFile, headerSize, ignoreLast4Bytes){
-	var data=headerSize? new Uint8Array(marcFile._u8array.buffer, headerSize):marcFile._u8array;
+	if (!marcFile.crc32) {
+		var data=headerSize? new Uint8Array(marcFile._u8array.buffer, headerSize):marcFile._u8array;
 
-	var crc=0^(-1);
+		var crc=0^(-1);
 
-	var len=ignoreLast4Bytes?data.length-4:data.length;
-	for(var i=0;i<len;i++)
-		crc=(crc>>>8)^CRC32_TABLE[(crc^data[i])&0xff];
+		var len=ignoreLast4Bytes?data.length-4:data.length;
+		for(var i=0;i<len;i++)
+			crc=(crc>>>8)^CRC32_TABLE[(crc^data[i])&0xff];
 
-	return ((crc^(-1))>>>0);
+		marcFile.crc32 = ((crc^(-1))>>>0);
+	}
+	return marcFile.crc32;
 }
 
 

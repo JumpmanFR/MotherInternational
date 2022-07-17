@@ -23,7 +23,7 @@ const LOCALIZATION={
 		'txtErrPatching':			'Erreur d’application du patch',
 		'txtErrDownloading':		'Erreur de téléchargement du patch',
 		'txtErrUnzipping':			'Erreur de décompression',
-		'txtErrInvalidPatch':		'Erreur d’application du patch',
+		'txtErrInvalidPatch':		'Fichier de patch incorrect',
 		'txtWarnTooBig':			'Fichiers trop volumineux'
 	},
 	'en':{
@@ -50,7 +50,7 @@ const LOCALIZATION={
 		'txtErrPatching':			'Patching error',
 		'txtErrDownloading':		'Downloading error',
 		'txtErrUnzipping':			'Unzipping error',
-		'txtErrInvalidPatch':		'Patch application error',
+		'txtErrInvalidPatch':		'Wrong patch file',
 		'txtWarnTooBig':			'Too big files'
 	}
 };
