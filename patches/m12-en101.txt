@@ -1,0 +1,405 @@
+﻿                            MOTHER 1+2 Fan Translation
+                                  English v1.01
+                             Released April 30, 2011
+
+This is an unofficial translation of MOTHER 1+2, a compilation of the
+first two MOTHER games, released for the Game Boy Advance in 2003. MOTHER 1
+is commonly known as EarthBound Zero, and MOTHER 2 is known as EarthBound
+outside of Japan.
+
+MOTHER 1 has been completely retranslated from scratch and features many
+improvements to make the game more palatable for fans. MOTHER 2 has a basic
+"menu patch"-style translation that translates menus, item names, and more.
+
+For more details about this translation and the project, please visit:
+
+                               http://mother12.net
+
+  =========================================================================
+
+HOW TO USE THE TRANSLATION PATCH:
+
+  1. Unzip the contents of this zip file to a folder/directory. You should
+     find the following files:
+     
+    * mother12.ips
+    * mother12.txt (that's this file)
+
+
+  2. Second, you will need to obtain a ROM of the Japanese version of
+     MOTHER 1+2. This clearly steps into promoting piracy, so you will have
+     to find this on your own. Search engines are useful for this sort of
+     thing.
+     
+     Once you have the ROM, make sure it is unzipped/uncompressed. The
+     file should be 16 MB in size. Put this file in the same folder as
+     the files from above.
+
+
+  3. Most modern emulators will automatically patch IPS ROMs when you
+     load the ROM. This is known as "soft-patching". If your emulator can
+     do this, then make sure the IPS file is called "mother12.ips" and
+     that the ROM is called "mother12.gba". Then load the ROM in your
+     emulator. If all goes well, the translation patch should work
+     automatically!
+     
+     If it's not working and you're sure your emulator can soft-patch IPS
+     files, then you might have to put the IPS file in a different folder,
+     depending on your settings and what emulator you're using. Check your
+     settings and read the documentation that came with your emulator.
+     
+     
+  3b. If you don't want to use soft-patching or if you can't get it to
+      work, then you can always hard-patch it. Download Lunar IPS here:
+      
+               http://www.romhacking.net/utils/240/
+               
+      With it, you can permanently patch the ROM. Then just load your ROM
+      up in your emulator.
+      
+
+  NOTE: If you're still having trouble getting either methods to work,
+        then see here: http://www.romhacking.net/faq/
+
+  =========================================================================
+
+FREQUENTLY ASKED QUESTIONS:
+
+  Q: What's different about the MOTHER 1 translation? Why should I care?
+  A: For many (most?) Western fans, the first game in the series is really
+     hard to get into. My goal was to create a translation of the game that
+     tries to make the game more palatable. Some of the things I did were:
+     
+       - Retranslated the script from scratch. The EarthBound Zero ROM has
+         a good number of changes, censoring, and mistakes with plot details
+         and dialog. The text in the EarthBound Zero ROM is also very dry
+         due to limited NES resources. Doing a retranslation with this GBA
+         version allowed for a lot more text, and censoring/changes weren't
+         necessary. The result is a script that should hopefully be more
+         engaging and natural-sounding.
+
+       - Expanded many text boxes, allowing for more dialog text at a time,
+         making the text more natural, more presentable, and easier to read
+
+       - Expanded menus and names wherever possible, allowing for more
+         natural-sounding text
+
+       - Improved the font for better readability
+         
+       - Added a gift box with an "Easy Ring" to Ninten's room for
+         those who don't like to grind for experience and money. This
+         item, when equipped, greatly increases the experience and money
+         you win from enemies while also reducing the amount of random
+         battles. It makes the game much less of a chore, which is
+         one of the main reasons EarthBound fans have a hard time getting
+         into the game.
+
+       - The GBA port already included a number of extra features - for
+         example, the L Button acts as a shortcut key now, just as it did
+         in EarthBound
+         
+       - Some of the bugs in the Japanese GBA version have been fixed
+       
+       - Connections with EarthBound and MOTHER 3 have been left intact,
+         so fans of the series will surely appreciate that. The
+         EarthBound Zero translation had changed a lot of things, which
+         broke many of these connections.
+
+     This WAS just a Famicom game originally, so it's not as if all of this
+     will suddenly make it an entirely new game, but my hope is that it will
+     at least make it easier for fans to get into and enjoy.
+     
+   
+  Q: Why didn't you translate the MOTHER 2 part too? Can't you just stick
+     EarthBound's translation into the ROM?
+  A: Short answer: if it were that easy, it would have already been done a
+     long time ago.
+     
+     Long answer: It's a LOT more complicated than what you can imagine.
+     It would probably take me just as much time - if not more - than the
+     MOTHER 3 project took. I don't think it would be worth the effort;
+     the GBA version of MOTHER 2 has a bunch of bugs, the music and
+     sound effects are significantly inferior, the programming is a
+     nightmare, etc. etc.
+     
+     Still, if I had a lot of free time and/or money I'd love to work on
+     the MOTHER 2 side of the game so we could have all three GBA games
+     fan-translated. But I don't think that'll ever happen.
+
+
+  Q: I equipped the Easy Ring in MOTHER 1. How do I take it off?
+  A: The only way to unequip items is to equip something in its place.
+
+
+  Q: I want to translate this into my own language!
+  A: I'm releasing all the tools and source code I used to make this
+     translation. I designed this project with other languages in mind,
+     so it should be very easy for anyone to translate the MOTHER 1 part!
+     See the project site for the tools/source code.
+
+
+  Q: I found a bug and/or a typo!
+  A: First, be extra sure that you're not the one mistaken. If you're
+     really sure it's a bug or a typo, then let me know by contacting me
+     on EarthBound Central at: http://earthboundcentral.com
+
+  =========================================================================
+  
+TIPS & SUGGESTIONS WHEN PLAYING MOTHER 1:
+
+  It's usually hard for EarthBound fans to go back and play the first game,
+  I understand that all too well. I was excited when the beta ROM was
+  released, but was very quickly disappointed - it seemed bland, grindy,
+  and hardly like EarthBound at all. Over the years - and through this
+  project - I've come to appreciate the game a lot more, so here are some
+  personal tips and suggestions for trying to get into the game:
+  
+  - First, DO NOT COMPARE THIS GAME TO EARTHBOUND. When you're playing this
+    game, don't even think about EarthBound. This game was made BEFORE
+    EarthBound, so it logically goes that EarthBound wasn't in mind when
+    this game was made. Forget entirely about EarthBound and let this game
+    stand as its own thing. This is one of the biggest hurdles people run
+    into, but if you can see it as its own game of its own time, it's
+    much easier to appreciate.
+    
+    If you really have to compare it to something, then think about
+    the other NES games and RPGs that came out during the late 80s /
+    early 90s as you're playing the game.
+    
+  - Following that same thought, it's important to realize this game was
+    released in 1989. Of course it's going to be tough to get into if you
+    use a 2011 (or whatever year this is) mindset. So do this:
+    
+    Imagine you're a kid in 1989. You have an 8-bit NES with a couple
+    games. On a Friday afternoon on the way home from school, you stop by
+    a video store and rent a random game called "MOTHER". Usually when
+    you rented games back then it was always a very hit-or-miss thing,
+    so whatever game you got, you were stuck with it for the whole weekend.
+    Try playing this game with that mindset - that you're a kid in the
+    late 80s with a weekend ahead of you to play this game. Do that, and
+    you might start to appreciate it in new ways!
+
+  - If you've played the EarthBound Zero beta NES ROM before - push it
+    away from your thoughts. Pretend you're playing the game for the
+    first time now. The beta ROM had a lot of localization changes,
+    censorship changes, and just no-real-reason changes. This translation
+    doesn't include those, so it's going to be different - that's the
+    point of the project, after all. Basically, don't go in expecting the
+    EarthBound Zero names and text to be used.
+
+  - Use the Easy Ring! It increases the experience and money you get from
+    enemies by a ton, and it also reduces the number of random battles.
+    I tested it out a lot and got a lot of feedback to make sure it
+    all balances out.
+    
+    As long as you play right (instead of constantly running away)
+    it'll make the game a lot easier. It won't make it SUPER easy, just
+    less annoying and generally more enjoyable.
+
+  - Use the map! The Start Button opens up your world map. It's very easy
+    to get lost in this game or not know where to go next. Basically,
+    if you see a town nearby, head there. Or, if you see any black dots
+    on the map nearby, go check them out! It's a crappy-looking map, but
+    it really will take away all the random wandering!
+    
+  - Use the R Button to run around more quickly than normal.
+  
+  - When you're walking around outside, you can tell if there are random
+    enemies where you are by pressing the L Button or using "Check".
+    If there are enemies around, it'll say something about danger lurking
+    nearby. Otherwise it'll say the default line of something like,
+    "There's nothing here."    
+
+  - Turn the battle text speed up all the way. You can do this during
+    battles or from the file select screen. Having the battle text at
+    maximum speed makes it less frustrating somehow.
+
+  - If you're using an emulator, try not to use things like cheats or
+    save states. If you can, I recommend playing the game on actual
+    hardware.
+
+  - If you're not sure where to go, talk to everyone and/or try to visit
+    any nearby black dots on your map. If you go through the game normally,
+    without consulting any guides or rushing through, you'll almost always
+    be at a decent level for each new area.
+    
+    Still, if you really need help from a walkthrough or guide, you can
+    check the online EarthBound Zero walkthrough here:
+   
+            http://walkthrough.starmen.net/earthbound0/
+            
+    That walkthrough uses all the EarthBound Zero names and such, but it'll
+    still help you figure out where to go and what to do next.
+
+  - Unless you're an ultimate awesome gamer, you WILL find the big Duncan
+    factory to be brutal. You can find a map on the online walkthrough site
+    above, but if you don't want to cheat, just know that you basically need
+    to head as far up as possible. Leaving the factory might be a little more
+    complicated, though, so try making a trail of bread crumbs (use Bread
+    instead of eating it) if you can.
+    
+  - Some of the other dungeons in the game are tough and confusing, but
+    you can usually get through them just fine if you persevere and/or
+    draw a map yourself.
+    
+  - There are two Franklin Badges in the game. One you get from Pippi, and
+    the other you can find in the big Duncan factory. Unlike in EarthBound,
+    these block PK Beam instead of PK Thunder. Actually, they only block
+    stronger versions of PK Beam that enemies in the last half of the game
+    use. Strong PK Beams can instantly kill party members, so you definitely
+    want to get both Franklin Badges!
+    
+  - Don't rush through the game. Shigesato Itoi said this many times himself,
+    even before the game was released. Completing a section of the game or
+    discovering a new area in the game is supposed to feel like a big
+    accomplishment. I can just see Japanese kids running to tell their friends
+    whenever they finished a new part of the game. It's harder to feel that
+    way now if you're an older gamer, but if you at least keep that in mind it
+    should help.
+    
+  - The game doesn't explain what each PSI technique does, and some of these
+    are very different from what they do in EarthBound. Knowing what the PSI
+    moves do WILL make battles a lot easier. Here's a quick list with info:
+    
+    Lifeup α       - Restores a little HP to one ally
+    Lifeup β       - Restores more HP to one ally
+    Lifeup γ       - Fully restores an ally's HP
+    Lifeup π       - Restores some HP to all allies
+    Lifeup Ω       - Fully restores all allies' HP
+    
+    Healing α      - Cures an ally who's been poisoned
+    Healing β      - Cures an ally who's been paralyzed
+    Healing γ      - Cures an ally who's been petrified
+    Healing π      - Cures an ally who's been put to sleep
+    Super Heal     - Revives an ally who's been defeated
+
+    PK Fire α      - Fire damage to all enemies
+    PK Fire β      - Stronger fire damage to all enemies
+    PK Fire γ      - Very strong fire damage to all enemies
+    PK Fire Ω      - Destroy all enemies in one hit (RECOMMENDED!)
+    
+    PK Freeze α    - Ice damage to a single enemy
+    PK Freeze β    - Stronger ice damage to a single enemy
+    PK Freeze γ    - Lowers a single enemy's HP to almost nothing (RECOMMENDED!)
+    PK Freeze Ω    - Strong ice damage to all enemies
+    
+    PK Beam α      - Damages a single enemy with a beam of light
+    PK Beam β      - Damages a single enemy with a strong beam of light
+    PK Beam γ      - Damages a single enemy, can even instant-kill
+    PK Beam Ω      - Damages all enemies with a strong beam of light
+    
+    PK Thunder α   - Lightning damage to an enemy
+    PK Thunder β   - Strong lightning damage to an enemy
+    PK Thunder γ   - Lightning damage to all enemies
+    
+    PSI Block      - Prevents an enemy from using PSI
+    PSI Shield α   - Halves damage from an enemy, for a single ally
+    PSI Shield β   - Halves damage from an enemy, for all allies
+    Power Shield   - Reflects damage from attacks back at the enemy
+    
+    Brainshock     - Confuses an enemy
+    Brain Cyclone  - Confuses all enemies
+    Hypnosis       - Puts an enemy to sleep
+    Paralysis      - Paralyizes an enemy
+    Darkness       - Blinds an enemy, lowering their attack power
+    
+    Offense Up     - Raises a single ally's offense
+    Defense Up α   - Raises a single ally's defense
+    Defense Up β   - Raises all allies' defense (can be stacked!)
+    Quick Up       - Raises a single ally's speed
+    Shield Off     - Destroys an enemy's shield
+    Defense Down α - Lowers an enemy's defense
+    Defense Down β - Lowers all enemies' defense
+    PSI Magnet     - Steals an enemy's PP
+    
+    Telepathy        - Use this to read the minds of various characters in the game
+    Dimensional Warp - Use this to escape a battle with 100% certainty
+    Teleportation    - Use this to return to any town you've been to before.
+                       You need a good running start. You can also use the control
+                       pad to change your direction while running. If done well,
+                       you can teleport even when there isn't much open space
+                       around you.
+    
+  =========================================================================
+  
+TROUBLESHOOTING:
+
+  Q: I can't get the patch to work!
+  A: Read the directions above. If you STILL can't get the patch to work,
+     try asking on the Starmen.Net or Romhacking.net message boards.
+
+
+  Q: I tried applying the patch to a ROM that already had another patch
+     on it. Now it's weird! What do I do?
+  A: You NEED to make sure you've applied the patch to the original
+     Japanese ROM. If you apply it to an already-modified ROM, then it's
+     naturally going to behave in unpredictable ways.
+
+
+  Q: The MOTHER 2 stuff is still in Japanese!
+  A: The MOTHER 2 side of this patch only includes translations of menus,
+     item names, enemy names, etc.
+
+
+  Q: The naming screen stuff in MOTHER 2 is mostly in Japanese still!
+  A: The naming screen programming is truly insane and would take me more
+     time to hack than I felt was worth it.
+
+
+  Q: I can't get my game to save!
+  A: This happens mostly with Mac emulators. I don't have a Mac, so I
+     can't really troubleshoot this. If all else fails, you can use
+     save states (I think they call them "freeze states" on the Mac emus).
+
+
+  Q: I double-click on the .zip file but nothing happens!
+  A: If your computer doesn't have .zip file support (most computers in
+     the last 10+ years have support by default), look on Google for
+     things like 7-Zip or WinZip.
+
+
+  Q: The game gets stuck at the intro screen. Help!
+  A: You can skip this normally by pressing any button. If you're using an
+     emulator, keep in mind that you might need to set up what keyboard
+     keys act as what GBA buttons. If you're new to emulators and you don't
+     understand what that means, then just smoosh your face into the
+     keyboard until it works.
+
+
+  Q: The game crashes/freezes on my hardware!
+  A: This may be a hardware-specific problem. I don't know much about this
+     stuff, so I can't really help you in this regard.
+
+
+  Q: I'm trying to use a save file from the Japanese version, but the names
+     and stuff get all messed up!
+  A: There's no way to fix this, you'll either have to start a new game
+     or live with your wacky new names!
+
+  =========================================================================
+  
+CREDITS
+
+  Hacking/translating: Tomato
+  Misc. hacking help:  Jeffman
+  
+  Thanks to:
+  
+  Poe		byuu		reidman		Jonk		Plo
+  sarsie	HockeyMonkey	weasly64	Rhyselinn	PKDX
+  Buck Fever	dreraserhead	Demolitionizer	Kasumi		Ness and Sonic
+  PK_Fanta	linkdude20002001		climhazard	TheZunar123
+  Skye		Triverske	Mother Bound	Blair32		PSIWolf674
+  Ice Sage	PK Mt. Fuji	The Great Morgil		Ness-Ninten-Lucas
+  Ross		rotschleim	LakituAl	Kuwanger	MotherFan
+  Anonymous	BroBuzz		Trevor		Rathe coolguy	EBrent
+  Robert	KingDarian	Satsy		tapioca		curtmack
+  Chuggaaconroy	Roido		MarioFan3	blahmoomoo	VGMaster64
+  Corey		Superstarman	Halloween	Robo85		ZUUL
+  Crav		Priestess Paula	My Name Here	LordQuadros	sonicstar5
+  Aangie	platinatina	Petalklunk	Aviarei		Realn
+
+  And probably a hundred or more other helpful people! Forgive me if your name
+  should have been here, there are so many to remember that my brain is failing
+  me now. But know that your help was appreciated and led to this patch's creation!
+

@@ -1,0 +1,28 @@
+DIE INOFFIZIELLE DEUTSCHE MOTHER 1+2 FANÜBERSETZUNG
+|======================================================================================================================================================================|
+
+Ein paar Infos zum Patch:
+
+Die Übersetzung basiert auf der englischen Fanübersetzung von Tomato. Zu finden ist diese auf mother12.net.
+Die deutsche Übersetzung wurde mit den Tools erstellt, die Tomato zur Verfügung gestellt hat. Mother 1 ist komplett übersetzt, während Mother 2 so beeibehalten wurde,
+wie es in der englischen Übersetzung zu finden ist.
+
+Um das Spiel spielen zu können, wird zunächst eine unmodifizierte ROM von Mother 1+2 sowie ein Emulator für den Gameboy Advance benötigt. 
+Diese stelle ich hier nicht zur Verfügung, via Google sollten sie sich jedoch leicht finden lassen.
+
+Zum Patchen gibt es 2 Möglichkeiten:
+
+1. Wenn der Emulator deiner Wahl "Softpatching" beherrscht (wie z.B. der Visual Boy Advance), reicht es, IPS-Patch und ROM in einen Ordner zu tuen und die ROM nach dem 
+   IPS-Patch zu benennen. Dann muss man einfach noch die ROM mit dem Emulator öffnen und man kann das Spiel auf Deutsch genießen.
+
+2. Mit einem IPS-Patchingprogramm, wie z.B. Lunar-IPS. Dieses lässt sich über Google finden. Einfach das Programm öffnen, "Apply Patch" auswählen, dann den IPS-Patch 
+   anklicken und danach die ROM anwählen. Nach diesem Prozedere die ROM mit dem Emulator öffnen - fertig.
+
+Einen Dank an dieser Stelle an Akatsuki für den Intro-Screen!
+
+Viel Spaß mit dem Spiel!
+
+-domflo
+
+
+

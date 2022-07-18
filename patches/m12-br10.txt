@@ -1,0 +1,64 @@
+_______________________________________________
+
+          MOTHER 1+2 PT-BR versão 1.0
+
+===============================================
+              EarthBound Brasil
+            [earthboundbrasil.com]
+===============================================
+
+            Traduzido por: Foffano
+_______________________________________________
+
+Sobre:
+
+O jogo de GameBoy Advance MOTHER 1+2 possui,
+como o nome sugere, os jogos MOTHER e MOTHER 2.
+
+Porém, neste patch, apenas o jogo MOTHER está
+traduzido. Futuramente, um patch com ambas as
+traduções poderá tornar-se realidade.
+
+A tradução para PT-BR foi feita a partir da
+tradução para Inglês de Tomato, que pode ser
+obtida em [mother12.earthboundcentral.com].
+
+Esta versão, apesar de testada incansavelmente,
+pode conter alguns bugs e erros de digitação.
+Caso você encontre algum, tire uma screenshot e
+avise-nos pelo email [contato_ebbr@hotmail.com].
+
+-----------------------------------------------
+
+Como usar o patch da tradução:
+
+1) Consiga uma rom de MOTHER 1+2 em japonês.
+   Ela não pode estar "zipada".
+
+2) Baixe o programa Lunar IPS
+   [http://www.romhacking.net/utils/240/] e
+   aplique o patch à rom.
+
+3) Abra a rom com seu emulador de GBA favorito.
+
+-----------------------------------------------
+
+Dicas:
+
+- O jogo é difícil. Se quiser uma vida boa,
+  pegue o Anel Fácil no presente ao lado da
+  poltrona onde você começa. Ele aumenta o
+  dinheiro e a experiência que você ganha e
+  reduz o número de batalhas aleatórias.
+
+- Use o botão L (normalmente o A do teclado) 
+  para conversar ou checar. Isso poupa o tempo
+  de ficar escolhendo o que fazer.
+
+- Se usa o VisualBoyAdvance, ative o filtro
+  hq2x (Options > Filter > hq2x). Os gráficos
+  ficam simplesmente lindos! =D
+
+-----------------------------------------------
+
+Boa diversão!
