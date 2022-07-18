@@ -1,0 +1,30 @@
+CÓMO INSTALAR EL PARCHE:
+
+*Requisitos
+
+- ROM original japonesa (No incluída por motivos legales)
+- Parche al español
+- Software Upset de creación y aplicación de parches
+
+*Instrucciones:
+
+- Extraer el contenido del .rar en una carpeta.
+- Ejecutar upset.exe en la carpeta Upset
+- En la opción "Patch mode", seleccionar "Apply an existing source UPS patch to target file".
+- En la opción "Source File" seleccionar (usando la opción "Browse") el archivo "Mother 3 (Spanish).ups".
+- En la opción "Target File" seleccionar (usando la opción "Browse") la ROM original japonesa, sobre la que se aplicará el parche.
+- Presionar el botón OK.
+
+Una vez hecho esto, la ROM estará parcheada y el juego estará en español. Puede ejecutarse en cualquier emulador de GBA como otra ROM al uso.
+
+NOTA: Uno de los archivos creados tiene la terminación. BAK, pero si se cambia por .GBA, puede usarse para jugar. 
+
+------------------------------------------------------------------------------------------------------------------
+
+¡IMPORTANTE!:
+
+Al descargar este parche y aplicarlo sobre una ROM, asumimos que estáis en posesión de una copia original del juego en japonés, usando dicha ROM como copia de seguridad del mismo. En caso contrario se incurriría en un delito de piratería, castigado por la ley.
+
+Adicionalmente, queda prohibida la venta de este parche o cualquier otra aplicación con fines lucrativos. Esto es un trabajo hecho por fans y para fans, de manera totalmente desinteresada y sin ánimo de lucro.
+
+El equipo de traducción no se hará responsable del mal uso de este parche. 

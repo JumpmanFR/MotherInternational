@@ -1,0 +1,144 @@
+
+                            MOTHER 3 Tradução de Fãs
+                           Português Brasileiro v 1.0
+                             Lançado 04 Junho 2013
+
+Esta é uma tradução não oficial e gratuita de MOTHER 3, um RPG japonês
+lançado para o Game Boy Advance em 2006. MOTHER 3 é a sequência do jogo
+de Super NES conhecido como EarthBound.
+
+Dê o seu apoio à série adquirindo produtos oficiais, como também a tradução
+oficial, se um dia esta for lançada.
+
+Para mais detalhes sobre esta tradução e o projeto, acesse:
+
+                              http://www.earthboundbrasil.com
+                              http://mother3.fobby.net
+
+==================================
+
+COMO USAR O PATCH DA TRADUÇÃO:
+
+  1. Extraia o conteúdo deste arquivo para uma pasta no seu computador. Você
+     terá os seguintes arquivos:
+     
+    * mother3_windows.exe
+    * mother3_macosx.app
+    * mother3_linux
+    * mother3.ups
+    * mother3.txt (que é este arquivo)
+
+
+  2. Depois, você precisará de uma ROM japonesa de MOTHER 3. Isso pode ser
+     considerado pirataria, então você terá que procurar sozinho. Sites de
+     busca são úteis para esse tipo de coisa.
+     
+     Assim que você tiver a ROM, certifique-se de que não esteja zipada. O
+     arquivo deve ter 32 MB. Coloque esse arquivo na mesma pasta que estão
+     os arquivos acima.
+
+     
+  3. Se você estiver usando Windows, execute o arquivo mother3_windows.exe.
+  
+     Se você estiver usando Mac, execute o arquivo mother3_macosx.app.
+     
+     Se você estiver usando Linux, execute o arquivo mother3_linux.
+     Verifique que mother3_windows.exe está na mesma pasta.
+     (Esse aplicativo foi criado dentro de um Ubuntu, então, se não
+      funcionar, tente aplicar o patch UPS utilizando um programa como
+      o byuu's tsukuyomi UPS utility.)
+      
+     Note que o processo pode demorar algum tempo em um computador mais
+     antigo ou se estiver sendo executado a partir de uma mídia externa.
+     Em geral, deve levar apenas alguns segundos para o patch ser aplicado.
+
+     Se o programa de patching não rodar, baixe e instale o mono installer:
+     http://www.go-mono.com/mono-downloads/download.html
+      
+  
+  4. O aplicativo é muito simples. Basta indicar onde está a ROM e apertar
+     o botão "Aplicar Patch!"
+     
+     Se a sua ROM for um "bad dump" ou houver algo errado com o arquivo, o
+     programa irá informá-lo. Certifique-se de que baixou uma ROM japonesa
+     e funcional, e que ela não foi modificada de nenhuma forma.
+
+     
+  5. Quando o patch tiver sido aplicado corretamente, você estará preparado
+     para jogar MOTHER 3 em português! Use o seu emulador de GameBoy Advance
+     preferido, ou, se tiver os hardwares necessários, você poderá jogar nos
+     consoles ou portáteis que quiser.
+     
+
+  NOTA: Se você estiver usando uma versão recente do VBA-M, poderá pular os
+        passos 3 e 4, porque a equipe do VBA-M incluiu recentemente suporte
+        para patches UPS diretamente. Se você não entendeu esta nota, apenas
+        ignore-a e siga os procedimentos detalhados acima.
+
+
+==================================
+
+EQUIPE DA TRADUÇÃO:
+
+Equipe Principal:
+Alex Foffano (Tradução, Revisão, Gráficos)
+Jared Morgan (Hacking, Gráficos, Revisão)
+
+Traduções adicionais:
+Gustavo Diógenes
+Pedro (Draco)
+Set
+Thiago Cianci
+
+Com ajuda de:
+JeffMan
+Tomato
+
+Mother 3 Patcher ptBR:
+Patchers: sblur
+Patchers Originais e UPS: byuu
+Imagem: Reidman
+
+Agradecimentos Especiais:
+Mukuro
+Claus
+Vanessa
+flicky
+Vinicius
+Danilo
+Rachel
+Ambrey
+Porter
+João de Araujo
+Carlos Almeida
+Thiago Schreiner
+Régis Sudo
+Hsing Hui Lee
+starmen.net
+vba-m
+http://www.romhackers.org/modules/news/ (PO.B.R.E.)
+http://romhacking.trd.br/ (Fórum Unificado de ROMHacking e Tradução)
+
+==================================
+
+Esta tradução não é associada à Nintendo of America, Shigesato Itoi, 
+Nintendo Co., Ltd., HAL, ou Brownie Brown. É uma tradução de fãs e foi
+feita por indivíduos dedicados sem renumeração e sem ganho de qualquer
+espécie.
+
+Ao utilizar o patch de tradução você concorda com o seguinte:
+
+O uso e a distribuição desta tradução de fãs deve cessar imediatamente
+após qualquer lançamento oficial de MOTHER 3 no Brasil.
+
+O patch, o conteúdo do patch, o trabalho representado nesse patch ou
+qualquer material ou conteúdo do site earthboundbrasil.com ou da 
+tradução de Mother 3 da equipe EarthBoundBrasil nunca será vendido ou 
+distribuido em forma de ROM, cartucho, fita, CD, DVD, ou qualquer 
+outra forma de dispositivo de armazenamento.
+
+Qualquer distribuição da tradução tem que ser autorizado pela equipe
+da tradução. A tradução não pode ser distribuida com qualquer conteúdo,
+material, ou arquivo protegido por direitos autorais.
+
+==================================

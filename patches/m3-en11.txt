@@ -1,0 +1,1200 @@
+
+                            MOTHER 3 Fan Translation
+                                  English v1.1
+                            Released July 16, 2009
+
+This is an unofficial translation of MOTHER 3, a Japanese RPG released for
+the Game Boy Advance in 2006. MOTHER 3 is the sequel to the 1995 Super NES
+RPG, EarthBound.
+
+Please support the MOTHER/EarthBound series by purchasing official
+merchandise, including the official translation if one is ever released.
+
+For more details about this translation and the project, please visit:
+
+                              http://mother3.fobby.net
+
+  =========================================================================
+
+HOW TO USE THE TRANSLATION PATCH:
+
+  1. Unzip the contents of this zip file to a folder/directory. You should
+     find the following files:
+     
+    * mother3_windows.exe
+    * mother3_macosx.app
+    * mother3_linux
+    * mother3.ups
+    * mother3.txt (that's this file)
+
+
+  2. Second, you will need to obtain a ROM of the Japanese version of
+     MOTHER 3. This clearly steps into promoting piracy, so you will have
+     to find this on your own. Search engines are useful for this sort of
+     thing.
+     
+     Once you have the ROM, make sure it is unzipped/uncompressed. The
+     file should be 32 MB in size. Put this file in the same folder as
+     the files from above.
+
+     
+  3. If you're using Windows, run the mother3_windows.exe file.
+  
+     If you're using a Mac, run the mother3_macosx.app file.
+     
+     If you're using Linux, run the mother3_linux file.
+     (This was compiled under Ubuntu, if it doesn't work, try manually
+      applying the UPS patch with something like byuu's tsukuyomi UPS
+      utility. Also don't worry about the fact that the program still
+      says "version 1.0". We couldn't get anyone to recompile a 32-bit
+      version for this new patch version, but the program will still
+      patch the 1.1 patch despite what it says)
+      
+     Note that the patching process may take a while on and old computer
+     or if you're running it off of a flash drive. For most people, it
+     should only take a matter of seconds to patch.
+      
+  
+  4. The patching utility is very simple. Simply tell it where your ROM
+     file is, and then hit "Apply patch!"
+     
+     If your ROM is a bad dump or if something is wrong with the ROM file,
+     the patching utility will inform you of this. Make sure you have a
+     correct dump of the original Japanese ROM, and that it hasn't been
+     modified in any way.
+
+     
+  5. Once the patch has been applied successfully, you're now ready to
+     play the game in English! You can use a GameBoy Advance emulator of
+     your choice, or, if you have the proper hardware, you can play it
+     on the handheld or console of your choice. For details on the latter,
+     please see the project page.
+     
+
+  NOTE: If you're using a recent build of VBA-M, you can skip steps 3 and 4.
+        because the VBA-M team recently added soft-patching support for
+        UPS patches. If you don't understand what this means, just ignore
+        it and use the normal patch procedure listed above.
+        
+  =========================================================================
+
+TROUBLESHOOTING:
+
+  Q: I can't save my game! What's wrong? Help!
+  A: This happens primarily with Mac emulators. There are several possible
+     fixes to this:
+     
+     - If you're using Mac VBA 1.7.4, perhaps try 1.7.2 instead.
+     - If that still doesn't work, try another emulator.
+     - Trying fiddling with emulator's preferences. Setting the flash save
+       size to 64K might get the game to save properly.
+     - Try downloading someone else's save file and putting it wherever
+       your save files normally go. This seems to fix the saving problem
+       for some people.
+     - If you're not on a Mac, try using the Save Fix option of the GBATA
+       utility. It shouldn't be too hard to find GBATA.
+     - If all else fails, try applying the save fix patch that's available
+       at the translation project site. Some flash carts also have saving
+       problems, and this save fix patch seems to work equally as well on
+       Mac emus and flash carts.
+       
+  
+  Q: The patching utility says my ROM is bad/corrupt, but it can't be!
+  A: There do exist bad dumps of the ROM out there, so if you wind up
+     with a bad copy, try getting the ROM from somewhere else.
+
+
+  Q: The patching utility says it can't find mother3.ups, but I see
+     mother3.ups right there!
+  A: You need to unzip the .zip file fully. Running the patcher program
+     directly from the .zip file won't work. Consult your .zip program
+     instructions if necessary.
+
+
+  Q: I tried using the patch on a ROM with the old menu patch/the 1.0
+     translation patch. But it won't work. What's up with that?
+  A: This translation patch can only be applied to the unmodified Japanese
+     ROM.
+     
+     
+  Q: I double-click on the .zip file but nothing happens!
+  A: If your computer doesn't have .zip file support (most computers in the
+     last 10+ years have support by default), look on Google for things
+     like 7-Zip or WinZip.
+
+
+  Q: The game gets stuck at the intro screen. Help!
+  A: You can skip this normally by pressing any button. If you're using an
+     emulator, keep in mind that you might need to set up what keyboard
+     keys act as what GBA buttons.
+     
+  
+  Q: I can't get the battle combo system to work right! Help!
+  A: To get combos in battle, you have to tap the A Button in time with the
+     beat of the music. Some songs are more difficult to combo to than
+     others. Also, because of the nature of emulation, the precise timing
+     needed may get out of synch. If you're having trouble getting combos
+     on an emulator, try these things:
+     
+     - Try a different emulator, or a different version of your current
+       emulator.
+     - Try turning the emulator's frame-skip setting to 0.
+     - Close all other programs that you might have open. You might want to
+       restart your computer, too. This may help speed emulation up a bit.
+     
+     Sometimes some songs are just made to be difficult to combo to. There
+     is an item in the game that will let you hear the beat more clearly,
+     and there's another item that will let you practice combos on any
+     enemy you've fought before. Take the time to gain some real-life
+     experience to make combos easier.
+     
+     Note that combos are NOT needed to get through MOTHER 3. They're just
+     an added bonus for players who take the time to master them.
+     
+     
+  Q: The game crashes/freezes on my hardware!
+  A: This may be a hardware-specific problem. See if you can't find more
+     info about your hardware. Consult this forum thread if you have any
+     problems running the translation on actual hardware:
+     
+        http://forum.starmen.net/forum/Games/Mother3FanTranslation/47933
+     
+     The M3 brand of hardware seems to be the most problematic.
+
+
+  Q: The music seems to speed up in the main menu sometimes, but not
+     always.
+  A: This is an issue with VBA-M and other emulators based on VBA-M. The
+     problem doesn't occur on other emulators or actual hardware.
+
+
+  Q: I'm experiencing slowdown in the forest area at the beginning of the
+     game. How can I fix this?
+  A: This is actually entirely an emulator issue, and occurs with the
+     original game, too. Try tweaking your settings a bit. It may help a
+     bit, but probably won't fix it completely.
+     
+     
+  Q: I want to use save files from the Japanese version or the old menu
+     patch version, but the names get screwed up in the English version!
+     Help!
+  A: We made a save file convertor tool for Mac, Windows, and Linux. See
+     the online version of this readme at the project site for a link to
+     the convertor.
+     
+  =========================================================================
+
+REPORTING BUGS, TYPOS, AND THE LIKE:
+
+  With something as complex as this, it's almost a given that bugs and other
+  issues will turn up. We tried very hard to get rid of as many problems as
+  possible, but there will surely be some we missed. If you encounter
+  anything bug-like or find a typo or grammar problem in a rare line of text,
+  you can report it to us below. Also note that the original game had a few
+  bugs of its own - we did fix some of these, but not all. 
+  
+  Please note that there are some issues we are already aware of. These
+  problems may be fixed in a future version of the translation. Since we are
+  already aware of the following problems, please do not report them. 
+
+  
+  KNOWN ISSUES:
+  
+  * Name Summary Slowdown: After you've named everything at the start of the
+    game and select "Yes", the screen will fade out. But the audio will sound
+    jittery for a few seconds. This is due to the sprite text welding we had
+    to do to allow more text per screen. We optimized this code a lot, but
+    the fadeout is still not as good as we'd like. Please overlook this tiny
+    problem for now. This is the only place where this issue occurs.
+    
+  * Menu Text Glitch: If you scroll through main menus too quickly
+  , sometimes the game won't have time to catch up, and text won't be fully
+    erased. This is pretty rare, and happens mostly when there's a lot of
+    text on the screen but little on the screen you're switching to. In many
+    cases, you almost have to purposely try to make it happen. Fixes were
+    attempted, but for now, if this happens, you can easily fix it by
+    switching to another menu or scrolling text up. This glitch will happen
+    in most main menus, not just the item menu, so please don't report it.
+    We hope to fix this in a future patch, if possible. 
+    
+  * Temporary Main Text Slowdown: For reasons unknown, main dialogue text
+    might seem to slow down on rare occasion, but will revert to normal
+    speed a few letters later. The cause for this is unknown, and all
+    attempts to figure it out turned up absolutely nothing. This problem is
+    rare and it also fixes itself soon after. We hope to fix this in a
+    future patch, if possible. For now, please overlook this small issue.
+    
+  * Extra/Missing "The": This issue probably doesn't happen anymore, but
+    there's always a possibility for it. Sometimes, during battle, a
+    player's name might have the word "the" in front of it, usually
+    involving a line of text about a status effect. Conversely, the word
+    "the" might not appear before an enemy's name during a status effect
+    line, when it should be there. The Japanese language doesn't use
+    things like "the", so the original programmers didn't design the game
+    for this, and as a result, enemies and players share many (but not all)
+    battle text lines about status effects. Fixing this will require a
+    ton of work to reverse engineer the whole battle system, but we hope
+    to have it 100% fixed in a future patch. For now, if you notice any of
+    this stuff, please overlook it.
+
+  * Gift Box Transformation: Very rarely, when walking around, open gift
+    boxes will turn into status ailment icons. It turns out this is
+    actually a bug in the original Japanese game.
+    
+  * With the VBA-M emulator, sometimes the main menu music will seem to
+    speed up. This is an emulator issue. This doesn't happen on other
+    emulators or actual hardware.
+
+
+  NOTE: If you used the debug room at any point in your game, please don't
+  send us any bug reports. Even if it doesn't seem like the bug is related
+  to the debug room. The debug room is very crazy and does (and neglects
+  to do) many things in RAM that aren't immediately obvious.
+
+
+  
+  If you've encountered a bug that isn't listed above, then send an e-mail
+  about it to:
+  
+                              mother3bugs@starmen.net
+                              
+  It's important that your bug report be very detailed, so please include
+  the following, if possible/applicable: 
+  
+  - A detailed description of the bug 
+  - A description of what you were doing in the game just before the bug
+    happened 
+  - A picture of the bug in action, if possible 
+  - If there was a typo or a grammar issue, first make sure *you're* not
+    mistaken, then provide the exact sentence that is wrong. Keep in mind
+    that some misspellings are intentional, and some characters speak
+    strangely on purpose.
+    
+  IF YOU'RE PLAYING THE VERSION 1.0 PATCH, PLEASE DO NOT SUBMIT ANY BUG
+  REPORTS!
+    
+  =========================================================================
+
+TRANSLATIONS INTO OTHER LANGUAGES:
+
+  Currently, there are eight projects to translate the English version of
+  MOTHER 3 into other languages. These translations should take
+  significantly less time than the English version, as they are all
+  based on the same hacks and tools.
+  
+  The current projects are as follows:
+  
+  
+  SPANISH - LATIN AMERICA (ESPAÑOL LATINOAMERICANO)
+  http://m3.ohui.net/
+  
+  SPANISH - SPAIN (CASTELLANO)
+  http://mother3spanish.blogspot.com/
+  
+  PORTUGUESE - BRAZIL (PORTUGUÊS BRASILEIRO)
+  http://www.earthboundbrasil.com/
+
+  PORTUGUESE - PORTUGAL (PORTUGUÊS EUROPEU)
+  http://www.mother3pt.blogspot.com/
+  
+  FRENCH (FRANÇAIS)
+  http://mother3enfrancais.blogspot.com/
+  
+  GERMAN (DEUTSCH)
+  http://germanmother3.wordpress.com/
+  
+  ITALIAN (ITALIANO)
+  http://mother3italia.blogspot.com
+
+  MALAY (BAHASA MELAYU)
+  http://m3bmtrans.blogspot.com/
+
+  =========================================================================
+
+GAMEPLAY QUESTIONS:
+
+  If you have gameplay questions, there are several resources available:
+
+  - http://handbook.fangamer.com/
+    MOTHER 3 Handbook A fan-made guide that's kind of like the MOTHER 3
+    equivalent of the old EarthBound Player's Guide. Filled with tons of
+    awesome! The online version is free, but you can also order an actual
+    print version of it to have at all times!
+  
+  - http://walkthrough.starmen.net/mother3/
+    Starmen.Net MOTHER 3 Walkthrough
+    A detailed step-by-step walkthrough with accompanying screenshots,
+    maps, enemy stats, item lists, skill info, and tons more stuff.
+    
+  - http://forum.starmen.net
+    Starmen.Net Forum
+    The Starmen.Net forums are packed with EarthBound series fans, and
+    you're bound to have your questions answered quickly on the MOTHER 3
+    message boards.
+    
+  - http://walkthrough.starmen.net/mother3/routesummary.php
+    This is a bare-bones walkthrough, telling you what to do if you're
+    stuck, but without revealing any story or spoiling anything in
+    advance.
+
+  =========================================================================
+  
+EXTRA GOODIES:
+
+  For the translation, we added a few extra features not found in the
+  Japanese game. These extras are unobtrusive and will only be found by
+  completionist-type players.
+  
+  - In the game, there is an item called the Battle Memory. This keeps a
+    record of every enemy you've fought. If you manage to completely fill
+    this log up, a silver star will appear on the Battle Memory screen
+    as a badge of your greatness.
+    
+  - Similary, if you find every enemy AND log all the possible
+    front-facing and back-facing/alternate sprites for all enemies, a
+    gold star will appear on the Battle Memory screen.
+    
+  - There are a few other hidden features, but you'll have to discover
+    them on your own. They're sure to please, for those who try hard
+    enough.
+    
+  Note that no new enemies were added in the translation. No unused bosses
+  were added. No unused music was made accessible. No new areas were made
+  accessible. Only the extras listed above were included.
+  
+  If you'd like to mess around with unused content from the game, see
+  this topic about hidden/unused stuff:
+  
+  http://forum.starmen.net/forum/Mother/3_GameHelp/47543/first
+  
+  There will also be detailed discussion about the unused content later
+  on in the online translation notes/commentary. (See below for details)
+
+  =========================================================================
+
+WHO WE ARE:
+
+  The translation project was mostly a two-man team consisting of Jeffman
+  and Tomato. Jeffman just entered college this year, and is majoring in
+  electrical engineering. Tomato is a professional Japanese to English
+  translator and co-founder of Starmen.Net. Both also helped create a
+  community around hacking the EarthBound ROM years ago.
+ 
+  Additional help was done by many generous people, most of whom are still
+  in school and aspiring to be programmers and translators once they
+  graduate. This project has given a lot of hands-on experience to everyone
+  involved.
+    
+  =========================================================================
+
+THE PROJECT:
+
+  Below is a list of the work that went into producing this translation.
+  Many things may be missing, and the trial-and-error process of most of it
+  is left out, as are all the fixes required due to single hacks breaking
+  others. About 95% of everything listed here was done by Jeffman and
+  Tomato. This was all done in spare time, while juggling things like
+  full-time jobs, school, life stuff, relationships, sleep schedules, etc.
+  
+  Translation for this particular project really began around June 2007,
+  and major hacking began around October 2007.
+  
+
+  TRANSLATING:
+    - Main script, ~800 pages
+    - Battle text, ~60 pages
+    - Character names, 300 lines
+    - Playable/assist character names, 16 lines
+    - Default names, 69 lines
+    - Item names, 256 lines
+    - Enemy (+misc) names, 329 lines
+    - PSI names, 100 lines
+    - Item descriptions, ~11 pages
+    - Enemy descriptions, ~25 pages
+    - PSI descriptions, ~5 pages
+    - Skill descriptions, ~1 page
+    - Map names, 1000 lines
+    - Menus 1, ~11 pages
+    - Menus 2, ~14 pages
+    - Menus 3, ~2 pages
+    - Sound player track list, 250 lines
+    - Misc sound player text, 6 lines
+    - Misc text, 50 lines
+    - Status text, 52 lines
+    
+  EDITING/FORMATTING:
+    - Main script went through a second draft for text improvement,
+      translation fixes, etc. and was also all formatted and polished by
+      hand, just as Shigesato Itoi did with the Japanese version, which
+      left Japanese reviewers in awe. Draft 2 took approximately 6-7
+      weeks.
+    - After Draft 2, a full, very-detailed playthrough of the game to find
+      context issues, bugs, typos, etc. was done before moving on to the
+      last hacks and the final testing.
+    - All other text also went through revisions, and, in the case of things
+      like names and descriptions, were all tested over and over in-game to
+      make sure everything was formatted properly and sounding just right.
+    - Some more slight revisions and fixes were made to the text during the
+      final testing phase too.
+
+  MAIN SCRIPT HACKING:
+    - Figured out how the script is stored 
+        * Figured out how individual blocks are stored/pointed to 
+        * Found the many different control codes and figured out what they do
+    - Wrote a custom application to dump the script to a text file 
+    - Wrote a custom text editor application that can load, save, and preview
+      the translated text as it would appear in the game 
+    - Because some individual lines of text were so big (12 KB+) that they
+      broke the above app, some extra tricks were needed to make these lines
+      get processed properly. 
+    - The English script was over two times larger than the Japanese script,
+      so an ASM hack was needed to squeeze the text back into the game.
+      Without this, major cuts to the script would have been necessary,
+      making the whole game sound like the old man in Zelda 1. 
+    - Even with the above, we were going to be a couple dozen KB over the
+      limit, so we did some more trickery to save space. After all was said
+      and done, we wound up being under the max limit by about 100 KB in the
+      end. Awesome. 
+    - New fonts, taken straight from EarthBound, were placed into the ROM.
+    - A hack was necessary to make the game load 16 lines of font data; the
+      original font was only 10 pixels high. This also required changing the
+      way the font was stored in-game, so extra hacks were needed to load from
+      the proper locations. For technical and layout reasons elsewhere, the
+      main font could only be 11 pixels tall. 
+    - Because fonts were now 16x16, the text positioning on screen had to be
+      changed. This was kind of tricky, they used hardware VBlank tricks for
+      this. 
+    - A new variable width font routine needed to be written for the main text. 
+    - The game allocates only enough memory for 21 letters per line. When
+      exceeded, the game would crash horribly. To fix this, we had to change
+      how the game loads the text from the ROM and how it places it in RAM. 
+    - Somewhat related to the above, the game would seem to ignore control
+      codes after the 21 letter limit was passed. This turned out to be due to
+      how the game handled each line of text in RAM. This was fixed. 
+    - The game only allocated enough memory for 42 letters of main script text
+      to be on screen at once. Fixing this was hell, but eventually we tricked
+      the game into using only two "slots" and constantly swapping back and
+      forth. 
+    - Even with the above fix, the game would still stop displaying text every
+      so often, and the cause for this had to be found and fixed. Had to do
+      with the game not clearing out RAM properly. 
+    - Different text speeds handle text slightly differently, so this required
+      a few extra hacks to make things display properly. This was tough, and
+      there's still one tiny bug, but it's very rare and usually not even
+      noticeable. 
+    - The game would try to do an auto-linefeed every so often, and this had
+      to be killed. 
+    - Even with these fixes, memory limitations meant we could only have like
+      40 letters per line, which is only half the screen across in some cases,
+      so some RAM rearranging was necessary. Eventually we were able to
+      allocate 250 letters per line - which is more than we'd ever need, since
+      the GBA screen isn't even 250 pixels wide :P 
+    - Custom control code hacks were made so that items would have "a", "an",
+      "the", "some" (or nothing at all, in some cases) printed in front of
+      them. Not even the EarthBound programmers bothered to do this, which is
+      why items in EarthBound don't start with vowels, except in cases where
+      they forgot at the last second. Because of how strangely the game is
+      programmed, this hack had to be redone in many different places, very
+      annoying. 
+    - Routines involving names of nameable things (players, fav food, etc.)
+      had to be hacked to allow for the new longer lengths. Easy-ish, but
+      still constantly annoying. 
+    - Since we reorganized the font, the routine that converted numbers to
+      strings had to be hacked to display numbers properly. 
+    - Main script menu choices were very strange and after trying to figure it
+      out for a while, we basically rewrote those display functions. 
+    - Three-choice menus also had to be hacked to display and act properly. 
+    - Four+ choice menus were a huge pain to hack to display properly. These
+      mostly appear in the debug room, but since the debug room itself is such
+      a big part of the post-playthrough experience, we went ahead and fixed 
+      it too. What a pain. 
+    - The routine that prints PSI names had to be hacked to 1. display the
+      name properly, even if it was at the longest length possible, and 2. to
+      make it turn into PK/PSI + space + name + space + proper Greek symbol.
+      This was all kind of tricky, as there was very limited RAM and we had
+      also reorganized the font earlier. Even EarthBound didn't go to such
+      lengths, which is why you'll get things like "Rockina" instead of
+      "Rockin a" in that game. 
+    - Block 0, a strange block of text in the main script, had its own
+      problems. 
+        * Block 0 needed its own variable width font routine, even though the
+          rest of the main script already had one 
+        * In scrolling text, the name control codes somehow broke, so this had
+          to be fixed. I'm wondering if this might've been an anti-piracy
+          thing. 
+        * Scrolling text text loading had to be hacked, just as the main
+          script hacking needed to be. Many things needed re-doing for Block
+          0. Very annoying. 
+        * Scrolling text would often make sprites blink every few seconds.
+          Fixing this required some trickery. 
+        * Scrolling text was repositioned slightly to allow for more text per 
+          line .
+        * [CENTER] codes in Block 0 had to be hacked to work properly 
+        * Some more name-length things had to be hacked, which broke other
+          things, which also needed to be fixed (which is where "Welcome to
+          th :|" comes from) 
+        * Block 0 cut scene text loading routines had to be hacked so the game
+          would load text properly and position it properly. In this game, a
+          letter's location in memory determined its position on screen, which
+          is a huge huge pain, especially when trying to expand text and when
+          a VWF is involved. 
+        * Misc. key items like the Stinkbug Memory use Block 0 text, and these
+          had to be extensively hacked to work properly with all the new
+          English text. The game would crash horribly or cause very strange
+          things to happen, including video glitches resulting in
+          Moonside-like stuff. 
+
+  BATTLE HACKING:
+    - Battle text stuff had to be figured out 
+        * The location/storage method/pointer system had to be figured out 
+        * Had to figure out the many different control codes used in battle 
+        * Had to locate other misc. battle-related text blocks 
+    - All the battle text blocks had to be dumped to a text file 
+    - Because there was so much more English text, the battle text had to be
+      relocated elsewhere in the ROM. 
+    - Even after doing this, there was so much text that the pointers couldn't
+      address it all, so a hack that did some pointer math magic was needed to
+      fix it. 
+    - The font-loading routine had to be hacked to load the new font letters
+      from their new positions, since we now used a new-sized font. It also
+      had to be made to load the new # of lines per letter. 
+    - The text-erasing routine had to be hacked to only erase the proper
+      amount. The game would cause strange graphical glitches in the player
+      names otherwise. This hack also sped up text refreshing in battle menus
+      too, which was a nice plus. 
+    - The game only had enough memory for 40 letters of battle text on the
+      screen at once. Fixing this was assumed impossible, but a fix was
+      figured out anyway, allowing for infinite text per line. 
+    - Very closely connected to the above, a variable width font routine had
+      to be added to the main battle text. 
+    - Things like auto-line breaks every 20 letters had to be killed. 
+    - Because the original game didn't do it how we needed it to, we also had
+      to write our own new "move text one row up" routine. 
+    - A custom routine to make battle text do auto-word wrap was added. That's
+      word-wrap, not letter-wrap. The original game didn't have this, but
+      because something similar was done for EarthBound, it seemed fitting.
+      And it looks really great and professional in action, too. 
+    - Code for several battle text lines had to be hacked to work with English
+      word order. (item stolen text, enemy encountered text, etc.) 
+    - A hack that determines the # of enemies at the start of battle was
+      added, allowing the game to say "and cohort" or "and cohorts" at the
+      intro text. 
+    - A hack that determines the proper pronoun to use for an enemy was added. 
+    - A hack that determines the proper article to use for an enemy was added. 
+    - A hack that determines the proper article to use for an item was added. 
+    - Custom control codes to use the above new hacks were added. This makes
+      the text much more natural and fluid. Our hope was that it would be
+      natural enough that people wouldn't even realize we had to hack that
+      stuff in. EarthBound's localizers did a few of these things, but for
+      this project, we went much further. 
+    - Since enemies and players sometimes share battle text, a hack had to be
+      added so the game wouldn't add articles before player names. This used
+      to cause things like "The Flint attacked!" to happen. 
+    - A variable width font needed to be hacked for the battle menus.
+    - Had to fix things so that items without the Equip (E) symbols were
+      positioned properly in menus. 
+    - Since we reorganized the font, the routine that converted numbers to
+      strings had to be hacked to display numbers properly. 
+    - When your inventory is full and an enemy leaves behind an item, the
+      programmers programmed all those routines separately. So most
+      everything you see above had to be done a second time just for these
+      few lines of text. 
+    - Late in the game, there are some special 3-line text boxes. The text
+      display routines for these were all separate from the main routine.
+      So most everything you see above had to be done yet again, for a
+      third time. 
+    - In the final battle is special text without any boxes at all. This
+      was programmed separately from everything else, so we had to redo
+      everything above yet again. Argh! 
+    - 8-letter player names had to be hacked to work properly. Other long
+      nameable stuff had to be hacked to work properly as well. 
+    - The character name-centering routine had to be hacked to position the
+      names in the HP/PP boxes properly. 
+    - The routine that prints PSI names had to be hacked to 1. display the
+      name properly, even if it was at the longest length possible, and 2.
+      to make it turn into PK/PSI + space + name + space + proper Greek
+      symbol. This was all kind of tricky, as there was very limited RAM
+      and we had also reorganized the font earlier. 
+    - Item descriptions that had control codes for displaying status icons
+      (most status-healing items, basically) didn't appear how we wanted
+      them to in battle, so a hack was made to display slightly alternate
+      versions of these eight or so descriptions in battle. 
+    - A hack for the Recollection Bell was needed, so that it would use the
+      proper palette. 
+
+  MISC OUTSIDE HACKING:
+    - All kinds of text stuff had to be figured out 
+        * NPC name text had to be located and figured out 
+        * Misc text had to be located and figured out 
+    - The above text had to be dumped to files 
+    - A reinserter for the above had to be programmed 
+    - The character name-centering routine had to be hacked to position the
+      names in the HP/PP boxes properly. The names were also moved up a
+      pixel to look better with the new font. 
+    - The routines that determine the lengths of the gray names boxes had to
+      be hacked. These were very weird and there were multiple instances of
+      the code, all of which had to be found and hacked. Very strange stuff. 
+    - The positioning of the names in the gray box were tweaked a tiny bit.
+      Also, the 8x8 font loading routine needed to be hacked a tiny bit to
+      load with the new 8x8 font properly.
+    - Sometimes the game loads names for the gray boxes from the enemy name
+      list. Some of these names are long and caused problems, so we had to
+      write a hack to make the game load from a list of abbreviated enemy
+      names. 
+    - Several things had to be hacked to allow for 8-letter player names.
+      This caused some problems with some main script routines, so some
+      untangling was necessary. 
+    - Outside menu text had to be hacked to load the font properly 
+    - A VWF had to be written for outside menu text 
+    - Outside menu text had to be hacked to display in the new, proper
+      locations. This was all hard-coded and annoying. 
+    - Some of the Sleep Mode text was annoying. The game only allowed for a
+      limited number of letters, and not enough for something professional
+      in English. This had to be worked around. 
+
+  SOUND PLAYER HACKING:
+    - Various text had to be figured out 
+        * The list of actual song names had to be found, its format
+          understood, etc. 
+        * The block of misc sound player text also had to be found, its
+          storage method understood, etc. 
+    - The above all had to be dumped to text files 
+    - Reinsertion code had to be programmed 
+    - Because of the lack of space, the translated song text and the misc
+      sound player text all had to be relocated in the ROM 
+    - Hacking code to load the new font properly was needed, much like
+      everywhere else in the game 
+    - A VWF was needed, but luckily the battle menu text and this text
+      seemed to share some of the same code 
+    - Code to properly erase text in the sound player was required 
+    - Code was needed to make misc. sound player text center properly 
+
+  NAMING SCREEN HACKS:
+    - A variety of text blocks had to be figured out, dumped, etc. 
+    - Code to reinsert the text had to be programmed. 
+    - These blocks had to be relocated in the ROM due to their new sizes. 
+    - Hacks to allow 8-letter character names were implemented. The
+      Japanese game only allowed for 6 originally. This also allows
+      "Kumatora" to have her full default name. 
+    - Hacks to allow 8 letters for your "favorite thing" were implemented.
+      The Japanese game originally only allowed for 6 letters. 
+    - A VWF-like routine to make names look extra professional while
+      entering text was implemented. 
+    - A cursor-related bug in the original Japanese game was fixed. 
+    - Similar to what was done in EarthBound, the two separate "what is the
+      name of you, the player" screens were made to share the same name.
+      The Japanese version of MOTHER 3 had you first type your name in one
+      Japanese alphabet, and then later on in English letters. Because we
+      only have one alphabet, we made the second one a "confirm your name"
+      type thing, and, because we no longer needed two strings in RAM, we
+      combined them to allow for one extra-long string. This means the
+      player's name can now be 16 letters long, much longer than before. 
+    - The letter layout for the second "player's name" naming screen had to
+      be hacked to use the normal layout, and to automatically load the name
+      given earlier, since it's now a "confirm your name" screen. 
+    - To make the above work, some slight text box expansions/graphical
+      tweaks were necessary. 
+    - Other misc. text repositioning, fixes, etc. were made to make all the
+      new text look and fit better. 
+    - The "Don't Care" text on the naming screens where there are no default
+      names needed some special attention to make it not appear. 
+    - The Japanese version of the game lets you choose from several different
+      alphabet sets; these had to be disabled and the naming screen code had
+      to be hacked to make these things unselectable in all naming screens. 
+    - Also had to disable the L/R Button alphabet switching. 
+    - The naming letter selection screen had to be figured out, rearranged,
+      and redrawn. 
+    - Had to kill the game's auto-formatting on the name summary screen, as
+      it looked horrible with English and with a VWF. 
+    - After doing the above, fixed coordinates were given for things on the
+      name summary screen, making the English VWF text look much more
+      professional 
+
+  MAIN MENU HACKS:
+    - Many, many text blocks had to be located, figured out, dumped, etc. 
+    - Code to reinsert all the above had to be programmed. 
+    - Most (if not all) of the above text had to be relocated in the ROM due
+      to space limitations. 
+    - The main menus use several font-loading routines for some reason, and
+      these all had to be hacked to use the new font layout and all that. It
+      also had to be hacked to load the full letters rather than just the
+      first 10 rows. 
+    - The main menus utilize sprite-based text to a considerable degree. The
+      problem here is that the GBA can only have so many sprites due to
+      hardware limitations, and because of other issues, things like item
+      descriptions could only have 40 or so letters. The use of sprite text
+      throughout the menus is so widespread that a solution to these
+      limitations was needed. And, since a variable width font was also
+      needed, the sprite text routine had to be hacked considerably, spanning
+      weeks (if not months). This was probably the hardest thing in the game
+      to hack, and if hell had a taste, it would be sprite-flavored. 
+    - Even after getting the "sprite-welding" VWF mentioned above working,
+      the game would come to a crawl whenever sprite text was on-screen. Major
+      optimizations and bug fixes were necessary to bring the game back up to
+      a decent speed. Even after all this additional work, the game will still
+      sputter as the naming confirmation screen starts to fade out. 
+    - Because of how sprites work, and because sprite text can change suddenly,
+      a weird sort of "text morphing" would occur whenever text changed. It's
+      difficult to explain, but fixing this was another hell of its own.
+      Without this, sprite text would seem to freak out every time a change in
+      text occurred. We needed the text to remain looking rock-solid, as a
+      professional release would certainly have. 
+    - Certain item descriptions also include status icons in the text, and
+      these interfered with the new sprite text routine. Because of this, the
+      status icon routines also had to be hacked to play nice. 
+    - Even with the display routines working now, the game would still crash
+      and die when various menu messages/lines exceeded various lengths,
+      usually because text was being passed on the stack. So the way the game
+      would copy these messages from ROM to RAM had to be redone. The way the
+      game allocated and cleared this memory also had to be hacked. Otherwise,
+      some menu messages could have only been like 10 letters long. Very WTF.
+      In any case, in most of these cases, we were eventually able to make it
+      allow 240 or so letters per message. 
+    - Misc. menu messages, such as when you're selling an item or buying an
+      item and it asks you to equip the new item, had to be hacked to use the
+      proper word order and spacing that we use in English. 
+    - Some custom control codes were added so that the game would know to use
+      "a", "an", "the", "this", "these", "some", etc. before item names in
+      menu messages. 
+    - When you "Use" a piece of equipment, the game tells you it's just a
+      piece of equipment. For the translation, we made this better by having
+      the game tell you what kind of equipment it is specifically. Just a tiny
+      improvement over the original game. 
+    - Non-sprite text (item names, skill names, other misc. stuff) in the main
+      menus needed a VWF written. 
+    - The main menus only allowed for 8-letter item names, and 128 letters of
+      non-sprite text on the screen at any one time. This was absolutely
+      unacceptable, so after a week or two of difficult hacking, we managed to
+      allow for 21-letter item names and 600+ non-sprite letters on screen at
+      once. Now items can have long names and look professional. There is one
+      tiny, rare display bug related to this, but if it happens, it will
+      likely fix itself very shortly after. 
+    - Text on the file-loading screen had to be hacked, and auto-positioning
+      code had to be killed and replaced with positioning that worked better
+      with English. Due to repeated code and rare test cases, this had to be
+      repeated a few times. 
+    - Text on the file-saving screen also had to be hacked similarly, but the
+      code was different and was basically its own separate thing. 
+    - The file-loading/file-saving screens had to be hacked to allow for
+      longer map names. This involved changing how the game copied the text
+      from ROM to RAM and what it did with it after that. 
+    - The text speed box in the file-loading screen was expanded slightly. 
+    - A crapload of misc. text and labels had to be moved/re-aligned. It was
+      kind of annoying because nearly all of it was hard-coded, and there
+      were multiple instances of everything. 
+    - A small hack was made to allow "dare ni?" to become "To whom?" or "On
+      whom?", depending on the context of what's being done. 
+    - Similarly, lots of cursor positions were tweaked to make things look
+      better. The cursor would often obscure the first few letters of text
+      otherwise, which was very strange of the original programmers. 
+    - Most main menu message text was moved left considerably to allow for
+      more text per line. 
+    - A hack was needed to make numbers convert to strings properly now that
+      we had a new font layout. 
+    - Names in the Battle Memory screen needed their own VWF written. 
+    - The text layout for the names on the Battle Memory screen was pretty
+      ugly, so we balanced it out a bit. 
+    - The text used for the Battle Memory names used to use the 8x8 font, but
+      we managed to make it use the main font for the translation. 
+    - Because long enemy names wouldn't fit in the small Battle Memory name
+      box, a hack had to be made to load enemy names from a list of
+      abbreviated names. 
+    - Enemy description text was repositioned slightly, to allow for more
+      text in the very limited amount of screen space. 
+    - In various menus, hacks had to be made to allow for 8-letter names. 
+    - Tons of fixes for obscure submenus and such to allow for the expanded
+      item names. 
+
+  MISC. OTHER HACKING:
+    - At first, we used Goldroad to compile individual hacks, and then a
+      custom program I wrote to insert them all in the right place. This was
+      INCREDIBLY tedious, so luckily byuu showed up and wrote a THUMB version
+      of his xkas assembler over the course of a few weeks or something like
+      that. We had to port all our hacks over to xkas, but this new
+      environment sped the project up incredibly. It was like a dream come
+      true. 
+    - Because the MOTHER 3 ROM is so big, normal IPS patch files wouldn't be
+      usable, as they can only alter files up to 16 MB in size. A new,
+      easy-to-use patch format called UPS (developed by byuu) was created for
+      the project, and UPS patching programs for different operating systems
+      were made. 
+    - We had to do some interesting hackmagic to make room for our assembly
+      hacks, especially after the THUMB version of xkas was finished. 
+    - The cast roll had to be hacked to allow for 8-letter nameable character
+      names 
+    - The ending cast roll used sprite text, and because of hardware
+      limitations, there weren't enough sprites available to print all the
+      names in English. So we decided to pre-draw all the names rather than
+      use one sprite per letter, like the original. This involved making a
+      program to automate the process, and some hacking to make it work.
+      Nameable characters still use the one sprite per letter deal, but
+      luckily even with expanded 8-letter names, we just barely make it
+      under the limit in those cases. 
+    - Another hack had to be added to make the above work right in all cases;
+      apparently using the debug menu at any point in the game would result
+      in wrong names being used for the characters, eventually leading to a
+      crash. The debug room is weird. 
+    - While doing this hacking, we made a few more names in the cast roll
+      appear - it seems the original programmers had the same problem we had
+      as above, so they were forced to remove a few names from the cast roll
+      (though the characters still appear). Since our fix allowed more text
+      at a time, we were able to put those names back. 
+    - Two sound clips, one .4 seconds long and one 1.3 seconds long, were
+      replaced with English clips. They were simple sound effects; had the
+      game had actual voice acting, we would've left them untouched and
+      figured something else out. Figuring out how to replace this data took a
+      bit of time and another program was written to speed up the process. 
+    - A disclaimer screen of sorts was added to the beginning, before it shows
+      the company logo screens. The first time you play, you have to wait 2
+      seconds at least, so that people will hopefully read what it has to say.
+      After that, you can press a button to instantly skip it. 
+    - We modified all our text tools to use a table file, thereby making it
+      much easier for people to translate the game into other languages down
+      the road. 
+    - Hacked the end credits to display the full player name (now that it's
+      much longer than before) properly. Also, because of credits font size
+      issues, we had to write a table-ish hack to make lowercase letters act
+      like uppercase letters, etc. 
+    - The font for the above had to be redone, since we had redone the normal
+      font too. Because of limited memory, we couldn't do lowercase letters,
+      which is why the above was necessary. 
+    - A hack was added to display a silver star on the Battle Memory screen
+      when all the enemy entries are obtained. 
+    - A hack was added to display a gold star on the Battle Memory screen when
+      all the enemy entries + all their alternate sprites are obtained. 
+    - Some special stuff related to the above was also added, but it's better
+      to keep the secret secret for now :P 
+    - Some extra stuff (also secret) was made accessible in the game. Play
+      the game in great depth and you may eventually discover this stuff.
+    - Had to look into why the original game can't save or will crash on
+      certain types of hardware, in an attempt to fix this. We decided to
+      leave the fixes for this outside of the patch, in case the fix winds up
+      causing more problems than we started out with. 
+    - Wrote a save file convertor so that save files made with the original
+      Japanese game can be used with the translation. Changing the font's
+      layout causes old names to look and act like garbage with the
+      translation. The convertor can also auto-convert names to the new format
+      most of the time, if a player used English letters for their names in
+      the Japanese version. 
+    - Wrote a program to edit character inventories in save files, for testing
+      purposes. 
+
+  GRAPHICS HACKS:
+
+  (NOTE: Many changes were made from MOTHER 2 to EarthBound. If you're not
+   aware of what these changes were, see http://tomato.fobby.net/m2eb
+   In many cases, we followed these same patterns for MOTHER 3.)
+   
+    - Since our goal was to make the translation very close to what an
+      official one would be like, we changed the health warning screen at the
+      beginning into its English counterpart.
+    - Most of the text speed/window color confirmation screen was done
+      graphically, and had to be redrawn into an English version.
+    - Data for the chapter title screens had to be figured out, dumped, and
+      then the chapters had to be redrawn, retiled, and put back in the game,
+      all within the limited amount of space available.
+    - Similar work had to be done for some overlay text at the start of
+      Chapter 4. There are two instances of this.
+        * The first instance lacked the space and the dimensions for any
+          usable-looking English text, so we simply blanked out the text. It
+          says "Three Years Later", which is redundant anyway, since a few
+          seconds later it says "Three Years Later" again. Also, the lack of
+          text makes the daylight lightning and the thunder more noticeable
+          in this scene.
+        * The second instance happens about 10 seconds later. We managed to
+          squeeze text in the limited ROM space and limited sprite/screen
+          space available.
+    - The money withdraw and deposit screens were redrawn into English.
+    - As was done with the EarthBound localization, the "YOU WIN!" graphic was
+      changed to "YOU WON!"
+    - The "OFE" and "DFE" things in the main menus were changed to "OFF" and
+      "DEF". These were compressed graphics, but luckily we didn't break
+      anything with our slight changes.
+    - The "By Some Chance/Some Sort of Beat" item was changed to the
+     "Recollection Bell", and the graphic for it was changed as well. This
+      also required a few palette hacks in various places.
+    - The building that says "LABO" in New Pork City was changed to say "LAB".
+      This was done in EarthBound's localization too, though we didn't add
+      any extra little bolts like they did with EB. This was comprised of lots
+      of tiny little compressed graphics, so getting it to work wasn't
+      straightforward at all.
+    - In the movie theater, the scene of the "MONOTOLY" building from MOTHER 2
+      was changed to the "MONOTOLI" building, as it was spelled in EarthBound.
+      This was also comprised of compressed graphics that needed luck to fit
+      back in the original space.
+    - The kokeshi statue and the octopus statue (both from MOTHER 2) in the
+      hall of memories were changed to their EarthBound counterparts, the
+      eraser statue and the pencil statue. These graphics were compressed, so
+      getting these to work and to fit in the tiny space allotted wasn't easy.
+      It also required a new palette hack.
+    - In the next room is another octopus statue. This was again changed into
+      its EarthBound counterpart, the pencil statue. In the box is an item
+      that will erase the statues (an homage to M2/EB), and a small animation
+      plays as the octopus statue disappears. An animation for the edited
+      pencil statue also had to be made.
+
+  TESTING:
+    - Approximately three weeks of in-house testing was done to help make sure
+      the game wouldn't crash and die or act too buggy or anything. 
+    - We also wrote a bunch of tools to make extra-sure that various lines of
+      text sounded right in all possible situations and combinations. 
+
+  =========================================================================
+  
+TRANSLATION NOTES: (by Tomato)
+
+  As with many of my ROM translations, I hoped to include very detailed
+  translation notes in this readme file. But as I'm swamped for time and
+  I'd rather not delay the patch's release, I decided to briefly cover
+  only some of the bigger points of interest for now. My plan is to do a
+  detailed translation "commentary" of sorts on the translation project
+  site over time. That way I'll have more time to cover things, and I
+  can explain said things in more detail, with images, links, and such.
+  If you're interested in the translation side of things, you'll probably
+  find the commentary stuff to your liking.
+  
+  For now, I'll just briefly cover some of the more important things.
+  
+  First off, I should mention that I'm a professional Japanese->English
+  translator. I translate Japanese games, television, movies, anime,
+  manga, and all that stuff for a living. I co-founded Starmen.Net way
+  back in 1999. Long ago, I started a site examining the translation and
+  localization of EarthBound from MOTHER 2. I recently re-started the
+  site from scratch, but if you're interested, you can see it here:
+  
+    http://tomato.fobby.net/m2eb
+    
+  In the past, I've also worked on ROM translations of things like Bahamut
+  Lagoon, Star Ocean, Live-A-Live, Famicom Detective Club 2, and a whole
+  bunch more.
+  
+  As for MOTHER 3, I'd been translating Shigesato Itoi's (creator of the
+  MOTHER/EarthBound series) interviews, articles, and whatnot for
+  Starmen.Net as far back as '99. So following that all this way - even
+  through the cancellation of the Nintendo 64 version of MOTHER 3
+  and through all of his diary entries during the GBA version's
+  development - was a neat experience. I feel all that background
+  knowledge and info helped a lot with this translation.
+  
+  One of Itoi's quirks when writing the text for his games is that he says
+  it all aloud. For example, during MOTHER 1 and MOTHER 2, he didn't know
+  how to use computers, so he had to say the text out loud to an assistant
+  sitting at a computer. He's also notorious for being unhappy with huge
+  blocks of text and suddenly throwing them out and redoing them later on.
+  Also, he intentionally writes the game's text entirely in the phonetic kana
+  syllabary. This is because he wants the text to seem more like someone is
+  speaking it.
+  
+  This is a coincidence, because whenever I translate, I translate out loud
+  until a line sounds right. I'll be the first to admit I'm not a world-class
+  writer, and definitely nowhere near as skilled at English as Itoi is with
+  Japanese, but I hope some of the text still retains at least some of its
+  natural "flow". I apologize if it doesn't hit the mark. But I think it
+  should be okay for the most part.
+  
+  The goal of this project was to make a translation as close to an official
+  Nintendo version as possible. This was made more difficult by the fact
+  that we lacked the game's source code and data files, but in the end I
+  think we came pretty close, and that we probably surpassed what the
+  official version would've been in some aspects. This translation patch
+  has no censoring, though, which probably would've been likely in an
+  official translation. So let's say the patch is very close to what an
+  official version would've been like, but not exactly.
+  
+  There is also something that all official games have to go through called
+  "lot check". If the strict requirements of this check aren't met, a game
+  will be rejected by Nintendo (or other console manufacturer) and things
+  will have to be fixed until requirements are fully met. One part of the lot
+  check is that all hardware and all components of a console/handheld MUST
+  be referred to in specific ways. For example, with the GBA, you can't just
+  say "Press A." You have to specifically spell it as "Press the A Button."
+  
+  Since I've worked on a few professional game translations, including a
+  GBA game, I have the list of these requirements handy and tried my best to
+  make sure MOTHER 3's translation followed them. It doesn't mean much, and
+  most people won't notice, but I wanted to strive for that extra bit of
+  quality, to make the game seem almost as official as possible.
+    
+  Another part of this goal also meant localization. Sometimes puns and plays
+  on words just don't transfer between languages and cultures, and in these
+  cases, suitable, similar equivalents that evoke similar responses were
+  chosen. Some place names were localized slightly, and a few character
+  names were also localized. Overall, I'd say we didn't localize the game
+  quite as much as an official version would have (EarthBound had a whole
+  bunch of stuff changed, often for no reason), but I think people will
+  enjoy it just as much.
+  
+  The character "Yokuba" had his name changed to "Fassad". I wasn't the one
+  who thought this up, but when it was suggested, I was on the fence for a
+  long time. It took me about a year to finally go with it, and once I had
+  tried it out in-game, it just fit so well. "Yokuba" comes from "yokubari",
+  the Japanese word for "greed". Because this wouldn't be picked up by the
+  English-speaking target audience, an alternative seemed appropriate.
+  "Fassad" comes from the word "facade", and in the case of this particular
+  character, the name fits in many different ways.
+  
+  Pokey, a character from EarthBound, makes an appearance in this game.
+  However, the translators for EarthBound were unsure of how to romanize
+  his name and wound up naming him incorrectly. It's clear from this game
+  that Itoi intended his name to be spelled "Porky" all along. This left
+  me with a problem: which name do I use? I mulled it over for maybe 8
+  months or so, and decided to go with how the creator intended it, rather
+  than go with what was a mistake. Additionally, Nintendo of America also
+  seems to take this stance, as he's now referred to as Porky in Super
+  Smash Bros. Brawl in many places. The name "Porky" also fits in with
+  the big "pig" theme of this game. Leaving it as "Porky" also meant we
+  didn't have to go through the trouble of hacking a large number of
+  compressed graphics.
+  
+  I considered trying to add in a little line somewhere saying that maybe
+  Pokey changed his name to Porky at some point, but that didn't seem
+  quite right. I decided I'd just cover the issue briefly in the
+  translation notes. I hope this helps explain some of this issue. It's
+  one of those things where whatever choice you make, someone won't be
+  happy. It's funny though, because between EarthBound Zero and EarthBound,
+  the antagonist's name changed from Giegue to Giygas, despite being the
+  same character with the same spelling in Japanese. And now something
+  similar has happened again.
+  
+  Switching gears, I thought I'd mention that there are many subtle
+  text references to MOTHER 2 in MOTHER 3, so I used some old EarthBound
+  hacking tools to dig up lots of the corresponding EarthBound text.
+  Things like the Hungry HP Sucker, the Slime Generator, and the Heavy
+  Bazooka can be found in rarely-seen battle text. When applicable, enemy
+  names were localized in the same manner that they were localized between
+  MOTHER 2 and EarthBound. There are also tiny references in the main text
+  that only an obsessed fan would notice. Keep your eye out for things like
+  this, because this is one area where the unofficial version would
+  probably outclass an official version!
+  
+  There is a whole lot of text in this game, and a lot of it is easy to
+  miss. Characters will often say new things even after the tiniest event
+  happens, so take your time to explore the game and talk to everyone
+  and everything often. There's lots of neat stuff to be found.
+  
+  This is getting quite long now, but if you're interested in more
+  detailed discussion about specific translation choices and other misc.
+  info/trivia about things, check out the translation project site from
+  time to time. I plan to go through the whole game chapter by chapter and
+  provide little pieces of commentary and little-known info.
+  
+  I was originally only supposed to be the translator for this project,
+  so as for how I wound up being a main hacker too... I don't even
+  remember at this point. Both Jeff and I basically learned how to
+  assembly hack just for this project, which turned out to be one of the
+  toughest ROMs to be hacked to date. We both learned fast and it was
+  mostly sheer determination and the goal that got everything done. If
+  I could go back in time though, I probably would not ever do this hack
+  again ;) 
+  
+  Anyway, if you have specific questions about certain things, whether
+  they be translation/localization-related or about the hacking side
+  of things, you can post them in the MOTHER 3 area of the Starmen.Net
+  forum and one of us will try to respond when we can.
+  
+  Everything said, I hope you enjoy this translation and take your time
+  exploring the world of MOTHER 3.
+  
+  =========================================================================  
+
+NOTES FROM JEFFMAN:  
+  
+  Being a sort of designated ROM hacker for this project, I had to learn a
+  lot of new things. I really didn't know any assembly programming coming
+  into this, for example. Given the right tools, a logical thinking process,
+  and a heck of a lot of free time, though, it eventually became second-hand
+  knowledge for me.
+  
+  I did have a solid foundation in general computer programming and
+  EarthBound hacking, however. If it weren't for the PK Hack community I
+  definitely wouldn't be where I am today in terms of ROM-hacking knowledge
+  and programming prowess. I didn't start as early as Tomato of course,
+  since he's the one who co-created PK Hack, but I came early enough that
+  I was able to establish the fundamental knowledge and be ready for an
+  immense project like this.
+  
+  ROM hacking itself is more of a discrete and technical thing so it's hard
+  to explain individual aspects of this project without going into heavy
+  detail, for those of you who don't know much about programming. There's
+  a massive list of things earlier on in this file that shows just how much
+  we had to do -- and for each item, I could probably write a full essay on
+  how it was accomplished. Although it was a lot of work, I learned a great
+  deal not just on assembly programming, but on logical thinking and
+  problem-solving altogether, things that will definitely help me later on
+  in my engineering program at university.
+  
+  When thinking on such a basic level -- the assembly code level -- it's not
+  that hard to get lost easily, and it's incredibly difficult sometimes to
+  figure out what's going on, especially without having the original source
+  code. Some of the really simple problems that presented themselves during
+  the project would take hours to complete, only to be tested and then 
+  I would find a dozen more problems that come as a result. Multiply that
+  by the majority of the items on the above list, and you get... a lot of
+  hours. Days, weeks, and months. That's how much time I spent trying to
+  make each hack complete and perfect. Looking at the end result, it was
+  definitely worth it.
+  
+  =========================================================================
+
+DEDICATIONS:
+
+  This translation is dedicated to all fans big and small of the
+  MOTHER/EarthBound series. It's been over 13 years since that "The End...?"
+  screen. And now the next chapter is here. This translation is for you.
+  
+  The translation is also dedicated to Shigesato Itoi, who needs no
+  introduction. His work has inspired countless people, and his creations
+  only seem to age better with time. Here's to hoping there will be fans
+  of the series 10 years from now who will have grown up with MOTHER 3
+  just as many of us grew up with EarthBound.
+  
+  The translation is also dedicated to the folks at Nintendo, and the
+  people in the Treehouse especially. Thanks to those who tried to help
+  bring out MOTHER 1+2 and MOTHER 3 here, even though it never worked out.
+  This was a very fun game to work on, so it's a shame you weren't given
+  the chance.
+  
+  Lastly, this translation is dedicated to you. Yes, you, the one at the
+  keyboard.
+  
+  =========================================================================
+  
+PROJECT TEAM:
+
+  Main Team:
+  JeffMan (hacking)  		http://jeffman.net
+  Tomato (hacking, translation) http://tomato.fobby.net
+  Chewy (misc. translation)     http://www.yomuka.com
+  
+  Additional Help:
+  byuu                          http://byuu.org
+  DoctorFedora                  http://doctorfedora.livejournal.com
+  sblur                         http://www.sappharad.com
+  Exophase
+  harmony7 (ex. RPGe)           http://www.pex2.com
+  Kevin_b_er  
+  Gideon Zhi                    http://agtp.romhack.net
+  demi                          http://www.demiforce.com
+  reidman                       http://reidyoung.com
+  Jonk                          http://jonkaydesign.com
+  Klarth
+  
+  Additional Thanks To:
+  mitch			 NinjaBoyNeo           Zinco
+  Ninten1		 npjpkac 	       post_it
+  HoshiNoRyuka           Classicworth 	       butsukoy
+  Ben Cocchiaro		 chrono (and all the vba-m guys!)
+  Anthadd		 Nutsjesmoar           psychomax
+  PKGINGO                BRPXQZME              PoeTrader
+  nightshade 		 Giovanni	       Dr. Hobo
+  Jatopian               Phone                 Artemis251
+  Tansunn                zyboser               Difegue
+  LarryTheCucumber       Gemini                Zip Code Ness
+  Fugitive               alezicarus            Meeellla
+  Plo                    Firegirl              Kevin
+  Sling                  Mr. Sword             PriestessPaula
+  Dr Shlub               EmpoleMew             Smash Bass
+  Clayman                Elobo
+  
+  ...and many others. Many apologies if you were accidentally not listed.
+  But your help is what made this patch possible.

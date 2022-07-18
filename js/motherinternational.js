@@ -151,6 +151,14 @@ function setMessage(msg, type) {
 	}
 }
 
+function romDesc(id) {
+	var res = ROM_LIST[id].game + " – " + ROM_LIST[id].language;
+	if (ROM_LIST[id].version) {
+		res += " " + ROM_LIST[id].version;
+	}
+	return res;
+}
+
 function updatePatchInfo() {
 	var id = patchSelectVal();
 	if (id && ROM_LIST[id].website) {
@@ -238,14 +246,14 @@ function onParsedInputRom(data) {
     for (var i in ROM_LIST) {
         if (ROM_LIST[i].crc == romCrc) {
             gInputRomId = i;
-            setMessage(ROM_LIST[i].baseDesc + " – " + ROM_LIST[i].romDesc);
+            setMessage(romDesc(i));
             for (var j in ROM_LIST) {
                 if (i != j && (ROM_LIST[i].baseRom == ROM_LIST[j].baseRom
                                || i == ROM_LIST[j].baseRom || ROM_LIST[i].baseRom == j)
                     && !ROM_LIST[j].latestVersion) {
                     var opt = document.createElement("option");
                     opt.value = j;
-                    opt.text = ROM_LIST[j].baseDesc + " – " + ROM_LIST[j].romDesc;
+                    opt.text = romDesc(j);
                     el(ELT_PATCH_SELECT).add(opt);
                 }
             }

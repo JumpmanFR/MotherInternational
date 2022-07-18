@@ -1,0 +1,15 @@
+MOTHER 3 Nederlands v1.0 door PrismaticAngel.
+
+Alle menutext, battletext en scripttext zijn in het Nederlands vertaald. Graphics zijn dat echter (nog) niet.
+
+Om MOTHER 3 in het Nederlands te kunnen spelen moet je de volgende stappen nemen:
+
+1. Vind een Japanse ROM van de game online. Gebruik Google hiervoor.
+2. Gebruik de Delta Patcher om de Nederlandse patch op de ROM aan te brengen.
+   Om dit te doen open je DeltaPatcherLite, klik je op de folder bij Original file, en kies je dan de Japanse ROM.
+   Bij XDelta patch kies je de MOTHER_3_Nederlands_v1.0.xdelta patch, en daarna kies je Apply Patch.
+   Je kan bij de tandwiel nog kiezen of je een backup wilt maken van de originele ROM.
+3. Zoek een GBA emulator om MOTHER 3 mee te spelen. Ik raad hier VisualBoyAdvance voor aan. Andere emulators zijn aanbevolen op mother3.fobby.net.
+4. Gefeliciteerd! Nu kan je MOTHER 3 in het Nederlands spelen.
+
+Voor meer informatie, ga naar m3dutch.blogspot.com.
