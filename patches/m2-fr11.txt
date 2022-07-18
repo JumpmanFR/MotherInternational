@@ -1,0 +1,86 @@
+                                                                     ,,;''''';,`            '++++++;       
+   +++++++++++    ++++++++++. +++++++++++. .++++++++++,   :+++++++++++++++++++++++;       +++++++++++'     
+   ++++++++++++  ,+++++++++++.++++++++++++ ++++++++++++   ++++++++++++++++++++++++++,    ++@@@@@+++++++    
+ @@@@@@@@@@#+++ @@@@@@@@@@++@@@@@@@@@@@++#@@@@@@@@@@+++'@@@@@@@@@@@@@@@@@@@@@@@#+++++'  @@@@@@@@@@@+++++   
+@@@@@@@@@@@@+++@@@@@@@@@@@+@@@@@@@@@@@@#+@@@@@@@@@@@@++#@@@@@@@@@@@@@@;;;;@@@@@@@@++++;@@@@.   .@@@@#++++  
+@@        #@@++@@       ;@+@@        ;@@+@@        @@++@@`       @            `@@@@++#@@#         #@@#+++; 
+'@.        @@+@@+       @@+@@         @@+@@        @@#+@@        @               @@@+@@.           ,@@++++ 
+:@,        @@@@@        @@+@@         @@+@@        .@@@@,       .@                @@@@;             ;@@+++.
+:@;         @@@#        @@+@#         @@+@@         @@@@        .@                .@@@               @@#++'
+ @@         @@@         @@#@.         @@#@@         ,@@.        ,@                 @@`               `@@+++
+ @@          @:         @@@@          ,@@@@          @@         ;@                 @@                 @@+++
+ @@          @          @@@@           @@@@          `          ;@                 ;@                 @@+++
+ @@                     @@@@           @@@@                     @@         ,       ;:                 :@@++
+ @@                     @@@@           @@@@                     @@         @@:     @.                 .@#++
+ @@                     @@@.           '@@@                     @@`        @@@     @        @@@        @#++
+ @@                     @@@            `@@@`                    @@.        @@+     @       #@@@@       @#++
+ @@                     @@@             @@@.                    @@,        ;`     @@.      @@+@@      .@#++
+ @@                     @@@    @        @@@.                    @@,              @@@,      @@+@@      ,@#+'
+ @@                     @@:    @.       @@@,                    @@;             @@@@@      @@+@@      @@++.
+ @@                     @@    .@@       .@@,                    @@;        ,     @@@@      +@@@@      @@++ 
+ @@     ,         ,     @@    @@@        @@;     .        @     @@@        @@     @@@       @@@       @@+, 
+ @@     ;@       @;     @@    @@@,       @@;     @       ,@     @@@       .@@`    @@@@      :@:      @@@+  
+ @@     ;@;     ,@;     @;               @@#     @@      @@     @@@       .@;     @@@@               @@+   
+ @@     ;@@     @@;     @    .           .@@     @@#    @@@     @@@              .@@@@@             @@@`   
+ '@     +@@@   @@@+    .@    @   .        @@     @@@.  ;@@@     @@@              @@# @@@           @@@     
+ '@.    @@@@@ '@@@@    .@    @  @@.       @@     @@@@  @@@@     @@@            ;@@@   @@@         @@@      
+ '@@@@@@@@ @@;@@,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@;,,...,#@@@@@     @@@@,   ,@@@@       
+  @@@@@@@+  @@@@ #@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@  @@@@  @@@@@@@+@@@@@@@@@@@@@@.       @@@@@@@@@@@        
+             ::               ::                     ::              ::::::::             :#####:   
+
+--={////////////////////////////////////////////////////////////////////////////////////////VERSION 1.1}=--
+
+EarthBound, connu au Japon sous le nom Mother 2: Gyiyg Strikes Back, est un jeu vidéo de rôle développé 
+par Ape et HAL Laboratory est sorti sur Super Nintendo en 1994 au Japon et en 1995 en Amérique du Nord.
+Mais jamais en France et surtout pas en Français! Problème à présent résolu grâce à la Team MAMBO!
+
+--={///////////////////////////////////////////////////////////////////////////////////////////////////}=--
+
+Hack : Akira76
+Traduction : M0nsieurL, Blyn, Taik
+Graphisme : M0nsieurL, Manu-Rid
+Tests : Ours1011, Manu-Rid, Musashi
+
+Remerciements :
+Tomato http://legendsoflocalization.com/earthbound/
+Les auteurs de Coilsnake
+
+--={///////////////////////////////////////////////////////////////////////////////////////////////////}=--
+
+Cette version corrige quelques textes qui, malgré nos tests, défilaient trop vite.
+
+Je (Lestat/M0nsieurL) tenais à remercier les impatients, les réactionnaires d'avoir privé la "scène" de
+l'un des meilleurs romhackeur qui m'est été donné de côtoyer, à savoir Akira76.
+
+À bientôt pour d'autres aventures vidéo ludiques (ou pas).
+
+--={///////////////////////////////////////////////////////////////////////////////////////////////////}=--
+
+Application du patch :
+
+Le patch IPS doit être appliqué sur la rom EarthBound (USA).
+CRC: dc9bb451
+MD5: a864b2e5c141d2dec1c4cbed75a42a85
+SHA-1: d67a8ef36ef616bc39306aa1b486e1bd3047815a
+SHA-256: a8fe2226728002786d68c27ddddf0b90a894db52e4dfe268fdf72a68cae5f02e
+
+Utilisez LunarIps pour appliquer le patch : http://fusoya.eludevisibility.org/lips/
+
+Une fois la rom patchée, vous devez obtenir:
+CRC: 87da4ebc
+MD5: 69777cd39a2372b5fad71d1a05c29d6c
+SHA-1: d855a1b38dc6df2efd1a141227380874a7a11b99
+SHA-256: d2b7f95a4bf4236d80cac533eeca591c901e5870fc9697f1eefcef2d93e5ea86
+
+--={///////////////////////////////////////////////////////////////////////////////////////////////////}=--
+
+Ce patch n'est pas officiel et n'est pas supporté par Nintendo.
+
+Ce patch est gratuit et peut être distribué gratuitement tant qu'il n'est pas modifié, appliqué ou 
+distribué avec une rom et que l'archive originale n'est pas modifiée non plus. 
+Ni argent, biens ou services ne peuvent être demandés pour ce patch, dans sa forme originale ou appliquée.
+
+Tous ceux qui utilisent ce patch le font à leurs propres risques. Aucune personne citée dans cette
+documentation ne pourra être responsable de n'importe quels dommages provenant de son usage.
+
+--={///////////////////////////////////////////////////////////////////////////////////////////////////}=--

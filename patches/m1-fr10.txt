@@ -1,0 +1,140 @@
++----------------------------------------+
+| Earthbound Zero (Edition NES) Français |
++----------------------------------------+
+
+
+ **********************
+* Table des matières : *
+ **********************
+1. L'HISTOIRE D'EARTHBOUND ZERO
+2. L'HISTORIQUE DE LA TRADUCTION
+3. CONTENU DE L'ARCHIVE
+4. UTILISATION
+5. LES PATCHS PUBLIES
+6. CE QUI A ETE FAIT ET RESTE A FAIRE
+7. L'EQUIPE DE LA TRADUCTION
+8. CONTACTS
+9. REMARQUES LEGALES
+
+
+ *********************************
+* 1. L'HISTOIRE D'EARTHBOUND ZERO *
+ *********************************
+Earthbound Zero (Mother au Japon) raconte l'histoire d'un jeune garçon dotés
+de pouvoir de télékinésie (PK) qui part découvrir le monde afin de sauver la
+planète d'une invasion extra-terrestre.
+Tout au long de son voyage, il sera rejoint par plusieurs amis, et ensemble
+ils uniront leurs forces pour sauver le monde.
+
+Earthbound Zero (Mother au Japon) fut très apprécié au pays du soleil levant,
+notamment par sa grande originalité vis à vis des RPG basiques de l'époque.
+On doit son scénarion à Shigesato Itoi, un scénariste japonais célèbre dont
+le travail a pu inspiré les Beatles par exemple.
+
+ **********************************
+* 2. L'HISTORIQUE DE LA TRADUCTION *
+ **********************************
+Il s'agit de ma première traduction en tant que chef de projet.
+La traduction a été effectuée à partir des scripts de la version américaine.
+
+L'idée d'un tel projet m'est venu à l'esprit après avoir reçu un mail sur la
+bal publique de Willou qui me faisait l'éloge de ce jeu, et ne comprenait pas
+que l'on ne puisse trouver de patch de traduction.
+C'est donc en juillet 2005 que débuta le projet de traduction d'Earthbound Zero.
+Aujourd'hui, au mois de mai 2006 sort chez Terminus Traduction la première
+béta du patch.
+
+
+ *************************
+* 3. CONTENU DE L'ARCHIVE *
+ *************************
+Lisez-moi.txt - Le fichier que vous êtes en train de lire.
+earthbound0_v1.ips - Fichier patch pour NES anglais-français.
+
+
+ ****************
+* 4. UTILISATION *
+ ****************
+La version américaine de Earthbound Zero n'est jamais sortie officiellement
+dans le commerce. Elle ne circule uniquement que sur Internet sous format de
+ROM.
+
+Le patch a été créé pour fonctionner sur la version de Earthbound Zero
+retravaillée par DemiForce. Vous avez donc intérêt à appliquer ce patch avec
+la rom "Earthbound Zero (Demiforce v1.01 Hack-1) (U).nes".
+
+Il est inutile de nous écrire pour nous demander comment obtenir une telle ROM,
+nous ne vous répondrions pas.
+
+
+ ***********************
+* 5. LES PATCHS PUBLIES *
+ ***********************
+Version 1.0 (05/2006) - Première version publiée. Il s'agit en fait d'une version
+bêta bien que parfaitement jouable et quasiment intégralement traduite :)
+
+
+ ***************************************
+* 6. CE QUI A ETE FAIT ET RESTE A FAIRE *
+ ***************************************
+Polices :       100 % (mais peuvent être retravaillées)
+Scripts :	100 %
+Combats :	100 % (sauf le "Smaaaash" qui apparaît pour les coups critiques)
+Objets :	100 %
+Menu de jeu :   100 %
+Magies :	100 %
+Monstres :	100 %
+Messages :	  0 % (je n'arrive pas à modifier les messages sur mes magasins)
+Génériques :	 50 % (il reste des graphismes à modifier)
+
+Dans une prochaine version, il sera intéressant de modifier l'écran de présentation.
+De plus, je tâcherai de m'occuper des messages non encore traduits (magasins, générique).
+
+
+ ******************************
+* 7. L'EQUIPE DE LA TRADUCTION *
+ ******************************
+Direction du Projet : Ridculle
+
+Programmation : Nemesis, Ridculle
+
+Traduction : Bobcat, Dark Magus, Ridculle
+
+Correction : Ridculle
+
+Je remercie l'ensemble des personnes qui m'ont aidé à concrétiser ce projet.
+Merci aux membres de la TRAF pour leur conseil, et leur conseil toujours utiles en
+matière de romhacking.
+Je remercie particulièrement Nemesis et Dark Magus pour leur patience, et leur grande
+aide afin de rendre mon code plus clair, et plus efficace. Sans vous, je n'aurez pas
+pu progresser si vite les gars :)
+
+
+ *************
+* 8. CONTACTS *
+ *************
+Une remarque, une question ou une correction à apporter à la traduction de
+Earthbound Zero, écrivez à Ridculle : 
+	nounouogg@aol.com
+	rid_2703@hotmail.com
+S’il s’agit d’une remarque générale ou concernant nos projets, envoyez un mail
+à la boîte électronique publique du groupe Terminus Traduction : terminus@romhack.net
+
+ ************************
+* 9. REMARQUES LEGALES : *
+ ************************
+Le patch de traduction française de Earthbound Zero n'est pas officiel et n'est pas
+supporté par Nintendo.
+Ce patch est gratuit et peut être distribué gratuitement tant qu'il n'est pas modifié,
+et que l'archive originale n'est pas modifiée non plus. Ni argent, biens ou services
+ne peuvent être demandés pour ce patch, dans sa forme originale ou appliquée.
+Tous ceux qui utilisent ce patch le font à leurs propres risques. Aucune personne citée
+dans cette documentation ne pourra être responsable de quelconques dommages provenant de
+son usage aussi bien au niveau ordinateur que console Nintendo Entertainment System.
+
+
++----------------------------------------------------------------------------------------+
+
+Merci d'avoir tout lu, bon jeu et que la vie des trads fr soit longue !
+
+Ridculle 
