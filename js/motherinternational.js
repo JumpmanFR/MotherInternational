@@ -250,7 +250,7 @@ function onParsedInputRom(data) {
             for (var j in ROM_LIST) {
                 if (i != j && (ROM_LIST[i].baseRom == ROM_LIST[j].baseRom
                                || i == ROM_LIST[j].baseRom || ROM_LIST[i].baseRom == j)
-                    && !ROM_LIST[j].latestVersion) {
+                    && !ROM_LIST[j].isOldVersionOf && !ROM_LIST[j].isAltBaseRom) {
                     var opt = document.createElement("option");
                     opt.value = j;
                     opt.text = romDesc(j);

@@ -1,0 +1,125 @@
+________________________________________________________________________
+EARTHBOUND ZERO (NES) EN ESPAÑOL por OAD -version 2.2 completo!!
+________________________________________________________________________
+
+Fecha: Septiembre de 2007
+----------------------------------------------------------------
+SOBRE EL JUEGO
+---------------------------------------------------------------
+El juego original japones se llamo "Mother" y fue lanzado para NES en 1989, una versión americana comenzó a 
+realizarse, esta se llamó "Earth Bound" pero por varios problemas nunca llegó a ser lanzado y pasó al olvido.
+En 1994 salió en japon la secuela para el Super Famicom: "Mother 2", esta si llegó a tener una versión americana 
+a la que también se llamó "EarthBound"(ya que el primer Earth Bound nunca se lanzó) y esta version es el conocido 
+RPG de SNES. 
+Finalmente en 1998 el cartucho con aquel olvidado prototipo de NES de Earth Bound fue adquirido en una subasta
+e inmediatamente fue llevado al formato ROM para que todos los jugadores lo conozcan por primera vez. Pero como
+ya había salido un juego de SNES con ese mismo nombre se lo comenzó a llamar Earth Bound Zero (por ser una precuela)
+y de esta manera hoy dia todos se refieren a este prototipo como "EarthBound Zero". 
+
+
+---------------------------
+SOBRE LA TRADUCCIÓN
+---------------------------
+
+Esta es mi primera traducción de un juego que hice en mi vida, así que me llevo mucho tiempo y aprender y esforzarme
+bastante, empecé esta traducción desde cero, sin saber nada sobre como es un rom y de a poco
+lo fuí logrando y peleando hasta acabarla.
+
+Originalmente tenía pensado hacer algo rápido con lo poco que encontré sobre traducción y lo hice solo
+para mis amigos, esta fue la versión 1.0 de mi traducción teminada hace mas de una año. Desde que
+tengo internet he accedido a mas informacion y a legiones de seguidores de los juegos clásicos y
+decidi retomar mi traducción y completarla. Finalmente lo logre!!! Aqui esta la grandiosa version 2.0
+
+Mi mayor desafío fue que el juego traía un código maligno que cuando se le cambiaba algun byte a la rom,
+este saltaba en medio del juego y con una pantalla negra que decía que era una copia ilegal y dejaria de funcionar
+(para colmo cerca del final del juego cuando uno esta mas entusiasmado).
+Afortunadamente un tal Goplat me paso el dato de como desactivar esto y el código dejo de molestarme
+
+
+---------------------------
+PROGRESO
+---------------------------
+Version-2.0 Final
+100%_Traducido.
+
+QUE CAMBIÓ
+-Traducidos los textos, agregado de caracteres especiales.
+-Eliminado código maligno que detenía el juego.
+-Cambiados punteros y expandidos nombres de PSI, items y enemigos
+-Traducido el menu inicial y la historia de presentación.
+-Cambiado el título a Earthbound Zero.
+-Reagregados los sprites censurados en la ROM original (sangre en los zombis, cruces en cementerio, cigarrilos)
+-Corregido el menu de comandos.
+-Restauradas las letras griegas a los poderes PSI.
+
+Version-2.1 Final
+100%_Traducido.
+
+QUE CAMBIÓ
+-Corregido un terrible fallo que detenía el juego en el Mt. Itoi.
+-Cambiadas las fuentes por otras mas agradables, extraídas del Tomato Hack.
+-Algunas modificaciones en los textos.
+
+
+Version-2.2  
+-Algunos errores de gramática. Je.
+
+---------------------------
+QUE FALTA
+---------------------------
+- Correcciones menores en lo hecho.
+- Búsqueda de fallas.
+
+----------------------------
+MODIFICACIONES
+----------------------------
+-Cambiado el título a Earth Bound Zero, el nombre mas con el que se le conoce hoy día.
+
+- El EARTH BOUND de NES, tiene varios sprites censurados con respecto a la versión japonesa (Mother), esto se
+debe a las antiguas reglas de Nintendo of America. Me tomé el trabajo de devolver los sprites a su forma 
+original. (Aparición de cigarrillos, crucifijos en cementerio, sangre en zombis y demás  que habian sido borrados)
+
+-El personaje final llamado originalmente Gyiyg en la saga Mother, es llamado Giegue en este juego y sin
+embargo en el Earth Bound de SNES lo llamaron Giygas. Para evitar la incorcondancia en los nombres y que
+lo confundan con personajes diferentes he decidido llamarlo Giygas, tal como aparece en el juego oficial americano.
+
+-Cambiados los nombres de las habilidades PK Healing (PK Sanación), estas habilidades tenian todos distintos efectos
+y sin embargo el mismo nombre por lo que resultaba muy confuso saber para que servía cada uno, además que el juego
+no trae ninguna descripción para los PSI.
+         Cambios de Nombre:
+                            PK Healing Alpha ......Sanación
+                            PK Healing Beta .......Desparaliz                           
+                            PK Healing Gamma ......Ablandar
+                            PK Healing Pi .........Despertar
+                            Superhealing ..........Revivir
+
+------------------------
+FALLAS
+------------------------
+He jugado bastante y corregido muchos problemas pero deben existir algunos todavía.
+Si alguien encuentra algun fallo o desea consultar algo
+contacteme a osvaldodemarchi@hotmail.com
+
+--------------------------
+DONDE APLICAR EL PARCHE
+--------------------------
+El parche fue hecho para la rom americana "Earthbound_(Prototype)_(U)",
+ No se si anda en las versiones Hack
+que existen yo solo probe con el "Tomato hack" y no sirvió.
+----------------------------
+AGRADECIMIENTOS
+----------------------------
+- A Dios (siempre es buano darle gracias ^_^)
+- A todos los romhackers que dejaron sus tutoriales para que yo aprendiera. Y en especial a la comunidad
+de romhackispano por la terea que realizan para que nosotros los leechers nos apoderemos de sus juegos.
+- A el/los creadores de Ami-SK por hacer el traductor mas sencillo de la historia.
+- A el/los creadores de Tile Editor Pro  por hacer el editor de gráficos mas sencillo de la historia.
+- Miles de gracias a Goplat y a quienes hacen de Datacrystal.org porque sin ellos no hubiera terminado esta traducción.
+- A todos los fanaticos de EB ZERO
+- A los usuarios chiflados de Decemuladores.
+- A JDFP13 por avisarme del terrible error en la version 2.0
+_ A Joka_v.3 por avisarme de errores en la versión 2.1
+
+_____________________________________________________________________________________________________________________
+OAD 2007
+_____________________________________________________________________________________________________________________

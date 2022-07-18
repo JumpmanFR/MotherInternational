@@ -1,0 +1,287 @@
+EarthBound Beginnings PL
+Wersja 1.0
+3 Listopada 2019
+________________________________________________________________
+
+Spis treœci:
+
+1. Wstêp
+2. Instalacja spolszczenia
+3. Co przet³umaczono, zmieniono i dodano?
+4. Tabele t³umaczeñ
+5. Ma³y sekret
+6. Autorzy
+________________________________________________________________
+
+1. Wstêp
+
+EarthBound Beginnings jest pierwsz¹ ods³on¹ serii EarthBound/Mother, która zosta³a wydania na Famicoma w Japonii 1989 roku pod nazw¹ Mother. Amerykañska lokalizacja zosta³a ukoñczona, ale nigdy siê nie ukaza³a na NES-a, dopiero oficjalnie zosta³a wydana w 2015 roku na Wii U w us³udze Virtual Console. W grze wcielamy siê w Nintena, ch³opca, który zaraz po dziwnym wydarzeniu w swoim domu zamierza wyruszyæ, by ocaliæ œwiat z r¹k z³owrogiego kosmity, Giygasa, który w przesz³oœci mia³ coœ wspólnego z jego rodzin¹. W swojej podró¿y spotka wielu przyjació³ i odkryje potencja³ swoich psychicznych mocy. Podczas tworzenia spolszczenia, doda³em kilka usprawnieñ, takich jak przywrócenie oryginalnych sprite'ów przeciwników, czy wy³¹czenie zabezpieczeñ antypirackich. Gra w polskiej wersji nosi tytu³ EarthBound: Pocz¹tek.
+________________________________________________________________
+
+2. Instalacja spolszczenia
+
+Do instalacji spolszczenia potrzebna bêdzie ³atka spolszczaj¹ca, instalator ³atek - Lunar IPS, który trzeba znaleŸæ w internecie i ROM z gr¹. £atka podzia³a z amerykañsk¹ prototypow¹ wersj¹ gry - Earth Bound (USA) (Proto). ROM nie jest zawarty razem z ³atk¹, nale¿y go znaleŸæ w internecie.
+
+1. Uruchom Lunar IPS.
+2. Kliknij Apply IPS Patch.
+3. Pojawi siê okno, wybierz ³atkê spolszczaj¹c¹ (ebbpl.ips).
+4. Pojawi siê drugie okno, wybierz ROM z gr¹.
+5. Jeœli wszystko zosta³o dobrze zrobione, pojawi siê komunikat, ¿e ³atka zosta³a na³o¿ona.
+________________________________________________________________
+
+3. Co przet³umaczono, zmieniono i dodano?
+
+Przet³umaczono wszystkie dialogi w grze, w tym te¿ nazwy przedmiotów, przeciwników itp. Przywrócono pierwotne sprite'y wrogów z oryginalnego wydania na Famicoma. Niektóre nazwy w³asne np. Giegue na Giygas, czy FightCapsul na Kapsu³ka Odwagi zosta³y lepiej przet³umaczone, ¿eby nawi¹zywa³y do nastêpnych gier w serii. Poprawiono znaki greckiego alfabetu, które s¹ u¿ywane podczas wybierania ataków PSI, tak aby trochê siê odró¿nia³y od zwyk³ej czcionki. Dodano do loga gry napis "Pocz¹tek", ¿eby nawi¹zywa³o do tego, i¿ jest to pierwsza czeœæ serii. Ze wzglêdu na modyfikowanie ROM-u gry, zabezpieczenia antypirackie zostaj¹ w³¹czone, przez co w niektórych fragmentach gry mo¿e pojawiæ siê informacja o nielegalnej kopii gry. Musia³em te zabezpieczenia wy³¹czyæ, dziêki czemu nie trzeba siê tym martwiæ podczas rozgrywki. Nie przet³umaczono grafik na budynkach oraz napisów koñcowych ze wzglêdu na ograniczenia techniczne.
+________________________________________________________________
+
+4. Tabele t³umaczeñ
+
+Wszystkie nazwy wymienione w tym punkcie mog³y mieæ maksymalnie do 11 znaków, gdy¿ ograniczenia techniczne gry nie pozwala³y na d³u¿sze nazwy (w nazwach dolegliwoœci limit ten mia³ 6 znaków). Pe³ne nazwy pokazane w nawiasach pokazuj¹ siê, gdy wybiera siê w grze opcjê Pomoc dla nazw przedmiotów oraz opcji SprawdŸ dla przeciwnika Mr. Bat.
+
+Nazwy przedmiotów:
+
+Big Bag - Du¿y Worek
+Phone Card - Karta Tel. (Karta Telefoniczna)
+Crumbs - Okruchy (Okruchy Chleba)
+Repel Ring - Odstraszacz
+ButterKnife - Kosa
+Surv.Knife - Super Kosa
+Sword - Miecz
+Katana - Katana
+Stun Gun - Paralizator
+Air Gun - Wiatrówka
+Plastic Bat - Zepsuty Kij
+Wooden Bat - Dêbowy Kij
+AluminumBat - Stalowy Kij
+Hank's Bat - Kij Hanka
+Frying Pan - Patelnia
+NonstickPan - Patelnia DX (Luksusowa Patelnia)
+IronSkillet - StalowaPat. (Stalowa Patelnia)
+Slingshot - Proca
+Boomerang - Bumerang
+Insecticide - RobakoSpray (Robaczy Spray)
+Super Spray - Super Spray
+Flea Bag - Worek Pche³
+WordsO'Love - Mi³osnaMowa
+Swear Words - BrzydkaMowa
+StkyMachine - MegaBlaster
+Flashdark - Oœlepiacz
+Fl Thrower - Miotacz¯aru
+Bomb - Bomba
+Super Bomb - Super Bomba
+Laser Beam - Laser (Pistolet Laserowy)
+Plasma Beam - Plazma (Pistolet Plazmowy)
+Rope - Lina
+Peace Coin - BilonWró¿ki
+ProtectCoin - BilonObrony
+Magic Coin - Bilon Magii
+Brass Ring - Stary Ring
+Silver Ring - SrebrnyRing
+Gold Ring - Z³oty Ring
+H2o Pendant - Wisior Wody
+FirePendant - WisiorOgnia
+EarthPendnt - WisiorZiemi
+Sea Pendant - WisiorMorza
+OrangeJuice - Sok (Sok Pomarañczowy)
+FrenchFries - Frytki
+Magic Herb - Ziele Magii
+Hamburger - Hamburger
+SportsDrink - Napój (Napój Sportowy)
+LifeUpCream - Lekarstwo
+AsthmaSpray - LekNaAstmê
+Antidote - Antidotum
+Mouthwash - Œwie¿y P³yn
+Berry Tofu - OwocoweTofu
+Bread - Chleb
+Noble Seed - ZacneZiarno
+PSI Stone - Kamieñ PSI
+MagicRibbon - WstêgaMagii
+Magic Candy - Cukierek (Magiczny Cukierek)
+QuickCapsul - SzybkaKaps. (Szybka Kapsu³ka)
+Wisdom Caps - M¹dra Kaps. (M¹dra Kapsu³ka)
+PhysicalCap - Silna Kaps. (Silna Kapsu³ka)
+ForceCapsul - Kapsu³ka IQ (Kapsu³ka Inteligencji)
+FightCapsul - Kaps.Odwagi (Kapsu³ka Odwagi)
+BasementKey - Kl. Piwnicy (Klucz do Piwnicy)
+Zoo Key - KluczDoZoo
+Ghost Key - Klucz Ducha (Klucz Nawiedzonego Domu)
+GGF's Diary - Pamiêtnik (Pamiêtnik Pradziadka)
+Pass - Przepustka
+Ticket - Bilet
+CanaryChick - Ma³yKanarek
+BottlRocket - Butlokieta (Butelkowa Rakieta)
+Hat - Kapelusz
+Dentures - Protezy
+Ticket Stub - Bilecik
+Ocarina - Okaryna
+FranklnBdge - Odznaka (Odznaka Franklina)
+Onyx Hook - Hak Onyksu
+Last Weapon - Broñ Koñca
+Ruler - Linijka
+Cash Card - Karta P³at. (Karta P³atnicza)
+Red Weed - Czer.Chwast (Czerwony Chwast)
+Bullhorn - Wzmacniacz
+
+Nazwy PSI:
+
+Telepathy - Telepatia
+Teleport - Teleport
+LifeUp - Energia
+Healing - Leczenie
+SuprHealing - Super Lecz. (Super Leczenie)
+PSIShield - TarczaPSI
+PowerShield - Tarcza Mocy
+BrainShock - Szok Mózgu
+BrainCyclon - CyklonMózgu
+Hypnosis - Hipnoza
+Paralysis - Parali¿
+Darkness - Oœlepienie
+PSI-Magnet - Wysysacz PP
+Shield-Off - Wy³. Tarczy (Wy³¹czenie Tarczy)
+PSI-Block - Wy³¹czenie
+OffenseUp - Atak Wzwy¿
+DefenseUp - MegaObrona
+QuickUp - Popêdzenie
+Def.Down - Ni¿szaObr.
+4th-D Slip - Poœlizg
+PK Freeze - PK Mróz
+PK Fire - PK Ogieñ
+PK Beam - PK Wi¹zka
+PK Thunder - PK Piorun
+
+Nazwy dolegliwoœci:
+
+Faintd - Martwy
+Stone - Kamieñ
+Parlzd - Paral¿ (Parali¿)
+Asleep - Uspany
+Confsd - Szalon (Szalony)
+Puzzld - Zdziwi (Zdziwienie)
+Poison - Otruty
+Cold - Gor¹cz (Gor¹czka)
+
+Nazwy przeciwników:
+
+BigWoodoh - Wielki D¹b
+Dragon - Smok
+R7038 - R7038
+Elephant - S³oñ
+Bear - NiedŸwiedŸ
+Big Foot - WielkaStopa
+Mad Truck - Szalony Tir
+Old Robot - Stary Robot
+Megaborg - Megaborg
+Gargoyle - Gargulec
+Gabilan - Gabilan
+Gorilla - Goryl
+Bison - Bizon
+Tiger - Tygrys
+Mad Car - SzaloneAuto
+Raeb Yddet - Œimywozsulp
+Magic Snail - ŒlimakMagii
+Titanees - Tytania
+Giegue - Giygas
+Eagle - Orze³
+Wolf - Wilk
+Seagull - Mewa
+Alligator - Aligator
+EnergyRobot - Atomobot
+The Fish - Ryba Onyksu
+Fugitive - Uciekinier
+B.B.'s Boss - Szef Gangu
+Barbot - Prêtobot
+Nancy - Nancy
+Starman - Starman
+Ullrich - Ullzasobny
+Cerebrum - Mózgonogi
+Mook - Mook
+Armor - Zbroja
+Woodoh - D¹b
+Wally - Wally
+The Hippie - Hipis
+Bag Lady - DamaZTorb¹
+B.B. Gang - Cz³onek BB
+Dr.Distorto - Dr.Distorto
+Gang Zombie - Zombister
+PseudoZombi - PseudoZombi
+Crow - Kruk
+Snake - W¹¿
+Hyena - Hiena
+Cougar - Puma
+Centipede - Skolopendra
+Dust Ball - Kurzoduch
+Fly - Mucha
+Spider - Paj¹k
+Scorpion - Skorpion
+Rope - Lina
+Fire Ball - Kula Ognia
+Watcher - Obserwator
+Groucho - Podgl¹dacz
+Ghost - Duch
+Lil Saucer - Ma³y Spodek
+Mr. Bat - Nietoperzyk (Pan Nietoperzyk)
+Starman Jr. - Starman Jr.
+Skunk - Skunks
+Shroudley - KrwawyZombi
+Rat - Szczur
+Bomber - Bomber
+Doll - Lalka
+Lamp - Lampa
+BionicCenti - Biolopendra
+BionicScorp - Bioskorpion
+Red Snake - CzerwonyW¹¿
+Lone Wolf - SamotnyWilk
+Polar Bear - Miœ Polarny
+Rattlesnake - Grzechotnik
+Tarantula - Tarantula
+Crocodile - Krokodyl
+Buffalo - Bawó³
+Bionic Bat - Biotoperz
+Stray Dog - SamotnyPies
+Psycho Car - Psycho Auto
+PsychoTruck - Psycho Tir
+ManiacTruck - Tir Œmierci
+Alarm Ghost - Duch Alarmu
+Foureyes - Cztero-oki
+Dadseyes - Tato-oki
+Momseyes - Mamo-oki
+Sky Yddet - Lataj¹cyœim
+Giga Borg - Giga Borg
+Omega Borg - Omega Borg
+Scrapper - Szmelcobot
+UltraBarbot - Œmierciobot
+OmegaSaucer - OmegaSpodek
+Kelly - Kelly
+Star Miner - Gwiazdober
+SuperEnergy - J¹drobot
+Juana - Juana
+BlueStarman - MegaStarman
+Rockoyle - Ska³ogulec
+Titanian - Tytan
+Oh-Mook - Senior Mook
+Zombie - Zombie
+NastyZombie - GroŸnyZombi
+Silver Wolf - SrebrnyWilk
+R7037 - R7037
+GrizzlyBear - Grizzly
+R7038XX - R7038XX
+LastStarman - GigaStarman
+________________________________________________________________
+
+5. Ma³y sekret
+
+Pozwoli³em sobie umieœciæ sekretn¹ informacjê w grze. Jeœli chcesz siê do niej dostaæ musisz w³¹czyæ zabezpieczenia antypirackie, gdy¿ wspomnia³a wczeœniej wiadomoœæ pojawia siê w ich miejsce. W tym celu pomocny bêdzie ten link: https://datacrystal.romhacking.net/wiki/EarthBound_Zero:Anti-Piracy
+Mi³ej zabawy!
+________________________________________________________________
+
+6. Autorzy
+
+T³umaczenie oraz testowanie polonizacji:
+
+- Voxar
+
+U¿yte Programy:
+
+- WindHex32 (edycja tekstu)
+- CrystalTile2 (edycja tekstu)
+- TileMolester (edycja grafik)

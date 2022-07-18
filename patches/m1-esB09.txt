@@ -1,0 +1,37 @@
+Parche de traducción al castellano para el juego "Earthbound" de Nes
+
+¿Esto qué es?
+
+Esto es un sencillo parche para parchear el mencionado juego de Nes y traducir en la medida de los posible los textos/gráficos al castellano a la par que eliminar parte de la censura sufrida a manos de los sibilinos de Nintendo América.
+
+¿Qué está traducido?
+
+Está traducido mayormente todo el texto y gráficos del juego.
+
+¿Qué NO está traducido?
+
+Algunos gráficos.
+
+Bugs y estadísticas
+
+En la consecución de este proyecto se han invertido muchas horas, incluído el testeo.
+
+¿Para qué versiones vale este parche y quién lo puede usar?
+
+Este parche solo se puede aplicar con éxito a la rom "Earthbound Zero by Demiforce v1.01-2 (Hack)" ROM CRC32    42EC339A
+
+¿Qué me hace falta para instalarlo?
+
+La rom en cuestión, este parche y un parcheador ips.
+
+¿Cómo aplico la traducción?
+
+Usa un parcheador IPS, por ejemplo Lunar Ips para aplicar el parche a la rom, luego, si vas a usar el emulador recomendado, pon el archivo Project64.rdb en la raiz del emulador, sustituyendo el archivo antiguo, este archivo ya está modificado para que el emulador detecte este juego y la anterior traducción, Duke Nukem Forever.
+
+Notas: 
+
+Se ha testeado el juego a FUEGO en hardware real via everdrive y un poco en el emulador Project64 1.7.0.49.
+
+Gracias por usar esta traducción.
+
+Jackic 2019.
