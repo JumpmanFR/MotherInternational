@@ -1,0 +1,21 @@
+Patch di traduzione di Mother 1+2 per Gameboy Advance by SilverM
+
+1. Perché la patch
+2. Come applicare la patch
+3. Changelog
+4. Ringraziamenti
+
+1. Perché la patch
+L'idea mi è venuta perchè è, ovviamente, un gioco stupendo, e anche perchè non esiste nemmeno uno dei tre giochi della serie in italiano, e per un gioco Nintendo, è inaccettabile. I tool ci sono, creati e resi disponibili dai creatori della patch inglese, Tomato e Jeffman.
+
+2. Come applicare la patch
+Per applicare la patch bisogna usare il programma Lunar IPS: una volta installato basterà fare doppio-click sul file "Mother 1+2 Ita v1.0" e selezionare la rom giapponese del gioco.
+Se si utilizza l'emulatore Visualboy Advance, basterà rinominare la rom e la patch con lo stesso nome e lasciarli nella stessa cartella.
+
+3. Changelog
+v 1.0 Traduzione completa: menù, nomi, oggetti, descrizioni e dialoghi.
+
+4. Ringraziamenti
+Tomato (Hacking e traduttore inglese del gioco)
+Jeffman (Assistente all'hacking del gioco in inglese e creatore del programma MOTHER1Funland)
+byuu (creatore del xkas cross assembler)
