@@ -26,16 +26,16 @@ self.onmessage = event => { // listen for messages from the main thread
 		patch=parseIPSFile(patchFile);
 	}else if(header.startsWith(UPS_MAGIC)){
 		patch=parseUPSFile(patchFile);
-	}else if(header.startsWith(APS_MAGIC)){
-		patch=parseAPSFile(patchFile);
+	/*}else if(header.startsWith(APS_MAGIC)){
+		patch=parseAPSFile(patchFile);*/
 	}else if(header.startsWith(BPS_MAGIC)){
 		patch=parseBPSFile(patchFile);
-	}else if(header.startsWith(RUP_MAGIC)){
+	/*}else if(header.startsWith(RUP_MAGIC)){
 		patch=parseRUPFile(patchFile);
 	}else if(header.startsWith(PPF_MAGIC)){
 		patch=parsePPFFile(patchFile);
 	}else if(header.startsWith(PMSR_MAGIC)){
-		patch=parseMODFile(patchFile);
+		patch=parseMODFile(patchFile);*/
 	}else if(header.startsWith(VCDIFF_MAGIC)){
 		patch=parseVCDIFF(patchFile);
 	}else{

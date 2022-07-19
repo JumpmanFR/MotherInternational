@@ -14,23 +14,27 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM reconnue',
 		
+		'txtShowAllVersions':		'Afficher toutes les versions',
+		
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
 		'txtVisitSite':				'Consultez le site de %',
 		'txtReadDoc':				'Lisez la documentation',
 		'txtNbUses':				'% utilisations pour ce patch.',
 
-		'txtErrNoRom':				'Aucune ROM spécifiée',
-		'txtErrNoRomInfo':			'Cette ROM n’a pas été analysée',
-		'txtErrAlreadyPatched':		'Cette ROM est déjà patchée',
-		'txtErrUnknownRom':			'ROM non reconnue',
-		'txtErrNoRomInZip':			'Aucune ROM trouvée dans l’archive',
-		'txtErrOutput':				'ROM générée invalide',
-		'txtErrPatching':			'Erreur d’application du patch',
-		'txtErrDownloading':		'Erreur de téléchargement du patch',
-		'txtErrUnzipping':			'Erreur de décompression',
-		'txtErrInvalidPatch':		'Fichier de patch incorrect',
-		'txtWarnTooBig':			'Fichiers trop volumineux'
+		'error_no_rom':				'Aucune ROM spécifiée',
+		'error_no_rom_info':		'Cette ROM n’a pas été analysée',
+		'error_already_patched':	'Cette ROM est déjà patchée',
+		'error_unknown_rom':		'ROM non reconnue',
+		'error_no_rom_in_zip':		'Aucune ROM trouvée dans l’archive',
+		'error_crc_output':			'ROM générée invalide',
+		'error_crc_input':			'Erreur d’application du patch',
+		'error_patching':			'Erreur d’application du patch',
+		'error_downloading':		'Erreur de téléchargement du patch',
+		'error_unzipping':			'Erreur de décompression',
+		'error_invalid_patch':		'Fichier de patch non reconnu',
+		'error_crc_patch':			'Fichier de patch incorrect',
+		'warning_too_big':			'Fichiers trop volumineux'
 	},
 	'en':{
 		'txtBrowse':				'Browse…',
@@ -47,22 +51,26 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM identified',
 
+		'txtShowAllVersions':		'Show all versions',
+
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
 		'txtVisitSite':				'Visit %’s website',
 		'txtReadDoc':				'Read doc',
 		'txtNbUses':				'% uses for this patch.',
 
-		'txtErrNoRom':				'No ROM specified',
-		'txtErrNoRomInfo':			'This ROM hasn’t been analyzed',
-		'txtErrAlreadyPatched':		'This ROM has already been patched',
-		'txtErrUnknownRom':			'Unknown ROM',
-		'txtErrNoRomInZip':			'No ROM has been found in this zip file',
-		'txtErrOutput':				'Wrong output ROM',
-		'txtErrPatching':			'Patching error',
-		'txtErrDownloading':		'Downloading error',
-		'txtErrUnzipping':			'Unzipping error',
-		'txtErrInvalidPatch':		'Wrong patch file',
-		'txtWarnTooBig':			'Too big files'
+		'error_no_rom':				'No ROM specified',
+		'error_no_rom_info':		'This ROM hasn’t been analyzed',
+		'error_already_patched':	'This ROM has already been patched',
+		'error_unknown_rom':		'Unknown ROM',
+		'error_no_rom_in_zip':		'No ROM has been found in this zip file',
+		'error_crc_output':			'Wrong output ROM',
+		'error_crc_input':			'Patching error',
+		'error_patching':			'Patching error',
+		'error_downloading':		'Downloading error',
+		'error_unzipping':			'Unzipping error',
+		'error_invalid_patch':		'Unidentified patch file',
+		'error_crc_patch':			'Wrong patch file',
+		'warning_too_big':			'Too big files'
 	}
 };

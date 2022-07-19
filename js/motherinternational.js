@@ -1,5 +1,7 @@
 /* Mother International, based on Rom Patcher JS - Marc Robledo 2017-2018, JumpmanFR 2021-2022 */
 
+const DEFAULT_LANGUAGE = "en";
+
 const PATCH_FOLDER_PATH = "patches/";
 
 const MSG_TYPE_OK = 0;
@@ -8,7 +10,7 @@ const MSG_TYPE_WARNING = 2;
 const MSG_TYPE_ERROR = 3;
 
 const ROMS_IN_ZIP = /\.(gba|agb|bin)$/i
-const PATCHES_IN_ZIP = /\.(ups|ips|bps)$/i
+const PATCHES_IN_ZIP = /\.(ups|bps|ips|xdelta|vcdiff)$/i
 
 const MSG_CLASS_DEFAULT = "message";
 var MSG_CLASS = [];
@@ -23,6 +25,7 @@ const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_LABEL = "rom-label";
 const ELT_MSG = "msg";
 const ELT_PATCH_SELECT = "patch-select";
+const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_WEBSITE = "info-website";
 const ELT_INFO_DOC = "info-doc";
 const ELT_INFO_NB_USES = "info-nb-uses";
@@ -47,14 +50,15 @@ function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
 
 addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(window, 'load', onLoad);
-	addEvent(el(ELT_APPLY), 'click',  function(){ processPatchingTasks(gInputRom, gInputRomId)})
-	addEvent(el(ELT_DROP), 'dragenter',function(e){onDrag(true, e)})
-	addEvent(el(ELT_DROP), 'dragover',function(e){onDrag(true, e)})
-	addEvent(el(ELT_DROP), 'dragleave',function(e){onDrag(false, e)})
-	addEvent(el(ELT_DROP), 'drop',function(e){onDrag(false, e);})
+	addEvent(el(ELT_DROP), 'dragenter',function(e){onDrag(true, e)});
+	addEvent(el(ELT_DROP), 'dragover',function(e){onDrag(true, e)});
+	addEvent(el(ELT_DROP), 'dragleave',function(e){onDrag(false, e)});
+	addEvent(el(ELT_DROP), 'drop',function(e){onDrag(false, e);});
 	addEvent(el(ELT_ROM_FILE), 'change', function(){onInputFile(this);});
  	addEvent(el(ELT_DROP), 'drop', function(e) {if (!this.classList.contains("disabled")) { onInputFile(e.dataTransfer);}});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
+ 	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
+	addEvent(el(ELT_APPLY), 'click',  function(){ processPatchingTasks(gInputRom, gInputRomId)});
 })
 
 gWorkerChecksum = new Worker('./js/worker_crc.js');
@@ -63,9 +67,8 @@ gWorkerApply = new Worker('./js/worker_apply.js');
 function onLoad() {
 	zip.useWebWorkers=true;
 	zip.workerScriptsPath='./js/zip.js/';
-	setLanguage("en");
-	gIsBusy = false;
-	updateUIState();
+	setLanguage(navigator.language.substr(0,2));
+	setUIBusy(false);
 }
 
 
@@ -100,7 +103,11 @@ function onSelectPatch(value) {
 //==========================================
 
 function setLanguage(langCode){
-	gUserLanguage=LOCALIZATION[langCode];
+	if (LOCALIZATION[langCode]) {
+		gUserLanguage=LOCALIZATION[langCode];
+	} else {
+		gUserLanguage=LOCALIZATION[DEFAULT_LANGUAGE];
+	}
 
 	var translatableElements=document.querySelectorAll('*[data-localize]');
 	for(var i=0; i<translatableElements.length; i++){
@@ -110,6 +117,11 @@ function setLanguage(langCode){
 			translatableElements[i].innerHTML = _(translatableElements[i].dataset.localize);
 		}
 	}
+}
+
+function setUIBusy(value) {
+	gIsBusy = value;
+	updateUIState();
 }
 
 // Enables fields and buttons depending on busy status, specified fields and errors
@@ -156,14 +168,48 @@ function romDesc(id) {
 	if (ROM_LIST[id].version) {
 		res +=  " " + _("txtDescVersion") +ROM_LIST[id].version;
 	}
-	res +=" " + _("txtDescBy") + " " + ROM_LIST[id].author;
+	if (ROM_LIST[id].author) {
+		res +=" " + _("txtDescBy") + " " + ROM_LIST[id].author;
+	}
 	return res;
+}
+
+function updatePatchSelect() {
+	var id = gInputRomId;
+	var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
+	clearPatchSelect();
+	if (id) {
+		for (var j in ROM_LIST) {
+			if (id != j
+				&& ((!ROM_LIST[id].cantReverse && !!ROM_LIST[id].basedOn && ROM_LIST[id].basedOn == ROM_LIST[j].basedOn)	
+					|| (!ROM_LIST[id].cantReverse && !ROM_LIST[j].basedOn && j == ROM_LIST[id].basedOn)
+					|| (!ROM_LIST[id].basedOn && id == ROM_LIST[j].basedOn))
+				&& (showAllVersions
+					|| (!ROM_LIST[j].oldVersionOf && !ROM_LIST[j].isAltBaseRom))) {
+				var opt = document.createElement("option");
+				opt.value = j;
+				opt.text = romDesc(j);
+				el(ELT_PATCH_SELECT).add(opt);
+			}
+		}
+		updatePatchInfo();
+	}
+}
+
+function clearPatchSelect() {
+    while (el(ELT_PATCH_SELECT).options.length > 0) {
+        el(ELT_PATCH_SELECT).remove(0);
+    }
+    updatePatchInfo();
 }
 
 function updatePatchInfo() {
 	var id = patchSelectVal();
 	if (id && ROM_LIST[id].website) {
-		el(ELT_INFO_WEBSITE).innerHTML = '<a href="' + ROM_LIST[id].website + '" target="_blank">' + _('txtVisitSite').replace("%", ROM_LIST[id].author) + ' (' + ROM_LIST[id].website + ')</a>'
+		var websiteStr = '<a href="' + ROM_LIST[id].website + '" target="_blank">';
+		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author) 
+		websiteStr += ' (' + ROM_LIST[id].website + ')</a>'
+		el(ELT_INFO_WEBSITE).innerHTML = websiteStr;
 	} else {
 	    el(ELT_INFO_WEBSITE).innerHTML = '';
 	}
@@ -180,21 +226,13 @@ function updatePatchInfo() {
 	}
 }
 
-function clearPatchSelect() {
-    while (el(ELT_PATCH_SELECT).options.length > 0) {
-        el(ELT_PATCH_SELECT).remove(0);
-    }
-    updatePatchInfo();
-}
-
 function reset() {
 	gInputRom = null;
 	gInputRomId = null;
 	gPatchFiles = [];
-	gIsBusy = false;
 	setMessage(_('txtSpecifyRom'));
 	clearPatchSelect();
-	updateUIState();
+	setUIBusy(false);
 }
 
 
@@ -203,8 +241,7 @@ function reset() {
 //==========================================
 
 function parseInputRom() {
-	gIsBusy = true;
-	updateUIState();
+	setUIBusy(true);
     clearPatchSelect();
 
 	gWorkerChecksum.onmessage = event => {
@@ -223,11 +260,11 @@ function parseInputRom() {
 					gInputRom = unzippedFile;
 					gWorkerChecksum.postMessage({u8array:unzippedFile._u8array, startOffset:0}, [unzippedFile._u8array.buffer]);
 				} else {
-					setMessage(_('txtErrNoRomInZip'), MSG_TYPE_ERROR) // TODO errors
+					setMessage(_('error_no_rom_in_zip'), MSG_TYPE_ERROR) // TODO errors
 				}
         	})
         	.catch(function() {
-				setMessage(_('txtErrUnzipping'), MSG_TYPE_ERROR) // TODO errors
+				setMessage(_('error_unzipping'), MSG_TYPE_ERROR) // TODO errors
         	});
 	} else {
 
@@ -241,49 +278,34 @@ function onParsedInputRom(data) {
     gInputRom._dataView = new DataView(event.data.u8array.buffer);
     
     gInputRomId = null;
-    clearPatchSelect();
 
     var romCrc = data.crc32;
     for (var i in ROM_LIST) {
         if (ROM_LIST[i].crc == romCrc) {
             gInputRomId = i;
             setMessage(romDesc(i));
-            for (var j in ROM_LIST) {
-                if (i != j &&
-                		((!!ROM_LIST[i].baseRom && ROM_LIST[i].baseRom == ROM_LIST[j].baseRom)	
-                    	|| (!ROM_LIST[i].baseRom && i == ROM_LIST[j].baseRom)
-                    	|| (!ROM_LIST[j].baseRom && ROM_LIST[i].baseRom == j))
-                    && (!ROM_LIST[j].isOldVersionOf)
-                    && !ROM_LIST[j].isAltBaseRom) {
-                    var opt = document.createElement("option");
-                    opt.value = j;
-                    opt.text = romDesc(j);
-                    el(ELT_PATCH_SELECT).add(opt);
-                }
-            }
             break;
         }
     }
-    
-    gIsBusy = false;
-    updateUIState();
-    updatePatchInfo();
 
+	updatePatchSelect();
+	setUIBusy(false);
+    
     if (!gInputRomId) {
-        setMessage(_("txtErrUnknownRom"), MSG_TYPE_ERROR) // TODO errors
+        setMessage(_("error_unknown_rom"), MSG_TYPE_ERROR) // TODO errors
     }
+
 }
 
 // May be recursive; sees what the current input ROM is, what the patch selector is, and decides what to do from that
 function processPatchingTasks(rom, romId) {
-	gIsBusy = true;
-    updateUIState();
+	setUIBusy(true);
 	if (!rom) {
-		setMessage(_("txtErrNoRom"), MSG_TYPE_ERROR); // TODO errors
+		setMessage(_("error_no_rom"), MSG_TYPE_ERROR); // TODO errors
 		return;
 	}
 	if (!romId) {
-		setMessage(_("txtErrNoRomInfo"), MSG_TYPE_ERROR); // TODO errors
+		setMessage(_("error_no_rom_info"), MSG_TYPE_ERROR); // TODO errors
 		return;
 	}
 	
@@ -293,10 +315,10 @@ function processPatchingTasks(rom, romId) {
 		
 	} else {
 		var patchId,nextRomIdAfterPatch;
-		// If a baserom is specified, then our input is not the baserom
-		if (!!(ROM_LIST[romId].baseRom)) {
+		// If a basedOn is specified, then our input is not the basedOn
+		if (!!(ROM_LIST[romId].basedOn) && !(ROM_LIST[romId].cantReverse)) {
 			patchId = romId;
-			nextRomIdAfterPatch = ROM_LIST[romId].baseRom;
+			nextRomIdAfterPatch = ROM_LIST[romId].basedOn;
 		} else {
 			patchId = patchSelectVal();
 			nextRomIdAfterPatch = patchId;
@@ -310,8 +332,12 @@ function processPatchingTasks(rom, romId) {
 			.then(function(outputRom) {
 				processPatchingTasks(outputRom, nextRomIdAfterPatch);
 			})
-			.catch(function(e) {
-				endProcessWithError(_("txtErrPatching")); // TODO errors
+			.catch(function(errorMsg) {
+				if (errorMsg) { // TODO errors
+					endProcessWithError(_(errorMsg));
+				} else {
+					endProcessWithError(_("error_patching"));
+				}
 			});
 	}
 }
@@ -337,8 +363,10 @@ function downloadPatch(patchFileName, rom) {
 						.catch(failureCallback); // TODO errors
 				})
 				.catch(function(e){
-					setMessage(_('txtErrDownloading'), MSG_TYPE_ERROR); // TODO errors
-					failureCallback();
+					if (!e) { // TODO errors
+						e = 'error_downloading';
+					}
+					failureCallback(e);
 				});
 	});
 }
@@ -353,8 +381,22 @@ function onDownloadedPatch(patchFile, rom) {
 			} else {
 				successCallback(patchFile);
 			}
+		} else if (header.startsWith(BPS_MAGIC)) {
+			var patch = parseBPSFile(patchFile);
+			if (patch.validateSource && !patch.validateSource(rom)) {
+				failureCallback(); // TODO errors
+			} else {
+				successCallback(patchFile);
+			}
 		} else if (header.startsWith(IPS_MAGIC)) {
 			var patch = parseIPSFile(patchFile);
+			if (patch.validateSource && !patch.validateSource(rom)) {
+				failureCallback(); // TODO errors
+			} else {
+				successCallback(patchFile);
+			}
+		} else if (header.startsWith(VCDIFF_MAGIC)) {
+			var patch = parseVCDIFF(patchFile);
 			if (patch.validateSource && !patch.validateSource(rom)) {
 				failureCallback(); // TODO errors
 			} else {
@@ -368,11 +410,11 @@ function onDownloadedPatch(patchFile, rom) {
 						.catch(failureCallback); // TODO errors
 				})
 				.catch(err => {
-					setMessage(_('txtErrDownloading'), MSG_TYPE_ERROR); // TODO errors
+					setMessage(_('error_downloading'), MSG_TYPE_ERROR); // TODO errors
 					failureCallback();
 				});
 		} else {
-			setMessage(_('txtErrInvalidPatch'), MSG_TYPE_ERROR); // TODO errors
+			setMessage(_('error_invalid_patch'), MSG_TYPE_ERROR); // TODO errors
 			failureCallback();
 		}
 	});
@@ -385,11 +427,15 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 		setMessage(_("txtApplyingPatch"), MSG_TYPE_LOADING);
 		//console.log("txtApplyingPatch");
 		gWorkerApply.onmessage = event => {
-			var patchedRom = new MarcFile(event.data.patchedRomU8Array.buffer);
-			if (crc32(patchedRom) == expectedChecksum) {
-				successCallback(patchedRom);
+			if (event.data.errorMessage) {
+				failureCallback(event.data.errorMessage); // TODO errors
 			} else {
-				failureCallback(); // TODO errors
+				var patchedRom = new MarcFile(event.data.patchedRomU8Array.buffer);
+				if (crc32(patchedRom) == expectedChecksum) {
+					successCallback(patchedRom);
+				} else {
+					failureCallback(); // TODO errors
+				}
 			}
 		}
 		gWorkerApply.onerror = event => {
@@ -411,14 +457,12 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 
 function endProcessWithError(errorMsg) {
 	setMessage(errorMsg, MSG_TYPE_ERROR);
-	gIsBusy = false;
-	updateUIState();
+	setUIBusy(false);
 }
 
 function deliverFinalRom(finalRomFile) {
 	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ' (patched_' + patchSelectVal() + ').$1');
 	finalRomFile.save();
 	setMessage('');
-	gIsBusy = false;
-	updateUIState();
+	setUIBusy(false);
 }
