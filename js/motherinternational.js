@@ -205,7 +205,7 @@ function updatePatchSelect() {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
 				} else if ((ROM_LIST[inputId].oldVersionOf || false) == (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if ((ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || "").includes("-" + langCode())) {
+				} else if ((ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || cur).includes("-" + langCode())) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (!ROM_LIST[cur].basedOn) {
 					defaultSelectionCandidates.baseRom = cur; // a base, unpatched ROM
@@ -455,6 +455,10 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 		setMessage(_("txtApplyingPatch"), MSG_TYPE_LOADING);
 		//console.log("txtApplyingPatch");
 		gWorkerApply.onmessage = event => {
+			romFile._u8array = event.data.romFileU8Array;
+			romFile._dataView = new DataView(romFile._u8array.buffer);
+			patchFile._u8array = event.data.patchFileU8Array;
+			patchFile._dataView = new DataView(patchFile._u8array.buffer);
 			if (event.data.errorMessage) {
 				failureCallback(event.data.errorMessage); // TODO errors
 			} else {
