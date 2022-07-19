@@ -42,6 +42,7 @@ var gWorkerChecksum, gWorkerApply;
 function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
 function el(e){return document.getElementById(e)}
 function _(str){return gUserLanguage[str] || str}
+function langCode(){return navigator.language.substr(0,2)}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
 
 //==========================================
@@ -67,7 +68,7 @@ gWorkerApply = new Worker('./js/worker_apply.js');
 function onLoad() {
 	zip.useWebWorkers=true;
 	zip.workerScriptsPath='./js/zip.js/';
-	setLanguage(navigator.language.substr(0,2));
+	setLanguage(langCode());
 	setUIBusy(false);
 }
 
@@ -174,24 +175,51 @@ function romDesc(id) {
 	return res;
 }
 
+// Builds the content in the scroll list and selects a default item – sorry the code isn’t exceptionally well-written here
 function updatePatchSelect() {
-	var id = gInputRomId;
-	var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
+	var inputId = gInputRomId;
+	
+	var oldValue = patchSelectVal();
+	var defaultSelectionCandidates = {};
+
 	clearPatchSelect();
-	if (id) {
-		for (var j in ROM_LIST) {
-			if (id != j
-				&& ((!ROM_LIST[id].cantReverse && !!ROM_LIST[id].basedOn && ROM_LIST[id].basedOn == ROM_LIST[j].basedOn)	
-					|| (!ROM_LIST[id].cantReverse && !ROM_LIST[j].basedOn && j == ROM_LIST[id].basedOn)
-					|| (!ROM_LIST[id].basedOn && id == ROM_LIST[j].basedOn))
+	if (inputId) {
+		var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
+		for (var cur in ROM_LIST) { // let’s determine which entries can appear in the scroll list…
+			if (inputId != cur
+				&& ((!ROM_LIST[inputId].cantReverse && !!ROM_LIST[inputId].basedOn && ROM_LIST[inputId].basedOn == ROM_LIST[cur].basedOn)	
+					|| (!ROM_LIST[inputId].cantReverse && !ROM_LIST[cur].basedOn && cur == ROM_LIST[inputId].basedOn)
+					|| (!ROM_LIST[inputId].basedOn && inputId == ROM_LIST[cur].basedOn))
 				&& (showAllVersions
-					|| (!ROM_LIST[j].oldVersionOf && !ROM_LIST[j].isAltBaseRom))) {
+					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].isAltBaseRom))) {
 				var opt = document.createElement("option");
-				opt.value = j;
-				opt.text = romDesc(j);
+				opt.value = cur;
+				opt.text = romDesc(cur);
 				el(ELT_PATCH_SELECT).add(opt);
+				
+				// Default selection
+				if (oldValue && oldValue == cur) {
+					defaultSelectionCandidates.oldValue = cur; // the value that was selected before
+				} else if (oldValue 
+				&& (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || false) == (ROM_LIST[oldValue].lastVersionOf || ROM_LIST[oldValue].oldVersionOf)) {
+					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
+				} else if ((ROM_LIST[inputId].oldVersionOf || false) == (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf)) {
+					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
+				} else if ((ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || "").includes("-" + langCode())) {
+					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
+				} else if (!ROM_LIST[cur].basedOn) {
+					defaultSelectionCandidates.baseRom = cur; // a base, unpatched ROM
+				}
+				
 			}
 		}
+		
+		// Default selection, in this priority order
+		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.baseRom;
+		if (defaultSelection) {
+			el(ELT_PATCH_SELECT).value = defaultSelection;
+		}
+		
 		updatePatchInfo();
 	}
 }
@@ -461,7 +489,7 @@ function endProcessWithError(errorMsg) {
 }
 
 function deliverFinalRom(finalRomFile) {
-	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ' (patched_' + patchSelectVal() + ').$1');
+	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ' (patched-' + patchSelectVal() + ').$1');
 	finalRomFile.save();
 	setMessage('');
 	setUIBusy(false);
