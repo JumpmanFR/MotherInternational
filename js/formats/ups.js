@@ -63,11 +63,18 @@ UPS.prototype.apply=function(romFile, validate){
 
 	var reverseMode = crc32(romFile) === this.checksumOutput; // added for Mother International !
 
+	var sizeOutput, sizeInput;
+	if (!reverseMode) { // added for Mother International !
+		sizeOutput = this.sizeOutput;
+		sizeInput = this.sizeInput;
+	} else {
+		sizeOutput = this.sizeInput;
+		sizeInput = this.sizeOutput;
+	}
+	
 	/* fix the glitch that cut the end of the file if it's larger than the changed file patch was originally created with */
 	/* more info: https://github.com/marcrobledo/RomPatcher.js/pull/40#issuecomment-1069087423 */
-	sizeOutput = this.sizeOutput;
-	sizeInput = this.sizeInput;
-	if(!validate && sizeInput < romFile.fileSize){
+	if (!validate && sizeInput < romFile.fileSize){
 		sizeInput = romFile.fileSize;
 		if(sizeOutput < sizeInput){
 			sizeOutput = sizeInput;
