@@ -1,0 +1,69 @@
+
+____   ____                           
+\   \ /   /____   ____   ____ _____   
+ \   Y   // __ \_/ ___\ /    \\__  \  
+  \     /\  ___/\  \___|   |  \/ __ \_
+   \___/  \___  >\___  >___|  (____  /
+              \/     \/     \/     \/
+                         _       _ 
+ ___ ___ ___ ___ ___ ___| |_ ___|_|
+| . |  _| -_|_ -| -_|   |  _| .'|_ 
+|  _|_| |___|___|___|_|_|_| |__,|_|
+|_|                                
+
+-------------------------------------------------------------------------------
+  EARTHBOUND (USA) PATCH IN ITALIANO VERSIONE 1.46
+-------------------------------------------[2015]------------------------------
+
+-IMPORTANTE!!!
+Il CRC32 della ROM da patchare è: DC9BB451
+Rinominate la ROM originale: "EarthBound.sfc"
+
+Novità:
+
+Versione 1.46
+  +Sistemati altri refusi.
+
+Versione 1.45
+  +Aggiornato il compilatore CoilSnake alla versione 2.3.1 (Mr.Tenda).
+  +Risolti i glitch grafici delle piantine delle città (Mr.Tenda).
+  +Ripristinata la scritta "Fine...?".
+  +Ripristinati i nomi dei personaggi alla fine.
+  +Nuovo patcher autoinstallante.
+  +Inserito il simbolo delle note nelle canzoni dei Runaway Five.
+  +Migliorata l'impaginazione di un centinaio di frasi.
+  +Riscritto il poema Haiku di Everdred.
+  +Migliorata la leggibilità dei dialoghi dei Mr. Saturn.
+  +Sistemati altri refusi.
+
+Modifiche ai nomi (solita questione dell'inventario):
+
+Moneta del silenzio -> Quadrifoglio
+Moneta "Souvenir" -> Moneta Souvenir
+Bracciale misero -> Bracciale di latta
+Fascia "Cherubino" -> Fascia Cherubino
+Mazza scadente -> Mazza di legno
+Mazza del coraggio -> Mazza d'oro
+Mazza "Incredibile" -> Mazza di platino
+
+Versione 1.3:
+    +Bugfixes.
+
+Versione 1.2:
+    +Finalmente è stato fatto il graphic hacking della scritta HP in PV grazie al francese Akira76.
+    +Corretti alcuni refusi di Onett e Twoson grazie al gameplay di ShinRaNewlyEmployed.
+     -L'autore non garantisce la piena compatibilità con i savestate/salvataggi precedenti.
+
+Versione 1.1:
+    +Aggiustato il bug dell'inventario cambiando i nomi di alcuni oggetti.
+    +Modifiche ai nomi:
+          Bracciale scadente -> Bracciale misero
+          Mazza suprema -> Mazza perfetta (per non confonderla con l'oggetto Mazza "suprema")
+          Elmetto da Baseball -> Elmo da Baseball
+          Chiave della baracca -> Chiave "baracca"
+          Pillola "Grinta" -> Pillola "Forza"
+          Pass per il backstage -> Pass del backstage
+          Oggetto insignificante -> Oggetto inutile
+
+Versione 1.0:
+    +Prima versione della Patch.

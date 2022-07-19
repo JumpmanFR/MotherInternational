@@ -1,0 +1,59 @@
+
+____   ____                           
+\   \ /   /____   ____   ____ _____   
+ \   Y   // __ \_/ ___\ /    \\__  \  
+  \     /\  ___/\  \___|   |  \/ __ \_
+   \___/  \___  >\___  >___|  (____  /
+              \/     \/     \/     \/                            
+                         _       _ 
+ ___ ___ ___ ___ ___ ___| |_ ___|_|
+| . |  _| -_|_ -| -_|   |  _| .'|_ 
+|  _|_| |___|___|___|_|_|_| |__,|_|
+|_|                                
+
+----------------------------------------------------
+  EARTHBOUND (USA) PATCH IN ITALIANO VERSIONE 1.2
+-------------------------------------------[2015]---
+
+Come si applica la patch:
+
+Attenzione: prima di applicare la patch meglio fare un backup della ROM.
+
+- Creare una cartella con dentro la ROM del gioco (il CRC è DC9BB451) e
+  il programma DeltaPatcherLite.exe presente in quest'archivio.
+- Avviare DeltaPatcherLite e selezionare nel primo box la ROM del
+  gioco e nel secondo box selezionare il file EarthBound10.xdelta,
+  poi premere il tasto "Apply Patch" e il gioco è fatto!
+
+- Crediti della versione in italiano:
+  Sono presenti all'inizio del gioco ;)
+
+- Ringraziamenti:
+  Phoenix per la creazione dell'ottimo Delta Patcher 2.0.
+  ShinRaNewlyEmployed per l'ottimo gamplay che mi sta permettendo di
+  corregere tutti i refusi del gioco.
+  Akira76 per l'hacking della scritta HP/PV.
+  
+  
+
+Novità:
+* Versione 1.2
+  o Finalmente è stato fatto il graphic hacking della scritta HP in PV
+    grazie al francese Akira76
+  o Corretti alcuni refusi di Onett e Twson grazie al gameplay di
+    ShinRaNewlyEmployed
+
+
+* Versione 1.1
+  o Aggiustato il bug dell'inventario cambiando i nomi di alcuni oggetti.
+Ecco le modifiche ai nomi:
+
+Bracciale scadente -> Bracciale misero
+Mazza suprema -> Mazza perfetta
+Elmetto da Baseball -> Elmo da Baseball
+Chiave della baracca -> Chiave <baracca>
+Pillola <Grinta> -> Pillola <Forza>
+Pass per il backstage -> Pass del backstage
+Oggetto insignificante -> Oggetto inutile
+
+* Versione 1.0 - Prima versione

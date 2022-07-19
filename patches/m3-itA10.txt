@@ -1,0 +1,12 @@
+Qui in allegato vi è il patcher UPS e la patch, per patchare la ROM del gioco in giapponese, che
+dovresti procurarti legalmente, avvia NUPS e premi "Apply an UPS patch to a file", seleziona
+come file originale il file .gba e come file da applicare "Mother3ITA1.0.ups".
+
+Se non puoi comprare Mother 3, cerca almeno di supportare la serie, comprando su Virtual Console
+per Wii U Earthbound e/o Earthbound Beginnings.
+
+Questa patch è totalmente gratuita, inoltre è stata creata da dei fan. Se te l'hanno fatta 
+pagare, allora denuncia le persone da cui l'hai presa.
+
+Spero che vi divertiate, per qualsiasi domanda rivolgersi a me su http://mariocastle.it , su
+https://twitter.com/Lorenzooone, oppure su https://www.youtube.com/channel/UCyy3m7GBC5ajrpSp6EkWUpA

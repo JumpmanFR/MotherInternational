@@ -1,0 +1,20 @@
+Queste sono le istruzioni per il corretto utilizzo della patch.
+
+Occorrente:
+-Un PC con Windows (Utenti Mac, dovrete trovare un metodo per installare patch .ips per conto vostro)
+-Una ROM di EarthBound senza header (Google è il vostro migliore amico)
+-Un emulatore dello SNES (Vi consiglio SNES9X)
+-Un cervello (Preferibilmente funzionante)
+
+Istruzioni:
+-(Facoltativo) Fare una copia di backup della ROM
+-Avviare il programma Lunar IPS.exe
+-Cliccare sul tasto "Apply IPS Patch"
+-Selezionare il file "EB-IT v1.0.ips"
+-Selezionare la vostra ROM di EarthBound
+-Se è andato tutto bene, aprendo la vostra ROM dovreste vedere da qualche parte
+ la scritta "[CHECKSUM OK]"
+
+È tutto! Buon divertimento! :)
+
+-CRefice

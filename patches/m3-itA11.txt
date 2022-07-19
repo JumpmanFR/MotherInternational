@@ -1,0 +1,65 @@
+Qui in allegato vi è il patcher UPS e la patch, per patchare la ROM del gioco in giapponese, che
+dovresti procurarti legalmente, avviate il patcher che corrisponde al vostro sistema operativo,
+selezionate la ROM giapponese con "Sfoglia..." e premete su Applica Patch.
+
+Tutorial Applicazione Patch: https://www.youtube.com/watch?v=nH2JRPuGeGE
+
+Se non puoi comprare Mother 3, cerca almeno di supportare la serie, comprando su Virtual Console
+per Wii U Earthbound e/o Earthbound Beginnings.
+
+Questa patch è totalmente gratuita, inoltre è stata creata da dei fan. Se te l'hanno fatta 
+pagare, allora denuncia le persone da cui l'hai presa.
+
+Spero che vi divertiate, per qualsiasi domanda rivolgersi a me su http://mariocastle.it , su
+https://twitter.com/Lorenzooone, oppure su https://www.youtube.com/channel/UCyy3m7GBC5ajrpSp6EkWUpA
+
+Un grazie speciale agli altri collaboratori della patch: Zigoon, Zackee e Darksilver.
+
+Un grazie speciale a LetsPlayNintendoITA e ShinRaNewlyEmployed per il beta-testing.
+Un grazie speciale a Jumpman, della traduzione francese, per avermi aiutato a modificare le grafiche del Laboratorio Chimera.
+Un grazie speciale a Jeffman per avermi aiutato a trovare del codice e per avermi sopportato tutto questo tempo. ;)
+Un grazie speciale a Tomato per avermi aiutato pure lui.
+
+Cambiamenti della Traduzione di MOTHER 3 in Italiano. (Traduzione di Lorenzooone, Zigoon, Zackee e Darksilver)
+
+V. 1.0 -> V. 1.1
+
+-Riscritto gran parte del testo e corrette moltissime frasi ed errori di battitura.
+-Tradotte TUTTE le grafiche che necessitavano di essere modificate. (Questo include anche oggetti e nemici)
+-Aggiunta una serie di caratteri extra con cui dare i nomi ai personaggi.
+-Aggiunte tutte le modifiche che Nintendo ha fatto per il rilascio su eShop Wii U giapponese di MOTHER 3.
+-Aggiunto un bonus extra per chi completa le Memo Lotta. (Battle Memory)
+-Tradotti gli effetti sonori che necessitavano di essere modificati.
+-Tradotti i crediti.
+-Implementato correttamente Psico"Amore", prima usciva solo Psi"Amore".
+-Corretti dei bug della versione giapponese (e di quella inglese). Esempio: cercate "Thunder Tower's frog glitch".
+-Cambiate molte frasi nelle battaglie, che ora sono più naturali.
+-Cambiati dei termini per adattarsi alla traduzione ufficiale di "Super Smash Bros.". (Piccola nota su RopeSnake:
+ in Brawl viene chiamato "Serpocorda", mentre nella versione Wii U/3DS viene chiamato "Serpente Corda". Nella
+ traduzione, siccome non vi è un termine ufficiale a questo punto, gli ho dato il nome di "SerpeCorda", ovvero
+ un misto dei due nomi.)
+-Corretti vari bug della versione 1.0. Per esempio, ora quando si raccoglie un oggetto con l'inventario
+ pieno e se ne butta un altro, appaiono gli articoli corretti.
+-Riprogrammate quattro Memo che non sarebbero mai apparse altrimenti, neanche nella versione inglese. Due Memo
+ sono sbloccabili giocando, e sono "Suggerimenti Lotta" e "Su Leder", mentre le altre due le si può ottenere
+ parlando al SuinColonnello (il SuinSoldato, o Pigmask, bianco) nella Zona Debug, e sono "Coupon" e "Porkupon". 
+
+
+Changelog of MOTHER 3's Italian translation. (Translation made by Lorenzooone, Zigoon, Zackee e Darksilver)
+
+V. 1.0 -> V. 1.1
+
+-Rewritten a lot of text and corrected a lot of typos.
+-Translated ALL the graphics. (This includes items and enemies)
+-Included extra characters to name the playable characters with.
+-Included all the changes Nintendo made in the japanese eShop's version.
+-Added an extra bonus for those who complete the Battle Memory.
+-Translated the sound effects.
+-Translated the credits.
+-Changed PK "Love", before it was Psi"Love" and now it is Psico"Love".
+-Corrected some bugs of japanese (and english) version. Example: Thunder Tower's frog glitch.
+-Changed a lot of battle text.
+-Changed some terms to adapt to the official Super Smash Bros. translation.
+-Corrected a lot of bugs (most of them couldn't be seen by the player) of version 1.0.
+-Programmed back four Memos that aren't available in any way in the english version. Two of them can be
+ obtained by playing and two of them by talking to the white Pigmask in the Debug Room.
