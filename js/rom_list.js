@@ -9,7 +9,7 @@ var ROM_LIST = {
 	'm1-pl10': 	{crc:"0x27cb7095", game:'MOTHER 1 / EarthBound Beginnings',	language:'polski',	version:'1.0',	author:"Voxar",		website:"https://www.romhacking.net/translations/5152/",hasDoc:true, baseRom:"m1-en",	patchExt:'.ips'},
 	'm1-ru09': 	{crc:"0x03b08fa5", game:'MOTHER 1 / EarthBound Beginnings',	language:'Ру́сский',version:'0.9',	author:"CHIEF-NET",	website:"http://chief-net.ru/index.php?option=com_content&task=view&id=37",	hasDoc:true, baseRom:"m1-en",patchExt:'.ips'},
 	
-	'm2-br10': 	{crc:"0xa19f1c1c", game:'MOTHER 2 / EarthBound',	language:'português do Brasil',	version:'1.0',	author:"EarthBound Brasil",	website:"https://www.earthboundbrasil.com",	hasDoc:true, baseRom:"m1-en",	patchExt:'.ups'},
+	'm2-br10': 	{crc:"0xa19f1c1c", game:'MOTHER 2 / EarthBound',	language:'português do Brasil',	version:'1.0',	author:"EarthBound Brasil",	website:"https://www.earthboundbrasil.com",	hasDoc:true, baseRom:"m2-en",	patchExt:'.ups'},
 	//'m2-de123': {crc:"", game:'MOTHER 2 / EarthBound',	language:'Deutsch',	version:'1.2.3',author:"GlostU/Mexos",	website:"",	hasDoc:, baseRom:"",	patchExt:'.ups'},
 	'm2-en': 	{crc:"0xdc9bb451", game:'MOTHER 2 / EarthBound',	language:'English',		author:"Nintendo"},
 	'm2-enA': 	{crc:"0xaf607132", game:'MOTHER 2 / EarthBound',	language:'English',		author:"Nintendo", baseRom:"m2-en", patchExt:'.ups', isAltBaseRom:true},

@@ -14,6 +14,8 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM reconnue',
 		
+		'txtDescVersion':			'v',
+		'txtDescBy':				'par',
 		'txtVisitSite':				'Consultez le site de %',
 		'txtReadDoc':				'Lisez la documentation',
 		'txtNbUses':				'% utilisations pour ce patch.',
@@ -45,6 +47,8 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM identified',
 
+		'txtDescVersion':			'v',
+		'txtDescBy':				'by',
 		'txtVisitSite':				'Visit %’s website',
 		'txtReadDoc':				'Read doc',
 		'txtNbUses':				'% uses for this patch.',
