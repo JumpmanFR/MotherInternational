@@ -170,7 +170,10 @@ function romDesc(id) {
 		res +=  " " + _("txtDescVersion") +ROM_LIST[id].version;
 	}
 	if (ROM_LIST[id].author) {
-		res +=" " + _("txtDescBy") + " " + ROM_LIST[id].author;
+		res += " " + _("txtDescBy") + " " + ROM_LIST[id].author;
+	}
+	if (ROM_LIST[id].specialAltRom) {
+		res += " (" + ROM_LIST[id].specialAltRom + ")";
 	}
 	return res;
 }
@@ -191,7 +194,7 @@ function updatePatchSelect() {
 					|| (!ROM_LIST[inputId].cantReverse && !ROM_LIST[cur].basedOn && cur == ROM_LIST[inputId].basedOn)
 					|| (!ROM_LIST[inputId].basedOn && inputId == ROM_LIST[cur].basedOn))
 				&& (showAllVersions
-					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].isAltBaseRom))) {
+					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom))) {
 				var opt = document.createElement("option");
 				opt.value = cur;
 				opt.text = romDesc(cur);

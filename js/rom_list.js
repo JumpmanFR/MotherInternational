@@ -1,7 +1,7 @@
 var ROM_LIST = {
 	'm1-en': 	{crc:"0xf5ef5002", game:'MOTHER 1 / EarthBound Beginnings',	language:'English',	author:"Nintendo"},
-	'm1-enA': 	{crc:"0x7b1be8c2", game:'MOTHER 1 / EarthBound Beginnings',	language:'English',	author:"Nintendo", basedOn:"m1-en",	patchExt:'.zip', isAltBaseRom:true},
-	'm1-enB': 	{crc:"0xe4aa8122", game:'MOTHER 1 / EarthBound Beginnings',	language:'English',	author:"Nintendo", basedOn:"m1-en",	patchExt:'.zip', isAltBaseRom:true},
+	'm1-enA': 	{crc:"0x7b1be8c2", game:'MOTHER 1 / EarthBound Beginnings',	language:'English',	author:"Nintendo", basedOn:"m1-en",	patchExt:'.zip', specialAltRom:"proto"},
+	'm1-enB': 	{crc:"0xe4aa8122", game:'MOTHER 1 / EarthBound Beginnings',	language:'English',	author:"Nintendo", basedOn:"m1-en",	patchExt:'.zip', specialAltRom:"Zero"},
 	'm1-esA22': {crc:"0xd80e3217", game:'MOTHER 1 / EarthBound Beginnings',	language:'español',	version:'2.2',	author:"OAD",		website:"https://www.romhacking.net/translations/1721/",hasDoc:true, basedOn:"m1-en",	patchExt:'.zip'},
 	'm1-esB09': {crc:"0x16e1e273", game:'MOTHER 1 / EarthBound Beginnings',	language:'español',	version:'0.99',	author:"Jackic",	website:"https://www.romhacking.net/translations/5647/",hasDoc:true, basedOn:"m1-en",	patchExt:'.zip'},
 	'm1-fr10':	{crc:"0xbd1f8687", game:'MOTHER 1 / EarthBound Beginnings', language:'français',version:'1.0',	author:"Ridculle",	website:"https://traf.romhack.org/?p=patchs&pid=490",	hasDoc:true, basedOn:"m1-en",	patchExt:'.zip'},
@@ -16,7 +16,7 @@ var ROM_LIST = {
 	'm2-de122':	{crc:"0x536f12ed", game:'MOTHER 2 / EarthBound',	language:'Deutsch',	version:'1.2.2',author:"GlostU/Mexos",	website:"https://github.com/GlostU/EarthBound-deutsche-uebersetzung",	hasDoc:true,	basedOn:"m2-en",	patchExt:'.zip', oldVersionOf:'m2-de'},
 	'm2-de123':	{crc:"0x3637e8e5", game:'MOTHER 2 / EarthBound',	language:'Deutsch',	version:'1.2.3',author:"GlostU/Mexos",	website:"https://github.com/GlostU/EarthBound-deutsche-uebersetzung",	hasDoc:true,	basedOn:"m2-en",	patchExt:'.zip', latestVersionOf:'m2-de'},
 	'm2-en': 	{crc:"0xdc9bb451", game:'MOTHER 2 / EarthBound',	language:'English',		author:"Nintendo"},
-	'm2-enA': 	{crc:"0xaf607132", game:'MOTHER 2 / EarthBound',	language:'English',		author:"Nintendo", basedOn:"m2-en", patchExt:'.zip', isAltBaseRom:true},
+	'm2-enA': 	{crc:"0xaf607132", game:'MOTHER 2 / EarthBound',	language:'English',		author:"Nintendo", basedOn:"m2-en", patchExt:'.zip', specialAltRom:"w/header"},
 	//'m2-es': 	{crc:"0x", game:'MOTHER 2 / EarthBound',	language:'español americano',version:'',	author:"ShadowOne333",	website:"",	hasDoc:, basedOn:"m2-en",	patchExt:'.zip'},
 	'm2-fr11': 	{crc:"0x87da4ebc", game:'MOTHER 2 / EarthBound',	language:'français',version:'1.1',	author:"Team MAMBO",	hasDoc:true, basedOn:"m2-en",	patchExt:'.zip'},
 	'm2-itA10': {crc:"0x82bde573", game:'MOTHER 2 / EarthBound',	language:'italiano',version:'1.0',	author:"CRefice",	website:"https://forum.starmen.net/forum/Games/Mother3FanTranslation/EarthBound-Italian-Translation-COMPLETED",	hasDoc:true, basedOn:"m2-en",	patchExt:'.zip', oldVersionOf:'m2-itA'},
