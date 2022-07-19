@@ -7,8 +7,8 @@ const LOCALIZATION={
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
 		'txtAnalyzingRom':			'Analyse de la ROM…',
-		'txtApplyingPatch':			'Application du patch…',
-		'txtDownloading':			'Téléchargement du patch…',
+		'txtApplyingPatch':			'Application du patch%…',
+		'txtDownloading':			'Téléchargement du patch%…',
 		'txtUnzipping':				'Décompression…',
 		'txtZipping':				'Création de l’archive',
 		
@@ -44,8 +44,8 @@ const LOCALIZATION={
 		'txtApplyPatch':			'Apply patch',
 		'txtUpdate':				'Update',
 		'txtAnalyzingRom':			'Analyzing ROM…',
-		'txtApplyingPatch':			'Applying patch…',
-		'txtDownloading':			'Downloading patch…',
+		'txtApplyingPatch':			'Applying patch%…',
+		'txtDownloading':			'Downloading patch%…',
 		'txtUnzipping':				'Unzipping…',
 		'txtZipping':				'Creating zip file…',
 		

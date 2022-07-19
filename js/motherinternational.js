@@ -59,7 +59,7 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_DROP), 'drop', function(e) {if (!this.classList.contains("disabled")) { onInputFile(e.dataTransfer);}});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
-	addEvent(el(ELT_APPLY), 'click',  function(){ processPatchingTasks(gInputRom, gInputRomId)});
+	addEvent(el(ELT_APPLY), 'click',  function(){ processPatchingTasks(gInputRom, gInputRomId, 1)});
 })
 
 gWorkerChecksum = new Worker('./js/worker_crc.js');
@@ -326,7 +326,7 @@ function onParsedInputRom(data) {
 }
 
 // May be recursive; sees what the current input ROM is, what the patch selector is, and decides what to do from that
-function processPatchingTasks(rom, romId) {
+function processPatchingTasks(rom, romId, step) {
 	setUIBusy(true);
 	if (!rom) {
 		setMessage(_("error_no_rom"), MSG_TYPE_ERROR); // TODO errors
@@ -343,22 +343,28 @@ function processPatchingTasks(rom, romId) {
 		
 	} else {
 		var patchId,nextRomIdAfterPatch;
-		// If a basedOn is specified, then our input is not the basedOn
+		// If a basedOn is specified, then our input is not the basedOn => reverse patching
 		if (!!(ROM_LIST[romId].basedOn) && !(ROM_LIST[romId].cantReverse)) {
 			patchId = romId;
 			nextRomIdAfterPatch = ROM_LIST[romId].basedOn;
-		} else {
+			if (nextRomIdAfterPatch == patchSelectVal()) { // this has to be the first step or the only one
+				step = undefined;
+			}
+		} else { // normal patching
 			patchId = patchSelectVal();
 			nextRomIdAfterPatch = patchId;
+			if (step <= 1) { // this has to be the last step or the only one
+				step = undefined;
+			}
 		}
 		
 		var patchFileName = patchId + ROM_LIST[patchId].patchExt;
-		downloadPatch(patchFileName, rom)
+		downloadPatch(patchFileName, rom, step)
 			.then(function(patchFile) {
-				return applyPatch(rom, patchFile, ROM_LIST[nextRomIdAfterPatch].crc);
+				return applyPatch(rom, patchFile, ROM_LIST[nextRomIdAfterPatch].crc, step);
 			})
 			.then(function(outputRom) {
-				processPatchingTasks(outputRom, nextRomIdAfterPatch);
+				processPatchingTasks(outputRom, nextRomIdAfterPatch, step + 1);
 			})
 			.catch(function(errorMsg) {
 				if (errorMsg) { // TODO errors
@@ -372,9 +378,13 @@ function processPatchingTasks(rom, romId) {
 
 // Downloads the patch file, makes sure it’s valid, and converts it to patch object
 // The “rom” parameter is here to check validity.
-function downloadPatch(patchFileName, rom) {
+function downloadPatch(patchFileName, rom, step) {
 	return new Promise((successCallback, failureCallback) => {
-		setMessage(_("txtDownloading"), MSG_TYPE_LOADING);
+		if (step) {
+			setMessage(_("txtDownloading").replace("%", " " + step + "/2"), MSG_TYPE_LOADING);;
+		} else {
+			setMessage(_("txtDownloading").replace("%", ""), MSG_TYPE_LOADING);;
+		}
 		//console.log("txtDownloading");
 		fetch(PATCH_FOLDER_PATH + patchFileName)
 				.then(function(response) {
@@ -450,9 +460,13 @@ function onDownloadedPatch(patchFile, rom) {
 
 
 // Applies the patch and makes sure the output file has the right checksum
-function applyPatch(romFile, patchFile, expectedChecksum) {
+function applyPatch(romFile, patchFile, expectedChecksum, step) {
 	return new Promise((successCallback, failureCallback) => {
-		setMessage(_("txtApplyingPatch"), MSG_TYPE_LOADING);
+		if (step) {
+			setMessage(_("txtApplyingPatch").replace("%", " " + step + "/2"), MSG_TYPE_LOADING);;
+		} else {
+			setMessage(_("txtApplyingPatch").replace("%", ""), MSG_TYPE_LOADING);;
+		}
 		//console.log("txtApplyingPatch");
 		gWorkerApply.onmessage = event => {
 			romFile._u8array = event.data.romFileU8Array;
