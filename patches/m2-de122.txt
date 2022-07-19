@@ -1,0 +1,72 @@
+Eine deutsche Fan Übersetzung von EarthBound [1.2.2] 27.11.2020
+Übersetzer: GlostU/Mexos
+https://github.com/GlostU/EarthBound-deutsche-uebersetzung
+
+-----Fragen, Bugs-----
+Wenn du einen Bug, Rechtschreibfehler, oder andere Fehler findest,
+dann schreib mich bei Twitter unter @Glost_U an.
+
+
+-----Welchen Patch?-----
+Es gibt mehrere Varianten
+
+Mother2 nimmt Titelbildschirm und Namen aus der japanischen Version
+z.B. wird im Spiel EarthBound als Mother 2 bezeichnet
+
+EarthBound nimmt Titelbildschirm und Namen aus der amerikanischen Version
+z.B. wird im Spiel Mother 3 als EarthBound 2 bezeichnet
+
+"+paches" enthält 
+
+Ich empfehle die "+paches" Version.
+
+Alternativ kann man auch das GitHub Projekt herunterladen und dort die Patches selber anpassen.
+Zum kompilieren wird Coilsnake(min. 4.0) verwendet:
+https://github.com/pk-hack/CoilSnake/releases
+
+
+
+-----Wie patche ich das Spiel?-----
+Unter der Webseite:
+https://www.romhacking.net/patch/
+
+Für diesen Patch brauchst du eine headerless rom.
+Auf dieser Seite kannst du deinen header entfernen, fall deine rom einen header hat.
+
+-----Der Patch funktioniert nicht!-----
+Verwendest du die richtige rom?
+Die Prüfsumme findest du unten.
+Wenn's immer noch nicht funktioniert, sende mir am besten auf Twitter @Glost_U eine PN.
+
+-----Wie spiele ich das Spiel?-----
+
+Da gibt es viele Möglichkeiten.
+Hier sind einige aufgelistet:
+
+Windows -> snes9x oder bsnes
+SNES Mini -> hakchi2_CE (Läuft auf canoe)
+Konsole(Switch/Wii U/Playstation usw.) -> Retroarch
+Wii U -> https://github.com/phacoxcll/PhacoxsInjector/releases
+NEW/OLD 3DS -> https://wiidatabase.de/3ds-downloads/pc-tools/new-super-ultimate-injector-for-3ds/
+Originale SNES -> (Das Spiel ist für PAL gepatcht, hab's aber nicht getestet)
+
+
+-----MD5-----
+Patch für: Earthbound (U) headerless
+MD5: A864B2E5C141D2DEC1C4CBED75A42A85
+
+-----Sonstige Credits-----
+Dieser Hack verwendet einige Inhalte aus der Mother hacking community, die ich nicht selbst erstellt habe.
+Falls Interesse besteht, könnt ihr diese unter https://github.com/ShadowOne333/MaternalBound-Redux finden.
+
+Mother2 Titelbildschirm -Redux
+
+Diagonale Sprites -Redux (Rickstie / PhoenixBound)
+
+Gegenstand Geschlecht -SpanishEB (TragicManner)
+
+MSU support -Conn & ShadowOne333
+
+Assembly -PhoenixBound / TragicManner / D-man / Mr. A / DarkSamus993 / forum.starmen.net
+
+Debug Menü -DarkSamus993

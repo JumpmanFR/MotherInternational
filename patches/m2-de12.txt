@@ -1,0 +1,13 @@
+----------1.2--------------
+Viele Tipp- und Grammatikfehler behoben.
+Text auf der Oberwelt übersetzt, den ich übersehen habe.
+
+
+----------1.1--------------
+Ein paar Tippfehler beseitigt.
+Mehr Alternativen zum Patch.
+Ein paar Sprites angepasst.
+
+
+----------1.0--------------
+Erster Release.
