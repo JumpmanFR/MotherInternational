@@ -201,11 +201,11 @@ function updatePatchSelect() {
 				if (oldValue && oldValue == cur) {
 					defaultSelectionCandidates.oldValue = cur; // the value that was selected before
 				} else if (oldValue 
-				&& (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || false) == (ROM_LIST[oldValue].lastVersionOf || ROM_LIST[oldValue].oldVersionOf)) {
+				&& (ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf || false) == (ROM_LIST[oldValue].latestVersionOf || ROM_LIST[oldValue].oldVersionOf)) {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
-				} else if ((ROM_LIST[inputId].oldVersionOf || false) == (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf)) {
+				} else if ((ROM_LIST[inputId].oldVersionOf || false) == (ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if ((ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || cur).includes("-" + langCode())) {
+				} else if ((ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf || cur).includes("-" + langCode())) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (!ROM_LIST[cur].basedOn) {
 					defaultSelectionCandidates.baseRom = cur; // a base, unpatched ROM
@@ -362,7 +362,7 @@ function processPatchingTasks(rom, romId) {
 			})
 			.catch(function(errorMsg) {
 				if (errorMsg) { // TODO errors
-					endProcessWithError(_(errorMsg));
+					endProcessWithError(_(errorMsg)); // TODO error messages localization?
 				} else {
 					endProcessWithError(_("error_patching"));
 				}
@@ -381,7 +381,7 @@ function downloadPatch(patchFileName, rom) {
 					if (response.ok) {
 						return response.arrayBuffer()
 					} else {
-						throw Error(response.statusText); // TODO errors
+						failureCallback(response.statusText.replace('Error: ','')); // TODO errors
 					}
 				})
 				.then(arrayBuffer => {
