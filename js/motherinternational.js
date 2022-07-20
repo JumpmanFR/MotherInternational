@@ -44,6 +44,7 @@ function el(e){return document.getElementById(e)}
 function _(str){return gUserLanguage[str] || str}
 function langCode(){return navigator.language.substr(0,2)}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
+//function 
 
 //==========================================
 // EVENT METHODS AND ENTRY POINTS
@@ -178,7 +179,7 @@ function romDesc(id) {
 	return res;
 }
 
-// Builds the content in the scroll list and selects a default item – sorry the code isn’t exceptionally well-written here
+// Builds the content in the scroll list and selects a default item – sorry if the code isn’t exceptionally well-written here
 function updatePatchSelect() {
 	var inputId = gInputRomId;
 	
@@ -204,11 +205,13 @@ function updatePatchSelect() {
 				if (oldValue && oldValue == cur) {
 					defaultSelectionCandidates.oldValue = cur; // the value that was selected before
 				} else if (oldValue 
-				&& (ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf || false) == (ROM_LIST[oldValue].latestVersionOf || ROM_LIST[oldValue].oldVersionOf)) {
+				&& (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || false)
+				== (ROM_LIST[oldValue].lastVersionOf || ROM_LIST[oldValue].oldVersionOf)) {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
-				} else if ((ROM_LIST[inputId].oldVersionOf || false) == (ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf)) {
+				} else if ((ROM_LIST[inputId].oldVersionOf || false)
+						== (ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if ((ROM_LIST[cur].latestVersionOf || ROM_LIST[cur].oldVersionOf || cur).includes("-" + langCode())) {
+				} else if ((ROM_LIST[cur].lastVersionOf || ROM_LIST[cur].oldVersionOf || cur).includes("-" + langCode())) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (!ROM_LIST[cur].basedOn) {
 					defaultSelectionCandidates.baseRom = cur; // a base, unpatched ROM
