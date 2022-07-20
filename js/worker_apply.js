@@ -7,8 +7,8 @@ self.importScripts(
 	'./formats/aps.js',
 	'./formats/ups.js',
 	'./formats/bps.js',
-	'./formats/rup.js',
-	'./formats/ppf.js',
+	//'./formats/rup.js',
+	//'./formats/ppf.js',
 	//'./formats/pmsr.js',
 	'./formats/vcdiff.js'
 );

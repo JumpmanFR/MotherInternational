@@ -18,6 +18,7 @@ const LOCALIZATION={
 		
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
+		'txtDescUpdate':			'(mise à jour)',
 		'txtVisitSite':				'Consultez le site de %',
 		'txtReadDoc':				'Lisez la documentation',
 		'txtNbUses':				'% utilisations pour ce patch.',
@@ -55,6 +56,7 @@ const LOCALIZATION={
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
+		'txtDescUpdate':			'(update)',
 		'txtVisitSite':				'Visit %’s website',
 		'txtReadDoc':				'Read doc',
 		'txtNbUses':				'% uses for this patch.',

@@ -1,4 +1,5 @@
-<html>
+ <!DOCTYPE html>
+ <html>
     <head>
         <title>MOTHER International</title>
         <meta charset="UTF-8"/>
@@ -19,10 +20,10 @@
     <body>
         <div id="drop">
             <input type="file" id="rom-file">
-            <input type="button" id="rom-btn" data-localize="txtBrowse" onclick="document.getElementById('rom-file').click();" value="Browse…">
+            <input type="button" id="rom-btn" data-localize="txtBrowse" onclick="document.getElementById('rom-file').click();">
             <label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
             <div id="msg-container">
-                <span id="msg" class="message" data-localize="txtSpecifyRom">Please specify the ROM to patch</span>
+                <span id="msg" class="message" data-localize="txtSpecifyRom"></span>
             </div>
             <select id="patch-select"></select>
             <input type="checkbox" id="show-all-option">
@@ -30,7 +31,7 @@
             <p id="info-website"></p>
             <p id="info-doc"></p>
             <p id="info-nb-uses"></p>
-            <button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled="">Apply patch</button>
+            <button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled=""></button>
         </div>
     </body>
 </html>

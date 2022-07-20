@@ -196,10 +196,15 @@ function updatePatchSelect() {
 					|| (!ROM_LIST[inputId].basedOn && inputId == ROM_LIST[cur].basedOn))
 				&& (showAllVersions
 					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom))) {
+				
 				var opt = document.createElement("option");
 				opt.value = cur;
 				opt.text = romDesc(cur);
 				el(ELT_PATCH_SELECT).add(opt);
+				
+				if (ROM_LIST[cur].lastVersionOf && (ROM_LIST[inputId].oldVersionOf == ROM_LIST[cur].lastVersionOf)) {
+					opt.text += " " + _("txtDescUpdate");
+				}
 				
 				// Default selection
 				if (oldValue && oldValue == cur) {
@@ -308,8 +313,8 @@ function parseInputRom() {
 }
 
 function onParsedInputRom(data) {
-    gInputRom._u8array = event.data.u8array;
-    gInputRom._dataView = new DataView(event.data.u8array.buffer);
+    gInputRom._u8array = data.u8array;
+    gInputRom._dataView = new DataView(data.u8array.buffer);
     
     gInputRomId = null;
 
