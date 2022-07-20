@@ -19,9 +19,11 @@ const LOCALIZATION={
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
 		'txtDescUpdate':			'(mise à jour)',
-		'txtVisitSite':				'Consultez le site de %',
-		'txtReadDoc':				'Lisez la documentation',
+		'txtVisitSite':				'Site de %',
+		'txtReadDoc':				'Fichier lisez-moi',
 		'txtNbUses':				'% utilisations pour ce patch.',
+
+		'txtReadmeFile':			'lisezmoi',
 
 		'error_no_rom':				'Aucune ROM spécifiée',
 		'error_no_rom_info':		'Cette ROM n’a pas été analysée',
@@ -35,7 +37,9 @@ const LOCALIZATION={
 		'error_unzipping':			'Erreur de décompression',
 		'error_invalid_patch':		'Fichier de patch non reconnu',
 		'error_crc_patch':			'Fichier de patch incorrect',
-		'warning_too_big':			'Fichiers trop volumineux'
+		'warning_too_big':			'Fichiers trop volumineux',
+
+		'Not Found':				'Le patch n’a pas été trouvé'
 	},
 	'en':{
 		'txtBrowse':				'Browse…',
@@ -57,9 +61,11 @@ const LOCALIZATION={
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
 		'txtDescUpdate':			'(update)',
-		'txtVisitSite':				'Visit %’s website',
-		'txtReadDoc':				'Read doc',
+		'txtVisitSite':				'%’s website',
+		'txtReadDoc':				'Readme file',
 		'txtNbUses':				'% uses for this patch.',
+
+		'txtReadmeFile':			'readme',
 
 		'error_no_rom':				'No ROM specified',
 		'error_no_rom_info':		'This ROM hasn’t been analyzed',
@@ -73,6 +79,8 @@ const LOCALIZATION={
 		'error_unzipping':			'Unzipping error',
 		'error_invalid_patch':		'Unidentified patch file',
 		'error_crc_patch':			'Wrong patch file',
-		'warning_too_big':			'Too big files'
+		'warning_too_big':			'Too big files',
+		
+		'Not Found':				'Patch not found'
 	}
 };

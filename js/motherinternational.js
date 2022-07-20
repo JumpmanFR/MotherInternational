@@ -250,7 +250,7 @@ function updatePatchInfo() {
 	    el(ELT_INFO_WEBSITE).innerHTML = '';
 	}
 	if (id && ROM_LIST[id].hasDoc) {
-		el(ELT_INFO_DOC).innerHTML = '<a href="patches/' + id + '.txt" target="_blank">' + _('txtReadDoc') + '</a>'
+		el(ELT_INFO_DOC).innerHTML = '<a href="patches/' + id + '.txt" download="' + _('txtReadmeFile') + '-' + id + '.txt">' + _('txtReadDoc') + '</a>'
 	} else {
 	    el(ELT_INFO_DOC).innerHTML = '';
 	}
@@ -403,7 +403,7 @@ function downloadPatch(patchFileName, rom) {
 						.then(successCallback)
 						.catch(failureCallback);
 				})
-				.catch(function(e){
+				.catch(function(e) {
 					failureCallback(e || 'error_downloading');
 				});
 	});
