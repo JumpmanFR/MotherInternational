@@ -11,7 +11,7 @@ function parseZIPFile(zipFile, regex) {
 				zipReader.getEntries(function(zipEntries) {
 					var targetFile;
 					for(var i = 0; i < zipEntries.length; i++) {
-						if (regex.test(zipEntries[i].filename)) {
+						if (regex.test(zipEntries[i].filename) || zipEntries.length == 1) {
 							targetFile = zipEntries[i];
 							break;
 						}
