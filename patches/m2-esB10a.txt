@@ -1,0 +1,122 @@
+********************************************************************************
+EARTHBOUND 1.0a FINAL EN CASTELLANO
+	                     Versión para aplicarse a la versión americana de la ROM.	  	      
+										      
+Basada en la traducción realizada por ShadowOne333 en latino.
+Localización española a cargo de josete2k. 
+********************************************************************************
+----------------------------------------------------------------------------------------
+1. Renuncia de responsabilidades
+
+Este parche pertenece única y exclusivamente a sus autores y no puede ser vendido ni 
+utilizado para obtener cualquier tipo de beneficio sin el consentimiento expreso y 
+escrito de los autores. El objetivo de esta traducción no es, ni ha sido, ni será
+bajo ningún concepto el ánimo de lucro sino exactamente lo contrario, el ánimo de 
+aprender y poder poner a disposición de los demás de forma altruista el resultado de 
+lo aprendido.
+
+Ni ShadowOne333 ni josete2k están relacionados de ningún modo con Nintendo; ni la empresa ni los autores se responsabilizan de los posibles daños ocasionados por el uso del parche.
+
+El parche puede ser distribuido libremente SIEMPRE que se incluya este archivo junto
+a él. En caso de no hacerlo, ninguno de los autores se hará responsable de los posibles
+delitos penales en los que incurra el sujeto que distribuya dicho parche. El autor
+no apoya de ningún modo la piratería en ninguna de sus formas; si a pesar de esta advertencia
+algún sujeto desea distribuir la ROM ya parcheada, deberá ponerse OBLIGATORIAMENTE
+en contacto con los autores.
+
+Si te gusta el juego traducido, cómpratelo y parchéalo.
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+2. Cómo utilizar el parche
+
+En el archivo zip en el que se encuentra este documento de texto podréis encontrar los
+siguientes archivos:
+Léeme.doc (este archivo)
+ROM_ESP-60hz.ips (parche NTSC)
+
+
+Para obtener el juego parcheado necesitaréis la ROM original en inglés, que ha de tener
+como CRC32 (o checksum) el valor 0xdc9bb451 (valor hexadecimal) y sin ningún tipo de cabecera.
+Este valor lo podéis conocer abriendo la ROM con el emulador Snes9x y en "File\Rom Information"; el tamaño del archivo ha de ser de 3.145.728 bytes en cuyo caso no tendrá
+cabecera y no tendréis que eliminarla.
+
+
+BAJO NINGÚN CONCEPTO ESCRIBÁIS PIDIENDO LA ROM PUESTO QUE NOSOTROS NO DISTRIBUIMOS ROMS. NOSOTROS TENEMOS EL JUEGO ORIGINAL.
+
+
+
+
+
+
+Una vez que tenéis la ROM correcta y sin cabecera, tenéis dos opciones para parchearla:
+
+	1- La primera de ella se llama "soft-patch" y consiste en dejar que sea el emulador
+	el que parchee la ROM cada vez que la cargáis en él. Esto lo podéis hacer con
+	cualquier versión de ZSNES superior a la 0.2 (creo recordar) y con Snes9x versiones
+	superiores a la 1.41. Simplemente deberéis ponerle al archivo de la ROM el mismo
+	nombre que al archivo del parche, pero manteniendo la extensión .SMC a la ROM y la
+	extensión .IPS al parche. Ambos archivos los ponéis en la misma carpeta de vuestro
+	disco duro y simplemente cargando la ROM con el emulador os saldrá parcheada. En
+	este caso de parche, la ROM seguirá estando en inglés, pero cada vez que la carguéis
+	en el emulador, éste la parcheará.
+
+	2- La segunda opción se llama "hard-patch" y consiste en dejar el texto en español
+	del parche insertado ya definitivamente en la ROM, para que siempre que la carguéis
+	os salga en nuestro bello idioma. Para ello, necesitaréis la utilidad LUNAR Ips que
+	podréis encontrar en http://fusoya.eludevisibility.org/lips/ . Al
+	abrir el programa veréis que hay una opción llamada "Apply IPS". Seleccionad el
+	archivo "ips" que se obtiene al descomprimir el ZIP que contiene este
+	documento de texto. ESTE PROCESO ES IRREVERSIBLE, si queréis mantener la
+	ROM original en inglés, deberéis hacer primero una copia de seguridad. La rom final
+	ha de tener como CRC32 0xbba9c81a  y ocupar 4.194.304 bytes.
+
+
+Cuando parcheéis la ROM, vuestras partidas del juego original NO FUNCIONARÁN porque la memoria es ampliada a 128kb para este parche.
+No se aconseja que uséis partidas de otras versiones de este mismo parche. De querer usarlas de todos modos, os aconsejo encarecidamente reanudar dicha partida en algún punto de guardar partida del juego, es decir, que reanudéis usando la opción "Continuar" del juego, no con partidas guardadas por el emulador.
+En caso de no hacerlo, podéis perder todos los datos contenidos en estas partidas.
+
+
+
+
+
+----------------------------------------------------------------------------------------
+3. Características
+
+Es posible que el juego siga teniendo alguna expresión latina aunque no debería porque se ha reescrito prácticamente en su totalidad, sobre todo la versión 0.9d.
+
+El juego posee además un par de hacks que hacen que la experiencia de juego cambie un poco respecto al original: Ahora puedes correr con “Y” (run_patch) y hablar e interactuar con tu entorno simplemente con el botón “A” (new_control_patch). Estos parches se aplican por defecto Y NO PUEDEN QUITARSE. 
+
+Si deseas tener una versión en español con el sistema de juego original existe la versión latina para ello.
+
+AÑADIDOS: 
+
+Posibilidad de guardar partida tras derrotar al último jefe.
+
+
+
+
+
+
+4. Bugs conocidos
+
+	Espero que ninguno.
+
+----------------------------------------------------------------------------------------
+5. Créditos
+	
+ShadowOne333: responsable de la traducción inicial.
+josete2k: localización al castellano, gráficos y músicas.
+yuragalo, SetzerGabbiani, wang_lu, raulpuro y a los que seguro me dejo del foro de EOL.
+
+----------------------------------------------------------------------------------------
+6. Agradecimientos
+
+	A magno por su soporte.
+	Al creador del hack new control por su trabajo.
+	A ShadowOne333 también por el run patch fix.
+	Y cómo no, a la gente de starmen.net y en especial al creador de CoilSnake.
