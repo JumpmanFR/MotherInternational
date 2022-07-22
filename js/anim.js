@@ -2,23 +2,25 @@ const ELT_ANIMATION = "animation";
 const ELT_PRELOAD = "preload";
 
 const ANIM_FOLDER = "anim";
-const ANIM_TIME_PER_FRAME = 20;
-//var ANIM_SUBFOLDERS = [{name:"m1", nbFrames:192}, {name:"m2", nbFrames:139}, {name:"m3", nbFrames:410}];
-var NB_FRAMES_PER_GAME = {"m1": 192, "m2": 139, "m3": 410};
+const ANIM_TIME_PER_FRAME = 30;
+var NB_FRAMES_PER_GAME = {[GAME_MOTHER_1]: 192, [GAME_MOTHER_2]: 139, [GAME_MOTHER_3]: 410};
+var GAMES_IN_CARDS = 	{[CARD_MOTHER_1]: 	[GAME_MOTHER_1],
+						 [CARD_MOTHER_2]: 	[GAME_MOTHER_2],
+						 [CARD_MOTHER_3]: 	[GAME_MOTHER_3],
+						 [CARD_MOTHER_1_2]:	[GAME_MOTHER_1, GAME_MOTHER_2]};
 
 const NO_OP = Function();
 
 var gTimeWhenLastUpdate;
 var gTimeFromLastUpdate;
 var gFrameNumber;
-var gGame;
-var gNextFrame;
+var gDoNextFrame;
+var gGameCard;
 
 //==========================================
 // EVENT METHODS AND ENTRY POINTS
 //==========================================
 
-//addEvent(window,'load', function(){setAnim("m3")});
 
 addEvent(document, 'DOMContentLoaded', function() {
 	animPreload();
@@ -30,49 +32,64 @@ addEvent(document, 'DOMContentLoaded', function() {
 //==========================================
 
 function animPreload() {
-	for (var i in NB_FRAMES_PER_GAME) {// 1; i < ANIM_SUBFOLDERS.length + 1; i++) {
+	for (var i in NB_FRAMES_PER_GAME) {
 		for (var j = 0; j < NB_FRAMES_PER_GAME[i]; j++) {
 			var div = document.createElement("div");
 			div.id = "preload-image-" + i + "-" + j;
 			div.style.cssText = `background-image: url('${ANIM_FOLDER}/${i}/${i}-${j}.png');`;
-			//console.log(div.outerHTML);
 			el(ELT_PRELOAD).appendChild(div);
 		}
 	}
 }
 
-function animStep(startTime) {
-	if (gGame) {
+function animStep(time) {
+	if (gGameCard) {
 		if (!gTimeWhenLastUpdate) {
-			gTimeWhenLastUpdate = startTime;
+			gTimeWhenLastUpdate = time;
 		}
 
-		gTimeFromLastUpdate = startTime - gTimeWhenLastUpdate;
+		gTimeFromLastUpdate = time - gTimeWhenLastUpdate;
 
 		if (gTimeFromLastUpdate > ANIM_TIME_PER_FRAME) {
-			el(ELT_ANIMATION).setAttribute('src', `${ANIM_FOLDER}/${gGame}/${gGame}-${gFrameNumber}.png`);
-			gTimeWhenLastUpdate = startTime;
+			var games = GAMES_IN_CARDS[gGameCard];
+			var currentGame, subFrameNumber;
+			var countFrames = 0;
+			// Chain animations when multiple games in ROM (typically for MOTHER 1+2)
+			for (var i = 0; i < games.length; i++) {
+				if (gFrameNumber < countFrames + NB_FRAMES_PER_GAME[GAMES_IN_CARDS[games[i]]]) {
+					currentGame = games[i];
+					subFrameNumber = gFrameNumber - countFrames;
+					break;
+				} else {
+					countFrames += NB_FRAMES_PER_GAME[GAMES_IN_CARDS[games[i]]];
+				}
+			}
+			
+			if (!currentGame) {
+				currentGame = games[0];
+				gFrameNumber = subFrameNumber = 0;
+			}
+			
+			el(ELT_ANIMATION).setAttribute('src', `${ANIM_FOLDER}/${currentGame}/${currentGame}-${subFrameNumber}.png`);
 
-			if (gFrameNumber >= NB_FRAMES_PER_GAME[gGame] - 1) {
-				gFrameNumber = 0;
-			} else {
-				gFrameNumber = gFrameNumber + 1;
-			}        
+			gTimeWhenLastUpdate = time;
+			
+			gFrameNumber++;
 		}
-		gNextFrame(animStep);
+		gDoNextFrame(animStep);
 	}
 }
 
-function setAnim(id) {
-	if (id != gGame) {
-		gGame = id;
-		if (id) {
-			gFrameNumber = 1;
-			gNextFrame = requestAnimationFrame;
-			gNextFrame(animStep);
-			el(ELT_ANIMATION).style.visibility = "hidden";
-		} else {
+function setAnim(gameCard) {
+	if (gameCard != gGameCard) {
+		gGameCard = gameCard;
+		if (gameCard) {
+			gFrameNumber = 0;
+			gDoNextFrame = requestAnimationFrame;
+			gDoNextFrame(animStep);
 			el(ELT_ANIMATION).style.visibility = "visible";
+		} else {
+			el(ELT_ANIMATION).style.visibility = "hidden";
 		}
 	}
 }

@@ -1,0 +1,26 @@
+const GAME_MOTHER_1 = 'm1';
+const GAME_MOTHER_2 = 'm2';
+const GAME_MOTHER_3 = 'm3';
+
+const CARD_MOTHER_1	  = 'm1';
+const CARD_MOTHER_2	  = 'm2';
+const CARD_MOTHER_1_2 = 'm12';
+const CARD_MOTHER_3	  = 'm3';
+
+// ISO 639 values
+const LANG_JAPANESE	 = 'ja';
+const LANG_ENGLISH	 = 'en';
+const LANG_FRENCH	 = 'fr';
+const LANG_GERMAN	 = 'de';
+const LANG_ITALIAN	 = 'it';
+const LANG_SPANISH	 = 'es';
+const LANG_SP_SPAIN	 = 'es-ES';
+const LANG_SP_LATINO = 'es-419';
+const LANG_PORTUGUES = 'pt';
+const LANG_PT_PORTUG = 'pt-BR';
+const LANG_PT_BRAZIL = 'pt-BR';
+const LANG_DUTCH	 = 'nl';
+const LANG_POLISH	 = 'pl';
+const LANG_RUSSIAN	 = 'ru';
+const LANG_CHINESE	 = 'zh';
+const LANG_KOREAN	 = 'ko';

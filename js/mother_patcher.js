@@ -14,8 +14,8 @@ const MSG_TYPE_ERROR = 3;
 const ROMS_IN_ZIP = /\.(gba|agb|sfc|srm|nes|fds|bin)$/i
 const PATCHES_IN_ZIP = /\.(ups|bps|ips|xdelta|vcdiff)$/i
 
-var GAME_NAMES = {"m1": "MOTHER 1 / EarthBound Beginnings", "m2": "MOTHER 2 / EarthBound", "m3": "MOTHER 3"};
-var LANG_NAMES = {"en": "English", "fr": "français", "ja": "日本語", "es": "español", "es-AM": "español americano", "es-ES": "español de España", "de": "Deutsch", "pl": "polski", "pt-BR": "português do Brasil", "nl": "Nederlands", "ru": "русский", "ko": "한국어", "zh": "中文"}
+var GAME_NAMES = {[CARD_MOTHER_1]: "MOTHER 1 / EarthBound Beginnings", [CARD_MOTHER_2]: "MOTHER 2 / EarthBound", [CARD_MOTHER_3]: "MOTHER 3", [CARD_MOTHER_1_2]: "MOTHER 1+2"};
+var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
 
 const MSG_CLASS_DEFAULT = "message";
 var MSG_CLASS = [];
@@ -103,7 +103,6 @@ function onInputFile(data) {
 function onSelectPatch(value) {
 	updateUIState();
 	updatePatchInfo();
-	setAnim(ROM_LIST[value].game);
 }
 
 //==========================================
@@ -172,7 +171,7 @@ function setMessage(msg, type) {
 }
 
 function romDesc(id) {
-	var res = GAME_NAMES[ROM_LIST[id].game] + " – " + LANG_NAMES[ROM_LIST[id].language];
+	var res = GAME_NAMES[ROM_LIST[id].game] + " – " + LANG_NAMES[ROM_LIST[id].lang];
 	if (ROM_LIST[id].version) {
 		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
@@ -197,9 +196,9 @@ function updatePatchSelect() {
 		var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
 		for (var cur in ROM_LIST) { // let’s determine which entries can appear in the scroll list…
 			if (inputId != cur
-				&& ((!ROM_LIST[inputId].cantReverse && !!ROM_LIST[inputId].basedOn && ROM_LIST[inputId].basedOn == ROM_LIST[cur].basedOn)	
-					|| (!ROM_LIST[inputId].cantReverse && !ROM_LIST[cur].basedOn && cur == ROM_LIST[inputId].basedOn)
-					|| (!ROM_LIST[inputId].basedOn && inputId == ROM_LIST[cur].basedOn))
+				&& ((!ROM_LIST[inputId].cantReverse && !!ROM_LIST[inputId].baseRom && ROM_LIST[inputId].baseRom == ROM_LIST[cur].baseRom)	
+					|| (!ROM_LIST[inputId].cantReverse && !ROM_LIST[cur].baseRom && cur == ROM_LIST[inputId].baseRom)
+					|| (!ROM_LIST[inputId].baseRom && inputId == ROM_LIST[cur].baseRom))
 				&& (showAllVersions
 					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom))) {
 				
@@ -219,9 +218,9 @@ function updatePatchSelect() {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
 				} else if (ROM_LIST[inputId].oldVersionOf == versionedPatches(cur)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if (ROM_LIST[cur].language.startsWith(langCode())) {
+				} else if (ROM_LIST[cur].lang.startsWith(langCode())) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
-				} else if (!ROM_LIST[cur].basedOn) {
+				} else if (!ROM_LIST[cur].baseRom) {
 					defaultSelectionCandidates.baseRom = cur; // a basic, unpatched ROM
 				}
 				
@@ -285,6 +284,7 @@ function reset() {
 function parseInputRom() {
 	setUIBusy(true);
     clearPatchSelect();
+	setAnim(); // no animation
 
 	gWorkerChecksum.onmessage = event => {
 		onParsedInputRom(event.data);
@@ -328,6 +328,7 @@ function onParsedInputRom(data) {
         if (ROM_LIST[i].crc == romCrc) {
             gInputRomId = i;
             setMessage(romDesc(i));
+			setAnim(ROM_LIST[i].game);
             break;
         }
     }
@@ -359,10 +360,10 @@ function processPatchingTasks(rom, romId, step) {
 		
 	} else {
 		var patchId,nextRomIdAfterPatch;
-		// If a basedOn is specified, then our input is not the basedOn => reverse patching
-		if (!!(ROM_LIST[romId].basedOn) && !(ROM_LIST[romId].cantReverse)) {
+		// If a baseRom is specified, then our input is not the baseRom => reverse patching
+		if (!!(ROM_LIST[romId].baseRom) && !(ROM_LIST[romId].cantReverse)) {
 			patchId = romId;
-			nextRomIdAfterPatch = ROM_LIST[romId].basedOn;
+			nextRomIdAfterPatch = ROM_LIST[romId].baseRom;
 			if (nextRomIdAfterPatch == patchSelectVal()) { // this has to be the first step or the only one
 				step = undefined;
 			}
