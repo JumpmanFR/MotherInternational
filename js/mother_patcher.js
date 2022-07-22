@@ -14,6 +14,9 @@ const MSG_TYPE_ERROR = 3;
 const ROMS_IN_ZIP = /\.(gba|agb|sfc|srm|nes|fds|bin)$/i
 const PATCHES_IN_ZIP = /\.(ups|bps|ips|xdelta|vcdiff)$/i
 
+var GAME_NAMES = {"m1": "MOTHER 1 / EarthBound Beginnings", "m2": "MOTHER 2 / EarthBound", "m3": "MOTHER 3"};
+var LANG_NAMES = {"en": "English", "fr": "français", "ja": "日本語", "es": "español", "es-AM": "español americano", "es-ES": "español de España", "de": "Deutsch", "pl": "polski", "pt-BR": "português do Brasil", "nl": "Nederlands", "ru": "русский", "ko": "한국어", "zh": "中文"}
+
 const MSG_CLASS_DEFAULT = "message";
 var MSG_CLASS = [];
 MSG_CLASS[MSG_TYPE_OK] = "ok";
@@ -168,7 +171,7 @@ function setMessage(msg, type) {
 }
 
 function romDesc(id) {
-	var res = ROM_LIST[id].game + " – " + ROM_LIST[id].language;
+	var res = GAME_NAMES[ROM_LIST[id].game] + " – " + LANG_NAMES[ROM_LIST[id].language];
 	if (ROM_LIST[id].version) {
 		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
@@ -215,7 +218,7 @@ function updatePatchSelect() {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
 				} else if (ROM_LIST[inputId].oldVersionOf == versionedPatches(cur)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if ((versionedPatches(cur) || cur).includes("-" + langCode())) {
+				} else if (ROM_LIST[cur].language.startsWith(langCode())) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (!ROM_LIST[cur].basedOn) {
 					defaultSelectionCandidates.baseRom = cur; // a basic, unpatched ROM
