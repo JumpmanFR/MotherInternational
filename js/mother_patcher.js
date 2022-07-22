@@ -103,6 +103,7 @@ function onInputFile(data) {
 function onSelectPatch(value) {
 	updateUIState();
 	updatePatchInfo();
+	setAnim(ROM_LIST[value].game);
 }
 
 //==========================================

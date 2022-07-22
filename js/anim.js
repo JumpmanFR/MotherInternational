@@ -18,7 +18,7 @@ var gNextFrame;
 // EVENT METHODS AND ENTRY POINTS
 //==========================================
 
-addEvent(window,'load', function(){setGame(3)});
+//addEvent(window,'load', function(){setAnim("m3")});
 
 addEvent(document, 'DOMContentLoaded', function() {
 	animPreload();
@@ -63,7 +63,7 @@ function animStep(startTime) {
 	}
 }
 
-function setGame(id) {
+function setAnim(id) {
 	if (id != gGame) {
 		gGame = id;
 		if (id) {
