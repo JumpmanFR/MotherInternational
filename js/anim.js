@@ -3,7 +3,8 @@ const ELT_PRELOAD = "preload";
 
 const ANIM_FOLDER = "anim";
 const ANIM_TIME_PER_FRAME = 20;
-var ANIM_SUBFOLDERS = [{name:"m1", nbFrames:192}, {name:"m2", nbFrames:139}, {name:"m3", nbFrames:410}];
+//var ANIM_SUBFOLDERS = [{name:"m1", nbFrames:192}, {name:"m2", nbFrames:139}, {name:"m3", nbFrames:410}];
+var NB_FRAMES_PER_GAME = {"m1": 192, "m2": 139, "m3", 410};
 
 const NO_OP = Function();
 
@@ -41,7 +42,7 @@ function animPreload() {
 }
 
 function animStep(startTime) {
-	if (gGame != 0) {
+	if (gGame) {
 		if (!gTimeWhenLastUpdate) {
 			gTimeWhenLastUpdate = startTime;
 		}
@@ -49,10 +50,10 @@ function animStep(startTime) {
 		gTimeFromLastUpdate = startTime - gTimeWhenLastUpdate;
 
 		if (gTimeFromLastUpdate > ANIM_TIME_PER_FRAME) {
-			el(ELT_ANIMATION).setAttribute('src', `${ANIM_FOLDER}/m${gGame}/m${gGame}-${gFrameNumber}.png`);
+			el(ELT_ANIMATION).setAttribute('src', `${ANIM_FOLDER}/${gGame}/${gGame}-${gFrameNumber}.png`);
 			gTimeWhenLastUpdate = startTime;
 
-			if (gFrameNumber >= ANIM_SUBFOLDERS[gGame - 1].nbFrames - 1) {
+			if (gFrameNumber >= NB_FRAMES_PER_GAME[gGame] - 1) {
 				gFrameNumber = 0;
 			} else {
 				gFrameNumber = gFrameNumber + 1;
@@ -65,13 +66,13 @@ function animStep(startTime) {
 function setGame(id) {
 	if (id != gGame) {
 		gGame = id;
-		if (id == 0) {
-			el(ELT_ANIMATION).style.visibility = "hidden";
-		} else {
-			el(ELT_ANIMATION).style.visibility = "visible";
+		if (id) {
 			gFrameNumber = 1;
 			gNextFrame = requestAnimationFrame;
 			gNextFrame(animStep);
+			el(ELT_ANIMATION).style.visibility = "hidden";
+		} else {
+			el(ELT_ANIMATION).style.visibility = "visible";
 		}
 	}
 }
