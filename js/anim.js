@@ -4,7 +4,7 @@ const ELT_PRELOAD = "preload";
 const ANIM_FOLDER = "anim";
 const ANIM_TIME_PER_FRAME = 20;
 //var ANIM_SUBFOLDERS = [{name:"m1", nbFrames:192}, {name:"m2", nbFrames:139}, {name:"m3", nbFrames:410}];
-var NB_FRAMES_PER_GAME = {"m1": 192, "m2": 139, "m3", 410};
+var NB_FRAMES_PER_GAME = {"m1": 192, "m2": 139, "m3": 410};
 
 const NO_OP = Function();
 
