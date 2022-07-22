@@ -30,11 +30,11 @@ addEvent(document, 'DOMContentLoaded', function() {
 //==========================================
 
 function animPreload() {
-	for (var i = 1; i < ANIM_SUBFOLDERS.length + 1; i++) {
-		for (var j = 0; j < ANIM_SUBFOLDERS[i - 1].nbFrames; j++) {
+	for (var i in NB_FRAMES_PER_GAME) {// 1; i < ANIM_SUBFOLDERS.length + 1; i++) {
+		for (var j = 0; j < NB_FRAMES_PER_GAME[i]; j++) {
 			var div = document.createElement("div");
 			div.id = "preload-image-" + i + "-" + j;
-			div.style.cssText = `background-image: url('${ANIM_FOLDER}/m${i}/m${i}-${j}.png');`;
+			div.style.cssText = `background-image: url('${ANIM_FOLDER}/${i}/${i}-${j}.png');`;
 			//console.log(div.outerHTML);
 			el(ELT_PRELOAD).appendChild(div);
 		}
