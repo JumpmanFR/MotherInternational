@@ -2,3 +2,4 @@
 *.gba
 *.sfc
 *.nes
+.DS_Store
