@@ -70,6 +70,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	setLanguage(langCode());
 	setUIBusy(false);
+	
 })
 
 
@@ -148,7 +149,7 @@ function setMessage(msg, type) {
 	if (msg) {
 		if (type === MSG_TYPE_LOADING) {
 			messageBox.className = MSG_CLASS_DEFAULT;
-			messageBox.innerHTML = '<span class="' + MSG_CLASS[type] + '"></span> ' + msg;
+			messageBox.innerHTML = `<span class="${MSG_CLASS[type]}"></span> ${msg}`;
 		} else {
 			messageBox.className = MSG_CLASS_DEFAULT + " " + MSG_CLASS[type];
 			if(type === MSG_TYPE_WARNING)
@@ -168,7 +169,7 @@ function setMessage(msg, type) {
 function romDesc(id) {
 	var res = ROM_LIST[id].game + " – " + ROM_LIST[id].language;
 	if (ROM_LIST[id].version) {
-		res +=  " " + _("txtDescVersion") +ROM_LIST[id].version;
+		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
 	if (ROM_LIST[id].author) {
 		res += " " + _("txtDescBy") + " " + ROM_LIST[id].author;
@@ -242,15 +243,15 @@ function clearPatchSelect() {
 function updatePatchInfo() {
 	var id = patchSelectVal();
 	if (id && ROM_LIST[id].website) {
-		var websiteStr = '<a href="' + ROM_LIST[id].website + '" target="_blank">';
+		var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank">`;
 		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author) 
-		websiteStr += ' (' + ROM_LIST[id].website + ')</a>'
+		websiteStr += ` (${ROM_LIST[id].website})</a>`
 		el(ELT_INFO_WEBSITE).innerHTML = websiteStr;
 	} else {
 	    el(ELT_INFO_WEBSITE).innerHTML = '';
 	}
 	if (id && ROM_LIST[id].hasDoc) {
-		el(ELT_INFO_DOC).innerHTML = '<a href="patches/' + id + '.txt" download="' + _('txtReadmeFile') + '-' + id + '.txt">' + _('txtReadDoc') + '</a>'
+		el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt>${_('txtReadDoc')}</a>`
 	} else {
 	    el(ELT_INFO_DOC).innerHTML = '';
 	}
@@ -368,11 +369,11 @@ function processPatchingTasks(rom, romId, step) {
 			}
 		}
 		
-		setMessage(_("txtDownloading").replace("%", step ? " " + step + "/2" : ""), MSG_TYPE_LOADING);;
+		setMessage(_("txtDownloading").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);
 		var patchFileName = patchId + ROM_LIST[patchId].patchExt;
 		downloadPatch(patchFileName, rom)
 			.then(function(patchFile) {
-				setMessage(_("txtApplyingPatch").replace("%", step ? " " + step + "/2" : ""), MSG_TYPE_LOADING);;
+				setMessage(_("txtApplyingPatch").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);;
 				return applyPatch(rom, patchFile, ROM_LIST[nextRomIdAfterPatch].crc);
 			})
 			.then(function(outputRom) {
@@ -499,7 +500,7 @@ function endProcessWithError(errorMsg) {
 }
 
 function deliverFinalRom(finalRomFile) {
-	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ' (patched-' + patchSelectVal() + ').$1');
+	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ` (patched-${patchSelectVal()}).$1`);
 	finalRomFile.save();
 	setMessage('');
 	setUIBusy(false);
