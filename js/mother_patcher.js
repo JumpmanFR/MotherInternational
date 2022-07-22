@@ -58,7 +58,7 @@ function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].l
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
-	addEvent(el(ELT_ROM_BTN), 'click', el(ELT_ROM_FILE).click);
+	addEvent(el(ELT_ROM_BTN), 'click', function() {el(ELT_ROM_FILE).click()});
 	addEvent(el(ELT_DROP), 'dragenter', function(e) {onDrag(true, e)});
 	addEvent(el(ELT_DROP), 'dragover', function(e) {onDrag(true, e)});
 	addEvent(el(ELT_DROP), 'dragleave', function(e) {onDrag(false, e)});
@@ -284,7 +284,7 @@ function reset() {
 function parseInputRom() {
 	setUIBusy(true);
     clearPatchSelect();
-	setAnim(); // no animation
+	setAnim(); // stop any ongoing animation
 
 	gWorkerChecksum.onmessage = event => {
 		onParsedInputRom(event.data);

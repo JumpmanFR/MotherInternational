@@ -1,8 +1,15 @@
+body {
+	background-color: rgb(206,60,60);
+}
+#title {
+	height: 100px;
+}
 input[type="file"] {
 	display: none;
 }
 #animation {
+	display:block;
 	transform:scale(2);
-	transform-origin:top left;
+	transform-origin:bottom left;
 	image-rendering: pixelated;
 }
