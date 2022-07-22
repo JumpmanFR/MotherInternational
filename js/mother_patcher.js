@@ -55,15 +55,16 @@ function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].l
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
-	addEvent(el(ELT_DROP), 'dragenter',function(e){onDrag(true, e)});
-	addEvent(el(ELT_DROP), 'dragover',function(e){onDrag(true, e)});
-	addEvent(el(ELT_DROP), 'dragleave',function(e){onDrag(false, e)});
-	addEvent(el(ELT_DROP), 'drop',function(e){onDrag(false, e);});
-	addEvent(el(ELT_ROM_FILE), 'change', function(){onInputFile(this);});
+	addEvent(el(ELT_ROM_BTN), 'click', function(e) {el(ELT_ROM_FILE).click()});
+	addEvent(el(ELT_DROP), 'dragenter',function(e) {onDrag(true, e)});
+	addEvent(el(ELT_DROP), 'dragover',function(e) onDrag(true, e)});
+	addEvent(el(ELT_DROP), 'dragleave',function(e) {onDrag(false, e)});
+	addEvent(el(ELT_DROP), 'drop',function(e) {onDrag(false, e);});
+	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
  	addEvent(el(ELT_DROP), 'drop', function(e) {if (!this.classList.contains("disabled")) { onInputFile(e.dataTransfer);}});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
-	addEvent(el(ELT_APPLY), 'click',  function(){ processPatchingTasks(gInputRom, gInputRomId, 1)});
+	addEvent(el(ELT_APPLY), 'click',  function() {processPatchingTasks(gInputRom, gInputRomId, 1)});
 
 	zip.useWebWorkers=true;
 	zip.workerScriptsPath='./js/zip.js/';

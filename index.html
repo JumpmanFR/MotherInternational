@@ -21,7 +21,7 @@
     <body>
         <div id="drop">
             <input type="file" id="rom-file">
-            <input type="button" id="rom-btn" data-localize="txtBrowse" onclick="document.getElementById('rom-file').click();">
+            <input type="button" id="rom-btn" data-localize="txtBrowse">
             <label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
             <div id="msg-container">
                 <span id="msg" class="message" data-localize="txtSpecifyRom"></span>
@@ -34,7 +34,7 @@
             <p id="info-nb-uses"></p>
             <button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled=""></button>
         </div>
-		<img id="animation" style="transform:scale(2);image-rendering: pixelated;"/>
+		<img id="animation"/>
 		<div id="preload"/>
     </body>
 </html>
