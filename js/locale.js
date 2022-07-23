@@ -1,5 +1,7 @@
 const LOCALIZATION={
 	'fr':{
+		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
+		
 		'txtBrowse':				'Parcourir…',
 		'txtNoRom':					'Aucune ROM spécifiée',
 
@@ -42,6 +44,8 @@ const LOCALIZATION={
 		'Not Found':				'Un fichier de patch n’a pas été trouvé'
 	},
 	'en':{
+		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
+		
 		'txtBrowse':				'Browse…',
 		'txtNoRom':					'No ROM specified',
 

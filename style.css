@@ -1,10 +1,24 @@
+@font-face {
+	font-family: 'titlefont';
+	src: url('titlefont.ttf');
+}
+
 body {
 	background-color: rgb(206,60,60);
 }
 
 #title {
-	height: 100px;
+	display: inline-block;
 	filter: drop-shadow(3px 3px 1px #00000040);
+}
+#titleLogo {
+	height: 100px;
+}
+#subtitle {
+	text-align: right;
+	color: white;
+	margin-top: 0px;
+	font-family: titlefont;
 }
 
 #drop {
