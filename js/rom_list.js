@@ -75,7 +75,7 @@ var ROM_LIST = {
 	'm3-pt10':	{crc:'0x00508b53', game:CARD_MOTHER_3,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m3-ja',patchExt:'.zip',version:'1.0', 	hasDoc:true, website:'https://www.earthboundbrasil.com'},
 }
 
-var PROJECTS_LIST = {
+/*var PROJECTS_LIST = {
 	'm1-ja':	{game:CARD_MOTHER_1,	lang:LANG_JAPANESE,	author:'Nintendo',			baseRom:'m1-en'},
 	'm1-en':	{game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo'},
 	'm1-enA':	{game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',			baseRom:'m1-en',	specialAltRom:'proto'},
@@ -196,4 +196,4 @@ var VERSIONS_LIST = {
 	'm3-nl10':	{crc:'0x8b74324c',	projectId:'m3-nl',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm3-pl10':	{crc:'0xe5911653',	projectId:'m3-pl',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm3-pt10':	{crc:'0x00508b53',	projectId:'m3-pt',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
-};
+};*/

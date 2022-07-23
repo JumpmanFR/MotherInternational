@@ -1,12 +1,38 @@
 body {
 	background-color: rgb(206,60,60);
 }
+
 #title {
 	height: 100px;
+	filter: drop-shadow(3px 3px 1px #00000040);
 }
-input[type="file"] {
+
+#drop {
+	height: 20em;
+	width: 20em;
+	display: inline-block;
+	background-color: #FFFFFF40;
+	padding: 10px;
+	border-radius: 10px;
+	border-width: 3px;
+	border-color: #FFFFFF40;
+	border-style: dotted;
+}
+#drop.drag {
+	border-style: solid;
+	-webkit-user-select: none;
+}
+#drop.disabled {
+	border-color: transparent;
+}
+
+#rom-file {
 	display: none;
 }
+#patch-select {
+	max-width: 100%;
+}
+
 #animation {
 	display:block;
 	transform:scale(2);

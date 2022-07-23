@@ -24,18 +24,6 @@ MSG_CLASS[MSG_TYPE_LOADING] = "loading";
 MSG_CLASS[MSG_TYPE_WARNING] = "warning";
 MSG_CLASS[MSG_TYPE_ERROR] = "error";
 
-const ELT_DROP = "drop";
-const ELT_ROM_FILE = "rom-file";
-const ELT_ROM_BTN = "rom-btn";
-const ELT_ROM_LABEL = "rom-label";
-const ELT_MSG = "msg";
-const ELT_PATCH_SELECT = "patch-select";
-const ELT_SHOW_ALL_OPTION = "show-all-option";
-const ELT_INFO_WEBSITE = "info-website";
-const ELT_INFO_DOC = "info-doc";
-const ELT_INFO_NB_USES = "info-nb-uses";
-const ELT_APPLY = "apply-btn";
-
 var gUserLanguage;
 var gIsBusy;
 var gInputRom, gInputRomId;
@@ -58,12 +46,19 @@ function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].l
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
-	addEvent(el(ELT_ROM_BTN), 'click', function() {el(ELT_ROM_FILE).click()});
 	addEvent(el(ELT_DROP), 'dragenter', function(e) {onDrag(true, e)});
 	addEvent(el(ELT_DROP), 'dragover', function(e) {onDrag(true, e)});
+	addEvent(document, 'dragover', (e) => e.preventDefault())
+	addEvent(document, 'drop', (e) => e.preventDefault())
+	/*document.body.addEventListener('dragover', function(e) {
+		e.dataTransfer.dropEffect = "none";
+		e.preventDefault();
+	}, true);*/
+	//document.body.addEventListener('drop', (e) => e.preventDefault(), true)
 	addEvent(el(ELT_DROP), 'dragleave', function(e) {onDrag(false, e)});
 	addEvent(el(ELT_DROP), 'drop', function(e) {onDrag(false, e);});
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
+	addEvent(el(ELT_ROM_BTN), 'click', function() {el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_DROP), 'drop', function(e) {if (!this.classList.contains("disabled")) { onInputFile(e.dataTransfer);}});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
@@ -87,6 +82,13 @@ function onDrag(val, e) {
 	var col = el(ELT_DROP);
  	if (val) {
 		col.classList.add("drag");
+		if (e.target.classList.contains("disabled")) {
+			e.dataTransfer.effectAllowed = "none";
+			e.dataTransfer.dropEffect = "none";
+		} else {
+			e.dataTransfer.effectAllowed = "copy";
+			e.dataTransfer.dropEffect = "copy";
+		}
 	} else {
 		col.classList.remove("drag");
 	}
@@ -247,15 +249,18 @@ function clearPatchSelect() {
 function updatePatchInfo() {
 	var id = patchSelectVal();
 	if (id && ROM_LIST[id].website) {
-		var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank">`;
-		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author) 
-		websiteStr += ` (${ROM_LIST[id].website})</a>`
+		var urlObj = new URL(ROM_LIST[id].website);
+		var baseName = urlObj.hostname;
+		var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank" title="${ROM_LIST[id].website}">`;
+		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
+		//websiteStr += ` (${ROM_LIST[id].website})
+		websiteStr += "</a>";
 		el(ELT_INFO_WEBSITE).innerHTML = websiteStr;
 	} else {
 	    el(ELT_INFO_WEBSITE).innerHTML = '';
 	}
 	if (id && ROM_LIST[id].hasDoc) {
-		el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt>${_('txtReadDoc')}</a>`
+		el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt">${_('txtReadDoc')}</a>`
 	} else {
 	    el(ELT_INFO_DOC).innerHTML = '';
 	}
