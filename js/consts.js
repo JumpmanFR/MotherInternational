@@ -5,11 +5,13 @@ const ELT_ROM_LABEL = "rom-label";
 const ELT_MSG = "msg";
 const ELT_PATCH_SELECT = "patch-select";
 const ELT_SHOW_ALL_OPTION = "show-all-option";
-const ELT_INFO_WEBSITE = "info-website";
-const ELT_INFO_DOC = "info-doc";
-const ELT_INFO_NB_USES = "info-nb-uses";
+const ELT_INFO_INPUT = "input-rom-info";
+const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
 
+const CLASS_INFO_WEBSITE = "info-website";
+const CLASS_INFO_DOC = "info-doc";
+const CLASS_INFO_NB_USES = "info-nb-uses";
 
 const GAME_MOTHER_1 = 'm1';
 const GAME_MOTHER_2 = 'm2';

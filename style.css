@@ -5,6 +5,8 @@
 
 body {
 	background-color: rgb(206,60,60);
+	margin: auto;
+	width: fit-content;
 }
 
 #title {
@@ -22,9 +24,10 @@ body {
 }
 
 #drop {
-	height: 20em;
+	height: 17em;
 	width: 20em;
-	display: inline-block;
+	display: block;
+	margin: auto;
 	background-color: #FFFFFF40;
 	padding: 10px;
 	border-radius: 10px;
@@ -34,10 +37,12 @@ body {
 }
 #drop.drag {
 	border-style: solid;
+	background-color: #FFFFFF80;
 	-webkit-user-select: none;
 }
 #drop.disabled {
 	border-color: transparent;
+	background-color: #FFFFFF28;
 }
 
 #rom-file {
@@ -51,8 +56,17 @@ body {
 }
 
 #animation {
-	display:block;
-	transform:scale(2);
-	transform-origin:bottom left;
+	margin: auto;
+	width: fit-content;
+	display: block;
+	transform: scale(2);
+	transform-origin: bottom;
 	image-rendering: pixelated;
+}
+
+#translator-contact {
+	margin: auto;
+	margin-top: 14px;
+	width: fit-content;
+	font-size: smaller;
 }

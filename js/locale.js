@@ -24,6 +24,8 @@ const LOCALIZATION={
 		'txtVisitSite':				'Page web de % sur $',
 		'txtReadDoc':				'Fichier lisez-moi',
 		'txtNbUses':				'% utilisations pour ce patch.',
+		
+		'txtTranslatorContact':		'Je suis un traducteur',
 
 		'txtReadmeFile':			'lisezmoi',
 
@@ -68,6 +70,8 @@ const LOCALIZATION={
 		'txtVisitSite':				'%’s webpage on $',
 		'txtReadDoc':				'Readme file',
 		'txtNbUses':				'% uses for this patch.',
+		
+		'txtTranslatorContact':		'I’m a translator',
 
 		'txtReadmeFile':			'readme',
 

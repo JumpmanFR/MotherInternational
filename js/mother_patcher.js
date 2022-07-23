@@ -51,11 +51,6 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_DROP), 'dragover', function(e) {onDrag(true, e)});
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
-	/*document.body.addEventListener('dragover', function(e) {
-		e.dataTransfer.dropEffect = "none";
-		e.preventDefault();
-	}, true);*/
-	//document.body.addEventListener('drop', (e) => e.preventDefault(), true)
 	addEvent(el(ELT_DROP), 'dragleave', function(e) {onDrag(false, e)});
 	addEvent(el(ELT_DROP), 'drop', function(e) {onDrag(false, e);});
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
@@ -162,7 +157,6 @@ function setMessage(msg, type) {
 			messageBox.appendChild(span);
 			var text = document.createTextNode(` ${msg}`);
 			messageBox.appendChild(text);
-			//messageBox.innerHTML = `<span class="${MSG_CLASS[type]}"></span> ${msg}`;
 		} else {
 			messageBox.className = MSG_CLASS_DEFAULT + " " + MSG_CLASS[type];
 			if(type === MSG_TYPE_WARNING)
@@ -233,13 +227,17 @@ function updatePatchSelect() {
 				
 			}
 		}
-		
+			
 		// Default selection, in this priority order
 		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.baseRom;
 		if (defaultSelection) {
-			el(ELT_PATCH_SELECT).value = defaultSelection;
+			setTimeout(function() {
+				el(ELT_PATCH_SELECT).value = defaultSelection;
+				updatePatchInfo();
+			}, 500);
 		}
 		
+		el(ELT_PATCH_SELECT).value = "";
 		updatePatchInfo();
 	}
 }
@@ -253,34 +251,35 @@ function clearPatchSelect() {
 
 function updatePatchInfo() {
 	var id = patchSelectVal();
-	el(ELT_INFO_WEBSITE).textContent = '';
-	el(ELT_INFO_DOC).textContent = '';
+	el(ELT_INFO_OUTPUT).textContent = '';
 	if (id && ROM_LIST[id].website) {
 		var urlObj = new URL(ROM_LIST[id].website);
 		var baseName = urlObj.hostname;
-		/*var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank" title="${ROM_LIST[id].website}">`;
-		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
-		//websiteStr += ` (${ROM_LIST[id].website})
-		websiteStr += "</a>";*/
 		var websiteLink = document.createElement("a");
 		websiteLink.title = websiteLink.href = ROM_LIST[id].website;
 		websiteLink.setAttribute("target", "_blank");
 		websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
-		el(ELT_INFO_WEBSITE).appendChild(websiteLink);
+		var websitePar = document.createElement("p");
+		websitePar.className = CLASS_INFO_WEBSITE;
+		websitePar.appendChild(websiteLink);
+		el(ELT_INFO_OUTPUT).appendChild(websitePar);
 	}
 	if (id && ROM_LIST[id].hasDoc) {
 		var docLink = document.createElement("a");
 		docLink.href = `patches/${id}.txt`;
 		docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
 		docLink.textContent = _('txtReadDoc');
-		el(ELT_INFO_DOC).appendChild(docLink);
-		//el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt">${_('txtReadDoc')}</a>`
+		var docPar = document.createElement("p");
+		docPar.className = CLASS_INFO_DOC;
+		docPar.appendChild(docLink);
+		el(ELT_INFO_OUTPUT).appendChild(docPar);
 	}
 	
 	if (id) {
-		el(ELT_INFO_NB_USES).textContent = _('txtNbUses').replace("%", "42")
-	} else {
-		el(ELT_INFO_NB_USES).textContent = '';
+		var docNbUses = document.createElement("p");
+		docNbUses.className = CLASS_INFO_NB_USES;
+		docNbUses.textContent = _('txtNbUses').replace("%", "42")
+		el(ELT_INFO_OUTPUT).appendChild(docNbUses);
 	}
 }
 
