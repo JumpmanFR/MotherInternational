@@ -39,7 +39,7 @@ const LOCALIZATION={
 		'error_crc_patch':			'Fichier de patch incorrect',
 		'warning_too_big':			'Fichiers trop volumineux',
 
-		'Not Found':				'Le patch n’a pas été trouvé'
+		'Not Found':				'Un fichier de patch n’a pas été trouvé'
 	},
 	'en':{
 		'txtBrowse':				'Browse…',
@@ -81,6 +81,6 @@ const LOCALIZATION={
 		'error_crc_patch':			'Wrong patch file',
 		'warning_too_big':			'Too big files',
 		
-		'Not Found':				'Patch not found'
+		'Not Found':				'A patch file was not found'
 	}
 };

@@ -32,6 +32,9 @@ body {
 #patch-select {
 	max-width: 100%;
 }
+#show-all-container {
+	white-space: nowrap;
+}
 
 #animation {
 	display:block;
