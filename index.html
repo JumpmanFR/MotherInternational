@@ -4,17 +4,17 @@
         <title>MOTHER International</title>
         <meta charset="UTF-8"/>
         <link type="text/css" rel="stylesheet" href="./style.css"/>
-        <script type="text/javascript" src="./js/locale.js"></script>
-        <script type="text/javascript" src="./js/MarcFile.js"></script>
-		<script type="text/javascript" src="./js/zip.js/zip.js"></script>
-        <script type="text/javascript" src="./js/formats/zip.js"></script>
-        <script type="text/javascript" src="./js/formats/bps.js"></script>
-        <script type="text/javascript" src="./js/formats/ips.js"></script>
-        <script type="text/javascript" src="./js/formats/ups.js"></script>
-        <script type="text/javascript" src="./js/formats/vcdiff.js"></script>
-        <script type="text/javascript" src="./js/crc_tools.js"></script>
-		<script type="text/javascript" src="./js/filesaver.js"></script>
         <script type="text/javascript" src="./js/consts.js"></script>
+        <script type="text/javascript" src="./js/libs/MarcFile.js"></script>
+		<script type="text/javascript" src="./js/libs/zip.js/zip.js"></script>
+        <script type="text/javascript" src="./js/libs/formats/zip.js"></script>
+        <script type="text/javascript" src="./js/libs/formats/bps.js"></script>
+        <script type="text/javascript" src="./js/libs/formats/ips.js"></script>
+        <script type="text/javascript" src="./js/libs/formats/ups.js"></script>
+        <script type="text/javascript" src="./js/libs/formats/vcdiff.js"></script>
+        <script type="text/javascript" src="./js/libs/crc_tools.js"></script>
+		<script type="text/javascript" src="./js/libs/filesaver.js"></script>
+        <script type="text/javascript" src="./js/locale.js"></script>
         <script type="text/javascript" src="./js/rom_list.js"></script>
         <script type="text/javascript" src="./js/mother_patcher.js"></script>
         <script type="text/javascript" src="./js/anim.js"></script>
@@ -37,6 +37,8 @@
             	<input type="checkbox" id="show-all-option">
             	<span data-localize="txtShowAllVersions">
             </label>
+            <div id=input-rom-info"></div>
+            <div id=output-rom-info"></div>
             <p id="info-website"></p>
             <p id="info-doc"></p>
             <p id="info-nb-uses"></p>

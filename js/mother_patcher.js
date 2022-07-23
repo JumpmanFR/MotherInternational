@@ -4,7 +4,8 @@ Contains elements from Rom Patcher JS by Marc Robledo */
 
 const DEFAULT_LANGUAGE = "en";
 
-const PATCH_FOLDER_PATH = "patches/";
+const PATH_PATCH_FOLDER = "patches/";
+const PATH_WORKERS = "./js/libs/";
 
 const MSG_TYPE_OK = 0;
 const MSG_TYPE_LOADING = 1;
@@ -30,8 +31,8 @@ var gInputRom, gInputRomId;
 var gPatchFiles = [];
 
 // Init from external files
-var gWorkerChecksum = new Worker('./js/worker_crc.js');
-var gWorkerApply = new Worker('./js/worker_apply.js');
+var gWorkerChecksum = new Worker(PATH_WORKERS + 'worker_crc.js');
+var gWorkerApply = new Worker(PATH_WORKERS + 'worker_apply.js');
 
 // Shortcuts
 function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
@@ -412,7 +413,7 @@ function processPatchingTasks(rom, romId, step) {
 function downloadPatch(patchFileName, rom) {
 	return new Promise((successCallback, failureCallback) => {
 		//console.log("txtDownloading");
-		fetch(PATCH_FOLDER_PATH + patchFileName)
+		fetch(PATH_PATCH_FOLDER + patchFileName)
 				.then(function(response) {
 					if (response.ok) {
 						return response.arrayBuffer()
