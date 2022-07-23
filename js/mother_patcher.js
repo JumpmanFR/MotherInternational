@@ -7,11 +7,6 @@ const DEFAULT_LANGUAGE = "en";
 const PATH_PATCH_FOLDER = "patches/";
 const PATH_LIBS = "./js/libs/";
 
-const MSG_TYPE_OK = 0;
-const MSG_TYPE_LOADING = 1;
-const MSG_TYPE_WARNING = 2;
-const MSG_TYPE_ERROR = 3;
-
 const FOR_INPUT = 0;
 const FOR_OUTPUT = 1;
 
@@ -19,7 +14,12 @@ const ROMS_IN_ZIP = /\.(gba|agb|sfc|srm|nes|fds|bin)$/i
 const PATCHES_IN_ZIP = /\.(ups|bps|ips|xdelta|vcdiff)$/i
 
 var GAME_NAMES = {[CARD_MOTHER_1]: "MOTHER 1 / EarthBound Beginnings", [CARD_MOTHER_2]: "MOTHER 2 / EarthBound", [CARD_MOTHER_3]: "MOTHER 3", [CARD_MOTHER_1_2]: "MOTHER 1+2"};
-var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
+var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
+
+const MSG_TYPE_OK = 0;
+const MSG_TYPE_LOADING = 1;
+const MSG_TYPE_WARNING = 2;
+const MSG_TYPE_ERROR = 3;
 
 const MSG_CLASS_DEFAULT = "message";
 var MSG_CLASS = [];
@@ -157,7 +157,7 @@ function setMessage(msg, type) {
 		if (type === MSG_TYPE_LOADING) {
 			messageBox.className = MSG_CLASS_DEFAULT;
 			var span = document.createElement("span");
-			span.class = MSG_CLASS[type];
+			span.className = MSG_CLASS[type];
 			messageBox.appendChild(span);
 			var text = document.createTextNode(` ${msg}`);
 			messageBox.appendChild(text);
@@ -185,7 +185,7 @@ function romDesc(id, withGameTitle) {
 		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
 	if (ROM_LIST[id].author) {
-		res += " " + _("txtDescBy") + " " + ROM_LIST[id].author;
+		res += " " + _("txtDescBy") + " " + ROM_LIST[id].author;
 	}
 	if (ROM_LIST[id].specialAltRom) {
 		res += " (" + ROM_LIST[id].specialAltRom + ")";
@@ -239,10 +239,10 @@ function updatePatchSelect() {
 		// Default selection, in this priority order
 		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.baseRom;
 		if (defaultSelection) {
-			setTimeout(function() {
+			//setTimeout(function() {
 				el(ELT_PATCH_SELECT).value = defaultSelection;
 				updatePatchInfo(FOR_OUTPUT);
-			}, 500);
+			//}, 500);
 		}
 		
 		//el(ELT_PATCH_SELECT).value = "";
@@ -274,30 +274,36 @@ function updatePatchInfo(target) {
 			return;
 	}
 	infoFrame.textContent = '';
-	if (id && ROM_LIST[id].website) {
-		var urlObj = new URL(ROM_LIST[id].website);
-		var baseName = urlObj.hostname;
-		var websiteLink = document.createElement("a");
-		websiteLink.title = websiteLink.href = ROM_LIST[id].website;
-		websiteLink.setAttribute("target", "_blank");
-		websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
-		var websitePar = document.createElement("p");
-		websitePar.className = CLASS_INFO_WEBSITE;
-		websitePar.appendChild(websiteLink);
-		infoFrame.appendChild(websitePar);
-	}
-	if (id && ROM_LIST[id].hasDoc) {
-		var docLink = document.createElement("a");
-		docLink.href = `patches/${id}.txt`;
-		docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
-		docLink.textContent = _('txtReadDoc');
-		var docPar = document.createElement("p");
-		docPar.className = CLASS_INFO_DOC;
-		docPar.appendChild(docLink);
-		infoFrame.appendChild(docPar);
-	}
 	
 	if (id) {
+		var titlePar = document.createElement("p");
+		titlePar.textContent = romDesc(id, true);
+		titlePar.className = CLASS_INFO_TITLE;
+		infoFrame.appendChild(titlePar);
+		
+		if (ROM_LIST[id].website) {
+			var urlObj = new URL(ROM_LIST[id].website);
+			var baseName = urlObj.hostname;
+			var websiteLink = document.createElement("a");
+			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
+			websiteLink.setAttribute("target", "_blank");
+			websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
+			var websitePar = document.createElement("p");
+			websitePar.className = CLASS_INFO_WEBSITE;
+			websitePar.appendChild(websiteLink);
+			infoFrame.appendChild(websitePar);
+		}
+		if (ROM_LIST[id].hasDoc) {
+			var docLink = document.createElement("a");
+			docLink.href = `patches/${id}.txt`;
+			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
+			docLink.textContent = _('txtReadDoc');
+			var docPar = document.createElement("p");
+			docPar.className = CLASS_INFO_DOC;
+			docPar.appendChild(docLink);
+			infoFrame.appendChild(docPar);
+		}
+	
 		var docNbUses = document.createElement("p");
 		docNbUses.className = CLASS_INFO_NB_USES;
 		docNbUses.textContent = _('txtNbUses').replace("%", "42")
@@ -366,7 +372,7 @@ function onParsedInputRom(data) {
     for (var i in ROM_LIST) {
         if (ROM_LIST[i].crc == romCrc) {
             gInputRomId = i;
-            setMessage(romDesc(i, true));
+            setMessage('');
             updatePatchInfo(FOR_INPUT);
 			setAnim(ROM_LIST[i].game);
             break;

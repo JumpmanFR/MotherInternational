@@ -90,6 +90,7 @@ function setAnim(gameCard) {
 			el(ELT_ANIMATION).style.visibility = "visible";
 		} else {
 			el(ELT_ANIMATION).style.visibility = "hidden";
+			gDoNextFrame = NO_OP;
 		}
 	}
 }

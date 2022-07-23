@@ -12,6 +12,7 @@ const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
 
+const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_WEBSITE = "info-website";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";

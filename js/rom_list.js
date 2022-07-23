@@ -34,7 +34,7 @@ var ROM_LIST = {
 	'm2-itB147':{crc:'0x62c04f3f', game:CARD_MOTHER_2,	lang:LANG_ITALIAN,	author:'Vecna',			baseRom:'m2-en', patchExt:'.zip', version:'1.47',	hasDoc:true, website:'https://romhacking.it/project/view/id/646', lastVersionOf:'m2-itB'},
 	'm2-pl100':	{crc:'0xf693cf87', game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar',			baseRom:'m2-en', patchExt:'.zip', version:'1.0.0',	hasDoc:true, website:'https://www.romhacking.net/translations/5600/', oldVersionOf:'m2-pl'},
 	'm2-pl102':	{crc:'0xf31c0606', game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar', 		baseRom:'m2-en', patchExt:'.zip', version:'1.0.2',	hasDoc:true, website:'https://www.romhacking.net/translations/5600/', lastVersionOf:'m2-pl'},
-	'm2-pt10': 	{crc:'0xa19f1c1c', game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'EarthBound Brasil',baseRom:'m2-en',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
+	'm2-pt10': 	{crc:'0xa19f1c1c', game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m2-en',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
 	
 	'm12-ja':	{crc:'0x0a44569c', game:CARD_MOTHER_1_2,lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko11':	{crc:'0xc0cf1f7e', game:CARD_MOTHER_1_2,lang:LANG_KOREAN,	author:'아루미 & pjs',		baseRom:'m12-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'https://blog.naver.com/pjs0493/220591359815'},
@@ -42,7 +42,7 @@ var ROM_LIST = {
 	'm12-en101':{crc:'0x7b1ff152', game:CARD_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/'},
 	'm12-fr10':	{crc:'0x4f5af1e5', game:CARD_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr'},
 	'm12-it10':	{crc:'0x1e7ab616', game:CARD_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true},
-	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
+	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
 	
 	'm3-ja':	{crc:'0x42ac9cb9', game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh10':	{crc:'0x21fdf96c', game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://www.manyoteam.com/?p=32',		oldVersionOf:'m3-zh'},
@@ -72,7 +72,7 @@ var ROM_LIST = {
 	'm3-itB10':	{crc:'0x7dfea226', game:CARD_MOTHER_3,	lang:LANG_ITALIAN,	author:'Snifit', 		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://snifit.altervista.org/'},
 	'm3-nl10':	{crc:'0x8b74324c', game:CARD_MOTHER_3,	lang:LANG_DUTCH,	author:'PrismaticAngel',baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://www.romhacking.net/translations/5722/'},
 	'm3-pl10':	{crc:'0xe5911653', game:CARD_MOTHER_3,	lang:LANG_POLISH,	author:'Voxar',			baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://www.romhacking.net/translations/6161/'},
-	'm3-pt10':	{crc:'0x00508b53', game:CARD_MOTHER_3,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m3-ja',patchExt:'.zip',version:'1.0', 	hasDoc:true, website:'https://www.earthboundbrasil.com'},
+	'm3-pt10':	{crc:'0x00508b53', game:CARD_MOTHER_3,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m3-ja',patchExt:'.zip',version:'1.0', 	hasDoc:true, website:'https://www.earthboundbrasil.com'},
 }
 
 /*var PROJECTS_LIST = {
@@ -96,7 +96,7 @@ var ROM_LIST = {
 	'm2-itA':	{game:CARD_MOTHER_2,	lang:LANG_ITALIAN,	author:'CRefice',			baseRom:'m2-en',	website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/EarthBound-Italian-Translation-COMPLETED'},
 	'm2-itB':	{game:CARD_MOTHER_2,	lang:LANG_ITALIAN,	author:'Vecna',				baseRom:'m2-en',	website:'https://romhacking.it/project/view/id/646'},
 	'm2-pl':	{game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar',				baseRom:'m2-en',	website:'https://www.romhacking.net/translations/5600/'},
-	'm2-pt': 	{game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'EarthBound Brasil',	baseRom:'m2-en',	website:'https://www.earthboundbrasil.com'},
+	'm2-pt': 	{game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m2-en',	website:'https://www.earthboundbrasil.com'},
 	
 	'm12-ja':	{game:CARD_MOTHER_1_2,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko':	{game:CARD_MOTHER_1_2,	lang:LANG_KOREAN,	author:'아루미 & pjs',			baseRom:'m12-ja',	website:'https://blog.naver.com/pjs0493/220591359815'},
@@ -104,7 +104,7 @@ var ROM_LIST = {
 	'm12-en':	{game:CARD_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/'},
 	'm12-fr':	{game:CARD_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr'},
 	'm12-it':	{game:CARD_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja'},
-	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com'},
+	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com'},
 	
 	'm3-ja':	{game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh':	{game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',			baseRom:'m3-ja',	website:'http://www.manyoteam.com/?p=32'},
@@ -117,7 +117,7 @@ var ROM_LIST = {
 	'm3-itB':	{game:CARD_MOTHER_3,	lang:LANG_ITALIAN,	author:'Snifit', 			baseRom:'m3-ja',	website:'http://snifit.altervista.org/'},
 	'm3-nl':	{game:CARD_MOTHER_3,	lang:LANG_DUTCH,	author:'PrismaticAngel',	baseRom:'m3-ja',	website:'https://www.romhacking.net/translations/5722/'},
 	'm3-pl':	{game:CARD_MOTHER_3,	lang:LANG_POLISH,	author:'Voxar',				baseRom:'m3-ja',	website:'https://www.romhacking.net/translations/6161/'},
-	'm3-pt':	{game:CARD_MOTHER_3,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m3-ja',	website:'https://www.earthboundbrasil.com'},
+	'm3-pt':	{game:CARD_MOTHER_3,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m3-ja',	website:'https://www.earthboundbrasil.com'},
 };
 
 

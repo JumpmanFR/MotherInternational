@@ -2,10 +2,14 @@
 	font-family: 'titlefont';
 	src: url('titlefont.ttf');
 }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
+	margin-top: 1em;
 	width: fit-content;
 	text-align: center;
 }
@@ -41,7 +45,7 @@ body {
 
 #input-area {
 	border-color: #FFFFFF40;
-	border-style: dotted;
+	border-style: dashed;
 	background-color: #FFFFFF40;
 }
 #input-area.drag {
@@ -67,6 +71,32 @@ body {
 	color: #000000A0;
 }
 
+#msg-container {
+	height: 1em;
+}
+.loading{
+	width: 20px;
+	margin-right: 4px;
+	display: inline-block;
+	position: relative;
+	-webkit-animation: spin 1s linear infinite;
+	-moz-animation: spin 1s linear infinite;
+	animation: spin 1s ease-in-out infinite;
+	vertical-align: middle;
+}
+.loading:before{
+	width: 6px;
+	height: 6px;
+	background-color: #FFFFFFB0;
+	border-radius: 3px;
+	display: inline-block;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -10px;
+}
+
 #game-name {
 	margin: 0px;
 }
@@ -83,6 +113,9 @@ body {
 .info-frame {
 	background-color: #FFFFFF20;
 	border-radius: 5px;
+}
+.info-title {
+	font-weight: bold;
 }
 
 #apply-btn {
@@ -101,6 +134,7 @@ body {
 	transform: scale(2);
 	transform-origin: bottom;
 	image-rendering: pixelated;
+	mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 #translator-contact {
