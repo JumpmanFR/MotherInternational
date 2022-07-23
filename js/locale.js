@@ -16,6 +16,8 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM reconnue',
 		
+		'txtAllTranslations':		'Toutes les traductions de %',
+		
 		'txtShowAllVersions':		'Afficher toutes les versions',
 		
 		'txtDescVersion':			'v',
@@ -61,6 +63,8 @@ const LOCALIZATION={
 		'txtZipping':				'Creating zip file…',
 		
 		'txtRomIdentified':			'ROM identified',
+
+		'txtAllTranslations':		'All % translations',
 
 		'txtShowAllVersions':		'Show all versions',
 

@@ -24,24 +24,33 @@
 			<img id="titleLogo" src="assets/title.png"/>
 			<p id="subtitle" data-localize="txtSubtitle"></p>
 		</div>
-		<img id="animation"/>
-        <div id="drop">
+		<div id="animation-container">
+			<img id="animation"/>
+		</div>
+        <div id="input-area" class="area">
             <input type="file" id="rom-file">
             <input type="button" id="rom-btn" data-localize="txtBrowse">
             <label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
             <div id="msg-container">
                 <span id="msg" class="message" data-localize="txtSpecifyRom"></span>
             </div>
-            <div id="input-rom-info"></div>
+            <div id="input-rom-info" class="info-frame"></div>
+        </div>
+        <div id="arrow-between-areas">▸
+        </div>
+        <div id="output-area" class="area">
+            <p id="game-name"></p>
             <select id="patch-select"></select>
-            <label for="show-all-option" id="show-all-container">
+            <label for="show-all-option" id="show-all-container" style="visibility: hidden">
             	<input type="checkbox" id="show-all-option">
             	<span data-localize="txtShowAllVersions">
             </label>
-            <div id="output-rom-info"></div>
+            <div id="output-rom-info" class="info-frame"></div>
             <button id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled=""></button>
-        </div>
-        <p id="translator-contact"><a href="" data-localize="txtTranslatorContact"></a></p>
+       </div>
+        <p id="translator-contact">
+        	<a href="" data-localize="txtTranslatorContact"></a>
+        </p>
 		<div id="preload"/>
     </body>
 </html>
