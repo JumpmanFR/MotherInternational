@@ -123,7 +123,7 @@ function setLanguage(langCode){
 		if (translatableElements[i].tagName == "INPUT") {
 			translatableElements[i].setAttribute("value", _(translatableElements[i].dataset.localize));
 		} else {
-			translatableElements[i].innerHTML = _(translatableElements[i].dataset.localize);
+			translatableElements[i].textContent = _(translatableElements[i].dataset.localize);
 		}
 	}
 }
@@ -152,23 +152,27 @@ function updateUIState() {
 
 function setMessage(msg, type) {
 	var messageBox = el(ELT_MSG);
+	messageBox.textContent = '';
 	if (msg) {
 		if (type === MSG_TYPE_LOADING) {
 			messageBox.className = MSG_CLASS_DEFAULT;
-			messageBox.innerHTML = `<span class="${MSG_CLASS[type]}"></span> ${msg}`;
+			var span = document.createElement("span");
+			span.class = MSG_CLASS[type];
+			messageBox.appendChild(span);
+			var text = document.createTextNode(` ${msg}`);
+			messageBox.appendChild(text);
+			//messageBox.innerHTML = `<span class="${MSG_CLASS[type]}"></span> ${msg}`;
 		} else {
 			messageBox.className = MSG_CLASS_DEFAULT + " " + MSG_CLASS[type];
 			if(type === MSG_TYPE_WARNING)
-				messageBox.innerHTML = '&#9888; ' + msg;
+				messageBox.textContent = '⚠ ' + msg;
 			else if(type === MSG_TYPE_ERROR)
-				messageBox.innerHTML = '&#10007; ' + msg;
+				messageBox.textContent = '✗ ' + msg;
 			else if(type === MSG_TYPE_OK)
-				messageBox.innerHTML = '✓ ' + msg;
+				messageBox.textContent = '✓ ' + msg;
 			else
-				messageBox.innerHTML = msg;
+				messageBox.textContent = msg;
 		}
-	} else {
-		messageBox.innerHTML = '';
 	}
 }
 
@@ -248,27 +252,34 @@ function clearPatchSelect() {
 
 function updatePatchInfo() {
 	var id = patchSelectVal();
+	el(ELT_INFO_WEBSITE).textContent = '';
+	el(ELT_INFO_DOC).textContent = '';
 	if (id && ROM_LIST[id].website) {
 		var urlObj = new URL(ROM_LIST[id].website);
 		var baseName = urlObj.hostname;
-		var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank" title="${ROM_LIST[id].website}">`;
+		/*var websiteStr = `<a href="${ROM_LIST[id].website}" target="_blank" title="${ROM_LIST[id].website}">`;
 		websiteStr += _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
 		//websiteStr += ` (${ROM_LIST[id].website})
-		websiteStr += "</a>";
-		el(ELT_INFO_WEBSITE).innerHTML = websiteStr;
-	} else {
-	    el(ELT_INFO_WEBSITE).innerHTML = '';
+		websiteStr += "</a>";*/
+		var websiteLink = document.createElement("a");
+		websiteLink.title = websiteLink.href = ROM_LIST[id].website;
+		websiteLink.setAttribute("target", "_blank");
+		websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
+		el(ELT_INFO_WEBSITE).appendChild(websiteLink);
 	}
 	if (id && ROM_LIST[id].hasDoc) {
-		el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt">${_('txtReadDoc')}</a>`
-	} else {
-	    el(ELT_INFO_DOC).innerHTML = '';
+		var docLink = document.createElement("a");
+		docLink.href = `patches/${id}.txt`;
+		docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
+		docLink.textContent = _('txtReadDoc');
+		el(ELT_INFO_DOC).appendChild(docLink);
+		//el(ELT_INFO_DOC).innerHTML = `<a href="patches/${id}.txt" download="${_('txtReadmeFile')}-${id}.txt">${_('txtReadDoc')}</a>`
 	}
 	
 	if (id) {
-		el(ELT_INFO_NB_USES).innerHTML = _('txtNbUses').replace("%", "42")
+		el(ELT_INFO_NB_USES).textContent = _('txtNbUses').replace("%", "42")
 	} else {
-		el(ELT_INFO_NB_USES).innerHTML = '';
+		el(ELT_INFO_NB_USES).textContent = '';
 	}
 }
 
