@@ -1,5 +1,6 @@
 const ELT_AREA_INPUT = "input-area";
-const ELT_AREA_OUTPUT = "input-area";
+const ELT_AREA_OUTPUT = "output-area";
+const ELT_ARROW = "arrow-between-areas";
 const ELT_ROM_FILE = "rom-file";
 const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_LABEL = "rom-label";

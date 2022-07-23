@@ -148,6 +148,7 @@ function updateUIState() {
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
 		el(ELT_AREA_INPUT).classList.remove('disabled');
 	}
+	el(ELT_AREA_OUTPUT).style.visibility = el(ELT_ARROW).style.visibility = gInputRomId ? "visible" : "hidden";
 }
 
 function setMessage(msg, type) {
@@ -249,7 +250,7 @@ function updatePatchSelect() {
 		//updatePatchInfo(FOR_OUTPUT);
 	}
 	
-	el(ELT_SHOW_ALL_CONTAINER).style.visibility = el(ELT_PATCH_SELECT).length ? "visible" : "hidden"
+	el(ELT_SHOW_ALL_CONTAINER).style.visibility = el(ELT_PATCH_SELECT).length ? "inherit" : "hidden"
 }
 
 function clearPatchSelect() {

@@ -118,9 +118,13 @@ body {
 	font-weight: bold;
 }
 
+input[type=button], button {
+	font-size: larger;
+}
+
 #apply-btn {
 	font-weight: bold;
-	width: 18em;
+	width: 16em;
 	height: 2em;
 }
 

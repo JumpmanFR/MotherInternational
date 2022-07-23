@@ -16,7 +16,7 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM reconnue',
 		
-		'txtAllTranslations':		'Langues disponibles pour %',
+		'txtAllTranslations':		'Langues disponibles pour % :',
 		
 		'txtShowAllVersions':		'Afficher toutes les versions',
 		
@@ -64,7 +64,7 @@ const LOCALIZATION={
 		
 		'txtRomIdentified':			'ROM identified',
 
-		'txtAllTranslations':		'Available languages for %',
+		'txtAllTranslations':		'Available languages for %:',
 
 		'txtShowAllVersions':		'Show all versions',
 
