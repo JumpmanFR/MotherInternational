@@ -1,5 +1,6 @@
 const LOCALIZATION={
 	'fr':{
+		'txtTitleBottom':			'International',
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
 		
 		'txtBrowse':				'Parcourir…',
@@ -53,6 +54,7 @@ const LOCALIZATION={
 		'Not Found':				'Un fichier de patch n’a pas été trouvé'
 	},
 	'en':{
+		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 		
 		'txtBrowse':				'Browse…',

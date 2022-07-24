@@ -31,6 +31,8 @@ var gIsBusy;
 var gInputRom, gInputRomId;
 var gPatchFiles = [];
 
+var gStatsAlreadySent = [];
+
 // Init from external files
 var gWorkerChecksum = new Worker(PATH_LIBS + 'worker_crc.js');
 var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
@@ -94,16 +96,20 @@ function onDrag(val, e) {
 }
 
 function onInputFile(data) {
-	el(ELT_AREA_INPUT).classList.remove('first-drop');
-	var inputRom = new MarcFile(data, parseInputRom);
-	el(ELT_ROM_LABEL).innerText = inputRom.fileName;
-	gInputRom = inputRom;
-	gInputRomId = null;
-    updatePatchInfo(FOR_INPUT);
-	setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
-	setUIBusy(true);
-    clearPatchSelect();
-	setAnim(); // stop any ongoing animation
+	try {
+		var inputRom = new MarcFile(data, parseInputRom);
+		el(ELT_AREA_INPUT).classList.remove('first-drop');
+		el(ELT_ROM_LABEL).innerText = inputRom.fileName;
+		gInputRom = inputRom;
+		gInputRomId = null;
+		updatePatchInfo(FOR_INPUT);
+		setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
+		setUIBusy(true);
+		clearPatchSelect();
+		setAnim(); // stop any ongoing animation
+	} catch(error) {
+		setMessage(_('error_unknown_rom'), MSG_TYPE_ERROR);	
+	}
 }
 
 function onSelectPatch(value) {
@@ -349,6 +355,7 @@ function reset() {
     updatePatchInfo(FOR_INPUT);
 	gPatchFiles = [];
 	setMessage(_('txtSpecifyRom'));
+	el(ELT_AREA_INPUT).classList.add('first-drop');
 	clearPatchSelect();
 	setUIBusy(false);
 }
@@ -434,6 +441,9 @@ function processPatchingTasks(rom, romId, step) {
 		// The romId is equal to what the user wanted, so our process is finished now!
         setMessage(_("txtFinalizing")) // TODO errors
 		countPatchUsage(romId)
+			.then(function(hasIncreased) {
+				//console.log('Increased usage data: ' + hasIncreased);
+			})
 			.catch(function() {
 				console.warn('Failed to send patch usage.');
 			})
@@ -626,7 +636,7 @@ function requestPatchUsage(patchId) {
 			xhr.send('');
 		} else {
 			setTimeout(function () {
-				preSuccess(Math.floor(Math.random() * 1000));
+				preSuccess(Math.floor(Math.random() * 1000) + "🤥");
 			}, 2000);
 		}
 	});
@@ -634,22 +644,27 @@ function requestPatchUsage(patchId) {
 
 function countPatchUsage(patchId) {
 	return new Promise((successCallback, failureCallback) => {
-		ROM_LIST[patchId].usage++;
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', STATS_INCREMENT_URL);
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					successCallback();
-				} else {
-					failureCallback();
+		if (gStatsAlreadySent.includes(patchId)) { // don’t count a patchId twice for the same session
+			successCallback(false);
+		} else {
+			ROM_LIST[patchId].usage++;
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', STATS_INCREMENT_URL);
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						gStatsAlreadySent.push(patchId);
+						successCallback(true);
+					} else {
+						failureCallback();
+					}
 				}
+			};
+			xhr.onerror = function() {
+				failureCallback();
 			}
-		};
-		xhr.onerror = function() {
-			failureCallback();
+			xhr.send(`${STATS_INCREMENT_PARAM}=${patchId}`);
 		}
-		xhr.send(`${STATS_INCREMENT_PARAM}=${patchId}`);
 	});
 }
