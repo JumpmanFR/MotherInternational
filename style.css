@@ -31,7 +31,6 @@ body {
 }
 
 .area {
-	/*text-align: left;*/
 	vertical-align: middle;
 	height: 17em;
 	width: 20em;
@@ -41,12 +40,17 @@ body {
 	border-radius: 10px;
 	border-width: 3px;
 	overflow: hidden;
+	position: relative;
 }
 
 #input-area {
 	border-color: #FFFFFF40;
 	border-style: dashed;
 	background-color: #FFFFFF40;
+	background-image: url("assets/drop_icon.png");
+	background-size: 30%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 #input-area.drag {
 	background-color: #FFFFFF80;
@@ -68,7 +72,14 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 	margin: auto;
-	color: #000000A0;
+	color: #FFFFFFA0;
+}
+
+#rom-file {
+	display: none;
+}
+#rom-btn {
+	width: 6em;
 }
 
 #msg-container {
@@ -97,14 +108,11 @@ body {
 	margin-left: -10px;
 }
 
-#game-name {
+#output-area-label {
 	margin: 0px;
 }
-#rom-file {
-	display: none;
-}
 #patch-select {
-	width: 100%;
+	width: 90%;
 }
 #show-all-container {
 	white-space: nowrap;
@@ -113,9 +121,13 @@ body {
 .info-frame {
 	background-color: #FFFFFF20;
 	border-radius: 5px;
+	margin: 8px 0;
 }
 .info-title {
 	font-weight: bold;
+}
+.info-frame p {
+	margin-top: 0;
 }
 
 input[type=button], button {
@@ -126,6 +138,11 @@ input[type=button], button {
 	font-weight: bold;
 	width: 16em;
 	height: 2em;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 1em;
+	margin: auto;
 }
 
 #animation-container {
@@ -142,6 +159,7 @@ input[type=button], button {
 }
 
 #translator-contact {
+	display: block;
 	margin: auto;
 	margin-top: 14px;
 	width: fit-content;

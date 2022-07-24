@@ -8,11 +8,14 @@ const LOCALIZATION={
 		'txtSpecifyRom':			'Spécifiez votre ROM à patcher',
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
+		
+		'txtAnalyzingFile':			'Analyse du fichier…',
 		'txtAnalyzingRom':			'Analyse de la ROM…',
 		'txtApplyingPatch':			'Application du patch%…',
 		'txtDownloading':			'Téléchargement du patch%…',
 		'txtUnzipping':				'Décompression…',
 		'txtZipping':				'Création de l’archive',
+		'txtFinalizing':			'Finalisation…',
 		
 		'txtRomIdentified':			'ROM reconnue',
 		
@@ -56,11 +59,14 @@ const LOCALIZATION={
 		'txtSpecifyRom':			'Please specify the ROM to patch',
 		'txtApplyPatch':			'Apply patch',
 		'txtUpdate':				'Update',
+
+		'txtAnalyzingFile':			'Analyzing file…',
 		'txtAnalyzingRom':			'Analyzing ROM…',
 		'txtApplyingPatch':			'Applying patch%…',
 		'txtDownloading':			'Downloading patch%…',
 		'txtUnzipping':				'Unzipping…',
 		'txtZipping':				'Creating zip file…',
+		'txtFinalizing':			'Finalizing…',
 		
 		'txtRomIdentified':			'ROM identified',
 

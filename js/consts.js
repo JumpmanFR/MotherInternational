@@ -5,13 +5,14 @@ const ELT_ROM_FILE = "rom-file";
 const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_LABEL = "rom-label";
 const ELT_MSG = "msg";
-const ELT_GAME_NAME = "game-name";
+const ELT_OUTPUT_AREA_LABEL = "output-area-label";
 const ELT_PATCH_SELECT = "patch-select";
 const ELT_SHOW_ALL_CONTAINER = "show-all-container";
 const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
+const ELT_TRANSLATOR_CONTACT = "translator-contact";
 
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_WEBSITE = "info-website";
@@ -44,3 +45,22 @@ const LANG_POLISH	 = 'pl';
 const LANG_RUSSIAN	 = 'ru';
 const LANG_CHINESE	 = 'zh';
 const LANG_KOREAN	 = 'ko';
+
+const STATS_FAKE = true;
+const STATS_VALUE_URL = "";
+const STATS_VALUE_PARAM = "";
+const STATS_INCREMENT_URL = "";
+const STATS_INCREMENT_PARAM = "";
+
+const MAIL_ADDRESS = 'contact@mother4ever.net';
+const MAIL_SUBJECT = 'Translator feedback for Mother International';
+const MAIL_BODY = `Team or translator’s name:
+
+Translated game and language:
+
+Select an option:
+• I want my translation to appear in Mother International!
+• My translation is already listed and I’d like to change something!
+• I made a new version of my translation and I’d to add it to Mother International!
+• I don’t want my translation to appear in Mother International!
+• Other (please specify)`;

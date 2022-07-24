@@ -45,6 +45,7 @@ function langCode(){return navigator.language.substr(0,2)}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
 function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].lastVersionOf || NaN}
 
+
 //==========================================
 // EVENT METHODS AND ENTRY POINTS
 //==========================================
@@ -67,10 +68,10 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
 	setLanguage(langCode());
+	setMailToLink();
 	setUIBusy(false);
 	
 })
-
 
 
 //==========================================
@@ -100,12 +101,17 @@ function onInputFile(data) {
 	gInputRom = inputRom;
 	gInputRomId = null;
     updatePatchInfo(FOR_INPUT);
+	setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
+	setUIBusy(true);
+    clearPatchSelect();
+	setAnim(); // stop any ongoing animation
 }
 
 function onSelectPatch(value) {
 	updateUIState();
 	updatePatchInfo(FOR_OUTPUT);
 }
+
 
 //==========================================
 // UI METHODS
@@ -128,6 +134,13 @@ function setLanguage(langCode){
 	}
 }
 
+function setMailToLink() {
+	var uri = `mailto:${encodeURIComponent(MAIL_ADDRESS)}`;
+	uri += `?subject=${encodeURIComponent(MAIL_SUBJECT)}`;
+	uri += `&body=${encodeURIComponent(MAIL_BODY)}`;
+	el(ELT_TRANSLATOR_CONTACT).href = uri;
+}
+
 function setUIBusy(value) {
 	gIsBusy = value;
 	updateUIState();
@@ -139,12 +152,14 @@ function updateUIState() {
 		el(ELT_ROM_FILE).disabled = true;
 		el(ELT_ROM_BTN).disabled = true;
 		el(ELT_PATCH_SELECT).disabled = true;
+		el(ELT_SHOW_ALL_OPTION).disabled = true;
 		el(ELT_APPLY).disabled = true;
 		el(ELT_AREA_INPUT).classList.add('disabled');
 	} else {
 		el(ELT_ROM_FILE).disabled = false;
 		el(ELT_ROM_BTN).disabled = false;
 		el(ELT_PATCH_SELECT).disabled = el(ELT_PATCH_SELECT).options.length == 0;
+		el(ELT_SHOW_ALL_OPTION).disabled = false;
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
 		el(ELT_AREA_INPUT).classList.remove('disabled');
 	}
@@ -250,7 +265,7 @@ function updatePatchSelect() {
 		//updatePatchInfo(FOR_OUTPUT);
 	}
 	
-	el(ELT_SHOW_ALL_CONTAINER).style.visibility = el(ELT_PATCH_SELECT).length ? "inherit" : "hidden"
+	el(ELT_SHOW_ALL_CONTAINER).style.visibility = el(ELT_PATCH_SELECT).options.length ? "inherit" : "hidden"
 }
 
 function clearPatchSelect() {
@@ -277,10 +292,11 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 	
 	if (id) {
-		var titlePar = document.createElement("p");
-		titlePar.textContent = romDesc(id, true);
-		titlePar.className = CLASS_INFO_TITLE;
-		infoFrame.appendChild(titlePar);
+		if (target == FOR_INPUT) {
+			el(ELT_AREA_INPUT).style.backgroundImage = "none";
+		}
+		
+		addToInfoFrame(infoFrame, romDesc(id, true), CLASS_INFO_TITLE);
 		
 		if (ROM_LIST[id].website) {
 			var urlObj = new URL(ROM_LIST[id].website);
@@ -288,28 +304,32 @@ function updatePatchInfo(target) {
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
 			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
-			var websitePar = document.createElement("p");
-			websitePar.className = CLASS_INFO_WEBSITE;
-			websitePar.appendChild(websiteLink);
-			infoFrame.appendChild(websitePar);
+			websiteLink.textContent = '🌐 ' + _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
+			addToInfoFrame(infoFrame, websiteLink, CLASS_INFO_WEBSITE);
 		}
 		if (ROM_LIST[id].hasDoc) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
-			docLink.textContent = _('txtReadDoc');
-			var docPar = document.createElement("p");
-			docPar.className = CLASS_INFO_DOC;
-			docPar.appendChild(docLink);
-			infoFrame.appendChild(docPar);
+			docLink.textContent = '📄 ' + _('txtReadDoc');
+			addToInfoFrame(infoFrame, docLink, CLASS_INFO_DOC);
 		}
 	
-		var docNbUses = document.createElement("p");
-		docNbUses.className = CLASS_INFO_NB_USES;
-		docNbUses.textContent = _('txtNbUses').replace("%", "42")
-		infoFrame.appendChild(docNbUses);
+		requestPatchUsage(id)
+			.then(function(nbUses) {
+				addToInfoFrame(infoFrame, _('txtNbUses').replace("%", nbUses), CLASS_INFO_NB_USES);
+			});
 	}
+}
+
+function addToInfoFrame(frameElt, eltToAdd, className) {
+	if (typeof(eltToAdd) == "string") {
+		eltToAdd = document.createTextNode(eltToAdd);
+	}
+	var paragraph = document.createElement("p");
+	paragraph.className = className;
+	paragraph.appendChild(eltToAdd);
+	frameElt.appendChild(paragraph);
 }
 
 function reset() {
@@ -328,10 +348,6 @@ function reset() {
 //==========================================
 
 function parseInputRom() {
-	setUIBusy(true);
-    clearPatchSelect();
-	setAnim(); // stop any ongoing animation
-
 	gWorkerChecksum.onmessage = event => {
 		onParsedInputRom(event.data);
 	};
@@ -340,7 +356,7 @@ function parseInputRom() {
 		setUIBusy(false);
 	};
 
-	if(gInputRom.readString(4).startsWith(ZIP_MAGIC)){
+	if (gInputRom.readString(4).startsWith(ZIP_MAGIC)) {
 		setMessage(_('txtUnzipping'), MSG_TYPE_LOADING)
         parseZIPFile(gInputRom, ROMS_IN_ZIP)
         	.then(unzippedFile => {
@@ -380,7 +396,7 @@ function onParsedInputRom(data) {
         }
     }
 
-	el(ELT_GAME_NAME).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES[ROM_LIST[i].game]) : '';
+	el(ELT_OUTPUT_AREA_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES[ROM_LIST[i].game]) : '';
 	
 	updatePatchSelect();
 	setUIBusy(false);
@@ -405,8 +421,14 @@ function processPatchingTasks(rom, romId, step) {
 	
 	if (romId == patchSelectVal()) {
 		// The romId is equal to what the user wanted, so our process is finished now!
-		deliverFinalRom(rom);
-		
+        setMessage(_("txtFinalizing")) // TODO errors
+		countPatchUsage(romId)
+			.catch(function() {
+				console.warn('Failed to send patch usage.');
+			})
+			.finally(function() {
+				deliverFinalRom(rom, romId);
+			});
 	} else {
 		var patchId,nextRomIdAfterPatch;
 		// If a baseRom is specified, then our input is not the baseRom => reverse patching
@@ -444,7 +466,7 @@ function processPatchingTasks(rom, romId, step) {
 // The “rom” parameter is here to check validity.
 function downloadPatch(patchFileName, rom) {
 	return new Promise((successCallback, failureCallback) => {
-		//console.log("txtDownloading");
+		//console.log("Downloading patch…");
 		fetch(PATH_PATCH_FOLDER + patchFileName)
 				.then(function(response) {
 					if (response.ok) {
@@ -516,7 +538,7 @@ function onDownloadedPatch(patchFile, rom) {
 // Applies the patch and makes sure the output file has the right checksum
 function applyPatch(romFile, patchFile, expectedChecksum) {
 	return new Promise((successCallback, failureCallback) => {
-		//console.log("txtApplyingPatch");
+		//console.log("Applying patch…");
 		gWorkerApply.onmessage = event => {
 			romFile._u8array = event.data.romFileU8Array;
 			romFile._dataView = new DataView(romFile._u8array.buffer);
@@ -554,9 +576,63 @@ function endProcessWithError(errorMsg) {
 	setUIBusy(false);
 }
 
-function deliverFinalRom(finalRomFile) {
-	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ` (patched-${patchSelectVal()}).$1`);
+function deliverFinalRom(finalRomFile, romId) {
+	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ` (patched-${romId}).$1`);
 	finalRomFile.save();
 	setMessage('');
 	setUIBusy(false);
+}
+
+
+//==========================================
+// PATCH USAGE STATS METHODS
+//==========================================
+
+function requestPatchUsage(patchId) {
+	return new Promise((successCallback, failureCallback) => {
+		var preSuccess = function(result) {
+			ROM_LIST[patchId].usage = result;
+			successCallback(result);
+		}
+		
+		if (ROM_LIST[patchId].usage) {
+			successCallback(ROM_LIST[patchId].usage);
+		} else if (!STATS_FAKE) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', `${STATS_VALUE_URL}&${STATS_VALUE_PARAM}=${patchId}`);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						preSuccess(xhr.responseText);
+					} else {
+						failureCallback();
+					}
+				}
+			};
+			xhr.send('');
+		} else {
+			setTimeout(function () {
+				preSuccess(Math.floor(Math.random() * 1000));
+			}, 1000);
+		}
+	});
+}
+
+function countPatchUsage(patchId) {
+	return new Promise((successCallback, failureCallback) => {
+		ROM_LIST[patchId].usage++;
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', STATS_INCREMENT_URL);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					successCallback();
+				} else {
+					failureCallback();
+				}
+			}
+		};
+		xhr.send(`${STATS_INCREMENT_PARAM}=${patchId}`);
+	});
 }
