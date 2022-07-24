@@ -27,7 +27,8 @@ const LOCALIZATION={
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
 		'txtDescUpdate':			'(mise à jour)',
-		'txtVisitSite':				'Page web de % sur $',
+		'txtVisitSite':				'Page web de %',
+		'txtVisitSiteAt':			'sur %',
 		'txtReadDoc':				'Fichier lisez-moi',
 		
 		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
@@ -81,12 +82,13 @@ const LOCALIZATION={
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
 		'txtDescUpdate':			'(update)',
-		'txtVisitSite':				'%’s webpage on $',
+		'txtVisitSite':				'%’s webpage',
+		'txtVisitSiteAt':			'at $',
 		'txtReadDoc':				'Readme file',
-		
+
 		'txtNbUses':				'Number of uses for this patch: %',
 		'txtNbUsesUnknown':			'unknown',
-		
+
 		'txtTranslatorContact':		'I’m a translator',
 
 		'txtReadmeFile':			'readme',

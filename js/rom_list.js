@@ -1,6 +1,6 @@
 var ROM_LIST = {
 	'm1-ja': 	{crc:'0x282a5caa', game:CARD_MOTHER_1,	lang:LANG_JAPANESE,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', hasDoc:false},
-	'm1-en': 	{crc:'0xf5ef5002', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo'},	
+	'm1-en': 	{crc:'0xf5ef5002', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo'},
 	'm1-enA': 	{crc:'0x7b1be8c2', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', specialAltRom:'proto'},
 	'm1-enB': 	{crc:'0xe4aa8122', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', specialAltRom:'Zero'},
 	'm1-esA22':	{crc:'0xd80e3217', game:CARD_MOTHER_1,	lang:LANG_SPANISH, 	author:'OAD',			baseRom:'m1-en', patchExt:'.zip', version:'2.2',	hasDoc:true, website:'https://www.romhacking.net/translations/1721/'},
@@ -8,7 +8,7 @@ var ROM_LIST = {
 	'm1-fr10':	{crc:'0xbd1f8687', game:CARD_MOTHER_1,	lang:LANG_FRENCH,	author:'Ridculle',		baseRom:'m1-en', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://traf.romhack.org/?p=patchs&pid=490'},
 	'm1-pl10': 	{crc:'0x27cb7095', game:CARD_MOTHER_1,	lang:LANG_POLISH,	author:'Voxar', 		baseRom:'m1-en', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://www.romhacking.net/translations/5152/'},
 	'm1-ru09': 	{crc:'0x03b08fa5', game:CARD_MOTHER_1,	lang:LANG_RUSSIAN,	author:'CHIEF-NET',		baseRom:'m1-en', patchExt:'.zip', version:'0.9',	hasDoc:true, website:'http://chief-net.ru/index.php?option=com_content&task=view&id=37'},
-	
+
 	'm2-ja': 	{crc:'0x2019fabe', game:CARD_MOTHER_2,	lang:LANG_JAPANESE,	author:'Nintendo',		baseRom:'m2-en', patchExt:'.zip',					hasDoc:false},
 	'm2-de10':	{crc:'0x4491e7b1', game:CARD_MOTHER_2,	lang:LANG_GERMAN,	author:'GlostU/Mexos',	baseRom:'m2-en', patchExt:'.zip', version:'1.0',	hasDoc:false,website:'https://github.com/GlostU/EarthBound-dee-uebersetzung', oldVersionOf:'m2-de'},
 	'm2-de12':	{crc:'0x886b49b0', game:CARD_MOTHER_2,	lang:LANG_GERMAN,	author:'GlostU/Mexos',	baseRom:'m2-en', patchExt:'.zip', version:'1.2',	hasDoc:true, website:'https://github.com/GlostU/EarthBound-dee-uebersetzung', oldVersionOf:'m2-de'},
@@ -35,15 +35,15 @@ var ROM_LIST = {
 	'm2-pl100':	{crc:'0xf693cf87', game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar',			baseRom:'m2-en', patchExt:'.zip', version:'1.0.0',	hasDoc:true, website:'https://www.romhacking.net/translations/5600/', oldVersionOf:'m2-pl'},
 	'm2-pl102':	{crc:'0xf31c0606', game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar', 		baseRom:'m2-en', patchExt:'.zip', version:'1.0.2',	hasDoc:true, website:'https://www.romhacking.net/translations/5600/', lastVersionOf:'m2-pl'},
 	'm2-pt10': 	{crc:'0xa19f1c1c', game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m2-en',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
-	
+
 	'm12-ja':	{crc:'0x0a44569c', game:CARD_MOTHER_1_2,lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko11':	{crc:'0xc0cf1f7e', game:CARD_MOTHER_1_2,lang:LANG_KOREAN,	author:'아루미 & pjs',		baseRom:'m12-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de10':	{crc:'0x61a57a10', game:CARD_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95'},
-	'm12-en101':{crc:'0x7b1ff152', game:CARD_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/'},
-	'm12-fr10':	{crc:'0x4f5af1e5', game:CARD_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr'},
-	'm12-it10':	{crc:'0x1e7ab616', game:CARD_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true},
-	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com'},
-	
+	'm12-de10':	{crc:'0x61a57a10', game:CARD_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95', moreInfo:'Nur MOTHER 1'},
+	'm12-en101':{crc:'0x7b1ff152', game:CARD_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/', moreInfo:'MOTHER 1 only'},
+	'm12-fr10':	{crc:'0x4f5af1e5', game:CARD_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr', moreInfo:'MOTHER 1 uniquement'},
+	'm12-it10':	{crc:'0x1e7ab616', game:CARD_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, moreInfo:'Solo MOTHER 1'},
+	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com', moreInfo:'Somente MOTHER 1'},
+
 	'm3-ja':	{crc:'0x42ac9cb9', game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh10':	{crc:'0x21fdf96c', game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://www.manyoteam.com/?p=32',		oldVersionOf:'m3-zh'},
 	'm3-zh10f':	{crc:'0xe2447179', game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0+fix',hasDoc:true, website:'https://tieba.baidu.com/p/7313315937',lastVersionOf:'m3-zh'},
@@ -97,15 +97,15 @@ var ROM_LIST = {
 	'm2-itB':	{game:CARD_MOTHER_2,	lang:LANG_ITALIAN,	author:'Vecna',				baseRom:'m2-en',	website:'https://romhacking.it/project/view/id/646'},
 	'm2-pl':	{game:CARD_MOTHER_2,	lang:LANG_POLISH,	author:'Voxar',				baseRom:'m2-en',	website:'https://www.romhacking.net/translations/5600/'},
 	'm2-pt': 	{game:CARD_MOTHER_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m2-en',	website:'https://www.earthboundbrasil.com'},
-	
+
 	'm12-ja':	{game:CARD_MOTHER_1_2,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko':	{game:CARD_MOTHER_1_2,	lang:LANG_KOREAN,	author:'아루미 & pjs',			baseRom:'m12-ja',	website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de':	{game:CARD_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95'},
-	'm12-en':	{game:CARD_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/'},
-	'm12-fr':	{game:CARD_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr'},
-	'm12-it':	{game:CARD_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja'},
-	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com'},
-	
+	'm12-de':	{game:CARD_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95', moreInfo:'Nur MOTHER 1'},
+	'm12-en':	{game:CARD_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/', moreInfo:'MOTHER 1 only'},
+	'm12-fr':	{game:CARD_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr', moreInfo:'MOTHER 1 uniquement'},
+	'm12-it':	{game:CARD_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja',	moreInfo:'Solo MOTHER 1'},
+	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com', moreInfo:'Somente MOTHER 1'},
+
 	'm3-ja':	{game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh':	{game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',			baseRom:'m3-ja',	website:'http://www.manyoteam.com/?p=32'},
 	'm3-ko':	{game:CARD_MOTHER_3,	lang:LANG_KOREAN,	author:'pjs',				baseRom:'m3-ja',	website:'http://blog.naver.com/pjs0493/220392308242'},
@@ -131,7 +131,7 @@ var VERSIONS_LIST = {
 	'm1-fr10':	{crc:'0xbd1f8687',	projectId:'m1-fr',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm1-pl10': 	{crc:'0x27cb7095',	projectId:'m1-pl',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm1-ru09': 	{crc:'0x03b08fa5',	projectId:'m1-ru',	patchExt:'.zip', hasDoc:true,	version:'0.9'},
-		
+
 	'm2-ja': 	{crc:'0x2019fabe',	projectId:'m2-ja',	patchExt:'.zip', hasDoc:false},
 	'm2-de10':	{crc:'0x4491e7b1',	projectId:'m2-de',	patchExt:'.zip', hasDoc:false,	version:'1.0'},
 	'm2-de12':	{crc:'0x886b49b0',	projectId:'m2-de',	patchExt:'.zip', hasDoc:true,	version:'1.2'},
@@ -158,7 +158,7 @@ var VERSIONS_LIST = {
 	'm2-pl100':	{crc:'0xf693cf87',	projectId:'m2-pl',	patchExt:'.zip', hasDoc:true,	version:'1.0.0'},
 	'm2-pl102':	{crc:'0xf31c0606',	projectId:'m2-pl',	patchExt:'.zip', hasDoc:true,	version:'1.0.2', lastVersion:true},
 	'm2-pt10': 	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
-		
+
 	'm12-ja':	{crc:'0x0a44569c',	projectId:'m12-ja'},
 	'm12-ko11':	{crc:'0xc0cf1f7e',	projectId:'m12-ko',	patchExt:'.zip', hasDoc:true,	version:'1.1'},
 	'm12-de10':	{crc:'0x61a57a10',	projectId:'m12-de',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
@@ -166,7 +166,7 @@ var VERSIONS_LIST = {
 	'm12-fr10':	{crc:'0x4f5af1e5',	projectId:'m12-fr',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm12-it10':	{crc:'0x1e7ab616',	projectId:'m12-it',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm12-pt10':	{crc:'0x3be388bf',	projectId:'m12-pt',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
-		
+
 	'm3-ja':	{crc:'0x42ac9cb9',	projectId:'m3-ja'},
 	'm3-zh10':	{crc:'0x21fdf96c',	projectId:'m3-zh',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm3-zh10f':	{crc:'0xe2447179',	projectId:'m3-zh',	patchExt:'.zip', hasDoc:true,	version:'1.0+fix', isLatest:true, website:'https://tieba.baidu.com/p/7313315937'},

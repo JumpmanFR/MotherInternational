@@ -156,6 +156,9 @@ body {
     width: 94%;
     top: 74px;
 }
+.info-frame p {
+	margin: 12px 0;
+}
 .info-frame p:first-child {
 	margin-top: 8px;
 }
@@ -164,6 +167,10 @@ body {
 }
 .info-title {
 	font-weight: bold;
+}
+.info-website-details {
+	display: block;
+	font-size: smaller;
 }
 
 input[type=button], button {

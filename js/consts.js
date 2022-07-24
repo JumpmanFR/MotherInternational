@@ -1,3 +1,5 @@
+const VERSION = "3.0";
+
 const ELT_AREA_INPUT = "input-area";
 const ELT_AREA_OUTPUT = "output-area";
 const ELT_ARROW = "arrow-between-areas";
@@ -15,7 +17,9 @@ const ELT_APPLY = "apply-btn";
 const ELT_TRANSLATOR_CONTACT = "translator-contact";
 
 const CLASS_INFO_TITLE = "info-title";
+const CLASS_INFO_MORE = "info-more";
 const CLASS_INFO_WEBSITE = "info-website";
+const CLASS_INFO_WEBSITE_DETAILS = "info-website-details";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
 
