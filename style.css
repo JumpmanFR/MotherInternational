@@ -6,6 +6,16 @@
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+@media (max-width: 1000px) {
+	#arrow-between-areas {
+		width: 100%;
+	}
+	#arrow-between-areas:after {
+		font-size: 3em !important;
+		content: '▼' !important;
+	}
+}
+
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
@@ -33,7 +43,7 @@ body {
 .area {
 	vertical-align: middle;
 	height: 17em;
-	width: 20em;
+	width: 360px;
 	display: inline-block;
 	margin: auto;
 	padding: 20px 10px;
@@ -47,10 +57,12 @@ body {
 	border-color: #FFFFFF40;
 	border-style: dashed;
 	background-color: #FFFFFF40;
-	background-image: url("assets/drop_icon.png");
 	background-size: 30%;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+#input-area.first-drop {
+	background-image: url("assets/drop_icon.png");
 }
 #input-area.drag {
 	background-color: #FFFFFF80;
@@ -68,11 +80,15 @@ body {
 }
 
 #arrow-between-areas {
-	font-size: 5em;
 	display: inline-block;
 	vertical-align: middle;
 	margin: auto;
+}
+
+#arrow-between-areas:after {
+	font-size: 5em;
 	color: #FFFFFFA0;
+	content: '▸';
 }
 
 #rom-file {

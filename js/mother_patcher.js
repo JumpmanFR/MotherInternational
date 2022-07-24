@@ -96,6 +96,7 @@ function onDrag(val, e) {
 }
 
 function onInputFile(data) {
+	el(ELT_AREA_INPUT).classList.remove('first-drop');
 	var inputRom = new MarcFile(data, parseInputRom);
 	el(ELT_ROM_LABEL).innerText = inputRom.fileName;
 	gInputRom = inputRom;
@@ -292,10 +293,6 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 	
 	if (id) {
-		if (target == FOR_INPUT) {
-			el(ELT_AREA_INPUT).style.backgroundImage = "none";
-		}
-		
 		addToInfoFrame(infoFrame, romDesc(id, true), CLASS_INFO_TITLE);
 		
 		if (ROM_LIST[id].website) {
