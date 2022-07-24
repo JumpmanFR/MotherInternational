@@ -5,7 +5,7 @@ const ELT_ROM_FILE = "rom-file";
 const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_LABEL = "rom-label";
 const ELT_MSG = "msg";
-const ELT_OUTPUT_AREA_LABEL = "output-area-label";
+const ELT_PATCH_SELECT_LABEL = "patch-select-label";
 const ELT_PATCH_SELECT = "patch-select";
 const ELT_SHOW_ALL_CONTAINER = "show-all-container";
 const ELT_SHOW_ALL_OPTION = "show-all-option";
@@ -46,11 +46,13 @@ const LANG_RUSSIAN	 = 'ru';
 const LANG_CHINESE	 = 'zh';
 const LANG_KOREAN	 = 'ko';
 
+const LANG_DEFAULT = LANG_ENGLISH;
+
 const STATS_FAKE = true;
-const STATS_VALUE_URL = "";
-const STATS_VALUE_PARAM = "";
-const STATS_INCREMENT_URL = "";
-const STATS_INCREMENT_PARAM = "";
+const STATS_VALUE_URL = "getpatchusage.php";
+const STATS_VALUE_PARAM = "patchId";
+const STATS_INCREMENT_URL = "addpatchusage.php";
+const STATS_INCREMENT_PARAM = "patchId";
 
 const MAIL_ADDRESS = 'contact@mother4ever.net';
 const MAIL_SUBJECT = 'Translator feedback for Mother International';

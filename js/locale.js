@@ -28,7 +28,9 @@ const LOCALIZATION={
 		'txtDescUpdate':			'(mise à jour)',
 		'txtVisitSite':				'Page web de % sur $',
 		'txtReadDoc':				'Fichier lisez-moi',
-		'txtNbUses':				'% utilisations pour ce patch.',
+		
+		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
+		'txtNbUsesUnknown':			'inconnu',
 		
 		'txtTranslatorContact':		'Je suis un traducteur',
 
@@ -79,7 +81,9 @@ const LOCALIZATION={
 		'txtDescUpdate':			'(update)',
 		'txtVisitSite':				'%’s webpage on $',
 		'txtReadDoc':				'Readme file',
-		'txtNbUses':				'% uses for this patch.',
+		
+		'txtNbUses':				'Number of uses for this patch: %',
+		'txtNbUsesUnknown':			'unknown',
 		
 		'txtTranslatorContact':		'I’m a translator',
 

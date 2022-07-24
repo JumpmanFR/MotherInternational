@@ -2,8 +2,6 @@
 JumpmanFR 2021-2022
 Contains elements from Rom Patcher JS by Marc Robledo */
 
-const DEFAULT_LANGUAGE = "en";
-
 const PATH_PATCH_FOLDER = "patches/";
 const PATH_LIBS = "./js/libs/";
 
@@ -28,7 +26,7 @@ MSG_CLASS[MSG_TYPE_LOADING] = "loading";
 MSG_CLASS[MSG_TYPE_WARNING] = "warning";
 MSG_CLASS[MSG_TYPE_ERROR] = "error";
 
-var gUserLanguage;
+var gUserLanguage, gDefaultLanguage;
 var gIsBusy;
 var gInputRom, gInputRomId;
 var gPatchFiles = [];
@@ -40,7 +38,7 @@ var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
 // Shortcuts
 function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
 function el(e){return document.getElementById(e)}
-function _(str){return gUserLanguage[str] || str}
+function _(str){return gUserLanguage[str] || gDefaultLanguage[str] || str}
 function langCode(){return navigator.language.substr(0,2)}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
 function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].lastVersionOf || NaN}
@@ -118,15 +116,13 @@ function onSelectPatch(value) {
 // UI METHODS
 //==========================================
 
-function setLanguage(langCode){
-	if (LOCALIZATION[langCode]) {
-		gUserLanguage=LOCALIZATION[langCode];
-	} else {
-		gUserLanguage=LOCALIZATION[DEFAULT_LANGUAGE];
-	}
+function setLanguage(langCode) {
+	gUserLanguage = LOCALIZATION[langCode] || LOCALIZATION[LANG_DEFAULT] || {};
 
-	var translatableElements=document.querySelectorAll('*[data-localize]');
-	for(var i=0; i<translatableElements.length; i++){
+	gDefaultLanguage = LOCALIZATION[LANG_DEFAULT] || {};
+	
+	var translatableElements = document.querySelectorAll('*[data-localize]');
+	for(var i = 0; i < translatableElements.length; i++) {
 		if (translatableElements[i].tagName == "INPUT") {
 			translatableElements[i].setAttribute("value", _(translatableElements[i].dataset.localize));
 		} else {
@@ -293,7 +289,7 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 	
 	if (id) {
-		addToInfoFrame(infoFrame, romDesc(id, true), CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, romDesc(id, true), CLASS_INFO_TITLE);
 		
 		if (ROM_LIST[id].website) {
 			var urlObj = new URL(ROM_LIST[id].website);
@@ -302,31 +298,49 @@ function updatePatchInfo(target) {
 			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
 			websiteLink.setAttribute("target", "_blank");
 			websiteLink.textContent = '🌐 ' + _('txtVisitSite').replace("%", ROM_LIST[id].author).replace("$", baseName);
-			addToInfoFrame(infoFrame, websiteLink, CLASS_INFO_WEBSITE);
+			addEltsToFrame(infoFrame, websiteLink, CLASS_INFO_WEBSITE);
 		}
 		if (ROM_LIST[id].hasDoc) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
 			docLink.textContent = '📄 ' + _('txtReadDoc');
-			addToInfoFrame(infoFrame, docLink, CLASS_INFO_DOC);
+			addEltsToFrame(infoFrame, docLink, CLASS_INFO_DOC);
 		}
 	
+		var loadSpan = document.createElement("span");
+		loadSpan.className = MSG_CLASS[MSG_TYPE_LOADING];
+		addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", ''), loadSpan], CLASS_INFO_NB_USES);
+		
 		requestPatchUsage(id)
 			.then(function(nbUses) {
-				addToInfoFrame(infoFrame, _('txtNbUses').replace("%", nbUses), CLASS_INFO_NB_USES);
+				addEltsToFrame(infoFrame, _('txtNbUses').replace("%", nbUses), CLASS_INFO_NB_USES);
+			})
+			.catch(function() {
+				addEltsToFrame(infoFrame, _('txtNbUses').replace("%", _('txtNbUsesUnknown')), CLASS_INFO_NB_USES);
 			});
 	}
 }
 
-function addToInfoFrame(frameElt, eltToAdd, className) {
-	if (typeof(eltToAdd) == "string") {
-		eltToAdd = document.createTextNode(eltToAdd);
+function addEltsToFrame(frameElt, eltToAdd, className) {
+	if (!Array.isArray(eltToAdd)) {
+		eltToAdd = [eltToAdd];
 	}
-	var paragraph = document.createElement("p");
-	paragraph.className = className;
-	paragraph.appendChild(eltToAdd);
-	frameElt.appendChild(paragraph);
+	var paragraph;
+	if (frameElt.getElementsByClassName(className).length) {
+		paragraph = frameElt.getElementsByClassName(className)[0];
+		paragraph.textContent = '';
+	} else {
+		paragraph = document.createElement("p");
+		paragraph.className = className;
+		frameElt.appendChild(paragraph);
+	}
+	for (var i = 0; i < eltToAdd.length; i++) {
+		if (typeof(eltToAdd[i]) == "string") {
+			eltToAdd[i] = document.createTextNode(eltToAdd[i]);
+		}
+		paragraph.appendChild(eltToAdd[i]);
+	}
 }
 
 function reset() {
@@ -393,7 +407,7 @@ function onParsedInputRom(data) {
         }
     }
 
-	el(ELT_OUTPUT_AREA_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES[ROM_LIST[i].game]) : '';
+	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES[ROM_LIST[i].game]) : '';
 	
 	updatePatchSelect();
 	setUIBusy(false);
@@ -606,11 +620,14 @@ function requestPatchUsage(patchId) {
 					}
 				}
 			};
+			xhr.onerror = function() {
+				failureCallback();
+			}
 			xhr.send('');
 		} else {
 			setTimeout(function () {
 				preSuccess(Math.floor(Math.random() * 1000));
-			}, 1000);
+			}, 2000);
 		}
 	});
 }
@@ -630,6 +647,9 @@ function countPatchUsage(patchId) {
 				}
 			}
 		};
+		xhr.onerror = function() {
+			failureCallback();
+		}
 		xhr.send(`${STATS_INCREMENT_PARAM}=${patchId}`);
 	});
 }

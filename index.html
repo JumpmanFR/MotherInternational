@@ -38,12 +38,14 @@
         </div>
         <div id="arrow-between-areas"></div>
         <div id="output-area" class="area">
-            <p id="output-area-label"></p>
-            <select id="patch-select"></select>
-            <label for="show-all-option" id="show-all-container" style="visibility: hidden">
-            	<input type="checkbox" id="show-all-option"/>
-            	<span data-localize="txtShowAllVersions"></span>
-            </label>
+        	<div id="patch-select-container">
+				<p id="patch-select-label"></p>
+				<select id="patch-select"></select>
+				<label for="show-all-option" id="show-all-container" style="visibility: hidden">
+					<input type="checkbox" id="show-all-option"/>
+					<span data-localize="txtShowAllVersions"></span>
+				</label>
+            </div>
             <div id="output-rom-info" class="info-frame"></div>
             <input type="button" id="apply-btn" data-localize="txtApplyPatch" class="disabled" disabled=""/>
        </div>

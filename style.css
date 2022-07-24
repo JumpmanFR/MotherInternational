@@ -42,14 +42,14 @@ body {
 
 .area {
 	vertical-align: middle;
-	height: 17em;
+	height: 300px;
 	width: 360px;
 	display: inline-block;
 	margin: auto;
-	padding: 20px 10px;
-	border-radius: 10px;
+	padding: 15px 10px;
+	border-radius: 20px;
 	border-width: 3px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position: relative;
 }
 
@@ -57,12 +57,12 @@ body {
 	border-color: #FFFFFF40;
 	border-style: dashed;
 	background-color: #FFFFFF40;
-	background-size: 30%;
-	background-repeat: no-repeat;
-	background-position: center;
 }
 #input-area.first-drop {
 	background-image: url("assets/drop_icon.png");
+	background-size: 30%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 #input-area.drag {
 	background-color: #FFFFFF80;
@@ -99,7 +99,8 @@ body {
 }
 
 #msg-container {
-	height: 1em;
+	height: 30px;
+	padding: 6px;
 }
 .loading{
 	width: 20px;
@@ -124,7 +125,10 @@ body {
 	margin-left: -10px;
 }
 
-#output-area-label {
+#patch-select-container {
+	margin-bottom: 15px;
+}
+#patch-select-label {
 	margin: 0px;
 }
 #patch-select {
@@ -138,12 +142,19 @@ body {
 	background-color: #FFFFFF20;
 	border-radius: 5px;
 	margin: 8px 0;
+	position: absolute;
+    left: 3%;
+    width: 94%;
+    top: 74px;
+}
+.info-frame p:first-child {
+	margin-top: 8px;
+}
+.info-frame p:last-child {
+	margin-bottom: 8px;
 }
 .info-title {
 	font-weight: bold;
-}
-.info-frame p {
-	margin-top: 0;
 }
 
 input[type=button], button {
@@ -157,7 +168,7 @@ input[type=button], button {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 1em;
+	bottom: 15px;
 	margin: auto;
 }
 
