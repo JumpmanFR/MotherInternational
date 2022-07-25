@@ -42,11 +42,11 @@ var ROM_LIST = {
 
 	'm12-ja':	{crc:'0x0a44569c', game:CARD_MOTHER_1_2,lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko11':	{crc:'0xc0cf1f7e', game:CARD_MOTHER_1_2,lang:LANG_KOREAN,	author:'아루미 & pjs',		baseRom:'m12-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de10':	{crc:'0x61a57a10', game:CARD_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95', moreInfo:'Nur MOTHER 1'},
-	'm12-en101':{crc:'0x7b1ff152', game:CARD_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/', moreInfo:'MOTHER 1 only'},
-	'm12-fr10':	{crc:'0x4f5af1e5', game:CARD_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr', moreInfo:'MOTHER 1 uniquement'},
-	'm12-it10':	{crc:'0x1e7ab616', game:CARD_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, moreInfo:'Solo MOTHER 1'},
-	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com', moreInfo:'Somente MOTHER 1'},
+	'm12-de10':	{crc:'0x61a57a10', game:CARD_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95', subtitle:'Nur MOTHER 1'},
+	'm12-en101':{crc:'0x7b1ff152', game:CARD_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/', subtitle:'MOTHER 1 only'},
+	'm12-fr10':	{crc:'0x4f5af1e5', game:CARD_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr', subtitle:'MOTHER 1 uniquement'},
+	'm12-it10':	{crc:'0x1e7ab616', game:CARD_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, subtitle:'Solo MOTHER 1'},
+	'm12-pt10':	{crc:'0x3be388bf', game:CARD_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com', subtitle:'Somente MOTHER 1'},
 
 	'm3-ja':	{crc:'0x42ac9cb9', game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh10':	{crc:'0x21fdf96c', game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://www.manyoteam.com/?p=32',		oldVersionOf:'m3-zh'},
@@ -105,11 +105,11 @@ var ROM_LIST = {
 
 	'm12-ja':	{game:CARD_MOTHER_1_2,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko':	{game:CARD_MOTHER_1_2,	lang:LANG_KOREAN,	author:'아루미 & pjs',			baseRom:'m12-ja',	website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de':	{game:CARD_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95', moreInfo:'Nur MOTHER 1'},
-	'm12-en':	{game:CARD_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/', moreInfo:'MOTHER 1 only'},
-	'm12-fr':	{game:CARD_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr', moreInfo:'MOTHER 1 uniquement'},
-	'm12-it':	{game:CARD_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja',	moreInfo:'Solo MOTHER 1'},
-	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com', moreInfo:'Somente MOTHER 1'},
+	'm12-de':	{game:CARD_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95', subtitle:'Nur MOTHER 1'},
+	'm12-en':	{game:CARD_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/', subtitle:'MOTHER 1 only'},
+	'm12-fr':	{game:CARD_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr', subtitle:'MOTHER 1 uniquement'},
+	'm12-it':	{game:CARD_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja',	subtitle:'Solo MOTHER 1'},
+	'm12-pt':	{game:CARD_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com', subtitle:'Somente MOTHER 1'},
 
 	'm3-ja':	{game:CARD_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh':	{game:CARD_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',			baseRom:'m3-ja',	website:'http://www.manyoteam.com/?p=32'},

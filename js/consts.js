@@ -25,9 +25,11 @@ const CLASS_DRAG = "drag";
 const CLASS_FIRST_DROP = "first-drop";
 
 const CLASS_INFO_TITLE = "info-title";
-const CLASS_INFO_MORE = "info-more";
+const CLASS_INFO_BOXART = "info-boxart";
+const CLASS_INFO_DETAILS = "info-details";
+const CLASS_INFO_SUBTITLE = "info-subtitle";
 const CLASS_INFO_WEBSITE = "info-website";
-const CLASS_INFO_WEBSITE_DETAILS = "info-website-details";
+const CLASS_INFO_WEBSITE_HOST = "info-website-host";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
 

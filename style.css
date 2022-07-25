@@ -160,18 +160,42 @@ body {
     top: 74px;
 }
 .info-frame p {
-	margin: 12px 0;
+	margin: 8px 0;
 }
-.info-frame p:first-child {
+.info-frame > p {
+	padding: 0 2px;
+}
+.info-frame > p:first-child {
 	margin-top: 8px;
 }
-.info-frame p:last-child {
+.info-frame > p:last-child {
 	margin-bottom: 8px;
 }
 .info-title {
 	font-weight: bold;
 }
-.info-website-details {
+.info-boxart {
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+	margin-right: 16px;
+	vertical-align: middle;
+}
+.info-details {
+	text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+}
+.info-details > p {
+	white-space: nowrap;
+}
+.info-details > p:first-child {
+	margin-top: 0px;
+}
+.info-details > p:last-child {
+	margin-bottom: 0px;
+}
+.info-website-host {
 	display: block;
 	font-size: smaller;
 }

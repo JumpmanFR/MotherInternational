@@ -3,6 +3,7 @@ JumpmanFR 2021-2022
 Contains elements from Rom Patcher JS by Marc Robledo */
 
 const PATH_PATCH_FOLDER = "patches/";
+const PATCH_BOXARTS = "assets/boxarts/";
 const PATH_LIBS = "./js/libs/";
 
 const FOR_INPUT = 0;
@@ -295,8 +296,17 @@ function updatePatchInfo(target) {
 	if (id) {
 		addEltsToFrame(infoFrame, romDesc(id, true, true), CLASS_INFO_TITLE);
 
-		if (ROM_LIST[id].moreInfo) {
-			addEltsToFrame(infoFrame, ROM_LIST[id].moreInfo, CLASS_INFO_MORE);
+		var img = document.createElement("img");
+		img.src = PATCH_BOXARTS + ROM_LIST[id].game + (ROM_LIST[id].lang == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
+		img.className = CLASS_INFO_BOXART;
+		infoFrame.appendChild(img);
+
+		var detailsDiv = document.createElement("div");
+		detailsDiv.className = CLASS_INFO_DETAILS;
+		infoFrame.appendChild(detailsDiv);
+		
+		if (ROM_LIST[id].subtitle) {
+			addEltsToFrame(detailsDiv, ROM_LIST[id].subtitle, CLASS_INFO_SUBTITLE);
 		}
 
 		if (ROM_LIST[id].website) {
@@ -308,15 +318,15 @@ function updatePatchInfo(target) {
 			websiteLink.textContent = '🌐 ' + _('txtVisitSite').replace("%", ROM_LIST[id].author)
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
-			websiteDetails.className = CLASS_INFO_WEBSITE_DETAILS;
-			addEltsToFrame(infoFrame, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);
+			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
+			addEltsToFrame(detailsDiv, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);
 		}
 		if (ROM_LIST[id].hasDoc) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
 			docLink.textContent = '📄 ' + _('txtReadDoc');
-			addEltsToFrame(infoFrame, docLink, CLASS_INFO_DOC);
+			addEltsToFrame(detailsDiv, docLink, CLASS_INFO_DOC);
 		}
 
 		var loadSpan = document.createElement("span");
