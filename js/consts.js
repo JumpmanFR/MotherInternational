@@ -20,6 +20,10 @@ const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
 const ELT_ABOUT_VERSION = "about-version";
 
+const CLASS_DISABLED = "disabled";
+const CLASS_DRAG = "drag";
+const CLASS_FIRST_DROP = "first-drop";
+
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_MORE = "info-more";
 const CLASS_INFO_WEBSITE = "info-website";

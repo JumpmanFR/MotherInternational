@@ -51,15 +51,16 @@ function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].l
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
-	addEvent(el(ELT_AREA_INPUT), 'dragenter', function(e) {onDrag(true, e)});
-	addEvent(el(ELT_AREA_INPUT), 'dragover', function(e) {onDrag(true, e)});
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
+	addEvent(el(ELT_AREA_INPUT), 'dragenter', function(e) {onDrag(true, e)});
+	addEvent(el(ELT_AREA_INPUT), 'dragover', function(e) {onDrag(true, e)});
 	addEvent(el(ELT_AREA_INPUT), 'dragleave', function(e) {onDrag(false, e)});
 	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {onDrag(false, e);});
+	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
 	addEvent(el(ELT_ROM_BTN), 'click', function() {el(ELT_ROM_FILE).click()});
- 	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains("disabled")) { onInputFile(e.dataTransfer);}});
+ 	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
 	addEvent(el(ELT_APPLY), 'click',  function() {processPatchingTasks(gInputRom, gInputRomId, 1)});
@@ -81,8 +82,8 @@ addEvent(document, 'DOMContentLoaded', function() {
 function onDrag(val, e) {
 	var col = el(ELT_AREA_INPUT);
  	if (val) {
-		col.classList.add("drag");
-		if (e.target.classList.contains("disabled")) {
+		col.classList.add(CLASS_DRAG);
+		if (e.target.classList.contains(CLASS_DISABLED)) {
 			e.dataTransfer.effectAllowed = "none";
 			e.dataTransfer.dropEffect = "none";
 		} else {
@@ -90,7 +91,7 @@ function onDrag(val, e) {
 			e.dataTransfer.dropEffect = "copy";
 		}
 	} else {
-		col.classList.remove("drag");
+		col.classList.remove(CLASS_DRAG);
 	}
 	e.preventDefault();
 }
@@ -149,19 +150,19 @@ function updateUIState() {
 		el(ELT_PATCH_SELECT).disabled = true;
 		el(ELT_SHOW_ALL_OPTION).disabled = true;
 		el(ELT_APPLY).disabled = true;
-		el(ELT_AREA_INPUT).classList.add('disabled');
-		el(ELT_AREA_INPUT).classList.remove('first-drop');
+		el(ELT_AREA_INPUT).classList.add(CLASS_DISABLED);
+		el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
 	} else {
 		el(ELT_ROM_FILE).disabled = false;
 		el(ELT_ROM_BTN).disabled = false;
 		el(ELT_PATCH_SELECT).disabled = el(ELT_PATCH_SELECT).options.length == 0;
 		el(ELT_SHOW_ALL_OPTION).disabled = false;
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
-		el(ELT_AREA_INPUT).classList.remove('disabled');
+		el(ELT_AREA_INPUT).classList.remove(CLASS_DISABLED);
 		if (gInputRomId) {
-			el(ELT_AREA_INPUT).classList.remove('first-drop');
+			el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
 		} else {
-			el(ELT_AREA_INPUT).classList.add('first-drop');
+			el(ELT_AREA_INPUT).classList.add(CLASS_FIRST_DROP);
 		}
 	}
 	el(ELT_AREA_OUTPUT).style.visibility = el(ELT_ARROW).style.visibility = gInputRomId ? "visible" : "hidden";
