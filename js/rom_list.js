@@ -3,7 +3,7 @@ var GAMES_LIST = {
 	[ID_MOTHER_2]:	{nameJap:'MOTHER 2',	nameFull:'MOTHER 2 / EarthBound',			nameShort:'MOTHER 2 / EarthBound',		included:[ID_MOTHER_2]},
 	[ID_MOTHER_1_2]:{nameJap:'MOTHER 1+2',	nameFull:'MOTHER 1+2',						nameShort:'MOTHER 1+2',					included:[ID_MOTHER_1, ID_MOTHER_2]},
 	[ID_MOTHER_3]:	{nameJap:'MOTHER 3', 	nameFull:'MOTHER 3',						nameShort:'MOTHER 3',					included:[ID_MOTHER_3]},
-}	
+}
 
 var ROM_LIST = {
 	'm1-ja': 	{crc:'0x282a5caa', game:ID_MOTHER_1,	lang:LANG_JAPANESE,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', hasDoc:false},
@@ -46,11 +46,11 @@ var ROM_LIST = {
 
 	'm12-ja':	{crc:'0x0a44569c', game:ID_MOTHER_1_2,lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko11':	{crc:'0xc0cf1f7e', game:ID_MOTHER_1_2,lang:LANG_KOREAN,	author:'아루미 & pjs',		baseRom:'m12-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de10':	{crc:'0x61a57a10', game:ID_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95', subtitle:'Nur MOTHER 1'},
-	'm12-en101':{crc:'0x7b1ff152', game:ID_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/', subtitle:'MOTHER 1 only'},
-	'm12-fr10':	{crc:'0x4f5af1e5', game:ID_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr', subtitle:'MOTHER 1 uniquement'},
-	'm12-it10':	{crc:'0x1e7ab616', game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, subtitle:'Solo MOTHER 1'},
-	'm12-pt10':	{crc:'0x3be388bf', game:ID_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com', subtitle:'Somente MOTHER 1'},
+	'm12-de10':	{crc:'0x61a57a10', game:ID_MOTHER_1_2,lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'https://youtube.com/domflo95', versionLabel:'Nur MOTHER 1'},
+	'm12-en101':{crc:'0x7b1ff152', game:ID_MOTHER_1_2,lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0.1',	hasDoc:true, website:'http://mother12.earthboundcentral.com/', versionLabel:'MOTHER 1 only'},
+	'm12-fr10':	{crc:'0x4f5af1e5', game:ID_MOTHER_1_2,lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother1vf.free.fr', versionLabel:'MOTHER 1 uniquement'},
+	'm12-it10':	{crc:'0x1e7ab616', game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	author:'SilverM',		baseRom:'m12-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, versionLabel:'Solo MOTHER 1'},
+	'm12-pt10':	{crc:'0x3be388bf', game:ID_MOTHER_1_2,lang:LANG_PT_PORTUG,author:'Earthbound Brasil',baseRom:'m12-ja',patchExt:'.zip',version:'1.0',	hasDoc:true, website:'https://www.earthboundbrasil.com', versionLabel:'Somente MOTHER 1'},
 
 	'm3-ja':	{crc:'0x42ac9cb9', game:ID_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh10':	{crc:'0x21fdf96c', game:ID_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://www.manyoteam.com/?p=32',		oldVersionOf:'m3-zh'},
@@ -62,7 +62,7 @@ var ROM_LIST = {
 	'm3-en11':	{crc:'0xede46930', game:ID_MOTHER_3,	lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m3-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'http://mother3.fobby.net/',	oldVersionOf:'m3-en'},
 	'm3-en12':	{crc:'0xa323c029', game:ID_MOTHER_3,	lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m3-ja', patchExt:'.zip', version:'1.2',	hasDoc:true, website:'http://mother3.fobby.net/',	oldVersionOf:'m3-en'},
 	'm3-en13':	{crc:'0x8A3BC5A8', game:ID_MOTHER_3,	lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m3-ja', patchExt:'.zip', version:'1.3',	hasDoc:true, website:'http://mother3.fobby.net/',	lastVersionOf:'m3-en'},
-	'm3-en13f':	{crc:'0x0e013b7b', game:ID_MOTHER_3,	lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m3-ja', patchExt:'.zip', version:'1.3+fix',hasDoc:true, website:'https://github.com/Lorenzooone/M3_Eng_1_3/releases', lastVersionOf:'m3-en'},
+	'm3-en13f':	{crc:'0x0e013b7b', game:ID_MOTHER_3,	lang:LANG_ENGLISH,	author:'Tomato',		baseRom:'m3-ja', patchExt:'.zip', version:'1.3+fix',hasDoc:true, website:'https://github.com/Lorenzooone/M3_Eng_1_3/releases/tag/1.3', lastVersionOf:'m3-en', versionLabel:'Extra fix by Lorenzooone'},
 	'm3-es10':	{crc:'0x75a955a1', game:ID_MOTHER_3,	lang:LANG_SPANISH,	author:'Jimmytrius',	baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother3spanish.blogspot.com/'},
 	'm3-fr10':	{crc:'0xc0cdfcf5', game:ID_MOTHER_3,	lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m3-ja', patchExt:'.zip', version:'1.0',	hasDoc:true, website:'http://mother3vf.free.fr/',	oldVersionOf:'m3-fr'},
 	'm3-fr11':	{crc:'0x72000342', game:ID_MOTHER_3,	lang:LANG_FRENCH,	author:'MotherVF',		baseRom:'m3-ja', patchExt:'.zip', version:'1.1',	hasDoc:true, website:'http://mother3vf.free.fr/',	oldVersionOf:'m3-fr'},
@@ -109,11 +109,11 @@ var ROM_LIST = {
 
 	'm12-ja':	{game:ID_MOTHER_1_2,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm12-ko':	{game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	author:'아루미 & pjs',		baseRom:'m12-ja',	website:'https://blog.naver.com/pjs0493/220591359815'},
-	'm12-de':	{game:ID_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95', subtitle:'Nur MOTHER 1'},
-	'm12-en':	{game:ID_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/', subtitle:'MOTHER 1 only'},
-	'm12-fr':	{game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr', subtitle:'MOTHER 1 uniquement'},
-	'm12-it':	{game:ID_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja',	subtitle:'Solo MOTHER 1'},
-	'm12-pt':	{game:ID_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com', subtitle:'Somente MOTHER 1'},
+	'm12-de':	{game:ID_MOTHER_1_2,	lang:LANG_GERMAN,	author:'domflo', 			baseRom:'m12-ja',	website:'https://youtube.com/domflo95', versionLabel:'Nur MOTHER 1'},
+	'm12-en':	{game:ID_MOTHER_1_2,	lang:LANG_ENGLISH,	author:'Tomato',			baseRom:'m12-ja',	website:'http://mother12.earthboundcentral.com/', versionLabel:'MOTHER 1 only'},
+	'm12-fr':	{game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	author:'MotherVF',			baseRom:'m12-ja',	website:'http://mother1vf.free.fr', versionLabel:'MOTHER 1 uniquement'},
+	'm12-it':	{game:ID_MOTHER_1_2,	lang:LANG_ITALIAN,	author:'SilverM',			baseRom:'m12-ja',	versionLabel:'Solo MOTHER 1'},
+	'm12-pt':	{game:ID_MOTHER_1_2,	lang:LANG_PT_PORTUG,author:'Earthbound Brasil',	baseRom:'m12-ja',	website:'https://www.earthboundbrasil.com', versionLabel:'Somente MOTHER 1'},
 
 	'm3-ja':	{game:ID_MOTHER_3,	lang:LANG_JAPANESE,	author:'Nintendo'},
 	'm3-zh':	{game:ID_MOTHER_3,	lang:LANG_CHINESE,	author:'漫游汉化组',			baseRom:'m3-ja',	website:'http://www.manyoteam.com/?p=32'},
@@ -187,7 +187,7 @@ var VERSIONS_LIST = {
 	'm3-en11':	{crc:'0xede46930',	projectId:'m3-en',	patchExt:'.zip', hasDoc:true,	version:'1.1'},
 	'm3-en12':	{crc:'0xa323c029',	projectId:'m3-en',	patchExt:'.zip', hasDoc:true,	version:'1.2'},
 	'm3-en13':	{crc:'0x8A3BC5A8',	projectId:'m3-en',	patchExt:'.zip', hasDoc:true,	version:'1.3', isLatest:true},
-	'm3-en13f':	{crc:'0x0e013b7b',	projectId:'m3-en',	patchExt:'.zip', hasDoc:true,	version:'1.3+fix',	isLatest:true, website:'https://github.com/Lorenzooone/M3_Eng_1_3/releases'},
+	'm3-en13f':	{crc:'0x0e013b7b',	projectId:'m3-en',	patchExt:'.zip', hasDoc:true,	version:'1.3+fix',	isLatest:true, website:'https://github.com/Lorenzooone/M3_Eng_1_3/releases/tag/1.3', versionLabel:'Extra fix by Lorenzooone'},
 	'm3-es10':	{crc:'0x75a955a1',	projectId:'m3-es',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm3-fr10':	{crc:'0xc0cdfcf5',	projectId:'m3-fr',	patchExt:'.zip', hasDoc:true,	version:'1.0'},
 	'm3-fr11':	{crc:'0x72000342',	projectId:'m3-fr',	patchExt:'.zip', hasDoc:true,	version:'1.1'},

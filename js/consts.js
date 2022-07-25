@@ -32,7 +32,7 @@ const CLASS_FIRST_DROP = "first-drop";
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_BOXART = "info-boxart";
 const CLASS_INFO_DETAILS = "info-details";
-const CLASS_INFO_SUBTITLE = "info-subtitle";
+const CLASS_INFO_VERSION_LABEL = "info-version-label";
 const CLASS_INFO_WEBSITE = "info-website";
 const CLASS_INFO_WEBSITE_HOST = "info-website-host";
 const CLASS_INFO_DOC = "info-doc";
@@ -60,6 +60,8 @@ const LANG_POLISH	 = 'pl';
 const LANG_RUSSIAN	 = 'ru';
 const LANG_CHINESE	 = 'zh';
 const LANG_KOREAN	 = 'ko';
+
+var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
 
 const LANG_DEFAULT = LANG_ENGLISH;
 

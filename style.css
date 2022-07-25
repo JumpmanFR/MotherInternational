@@ -258,7 +258,7 @@ input[type=button], button {
 	text-align: left;
 	background-color: #8F2A2B;
 	color: white;
-	opacity: .95;
+	opacity: .9;
 	position: absolute;
 	width: fit-content;
 	top: 50%;
@@ -277,17 +277,26 @@ input[type=button], button {
 #credits-staff, #about-side {
 	margin: 8px 20px;
 }
+#credits-logo {
+	width: 200px;
+}
 #credits-staff {
 	float: left;
 	width: fit-content;
 }
-#credits-logo {
-	width: 200px;
+#credits-staff h2 {
+	margin: 0.7em 0;
+}
+#credits-staff dt {
+	margin-top: 8px;
 }
 #about-side {
 	display: inline-block;
 	width: 300px;
 	padding-top: 16px;
+}
+#about-side select {
+	width: 100%;
 }
 #about-version {
 	position: absolute;
