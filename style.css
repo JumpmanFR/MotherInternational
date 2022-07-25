@@ -180,6 +180,7 @@ body {
 	object-fit: contain;
 	margin-right: 16px;
 	vertical-align: middle;
+	filter: drop-shadow(2px 2px 1px #00000030);
 }
 .info-details {
 	text-align: left;
@@ -228,21 +229,50 @@ input[type=button], button {
 	mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-#credits-window {
-	visibility: hidden;
+#about-btn {
+	position: absolute;
+	right: 22px;
+	top: 16px;
+}
+#about-close-btn {
+	font-weight: bold;
+	font-size: xx-large;
+	position: absolute;
+	right: 12px;
+	top: 2px;
+	cursor: pointer;
+}
+
+#about-window-wrapper {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #00000090;
+}
+#about-window {
 	text-align: left;
-	background-color: rgb(206,60,60);
-	opacity: .8;
+	background-color: #8F2A2B;
+	color: white;
+	opacity: .95;
 	position: absolute;
 	width: fit-content;
-	top: 150px;
+	top: 50px;
 	left: 0;
 	right: 0;
 	margin: auto;
-	box-shadow: 0px 0px 10px grey;
+	box-shadow: 0px 0px 10px #BBBBBB;
 	border-radius: 10px;
+	border: 3px solid white;
 }
-#credits-staff, #about {
+#about-window-wrapper.closed-credits, #about-window.closed-credits {
+	visibility: hidden;
+}
+#about-window a {
+	color: rgb(234, 183, 73);
+}
+#credits-staff, #about-side {
 	margin: 8px 20px;
 }
 #credits-staff {
@@ -252,18 +282,11 @@ input[type=button], button {
 #credits-logo {
 	width: 200px;
 }
-#about {
+#about-side {
 	display: inline-block;
 	width: 300px;
-	padding-top: 25px;
+	padding-top: 16px;
 }
-/*#translator-contact {
-	display: block;
-	margin: auto;
-	margin-top: 14px;
-	width: fit-content;
-	font-size: smaller;
-}*/
 #about-version {
 	position: absolute;
 	right: 20px;

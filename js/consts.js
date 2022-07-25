@@ -15,11 +15,16 @@ const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
 
+const ELT_ABOUT_BTN = "about-btn";
+const ELT_ABOUT_CLOSE_BTN = "about-close-btn";
+const ELT_ABOUT_WINDOW = "about-window";
+const ELT_ABOUT_WRAPPER = "about-window-wrapper";
 const ELT_ABOUT_TRANSLATOR_CONTACT = "about-translator-contact";
 const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
 const ELT_ABOUT_VERSION = "about-version";
 
+const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
 const CLASS_FIRST_DROP = "first-drop";
@@ -33,14 +38,10 @@ const CLASS_INFO_WEBSITE_HOST = "info-website-host";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
 
-const GAME_MOTHER_1 = 'm1';
-const GAME_MOTHER_2 = 'm2';
-const GAME_MOTHER_3 = 'm3';
-
-const CARD_MOTHER_1	  = 'm1';
-const CARD_MOTHER_2	  = 'm2';
-const CARD_MOTHER_1_2 = 'm12';
-const CARD_MOTHER_3	  = 'm3';
+const ID_MOTHER_1 = 'm1';
+const ID_MOTHER_2 = 'm2';
+const ID_MOTHER_1_2 = 'm12';
+const ID_MOTHER_3 = 'm3';
 
 // ISO 639 values
 const LANG_JAPANESE	 = 'ja';

@@ -3,11 +3,7 @@ const ELT_PRELOAD = "preload";
 
 const ANIM_FOLDER = "anim";
 const ANIM_TIME_PER_FRAME = 30;
-var NB_FRAMES_PER_GAME = {[GAME_MOTHER_1]: 192, [GAME_MOTHER_2]: 139, [GAME_MOTHER_3]: 410};
-var GAMES_IN_CARDS = 	{[CARD_MOTHER_1]: 	[GAME_MOTHER_1],
-						 [CARD_MOTHER_2]: 	[GAME_MOTHER_2],
-						 [CARD_MOTHER_3]: 	[GAME_MOTHER_3],
-						 [CARD_MOTHER_1_2]:	[GAME_MOTHER_1, GAME_MOTHER_2]};
+var NB_FRAMES_PER_GAME = {[ID_MOTHER_1]: 192, [ID_MOTHER_2]: 139, [ID_MOTHER_3]: 410};
 
 const NO_OP = Function();
 
@@ -51,17 +47,17 @@ function animStep(time) {
 		gTimeFromLastUpdate = time - gTimeWhenLastUpdate;
 
 		if (gTimeFromLastUpdate > ANIM_TIME_PER_FRAME) {
-			var games = GAMES_IN_CARDS[gGameCard];
+			var games = GAMES_LIST[gGameCard].included;
 			var currentGame, subFrameNumber;
 			var countFrames = 0;
 			// Chain animations when multiple games in ROM (typically for MOTHER 1+2)
 			for (var i = 0; i < games.length; i++) {
-				if (gFrameNumber < countFrames + NB_FRAMES_PER_GAME[GAMES_IN_CARDS[games[i]]]) {
+				if (gFrameNumber < countFrames + NB_FRAMES_PER_GAME[GAMES_LIST[games[i]].included]) {
 					currentGame = games[i];
 					subFrameNumber = gFrameNumber - countFrames;
 					break;
 				} else {
-					countFrames += NB_FRAMES_PER_GAME[GAMES_IN_CARDS[games[i]]];
+					countFrames += NB_FRAMES_PER_GAME[GAMES_LIST[games[i]].included];
 				}
 			}
 			

@@ -64,6 +64,9 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
 	addEvent(el(ELT_APPLY), 'click',  function() {processPatchingTasks(gInputRom, gInputRomId, 1)});
+	addEvent(el(ELT_ABOUT_BTN), 'click', function(e) {onClickCredits(e, true)});
+	addEvent(el(ELT_ABOUT_CLOSE_BTN), 'click', function(e) {onClickCredits(e, false)});
+	addEvent(el(ELT_ABOUT_WRAPPER), 'click', function(e) {onClickCredits(e, false)});
 
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
@@ -117,6 +120,16 @@ function onSelectPatch(value) {
 	updatePatchInfo(FOR_OUTPUT);
 }
 
+function onClickCredits(e, value) {
+	if (value) {
+		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_WRAPPER).classList.remove(CLASS_CLOSED_CREDITS);
+	} else {
+		el(ELT_ABOUT_WINDOW).classList.add(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_WRAPPER).classList.add(CLASS_CLOSED_CREDITS);
+	}
+	e.preventDefault();
+}
 
 //==========================================
 // UI METHODS
@@ -196,7 +209,7 @@ function setMessage(msg, type) {
 function romDesc(id, withGameTitle, withVersion) {
 	var res = "";
 	if (withGameTitle) {
-		res += GAME_NAMES[ROM_LIST[id].game] + " – ";
+		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
 	}
 	res += LANG_NAMES[ROM_LIST[id].lang];
 	if (ROM_LIST[id].version && withVersion) {
@@ -232,6 +245,7 @@ function updatePatchSelect() {
 				var opt = document.createElement("option");
 				opt.value = cur;
 				opt.text = romDesc(cur, false, true);
+				opt.title = ROM_LIST[cur].subtitle || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
 				if (ROM_LIST[cur].lastVersionOf && (ROM_LIST[inputId].oldVersionOf == ROM_LIST[cur].lastVersionOf)) {
@@ -428,7 +442,7 @@ function onParsedInputRom(data) {
         }
     }
 
-	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES_SHORT[ROM_LIST[i].game]) : '';
+	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAMES_LIST[ROM_LIST[i].game].nameShort) : '';
 
 	updatePatchSelect();
 	setUIBusy(false);
@@ -700,41 +714,60 @@ function initCredits() {
 		appendTextWithLinks(el(ELT_ABOUT_SOURCE), _("txtAboutSource"), ["%","‰"],
 			["https://github.com/JumpmanFR/MotherInternational", "https://opensource.org/licenses/mit-license.php"], [_("txtAboutSourceGitHub"), _("txtAboutSourceLicense")]);
 	}
+	
+	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
+
+	initCreditsSelect();	
+}
+
+function initCreditsSelect() {
+	var defaultOpt = document.createElement("option");
+	defaultOpt.value = '';
+	defaultOpt.text = _('txtAboutAllTransLabel');
+	defaultOpt.hidden = defaultOpt.disabled = defaultOpt.selected = true;
+	el(ELT_ABOUT_ALL_TRANSLATIONS).add(defaultOpt);
 	var curGroupName;
 	var curGroup;
 	for (var cur in ROM_LIST) {
 		if (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom) {
 			if (ROM_LIST[cur].game != curGroupName) {
 				curGroup = document.createElement("optgroup");
-				curGroup.label = GAME_NAMES[ROM_LIST[cur].game];
+				curGroup.label = GAMES_LIST[ROM_LIST[cur].game].nameFull;
 				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
 			}
 			var opt = document.createElement("option");
+			opt.value = cur;
 			opt.text = romDesc(cur, false, false)
+			opt.title = ROM_LIST[cur].website || '';
+			opt.disabled = !ROM_LIST[cur].website;
 			curGroup.appendChild(opt);
 			curGroupName = ROM_LIST[cur].game;
 		}
 	}
-	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
+	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function() {
+		if (url = ROM_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
+			window.open(url, '_blank').focus();
+		}
+	}
 }
 
 function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkTexts) {
-		var re = new RegExp(`[${wildcards.join("")}]`,'g')
-		var mainTextParts = mainText.split(re);
-		var nodes = [];
-		var curPos = 0;
-		for (var i in mainTextParts) {
-			parentNode.appendChild(document.createTextNode(mainTextParts[i]));
-			curPos += mainTextParts[i].length; // let’s look at the wildcard character that should be at the end of this part
-			var curWildcard = mainText[curPos];
-			var index = wildcards.indexOf(curWildcard);
-			if (index != -1) {
-				curPos += curWildcard.length;
-				var linkElt = document.createElement("a");
-				linkElt.href = linkUrls[index];
-				linkElt.textContent = linkTexts[index];
-				parentNode.appendChild(linkElt);
-			}
+	var re = new RegExp(`[${wildcards.join("")}]`,'g')
+	var mainTextParts = mainText.split(re);
+	var nodes = [];
+	var curPos = 0;
+	for (var i in mainTextParts) {
+		parentNode.appendChild(document.createTextNode(mainTextParts[i]));
+		curPos += mainTextParts[i].length; // let’s look at the wildcard character that should be at the end of this part
+		var curWildcard = mainText[curPos];
+		var index = wildcards.indexOf(curWildcard);
+		if (index != -1) {
+			curPos += curWildcard.length;
+			var linkElt = document.createElement("a");
+			linkElt.href = linkUrls[index];
+			linkElt.textContent = linkTexts[index];
+			parentNode.appendChild(linkElt);
 		}
+	}
 
 }
