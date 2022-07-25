@@ -242,6 +242,9 @@ input[type=button], button {
 	top: 2px;
 	cursor: pointer;
 }
+#about-close-btn:hover {
+	color: rgb(234, 183, 73);
+}
 
 #about-window-wrapper {
 	position: fixed;
@@ -258,9 +261,8 @@ input[type=button], button {
 	opacity: .95;
 	position: absolute;
 	width: fit-content;
-	top: 50px;
-	left: 0;
-	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	margin: auto;
 	box-shadow: 0px 0px 10px #BBBBBB;
 	border-radius: 10px;

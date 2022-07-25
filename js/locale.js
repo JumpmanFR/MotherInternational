@@ -52,7 +52,7 @@ const LOCALIZATION={
 		'Not Found':				'Un fichier de patch n’a pas été trouvé',
 
 		'txtAbout':					'À propos',
-		
+
 		'txtCredits':				'Crédits',
 		'txtCreditsDesign':			'Conception',
 		'txtCreditsProgramming':	'Programmation',
@@ -69,6 +69,7 @@ const LOCALIZATION={
 		'txtAboutTeams':			'Tous droits réservés aux équipes qui ont créé les patchs de traduction inclus dans ce programme. Merci à elles !',
 		'txtAboutAllTranslations':	'Toutes les langues prises en charge :',
 		'txtAboutAllTransLabel':	'– Sélectionnez pour accéder au site web –',
+		'txtAboutAllTransNoSite':	'Cette traduction n’a pas de page web connue.',
 		'txtAboutTranslator1':		'Si vous êtes un traducteur, n’hésitez pas à % !',
 		'txtAboutTranslator2':		'nous contacter',
 		'txtAboutOldVersions':		'Anciennes versions de Mother International',
@@ -127,7 +128,7 @@ const LOCALIZATION={
 		'Not Found':				'A patch file was not found',
 
 		'txtAbout':					'About',
-		
+
 		'txtCredits':				'Credits',
 		'txtCreditsDesign':			'Design',
 		'txtCreditsProgramming':	'Programming',
@@ -144,6 +145,7 @@ const LOCALIZATION={
 		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
 		'txtAboutAllTranslations':	'All supported languages:',
 		'txtAboutAllTransLabel':	'– Select to access webpage –',
+		'txtAboutAllTransNoSite':	'This translation has no registered webpage.',
 		'txtAboutTranslator1':		'If you’re a translator, feel free to %!',
 		'txtAboutTranslator2':		'contact us',
 		'txtAboutOldVersions':		'Get the previous versions of Mother International here',

@@ -318,7 +318,7 @@ function updatePatchInfo(target) {
 		var detailsDiv = document.createElement("div");
 		detailsDiv.className = CLASS_INFO_DETAILS;
 		infoFrame.appendChild(detailsDiv);
-		
+
 		if (ROM_LIST[id].subtitle) {
 			addEltsToFrame(detailsDiv, ROM_LIST[id].subtitle, CLASS_INFO_SUBTITLE);
 		}
@@ -714,10 +714,10 @@ function initCredits() {
 		appendTextWithLinks(el(ELT_ABOUT_SOURCE), _("txtAboutSource"), ["%","‰"],
 			["https://github.com/JumpmanFR/MotherInternational", "https://opensource.org/licenses/mit-license.php"], [_("txtAboutSourceGitHub"), _("txtAboutSourceLicense")]);
 	}
-	
+
 	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
 
-	initCreditsSelect();	
+	initCreditsSelect();
 }
 
 function initCreditsSelect() {
@@ -739,7 +739,7 @@ function initCreditsSelect() {
 			opt.value = cur;
 			opt.text = romDesc(cur, false, false)
 			opt.title = ROM_LIST[cur].website || '';
-			opt.disabled = !ROM_LIST[cur].website;
+			//opt.disabled = !ROM_LIST[cur].website;
 			curGroup.appendChild(opt);
 			curGroupName = ROM_LIST[cur].game;
 		}
@@ -747,6 +747,8 @@ function initCreditsSelect() {
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function() {
 		if (url = ROM_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
 			window.open(url, '_blank').focus();
+		} else {
+			window.alert(_('txtAboutAllTransNoSite'));
 		}
 	}
 }
