@@ -29,6 +29,12 @@ const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
 const CLASS_FIRST_DROP = "first-drop";
 
+const CLASS_MESSAGE = "message";
+const CLASS_MESSAGE_OK = "ok";
+const CLASS_MESSAGE_LOADING = "loading";
+const CLASS_MESSAGE_WARNING = "warning";
+const CLASS_MESSAGE_ERROR = "error";
+
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_BOXART = "info-boxart";
 const CLASS_INFO_DETAILS = "info-details";
@@ -37,6 +43,7 @@ const CLASS_INFO_WEBSITE = "info-website";
 const CLASS_INFO_WEBSITE_HOST = "info-website-host";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
+//const CLASS_INFO_LOADING_ELLIPSIS = "loading-ellipsis"
 
 const ID_MOTHER_1 = 'm1';
 const ID_MOTHER_2 = 'm2';
@@ -51,7 +58,8 @@ const LANG_GERMAN	 = 'de';
 const LANG_ITALIAN	 = 'it';
 const LANG_SPANISH	 = 'es';
 const LANG_SP_SPAIN	 = 'es-ES';
-const LANG_SP_LATINO = 'es-419';
+const LANG_SP_MEXICO = 'es-MX';
+const LANG_SP_ARGENT = 'es-AR';
 const LANG_PORTUGUES = 'pt';
 const LANG_PT_PORTUG = 'pt-BR';
 const LANG_PT_BRAZIL = 'pt-BR';
@@ -61,11 +69,9 @@ const LANG_RUSSIAN	 = 'ru';
 const LANG_CHINESE	 = 'zh';
 const LANG_KOREAN	 = 'ko';
 
-var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
-
 const LANG_DEFAULT = LANG_ENGLISH;
 
-const STATS_FAKE = true;
+const STATS_FAKE = true;                        // Change it use the real patch usage data!
 const STATS_VALUE_URL = "getpatchusage.php";
 const STATS_VALUE_PARAM = "patchId";
 const STATS_INCREMENT_URL = "addpatchusage.php";

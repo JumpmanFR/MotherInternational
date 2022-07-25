@@ -17,12 +17,11 @@ const MSG_TYPE_LOADING = 1;
 const MSG_TYPE_WARNING = 2;
 const MSG_TYPE_ERROR = 3;
 
-const MSG_CLASS_DEFAULT = "message";
 var MSG_CLASS = [];
-MSG_CLASS[MSG_TYPE_OK] = "ok";
-MSG_CLASS[MSG_TYPE_LOADING] = "loading";
-MSG_CLASS[MSG_TYPE_WARNING] = "warning";
-MSG_CLASS[MSG_TYPE_ERROR] = "error";
+MSG_CLASS[MSG_TYPE_OK] = CLASS_MESSAGE_OK;
+MSG_CLASS[MSG_TYPE_LOADING] = CLASS_MESSAGE_LOADING;
+MSG_CLASS[MSG_TYPE_WARNING] = CLASS_MESSAGE_WARNING;
+MSG_CLASS[MSG_TYPE_ERROR] = CLASS_MESSAGE_ERROR;
 
 var gUserLanguage, gDefaultLanguage;
 var gIsBusy;
@@ -113,17 +112,6 @@ function onSelectPatch(value) {
 	updatePatchInfo(FOR_OUTPUT);
 }
 
-function onClickCredits(e, value) {
-	if (value) {
-		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
-		el(ELT_ABOUT_WRAPPER).classList.remove(CLASS_CLOSED_CREDITS);
-	} else {
-		el(ELT_ABOUT_WINDOW).classList.add(CLASS_CLOSED_CREDITS);
-		el(ELT_ABOUT_WRAPPER).classList.add(CLASS_CLOSED_CREDITS);
-	}
-	e.preventDefault();
-}
-
 //==========================================
 // UI METHODS
 //==========================================
@@ -171,7 +159,7 @@ function updateUIState() {
 			el(ELT_AREA_INPUT).classList.add(CLASS_FIRST_DROP);
 		}
 	}
-	el(ELT_AREA_OUTPUT).style.visibility = el(ELT_ARROW).style.visibility = gInputRomId ? "visible" : "hidden";
+	el(ELT_AREA_OUTPUT).style.opacity = el(ELT_ARROW).style.opacity = gInputRomId ? 1 : 0;
 }
 
 function setMessage(msg, type) {
@@ -179,14 +167,14 @@ function setMessage(msg, type) {
 	messageBox.textContent = '';
 	if (msg) {
 		if (type === MSG_TYPE_LOADING) {
-			messageBox.className = MSG_CLASS_DEFAULT;
+			messageBox.className = CLASS_MESSAGE;
 			var span = document.createElement("span");
 			span.className = MSG_CLASS[type];
 			messageBox.appendChild(span);
 			var text = document.createTextNode(` ${msg}`);
 			messageBox.appendChild(text);
 		} else {
-			messageBox.className = MSG_CLASS_DEFAULT + " " + MSG_CLASS[type];
+			messageBox.className = CLASS_MESSAGE + " " + MSG_CLASS[type];
 			if(type === MSG_TYPE_WARNING)
 				messageBox.textContent = '⚠ ' + msg;
 			else if(type === MSG_TYPE_ERROR)
@@ -201,10 +189,11 @@ function setMessage(msg, type) {
 
 function romDesc(id, withGameTitle, withVersion) {
 	var res = "";
+	res += LANG_LIST[ROM_LIST[id].lang].flag;
 	if (withGameTitle) {
-		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
+		res += " " + GAMES_LIST[ROM_LIST[id].game].nameFull + " –";
 	}
-	res += LANG_NAMES[ROM_LIST[id].lang];
+	res += " " + LANG_LIST[ROM_LIST[id].lang].name;
 	if (ROM_LIST[id].version && withVersion) {
 		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
@@ -336,9 +325,11 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, docLink, CLASS_INFO_DOC);
 		}
 
-		var loadSpan = document.createElement("span");
-		loadSpan.className = MSG_CLASS[MSG_TYPE_LOADING];
-		addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", ''), loadSpan], CLASS_INFO_NB_USES);
+		//var loadSpan = document.createElement("span");
+		//loadSpan.className = CLASS_INFO_LOADING_ELLIPSIS;
+		//addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", ''), loadSpan], CLASS_INFO_NB_USES);
+		var nbUsesElts = _('txtNbUses').split("%");
+		addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
 
 		requestPatchUsage(id)
 			.then(function(nbUses) {
@@ -365,7 +356,9 @@ function addEltsToFrame(frameElt, eltToAdd, className) {
 	}
 	for (var i = 0; i < eltToAdd.length; i++) {
 		if (typeof(eltToAdd[i]) == "string") {
-			eltToAdd[i] = document.createTextNode(eltToAdd[i]);
+			var textElt = document.createElement("span");
+			textElt.textContent = eltToAdd[i];
+			eltToAdd[i] = textElt;
 		}
 		paragraph.appendChild(eltToAdd[i]);
 	}

@@ -1,9 +1,28 @@
+/* Mother International, Web version
+JumpmanFR 2021-2022 */
+
+//==========================================
+// EVENT METHODS AND ENTRY POINTS
+//==========================================
+
 addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_ABOUT_BTN), 'click', function(e) {onClickCredits(e, true)});
 	addEvent(el(ELT_ABOUT_CLOSE_BTN), 'click', function(e) {onClickCredits(e, false)});
 	addEvent(el(ELT_ABOUT_WRAPPER), 'click', function(e) {onClickCredits(e, false)});
+	addEvent(document, 'keydown', function(e) {if (e.key === 'Escape') onClickCredits(e, false)});
 	initCredits();
 });
+
+function onClickCredits(e, value) {
+	if (value) {
+		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_WRAPPER).classList.remove(CLASS_CLOSED_CREDITS);
+	} else {
+		el(ELT_ABOUT_WINDOW).classList.add(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_WRAPPER).classList.add(CLASS_CLOSED_CREDITS);
+	}
+	e.preventDefault();
+}
 
 
 //==========================================
