@@ -68,7 +68,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
 	setLanguage(langCode());
-	setMailToLink();
+	initCredits();
 	setUIBusy(false);
 
 })
@@ -136,13 +136,6 @@ function setLanguage(langCode) {
 	}
 }
 
-function setMailToLink() {
-	var uri = `mailto:${encodeURIComponent(MAIL_ADDRESS)}`;
-	uri += `?subject=${encodeURIComponent(MAIL_SUBJECT)}`;
-	uri += `&body=${encodeURIComponent(MAIL_BODY)}`;
-	el(ELT_TRANSLATOR_CONTACT).href = uri;
-}
-
 function setUIBusy(value) {
 	gIsBusy = value;
 	updateUIState();
@@ -199,13 +192,13 @@ function setMessage(msg, type) {
 	}
 }
 
-function romDesc(id, withGameTitle) {
+function romDesc(id, withGameTitle, withVersion) {
 	var res = "";
 	if (withGameTitle) {
 		res += GAME_NAMES[ROM_LIST[id].game] + " – ";
 	}
 	res += LANG_NAMES[ROM_LIST[id].lang];
-	if (ROM_LIST[id].version) {
+	if (ROM_LIST[id].version && withVersion) {
 		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
 	}
 	if (ROM_LIST[id].author) {
@@ -237,7 +230,7 @@ function updatePatchSelect() {
 
 				var opt = document.createElement("option");
 				opt.value = cur;
-				opt.text = romDesc(cur);
+				opt.text = romDesc(cur, false, true);
 				el(ELT_PATCH_SELECT).add(opt);
 
 				if (ROM_LIST[cur].lastVersionOf && (ROM_LIST[inputId].oldVersionOf == ROM_LIST[cur].lastVersionOf)) {
@@ -300,7 +293,7 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 
 	if (id) {
-		addEltsToFrame(infoFrame, romDesc(id, true), CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, romDesc(id, true, true), CLASS_INFO_TITLE);
 
 		if (ROM_LIST[id].moreInfo) {
 			addEltsToFrame(infoFrame, ROM_LIST[id].moreInfo, CLASS_INFO_MORE);
@@ -678,4 +671,60 @@ function countPatchUsage(patchId) {
 			xhr.send(`${STATS_INCREMENT_PARAM}=${patchId}`);
 		}
 	});
+}
+
+
+//==========================================
+// METHODS FOR CREDITS
+//==========================================
+
+function initCredits() {
+	// Translator contact
+	if (el(ELT_ABOUT_TRANSLATOR_CONTACT)) {
+		var uri = `mailto:${encodeURIComponent(MAIL_ADDRESS)}`;
+		uri += `?subject=${encodeURIComponent(MAIL_SUBJECT)}`;
+		uri += `&body=${encodeURIComponent(MAIL_BODY)}`;
+		appendTextWithLinks(el(ELT_ABOUT_TRANSLATOR_CONTACT), _("txtAboutTranslator1"), ["%"], [uri], [_("txtAboutTranslator2")]);
+	}
+	if (el(ELT_ABOUT_SOURCE)) {
+		appendTextWithLinks(el(ELT_ABOUT_SOURCE), _("txtAboutSource"), ["%","‰"],
+			["https://github.com/JumpmanFR/MotherInternational", "https://opensource.org/licenses/mit-license.php"], [_("txtAboutSourceGitHub"), _("txtAboutSourceLicense")]);
+	}
+	var curGroupName;
+	var curGroup;
+	for (var cur in ROM_LIST) {
+		if (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom) {
+			if (ROM_LIST[cur].game != curGroupName) {
+				curGroup = document.createElement("optgroup");
+				curGroup.label = GAME_NAMES[ROM_LIST[cur].game];
+				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
+			}
+			var opt = document.createElement("option");
+			opt.text = romDesc(cur, false, false)
+			curGroup.appendChild(opt);
+			curGroupName = ROM_LIST[cur].game;
+		}
+	}
+	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
+}
+
+function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkTexts) {
+		var re = new RegExp(`[${wildcards.join("")}]`,'g')
+		var mainTextParts = mainText.split(re);
+		var nodes = [];
+		var curPos = 0;
+		for (var i in mainTextParts) {
+			parentNode.appendChild(document.createTextNode(mainTextParts[i]));
+			curPos += mainTextParts[i].length; // let’s look at the wildcard character that should be at the end of this part
+			var curWildcard = mainText[curPos];
+			var index = wildcards.indexOf(curWildcard);
+			if (index != -1) {
+				curPos += curWildcard.length;
+				var linkElt = document.createElement("a");
+				linkElt.href = linkUrls[index];
+				linkElt.textContent = linkTexts[index];
+				parentNode.appendChild(linkElt);
+			}
+		}
+
 }

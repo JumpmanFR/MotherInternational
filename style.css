@@ -201,10 +201,44 @@ input[type=button], button {
 	mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-#translator-contact {
+#credits-window {
+	visibility: hidden;
+	text-align: left;
+	background-color: rgb(206,60,60);
+	opacity: .8;
+	position: absolute;
+	width: fit-content;
+	top: 150px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	box-shadow: 0px 0px 10px grey;
+	border-radius: 10px;
+}
+#credits-staff, #about {
+	margin: 8px 20px;
+}
+#credits-staff {
+	float: left;
+	width: fit-content;
+}
+#credits-logo {
+	width: 200px;
+}
+#about {
+	display: inline-block;
+	width: 300px;
+	padding-top: 25px;
+}
+/*#translator-contact {
 	display: block;
 	margin: auto;
 	margin-top: 14px;
 	width: fit-content;
 	font-size: smaller;
+}*/
+#about-version {
+	position: absolute;
+	right: 20px;
+	bottom: 0px;
 }

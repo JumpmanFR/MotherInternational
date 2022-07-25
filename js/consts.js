@@ -14,7 +14,11 @@ const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
-const ELT_TRANSLATOR_CONTACT = "translator-contact";
+
+const ELT_ABOUT_TRANSLATOR_CONTACT = "about-translator-contact";
+const ELT_ABOUT_SOURCE = "about-source";
+const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
+const ELT_ABOUT_VERSION = "about-version";
 
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_MORE = "info-more";

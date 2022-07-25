@@ -2,14 +2,14 @@ const LOCALIZATION={
 	'fr':{
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
-		
+
 		'txtBrowse':				'Parcourir…',
 		'txtNoRom':					'Aucune ROM spécifiée',
 
 		'txtSpecifyRom':			'Spécifiez votre ROM à patcher',
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
-		
+
 		'txtAnalyzingFile':			'Analyse du fichier…',
 		'txtAnalyzingRom':			'Analyse de la ROM…',
 		'txtApplyingPatch':			'Application du patch%…',
@@ -17,24 +17,22 @@ const LOCALIZATION={
 		'txtUnzipping':				'Décompression…',
 		'txtZipping':				'Création de l’archive',
 		'txtFinalizing':			'Finalisation…',
-		
+
 		'txtRomIdentified':			'ROM reconnue',
-		
+
 		'txtAllTranslations':		'Langues disponibles pour % :',
-		
+
 		'txtShowAllVersions':		'Afficher toutes les versions',
-		
+
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
 		'txtDescUpdate':			'(mise à jour)',
 		'txtVisitSite':				'Page web de %',
 		'txtVisitSiteAt':			'sur %',
 		'txtReadDoc':				'Fichier lisez-moi',
-		
+
 		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
 		'txtNbUsesUnknown':			'inconnu',
-		
-		'txtTranslatorContact':		'Je suis un traducteur',
 
 		'txtReadmeFile':			'lisezmoi',
 
@@ -51,13 +49,32 @@ const LOCALIZATION={
 		'error_invalid_patch':		'Fichier de patch non reconnu',
 		'error_crc_patch':			'Fichier de patch incorrect',
 		'warning_too_big':			'Fichiers trop volumineux',
+		'Not Found':				'Un fichier de patch n’a pas été trouvé',
 
-		'Not Found':				'Un fichier de patch n’a pas été trouvé'
+		'txtCredits':				'Crédits',
+		'txtCreditsDesign':			'Conception',
+		'txtCreditsProgramming':	'Programmation',
+		'txtCreditsAnimations':		'Animations',
+		'txtCreditsLegacy':			'Ancienne application',
+		'txtCreditsPlayer':			'Joueur',
+		'txtCreditsPlayerYou':		'Vous !',
+
+		'txtAboutFreeProg1':		'Mother International est un programme libre d’utilisation.',
+		'txtAboutFreeProg2':		'Il n’est pas destiné à la vente.',
+		'txtAboutSource':			'Le code source de Mother International est % sous la ‰.',
+		'txtAboutSourceGitHub':		'distribué',
+		'txtAboutSourceLicense':	'licence MIT',
+		'txtAboutTeams':			'Tous droits réservés aux équipes qui ont créé les patchs de traduction inclus dans ce programme. Merci à elles !',
+		'txtAboutAllTranslations':	'Toutes les langues prises en charge :',
+		'txtAboutTranslator1':		'Si vous êtes un traducteur, n’hésitez pas à % !',
+		'txtAboutTranslator2':		'nous contacter',
+		'txtAboutOldVersions':		'Anciennes versions de Mother International',
+		'txtAboutVersion':			'Version %',
 	},
 	'en':{
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
-		
+
 		'txtBrowse':				'Browse…',
 		'txtNoRom':					'No ROM specified',
 
@@ -72,7 +89,7 @@ const LOCALIZATION={
 		'txtUnzipping':				'Unzipping…',
 		'txtZipping':				'Creating zip file…',
 		'txtFinalizing':			'Finalizing…',
-		
+
 		'txtRomIdentified':			'ROM identified',
 
 		'txtAllTranslations':		'Available languages for %:',
@@ -83,13 +100,11 @@ const LOCALIZATION={
 		'txtDescBy':				'by',
 		'txtDescUpdate':			'(update)',
 		'txtVisitSite':				'%’s webpage',
-		'txtVisitSiteAt':			'at $',
+		'txtVisitSiteAt':			'at %',
 		'txtReadDoc':				'Readme file',
 
 		'txtNbUses':				'Number of uses for this patch: %',
 		'txtNbUsesUnknown':			'unknown',
-
-		'txtTranslatorContact':		'I’m a translator',
 
 		'txtReadmeFile':			'readme',
 
@@ -106,7 +121,26 @@ const LOCALIZATION={
 		'error_invalid_patch':		'Unidentified patch file',
 		'error_crc_patch':			'Wrong patch file',
 		'warning_too_big':			'Too big files',
-		
-		'Not Found':				'A patch file was not found'
+		'Not Found':				'A patch file was not found',
+
+		'txtCredits':				'Credits',
+		'txtCreditsDesign':			'Design',
+		'txtCreditsProgramming':	'Programming',
+		'txtCreditsAnimations':		'Animations',
+		'txtCreditsLegacy':			'Legacy app',
+		'txtCreditsPlayer':			'Player',
+		'txtCreditsPlayerYou':		'You!',
+
+		'txtAboutFreeProg1':		'Mother International is a free to use program.',
+		'txtAboutFreeProg2':		'This program is not for sale.',
+		'txtAboutSource':			'The source code of Mother International is % under the ‰.',
+		'txtAboutSourceGitHub':		'distributed',
+		'txtAboutSourceLicense':	'MIT license',
+		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
+		'txtAboutAllTranslations':	'All supported languages:',
+		'txtAboutTranslator1':		'If you’re a translator, feel free to %!',
+		'txtAboutTranslator2':		'contact us',
+		'txtAboutOldVersions':		'Get the previous versions of Mother International here',
+		'txtAboutVersion':			'Version %',
 	}
 };
