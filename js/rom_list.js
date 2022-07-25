@@ -1,5 +1,9 @@
+var GAME_NAMES = {[CARD_MOTHER_1]: "MOTHER 1 / EarthBound Beginnings", [CARD_MOTHER_2]: "MOTHER 2 / EarthBound", [CARD_MOTHER_3]: "MOTHER 3", [CARD_MOTHER_1_2]: "MOTHER 1+2"};
+var GAME_NAMES_SHORT = {[CARD_MOTHER_1]: "MOTHER 1", [CARD_MOTHER_2]: "MOTHER 2 / EarthBound", [CARD_MOTHER_3]: "MOTHER 3", [CARD_MOTHER_1_2]: "MOTHER 1+2"};
+
 var ROM_LIST = {
 	'm1-ja': 	{crc:'0x282a5caa', game:CARD_MOTHER_1,	lang:LANG_JAPANESE,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', hasDoc:false},
+	'm1-de10a':	{crc:'0x8abea229', game:CARD_MOTHER_1,	lang:LANG_GERMAN,	author:'G-TRANS',		baseRom:'m1-en', patchExt:'.zip', version:'1.0a1',	hasDoc:false},
 	'm1-en': 	{crc:'0xf5ef5002', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo'},
 	'm1-enA': 	{crc:'0x7b1be8c2', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', specialAltRom:'proto'},
 	'm1-enB': 	{crc:'0xe4aa8122', game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',		baseRom:'m1-en', patchExt:'.zip', specialAltRom:'Zero'},
@@ -77,6 +81,7 @@ var ROM_LIST = {
 
 /*var PROJECTS_LIST = {
 	'm1-ja':	{game:CARD_MOTHER_1,	lang:LANG_JAPANESE,	author:'Nintendo',			baseRom:'m1-en'},
+	'm1-de':	{game:CARD_MOTHER_1,	lang:LANG_GERMAN,	author:'G-TRANS',			baseRom:'m1-de'},
 	'm1-en':	{game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo'},
 	'm1-enA':	{game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',			baseRom:'m1-en',	specialAltRom:'proto'},
 	'm1-enB':	{game:CARD_MOTHER_1,	lang:LANG_ENGLISH,	author:'Nintendo',			baseRom:'m1-en',	specialAltRom:'Zero'},
@@ -123,6 +128,7 @@ var ROM_LIST = {
 
 var VERSIONS_LIST = {
 	'm1-ja': 	{crc:'0x282a5caa',	projectId:'m1-ja',	patchExt:'.zip', hasDoc:false},
+	'm1-de10a':	{crc:'0x8abea229',	projectId:'m1-de',	patchExt:'.zip', hasDoc:false, version:'1.0a1'},
 	'm1-en': 	{crc:'0xf5ef5002',	projectId:'m1-en'},
 	'm1-enA': 	{crc:'0x7b1be8c2',	projectId:'m1-enA',	patchExt:'.zip', specialAltRom:'proto'},
 	'm1-enB': 	{crc:'0xe4aa8122',	projectId:'m1-enB',	patchExt:'.zip', specialAltRom:'Zero'},

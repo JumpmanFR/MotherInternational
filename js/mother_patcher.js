@@ -11,7 +11,6 @@ const FOR_OUTPUT = 1;
 const ROMS_IN_ZIP = /\.(gba|agb|sfc|srm|nes|fds|bin)$/i
 const PATCHES_IN_ZIP = /\.(ups|bps|ips|xdelta|vcdiff)$/i
 
-var GAME_NAMES = {[CARD_MOTHER_1]: "MOTHER 1 / EarthBound Beginnings", [CARD_MOTHER_2]: "MOTHER 2 / EarthBound", [CARD_MOTHER_3]: "MOTHER 3", [CARD_MOTHER_1_2]: "MOTHER 1+2"};
 var LANG_NAMES = {[LANG_JAPANESE]: "日本語", [LANG_ENGLISH]: "English", [LANG_FRENCH]: "français", [LANG_GERMAN]: "Deutsch", [LANG_ITALIAN]: "italiano", [LANG_SPANISH]: "español", [LANG_SP_SPAIN]: "español de España", [LANG_SP_LATINO]: "español americano", [LANG_PORTUGUES]: "português", [LANG_PT_PORTUG]: "português de Portugal", [LANG_PT_BRAZIL]: "português do Brasil", [LANG_POLISH]: "polski", [LANG_DUTCH]: "Nederlands", [LANG_RUSSIAN]: "русский", [LANG_CHINESE]: "中文", [LANG_KOREAN]: "한국어"}
 
 const MSG_TYPE_OK = 0;
@@ -419,7 +418,7 @@ function onParsedInputRom(data) {
         }
     }
 
-	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES[ROM_LIST[i].game]) : '';
+	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAME_NAMES_SHORT[ROM_LIST[i].game]) : '';
 
 	updatePatchSelect();
 	setUIBusy(false);

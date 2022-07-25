@@ -8,7 +8,7 @@
 
 @media (max-width: 1000px) {
 	#arrow-between-areas {
-		width: 100%;
+		display: block !important;
 	}
 	#arrow-between-areas:after {
 		font-size: 3em !important;
@@ -139,6 +139,9 @@ body {
 }
 #patch-select-label {
 	margin: 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 #patch-select {
 	width: 90%;
