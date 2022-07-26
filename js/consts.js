@@ -1,5 +1,6 @@
 const VERSION = "3.0";
 
+const ELT_ANIMATION_CONTAINER = "animation-container";
 const ELT_AREA_INPUT = "input-area";
 const ELT_AREA_OUTPUT = "output-area";
 const ELT_ARROW = "arrow-between-areas";
@@ -23,6 +24,8 @@ const ELT_ABOUT_TRANSLATOR_CONTACT = "about-translator-contact";
 const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
 const ELT_ABOUT_VERSION = "about-version";
+
+const CLASS_ANIMATION = "animation";
 
 const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
