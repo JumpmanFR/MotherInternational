@@ -71,6 +71,7 @@ body {
 	background-size: 30%;
 	background-repeat: no-repeat;
 	background-position: center;
+	cursor: pointer;
 }
 #input-area.drag {
 	background-color: #FFFFFF80;
@@ -109,6 +110,8 @@ body {
 }
 #rom-label {
 	vertical-align: middle;
+	margin-left: 5px;
+	pointer-events:none;
 }
 
 #msg-container {
@@ -180,14 +183,17 @@ body {
 	width: 80px;
 	height: 80px;
 	object-fit: contain;
-	margin-right: 16px;
 	vertical-align: middle;
 	filter: drop-shadow(2px 2px 1px #00000030);
 }
 .info-details {
+	margin-left: 16px;
 	text-align: left;
 	display: inline-block;
 	vertical-align: middle;
+}
+.info-details:empty {
+	display: none;
 }
 .info-details > p {
 	white-space: nowrap;
@@ -270,7 +276,7 @@ input[type=button], button {
 	text-align: left;
 	background-color: #8F2A2B;
 	color: white;
-	opacity: .9;
+	opacity: .94;
 	position: absolute;
 	width: fit-content;
 	top: 50%;

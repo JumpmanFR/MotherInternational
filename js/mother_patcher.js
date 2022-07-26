@@ -38,7 +38,6 @@ var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
 function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
 function el(e){return document.getElementById(e)}
 function _(str){return gUserLanguage[str] || gDefaultLanguage[str] || str}
-function langCode(){return navigator.language.substr(0,2)}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
 function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].lastVersionOf || NaN}
 
@@ -54,9 +53,10 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_AREA_INPUT), 'dragover', function(e) {onDrag(true, e)});
 	addEvent(el(ELT_AREA_INPUT), 'dragleave', function(e) {onDrag(false, e)});
 	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {onDrag(false, e);});
-	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
-	addEvent(el(ELT_ROM_BTN), 'click', function() {el(ELT_ROM_FILE).click()});
+	addEvent(el(ELT_ROM_FILE), 'click', function(e) {e.stopPropagation();});
+	addEvent(el(ELT_ROM_BTN), 'click', function(e) {el(ELT_ROM_FILE).click();e.stopPropagation();});
+	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
@@ -65,7 +65,8 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
-	setLanguage(langCode());
+	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
+	setLanguage(forcedLanguage || navigator.language.substr(0,2));
 	setUIBusy(false);
 })
 
@@ -116,8 +117,10 @@ function onSelectPatch(value) {
 // UI METHODS
 //==========================================
 
-function setLanguage(langCode) {
-	gUserLanguage = LOCALIZATION[langCode] || LOCALIZATION[LANG_DEFAULT] || {};
+function setLanguage(langId) {
+	langId = langId || LANG_DEFAULT;
+	gUserLanguage = LOCALIZATION[langId] || {};
+	gUserLanguage.id = langId;
 
 	gDefaultLanguage = LOCALIZATION[LANG_DEFAULT] || {};
 
@@ -125,6 +128,8 @@ function setLanguage(langCode) {
 	for(var i = 0; i < translatableElements.length; i++) {
 		if (translatableElements[i].tagName == "INPUT") {
 			translatableElements[i].setAttribute("value", _(translatableElements[i].dataset.localize));
+		} else if (translatableElements[i].tagName == "IMG") {
+			translatableElements[i].alt = _(translatableElements[i].dataset.localize);
 		} else {
 			translatableElements[i].textContent = _(translatableElements[i].dataset.localize);
 		}
@@ -241,7 +246,7 @@ function updatePatchSelect() {
 					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
 				} else if (ROM_LIST[inputId].oldVersionOf == versionedPatches(cur)) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if (ROM_LIST[cur].lang.startsWith(langCode())) {
+				} else if (ROM_LIST[cur].lang.startsWith(gUserLanguage.id)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (!ROM_LIST[cur].baseRom) {
 					defaultSelectionCandidates.baseRom = cur; // a basic, unpatched ROM
@@ -294,6 +299,7 @@ function updatePatchInfo(target) {
 
 		var img = document.createElement("img");
 		img.src = PATCH_BOXARTS + ROM_LIST[id].game + (ROM_LIST[id].lang == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
+		img.alt = GAMES_LIST[ROM_LIST[id].game].nameFull;
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
 
@@ -307,7 +313,7 @@ function updatePatchInfo(target) {
 
 		if (ROM_LIST[id].website) {
 			var urlObj = new URL(ROM_LIST[id].website);
-			var baseUrl = urlObj.hostname;
+			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
 			websiteLink.setAttribute("target", "_blank");
