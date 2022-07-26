@@ -25,6 +25,8 @@ MSG_CLASS[MSG_TYPE_ERROR] = CLASS_MESSAGE_ERROR;
 
 var gUserLanguage, gDefaultLanguage;
 var gIsBusy;
+var gFlagEmojiSupported;
+
 var gInputRom, gInputRomId;
 var gPatchFiles = [];
 
@@ -67,6 +69,9 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
 	setLanguage(forcedLanguage || navigator.language.substr(0,2));
+	
+	gFlagEmojiSupported = getFlagEmojiSupport();
+	
 	setUIBusy(false);
 })
 
@@ -136,6 +141,23 @@ function setLanguage(langId) {
 	}
 }
 
+ function getFlagEmojiSupport() {
+    var canvas = document.createElement("canvas");
+    canvas.height = 10;
+    canvas.width = canvas.height*2;
+    var ctx = canvas.getContext("2d");
+    ctx.font = canvas.height+"px Arial";
+    ctx.fillText("🇬🇧", 0, canvas.height);
+    var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    var i = 0;
+    while(i < data.length) {
+        if (data[i] !== data[i+1] || data[i] !== data[i+2]) return true;
+        i+=4;
+    }
+    return false;
+}
+
+
 function setUIBusy(value) {
 	gIsBusy = value;
 	updateUIState();
@@ -194,19 +216,21 @@ function setMessage(msg, type) {
 
 function romDesc(id, withGameTitle, withVersion) {
 	var res = "";
-	res += LANG_LIST[ROM_LIST[id].lang].flag;
-	if (withGameTitle) {
-		res += " " + GAMES_LIST[ROM_LIST[id].game].nameFull + " –";
+	if (gFlagEmojiSupported) {
+		res += LANG_LIST[ROM_LIST[id].lang].flag + " ";
 	}
-	res += " " + LANG_LIST[ROM_LIST[id].lang].name;
+	if (withGameTitle) {
+		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
+	}
+	res += LANG_LIST[ROM_LIST[id].lang].name + " ";
 	if (ROM_LIST[id].version && withVersion) {
-		res +=  " " + _("txtDescVersion") + ROM_LIST[id].version;
+		res += _("txtDescVersion") + ROM_LIST[id].version + " ";
 	}
 	if (ROM_LIST[id].author) {
-		res += " " + _("txtDescBy") + " " + ROM_LIST[id].author;
+		res += _("txtDescBy") + " " + ROM_LIST[id].author + " ";
 	}
 	if (ROM_LIST[id].specialAltRom) {
-		res += " (" + ROM_LIST[id].specialAltRom + ")";
+		res += "(" + ROM_LIST[id].specialAltRom + ") ";
 	}
 	return res;
 }

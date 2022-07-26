@@ -1,5 +1,6 @@
 @font-face {
 	font-family: 'titlefont';
+	font-display: block;
 	src: url('titlefont.ttf');
 }
 @keyframes spin { 100% { transform:rotate(360deg); } }
@@ -51,7 +52,7 @@ body {
 .area {
 	vertical-align: middle;
 	height: 300px;
-	width: 360px;
+	width: 380px;
 	display: inline-block;
 	margin: auto;
 	padding: 15px 10px;
@@ -86,6 +87,7 @@ body {
 	border-color: transparent;
 	border-style: solid;
 	background-color: #FFFFFF28;
+	opacity: 0;
 	transition: opacity 0.4s ease-out;
 }
 
@@ -146,7 +148,6 @@ body {
 	margin: 0px;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
 }
 #patch-select {
 	width: 90%;
