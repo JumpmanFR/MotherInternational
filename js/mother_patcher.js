@@ -107,7 +107,7 @@ function onInputFile(data) {
 		setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
 		setUIBusy(true);
 		clearPatchSelect();
-		setAnim(); // stop any ongoing animation
+		setGameAnim(); // stop any ongoing animation
 	} catch(error) {
 		setMessage(_('error_unknown_rom'), MSG_TYPE_ERROR);
 	}
@@ -453,7 +453,7 @@ function onParsedInputRom(data) {
             gInputRomId = i;
             setMessage('');
             updatePatchInfo(FOR_INPUT);
-			setAnim(ROM_LIST[i].game);
+			setGameAnim(ROM_LIST[i].game);
             break;
         }
     }

@@ -111,8 +111,12 @@ body {
 	width: 6em;
 }
 #rom-label {
+	cursor: pointer;
+}
+#input-area.first-drop #rom-label {
 	vertical-align: middle;
 	margin-left: 5px;
+	cursor: auto;
 	pointer-events:none;
 }
 
@@ -329,4 +333,15 @@ input[type=button], button {
 	position: absolute;
 	right: 20px;
 	bottom: 0px;
+}
+#credits-animation-container {
+  position: relative;
+  top: -0.25em;
+  left: 0.3em;
+}
+#credits-animation-container img {
+  position: absolute;
+  opacity: 0;
+  width: 1em;
+  image-rendering: pixelated;
 }

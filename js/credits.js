@@ -1,5 +1,16 @@
 /* Mother International, Web version
+Animation method taken from Michael Romanov https://www.sitepoint.com/frame-by-frame-animation-css-javascript/
 JumpmanFR 2021-2022 */
+
+// Saturn (or anything) animation
+const CREDITS_ANIM_FRAME_PREFIX = "credits-animation-"
+const CREDITS_ANIM_NB_FRAMES = 2;
+const CREDITS_ANIM_TIME_PER_FRAME = 500;
+var gCreditsDoNextFrame;
+var gCreditsAnimTimeFromLastUpdate;
+var gCreditsAnimTimeWhenLastUpdate;
+var gCreditsFrameNumber = 1;
+var gCreditsCurrentFrameElt;
 
 //==========================================
 // EVENT METHODS AND ENTRY POINTS
@@ -14,19 +25,22 @@ addEvent(document, 'DOMContentLoaded', function() {
 });
 
 function onClickCredits(e, value) {
-	if (value) {
+	if (value) {	// open
 		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
 		el(ELT_ABOUT_WRAPPER).classList.remove(CLASS_CLOSED_CREDITS);
-	} else {
+		gCreditsDoNextFrame = requestAnimationFrame;
+		gCreditsDoNextFrame(creditsNextFrame);
+	} else {		// close
 		el(ELT_ABOUT_WINDOW).classList.add(CLASS_CLOSED_CREDITS);
 		el(ELT_ABOUT_WRAPPER).classList.add(CLASS_CLOSED_CREDITS);
+		gCreditsDoNextFrame = function() {};
 	}
 	e.preventDefault();
 }
 
 
 //==========================================
-// METHODS FOR CREDITS
+// METHODS FOR CREDITS DISPLAY
 //==========================================
 
 function initCredits() {
@@ -100,5 +114,35 @@ function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkText
 			parentNode.appendChild(linkElt);
 		}
 	}
+}
 
+
+//==========================================
+// METHODS FOR CREDITS ANIMATION
+//==========================================
+
+function creditsNextFrame(time) {
+	if (!gCreditsAnimTimeWhenLastUpdate) {
+		gCreditsAnimTimeWhenLastUpdate = time;
+	}
+
+	gCreditsAnimTimeFromLastUpdate = time - gCreditsAnimTimeWhenLastUpdate;
+
+	if (gCreditsAnimTimeFromLastUpdate > CREDITS_ANIM_TIME_PER_FRAME) {
+		if (gCreditsCurrentFrameElt) {
+			gCreditsCurrentFrameElt.style.opacity = 0;
+		}
+		gCreditsCurrentFrameElt = el(CREDITS_ANIM_FRAME_PREFIX + gCreditsFrameNumber);
+		gCreditsCurrentFrameElt.style.opacity = 1;
+		
+		gCreditsAnimTimeWhenLastUpdate = time;
+		
+		if (gCreditsFrameNumber >= CREDITS_ANIM_NB_FRAMES) {
+			gCreditsFrameNumber = 1;
+		} else {
+			gCreditsFrameNumber++;
+		}
+	}
+	
+	gCreditsDoNextFrame(creditsNextFrame);
 }

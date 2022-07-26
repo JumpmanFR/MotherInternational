@@ -4,7 +4,6 @@
         <title>MOTHER International</title>
         <meta charset="UTF-8"/>
         <link type="text/css" rel="stylesheet" href="./style.css"/>
-		<link rel="preload" href="titlefont.ttf" as="font">
         <script type="text/javascript" src="./js/libs/MarcFile.js"></script>
 		<script type="text/javascript" src="./js/libs/zip.js/zip.js"></script>
         <script type="text/javascript" src="./js/libs/formats/zip.js"></script>
@@ -79,7 +78,13 @@
 					<br/>
 					<span id="about-source"></span>
 				</p>
-				<p data-localize="txtAboutTeams"></p>
+				<p>
+					<span data-localize="txtAboutTeams"></span>
+					<span id="credits-animation-container">
+						<img id="credits-animation-1" src="anim/saturn/saturn-1.png"/>
+						<img id="credits-animation-2" src="anim/saturn/saturn-2.png"/>
+					</span>
+				</p>
 				<p>
 					<span data-localize="txtAboutAllTranslations"></span>
 					<select id="about-all-translations"></select>

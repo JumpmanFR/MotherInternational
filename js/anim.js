@@ -1,13 +1,17 @@
+/* Mother International, Web version
+JumpmanFR 2021-2022
+Animation method taken from Michael Romanov https://www.sitepoint.com/frame-by-frame-animation-css-javascript/
+Animations by Sam the Salmon */
+
+
 const ANIM_FOLDER = "anim";
 const ANIM_TIME_PER_FRAME = 30;
 var NB_FRAMES_PER_GAME = {[ID_MOTHER_1]: 192, [ID_MOTHER_2]: 139, [ID_MOTHER_3]: 410};
 
-const NO_OP = Function();
-
 var gTimeWhenLastUpdate;
 var gTimeFromLastUpdate;
 var gFrameNumber;
-var gCurrentFrame;
+var gCurrentFrameElt;
 var gDoNextFrame;
 var gGameCard;
 
@@ -70,11 +74,11 @@ function animStep(time) {
 				gFrameNumber = subFrameNumber = 0;
 			}
 
-			if (gCurrentFrame) {
-				gCurrentFrame.style.opacity = 0;
+			if (gCurrentFrameElt) {
+				gCurrentFrameElt.style.opacity = 0;
 			}
-			gCurrentFrame = el(CLASS_ANIMATION + "-" + currentGame + "-" + subFrameNumber);
-			gCurrentFrame.style.opacity = 1;
+			gCurrentFrameElt = el(CLASS_ANIMATION + "-" + currentGame + "-" + subFrameNumber);
+			gCurrentFrameElt.style.opacity = 1;
 
 			gTimeWhenLastUpdate = time;
 
@@ -84,7 +88,7 @@ function animStep(time) {
 	}
 }
 
-function setAnim(gameCard) {
+function setGameAnim(gameCard) {
 	if (gameCard != gGameCard) {
 		gGameCard = gameCard;
 		if (gameCard) {
@@ -94,7 +98,7 @@ function setAnim(gameCard) {
 			el(ELT_ANIMATION_CONTAINER).style.visibility = "visible";
 		} else {
 			el(ELT_ANIMATION_CONTAINER).style.visibility = "hidden";
-			gDoNextFrame = NO_OP;
+			gDoNextFrame = function() {};
 		}
 	}
 }
