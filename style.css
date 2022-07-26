@@ -209,11 +209,20 @@ body {
 .info-details > p:last-child {
 	margin-bottom: 0px;
 }
+.info-website a:before {
+	content: '🌐 ';
+	display: inline-block;
+}
 .info-website-host {
 	display: block;
 	font-size: smaller;
+	text-align: center;
 }
-.info-nb-uses > span:not(:last-child):after {
+.info-doc a:before {
+	content: '📄 ';
+	display: inline-block;
+}
+.info-loading > span:not(:last-child):after {
 	display: inline-block;
 	animation: dotty steps(1,end) 1s infinite;
 	content: '';

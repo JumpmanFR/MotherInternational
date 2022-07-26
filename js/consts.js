@@ -46,7 +46,7 @@ const CLASS_INFO_WEBSITE = "info-website";
 const CLASS_INFO_WEBSITE_HOST = "info-website-host";
 const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
-//const CLASS_INFO_LOADING_ELLIPSIS = "loading-ellipsis"
+const CLASS_INFO_LOADING = "info-loading";
 
 const ID_MOTHER_1 = 'm1';
 const ID_MOTHER_2 = 'm2';

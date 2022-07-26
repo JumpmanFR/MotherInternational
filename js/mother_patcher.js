@@ -69,9 +69,9 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
 	setLanguage(forcedLanguage || navigator.language.substr(0,2));
-	
+
 	gFlagEmojiSupported = getFlagEmojiSupport();
-	
+
 	setUIBusy(false);
 })
 
@@ -319,7 +319,7 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 
 	if (id) {
-		addEltsToFrame(infoFrame, romDesc(id, true, true), CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, [romDesc(id, true, true)], CLASS_INFO_TITLE);
 
 		var img = document.createElement("img");
 		img.src = PATCH_BOXARTS + ROM_LIST[id].game + (ROM_LIST[id].lang == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
@@ -332,7 +332,7 @@ function updatePatchInfo(target) {
 		infoFrame.appendChild(detailsDiv);
 
 		if (ROM_LIST[id].versionLabel) {
-			addEltsToFrame(detailsDiv, ROM_LIST[id].versionLabel, CLASS_INFO_VERSION_LABEL);
+			addEltsToFrame(detailsDiv, [ROM_LIST[id].versionLabel], CLASS_INFO_VERSION_LABEL);
 		}
 
 		if (ROM_LIST[id].website) {
@@ -341,7 +341,7 @@ function updatePatchInfo(target) {
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
 			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = '🌐 ' + _('txtVisitSite').replace("%", ROM_LIST[id].author)
+			websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author)
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
@@ -351,30 +351,27 @@ function updatePatchInfo(target) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
-			docLink.textContent = '📄 ' + _('txtReadDoc');
-			addEltsToFrame(detailsDiv, docLink, CLASS_INFO_DOC);
+			docLink.textContent =  _('txtReadDoc');
+			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
 		//var loadSpan = document.createElement("span");
 		//loadSpan.className = CLASS_INFO_LOADING_ELLIPSIS;
 		//addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", ''), loadSpan], CLASS_INFO_NB_USES);
 		var nbUsesElts = _('txtNbUses').split("%");
-		addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
+		addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES).classList.add(CLASS_INFO_LOADING);
 
 		requestPatchUsage(id)
 			.then(function(nbUses) {
-				addEltsToFrame(infoFrame, _('txtNbUses').replace("%", nbUses), CLASS_INFO_NB_USES);
+				addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 			})
 			.catch(function() {
-				addEltsToFrame(infoFrame, _('txtNbUses').replace("%", _('txtNbUsesUnknown')), CLASS_INFO_NB_USES);
+				addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 			});
 	}
 }
 
 function addEltsToFrame(frameElt, eltToAdd, className) {
-	if (!Array.isArray(eltToAdd)) {
-		eltToAdd = [eltToAdd];
-	}
 	var paragraph;
 	if (frameElt.getElementsByClassName(className).length) {
 		paragraph = frameElt.getElementsByClassName(className)[0];
@@ -392,6 +389,7 @@ function addEltsToFrame(frameElt, eltToAdd, className) {
 		}
 		paragraph.appendChild(eltToAdd[i]);
 	}
+	return paragraph;
 }
 
 function reset() {
