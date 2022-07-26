@@ -216,6 +216,10 @@ body {
 .info-details > p:last-child {
 	margin-bottom: 0px;
 }
+.info-version-label:before {
+	content: '💡 ';
+	display: inline-block;
+}
 .info-website a:before {
 	content: '🌐 ';
 	display: inline-block;

@@ -344,6 +344,14 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [ROM_LIST[id].versionLabel], CLASS_INFO_VERSION_LABEL);
 		}
 
+		if (ROM_LIST[id].hasDoc) {
+			var docLink = document.createElement("a");
+			docLink.href = `patches/${id}.txt`;
+			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
+			docLink.textContent =  _('txtReadDoc');
+			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
+		}
+
 		if (ROM_LIST[id].website) {
 			var urlObj = new URL(ROM_LIST[id].website);
 			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
@@ -355,13 +363,6 @@ function updatePatchInfo(target) {
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
 			addEltsToFrame(detailsDiv, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);
-		}
-		if (ROM_LIST[id].hasDoc) {
-			var docLink = document.createElement("a");
-			docLink.href = `patches/${id}.txt`;
-			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
-			docLink.textContent =  _('txtReadDoc');
-			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
 		var nbUsesElts = _('txtNbUses').split("%");
