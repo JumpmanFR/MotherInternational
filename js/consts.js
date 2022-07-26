@@ -30,6 +30,7 @@ const CLASS_ANIMATION = "animation";
 const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
+const CLASS_HIDDEN = "hidden"
 const CLASS_FIRST_DROP = "first-drop";
 
 const CLASS_MESSAGE = "message";

@@ -86,16 +86,20 @@ body {
 #output-area {
 	border-color: transparent;
 	border-style: solid;
+	transition: opacity 0.5s ease-out;
 	background-color: #FFFFFF28;
-	opacity: 0;
-	transition: opacity 0.4s ease-out;
 }
 
 #arrow-between-areas {
 	display: inline-block;
 	vertical-align: middle;
+	transition: opacity 0.5s ease-out;
 	margin: auto;
-	transition: opacity 0.4s ease-out;
+}
+
+#output-area.hidden, #arrow-between-areas.hidden {
+	opacity: 0;
+	transition-duration: 0s;
 }
 
 #arrow-between-areas:after {
@@ -112,12 +116,12 @@ body {
 }
 #rom-label {
 	cursor: pointer;
-}
-#input-area.first-drop #rom-label {
 	vertical-align: middle;
 	margin-left: 5px;
+}
+#input-area.first-drop #rom-label {
 	cursor: auto;
-	pointer-events:none;
+	pointer-events: none;
 }
 
 #msg-container {
@@ -197,6 +201,9 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 }
+.info-boxart, .info-details {
+	margin-bottom: 8px;
+}
 .info-details:empty {
 	display: none;
 }
@@ -222,6 +229,10 @@ body {
 	content: '📄 ';
 	display: inline-block;
 }
+.info-frame p.info-nb-uses {
+	line-height: 1.2em;
+}
+
 .info-loading > span:not(:last-child):after {
 	display: inline-block;
 	animation: dotty steps(1,end) 1s infinite;

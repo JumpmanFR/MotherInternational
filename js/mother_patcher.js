@@ -186,7 +186,16 @@ function updateUIState() {
 			el(ELT_AREA_INPUT).classList.add(CLASS_FIRST_DROP);
 		}
 	}
-	el(ELT_AREA_OUTPUT).style.opacity = el(ELT_ARROW).style.opacity = gInputRomId ? 1 : 0;
+
+	//el(ELT_AREA_OUTPUT).style.opacity = el(ELT_ARROW).style.opacity = gInputRomId ? 1 : 0;
+
+	if (gInputRomId) {
+		el(ELT_AREA_OUTPUT).classList.remove(CLASS_HIDDEN);
+		el(ELT_ARROW).classList.remove(CLASS_HIDDEN);
+	} else {
+		el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN);
+		el(ELT_ARROW).classList.add(CLASS_HIDDEN);
+	}
 }
 
 function setMessage(msg, type) {
@@ -220,7 +229,7 @@ function romDesc(id, withGameTitle, withVersion) {
 		res += LANG_LIST[ROM_LIST[id].lang].flag + " ";
 	}
 	if (withGameTitle) {
-		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
+		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
 	}
 	res += LANG_LIST[ROM_LIST[id].lang].name + " ";
 	if (ROM_LIST[id].version && withVersion) {
@@ -355,39 +364,42 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
-		//var loadSpan = document.createElement("span");
-		//loadSpan.className = CLASS_INFO_LOADING_ELLIPSIS;
-		//addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", ''), loadSpan], CLASS_INFO_NB_USES);
 		var nbUsesElts = _('txtNbUses').split("%");
-		addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES).classList.add(CLASS_INFO_LOADING);
+		var nbUsesP = addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
+		nbUsesP.classList.add(CLASS_INFO_LOADING);
 
 		requestPatchUsage(id)
 			.then(function(nbUses) {
-				addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+				if (nbUsesP && nbUsesP.isConnected) { // to check if the view hasn’t been reloaded with another id since then
+					addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+				}
 			})
 			.catch(function() {
-				addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+				if (nbUsesP && nbUsesP.isConnected) {
+					addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+				}
 			});
 	}
 }
 
-function addEltsToFrame(frameElt, eltToAdd, className) {
+// For updatePatchInfo: creates a paragraph with multiple elements inside, and adds it to a specific parent frame
+function addEltsToFrame(frameElt, eltsToAdd, className) {
 	var paragraph;
 	if (frameElt.getElementsByClassName(className).length) {
 		paragraph = frameElt.getElementsByClassName(className)[0];
-		paragraph.textContent = '';
+		paragraph.textContent = ''; // if the old paragraph exists, keep it and clear it
 	} else {
 		paragraph = document.createElement("p");
 		paragraph.className = className;
 		frameElt.appendChild(paragraph);
 	}
-	for (var i = 0; i < eltToAdd.length; i++) {
-		if (typeof(eltToAdd[i]) == "string") {
+	for (var i = 0; i < eltsToAdd.length; i++) {
+		if (typeof(eltsToAdd[i]) == "string") {
 			var textElt = document.createElement("span");
-			textElt.textContent = eltToAdd[i];
-			eltToAdd[i] = textElt;
+			textElt.textContent = eltsToAdd[i];
+			eltsToAdd[i] = textElt;
 		}
-		paragraph.appendChild(eltToAdd[i]);
+		paragraph.appendChild(eltsToAdd[i]);
 	}
 	return paragraph;
 }
