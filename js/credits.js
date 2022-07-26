@@ -66,14 +66,15 @@ function initCreditsSelect() {
 			opt.value = cur;
 			opt.text = romDesc(cur, false, false) + (ROM_LIST[cur].versionLabel ? ` (${ROM_LIST[cur].versionLabel})` : '');
 			opt.title = ROM_LIST[cur].website || '';
-			//opt.disabled = !ROM_LIST[cur].website;
 			curGroup.appendChild(opt);
 			curGroupName = ROM_LIST[cur].game;
 		}
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
 		if (url = ROM_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
-			window.open(url, '_blank').focus();
+			if (!window.open(url, '_blank')) {
+				window.location.href = url; // for devices like iOS that don’t allow window.open
+			}
 		} else {
 			window.alert(_('txtAboutAllTransNoSite'));
 		}
