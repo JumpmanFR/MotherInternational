@@ -69,23 +69,23 @@ function initCreditsSelect() {
 	el(ELT_ABOUT_ALL_TRANSLATIONS).add(defaultOpt);
 	var curGroupName;
 	var curGroup;
-	for (var cur in ROM_LIST) {
-		if (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom) {
-			if (ROM_LIST[cur].game != curGroupName) {
+	for (var cur in PROJECTS_LIST) {
+		if (!PROJECTS_LIST[cur].specialAltRom) {
+			if (PROJECTS_LIST[cur].game != curGroupName) {
 				curGroup = document.createElement("optgroup");
-				curGroup.label = GAMES_LIST[ROM_LIST[cur].game].nameFull;
+				curGroup.label = GAMES_LIST[PROJECTS_LIST[cur].game].nameFull;
 				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
 			}
 			var opt = document.createElement("option");
 			opt.value = cur;
-			opt.text = romDesc(cur, false, false) + (ROM_LIST[cur].versionLabel ? ` (${ROM_LIST[cur].versionLabel})` : '');
-			opt.title = ROM_LIST[cur].website || '';
+			opt.text = romDesc(PROJECTS_LIST[cur].latest, false, false) + (PROJECTS_LIST[cur].versionLabel ? ` (${PROJECTS_LIST[cur].versionLabel})` : '');
+			opt.title = PROJECTS_LIST[cur].website || '';
 			curGroup.appendChild(opt);
-			curGroupName = ROM_LIST[cur].game;
+			curGroupName = PROJECTS_LIST[cur].game;
 		}
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
-		if (url = ROM_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
+		if (url = PROJECTS_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
 			if (!window.open(url, '_blank')) {
 				window.location.href = url; // for devices like iOS that don’t allow window.open
 			}
@@ -134,15 +134,15 @@ function creditsNextFrame(time) {
 		}
 		gCreditsCurrentFrameElt = el(CREDITS_ANIM_FRAME_PREFIX + gCreditsFrameNumber);
 		gCreditsCurrentFrameElt.style.opacity = 1;
-		
+
 		gCreditsAnimTimeWhenLastUpdate = time;
-		
+
 		if (gCreditsFrameNumber >= CREDITS_ANIM_NB_FRAMES) {
 			gCreditsFrameNumber = 1;
 		} else {
 			gCreditsFrameNumber++;
 		}
 	}
-	
+
 	gCreditsDoNextFrame(creditsNextFrame);
 }
