@@ -162,6 +162,7 @@ body {
 }
 #show-all-container {
 	white-space: nowrap;
+	display: inline-block;
 }
 
 .info-frame {
