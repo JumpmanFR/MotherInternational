@@ -41,7 +41,6 @@ function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
 function el(e){return document.getElementById(e)}
 function _(str){return gUserLanguage[str] || gDefaultLanguage[str] || str}
 function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
-function versionedPatches(id){return ROM_LIST[id].oldVersionOf || ROM_LIST[id].lastVersionOf || NaN}
 
 
 //==========================================
@@ -69,8 +68,6 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
 	setLanguage(forcedLanguage || navigator.language.substr(0,2));
-
-	gFlagEmojiSupported = getFlagEmojiSupport();
 
 	setUIBusy(false);
 })
@@ -141,23 +138,6 @@ function setLanguage(langId) {
 	}
 }
 
- function getFlagEmojiSupport() {
-    var canvas = document.createElement("canvas");
-    canvas.height = 10;
-    canvas.width = canvas.height*2;
-    var ctx = canvas.getContext("2d");
-    ctx.font = canvas.height+"px Arial";
-    ctx.fillText("🇬🇧", 0, canvas.height);
-    var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-    var i = 0;
-    while(i < data.length) {
-        if (data[i] !== data[i+1] || data[i] !== data[i+2]) return true;
-        i+=4;
-    }
-    return false;
-}
-
-
 function setUIBusy(value) {
 	gIsBusy = value;
 	updateUIState();
@@ -187,8 +167,6 @@ function updateUIState() {
 		}
 	}
 
-	//el(ELT_AREA_OUTPUT).style.opacity = el(ELT_ARROW).style.opacity = gInputRomId ? 1 : 0;
-
 	if (gInputRomId) {
 		el(ELT_AREA_OUTPUT).classList.remove(CLASS_HIDDEN);
 		el(ELT_ARROW).classList.remove(CLASS_HIDDEN);
@@ -197,6 +175,7 @@ function updateUIState() {
 		el(ELT_ARROW).classList.add(CLASS_HIDDEN);
 	}
 }
+
 
 function setMessage(msg, type) {
 	var messageBox = el(ELT_MSG);
@@ -223,28 +202,7 @@ function setMessage(msg, type) {
 	}
 }
 
-function romDesc(id, withGameTitle, withVersion) {
-	var res = "";
-	if (gFlagEmojiSupported) {
-		res += LANG_LIST[ROM_LIST[id].lang].flag + " ";
-	}
-	if (withGameTitle) {
-		res += GAMES_LIST[ROM_LIST[id].game].nameFull + " – ";
-	}
-	res += LANG_LIST[ROM_LIST[id].lang].name + " ";
-	if (ROM_LIST[id].version && withVersion) {
-		res += _("txtDescVersion") + ROM_LIST[id].version + " ";
-	}
-	if (ROM_LIST[id].author) {
-		res += _("txtDescBy") + " " + ROM_LIST[id].author + " ";
-	}
-	if (ROM_LIST[id].specialAltRom) {
-		res += "(" + ROM_LIST[id].specialAltRom + ") ";
-	}
-	return res;
-}
-
-// Builds the content in the scroll list and selects a default item – sorry if the code isn’t exceptionally well-written here
+// Builds the content in the scroll list and selects a default item
 function updatePatchSelect() {
 	var inputId = gInputRomId;
 
@@ -254,40 +212,37 @@ function updatePatchSelect() {
 	clearPatchSelect();
 	if (inputId) {
 		var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
-		for (var cur in ROM_LIST) { // let’s determine which entries can appear in the scroll list…
-			if (inputId != cur
-				&& ((!ROM_LIST[inputId].cantReverse && !!ROM_LIST[inputId].baseRom && ROM_LIST[inputId].baseRom == ROM_LIST[cur].baseRom)
-					|| (!ROM_LIST[inputId].cantReverse && !ROM_LIST[cur].baseRom && cur == ROM_LIST[inputId].baseRom)
-					|| (!ROM_LIST[inputId].baseRom && inputId == ROM_LIST[cur].baseRom))
-				&& (showAllVersions
-					|| (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom))) {
-
+		for (var cur in PATCH_VERSIONS) { // let’s determine which entries can appear in the scroll list…
+			var curObj = PATCH_VERSIONS[cur];
+			var inputObj = PATCH_VERSIONS[inputId];
+			// TODO simplify the next condition by adding methods in the prototypes
+			if (inputId != cur && inputObj.hasPatchRouteTo(curObj)
+				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
-				opt.text = romDesc(cur, false, true);
-				opt.title = ROM_LIST[cur].versionLabel || '';
+				opt.text = PATCH_VERSIONS[cur].getDesc(false);
+				opt.title = curObj.getExtraNote() || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
-				if (ROM_LIST[cur].lastVersionOf && (ROM_LIST[inputId].oldVersionOf == ROM_LIST[cur].lastVersionOf)) {
+				if (curObj.isLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
 					opt.text += " " + _("txtDescUpdate");
 				}
 
 				// Default selection
 				if (oldValue && oldValue == cur) {
 					defaultSelectionCandidates.oldValue = cur; // the value that was selected before
-				} else if (oldValue && (versionedPatches(cur) == versionedPatches(oldValue))) {
-					defaultSelectionCandidates.akinToOldValue = cur; // a “similar” (other version) of the value that was selected before
-				} else if (ROM_LIST[inputId].oldVersionOf == versionedPatches(cur)) {
+				} else if (oldValue && (curObj.isSameProjectAs(PATCH_VERSIONS[oldValue]))) {
+					defaultSelectionCandidates.akinToOldValue = cur; // another version of the translation that was selected before
+				} else if (!inputObj.isLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
-				} else if (ROM_LIST[cur].lang.startsWith(gUserLanguage.id)) {
+				} else if (curObj.getLangId().startsWith(gUserLanguage.id)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
-				} else if (!ROM_LIST[cur].baseRom) {
+				} else if (curObj.isBaseRom()) {
 					defaultSelectionCandidates.baseRom = cur; // a basic, unpatched ROM
 				}
 
 			}
 		}
-
 		// Default selection, in this priority order
 		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.baseRom;
 		if (defaultSelection) {
@@ -296,7 +251,6 @@ function updatePatchSelect() {
 				updatePatchInfo(FOR_OUTPUT);
 			//}, 500);
 		}
-
 		//el(ELT_PATCH_SELECT).value = "";
 		//updatePatchInfo(FOR_OUTPUT);
 	}
@@ -328,11 +282,13 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 
 	if (id) {
-		addEltsToFrame(infoFrame, [romDesc(id, true, true)], CLASS_INFO_TITLE);
+		var transObj = PATCH_VERSIONS[id];
+
+		addEltsToFrame(infoFrame, [transObj.getDesc(true)], CLASS_INFO_TITLE);
 
 		var img = document.createElement("img");
-		img.src = PATCH_BOXARTS + ROM_LIST[id].game + (ROM_LIST[id].lang == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
-		img.alt = GAMES_LIST[ROM_LIST[id].game].nameFull;
+		img.src = PATCH_BOXARTS + transObj.getGameId() + (transObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
+		img.alt = GAMES_LIST[transObj.getGameId()].nameFull;
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
 
@@ -340,11 +296,22 @@ function updatePatchInfo(target) {
 		detailsDiv.className = CLASS_INFO_DETAILS;
 		infoFrame.appendChild(detailsDiv);
 
-		if (ROM_LIST[id].versionLabel) {
-			addEltsToFrame(detailsDiv, [ROM_LIST[id].versionLabel], CLASS_INFO_VERSION_LABEL);
+		if (transObj.getExtraNote() || transObj.getWebsite()) {
+			var note = transObj.getExtraNote();
+			if (!note) {
+				note = _('txtUpdateInfo');
+			}
+			if (transObj.getWebsite()) {
+				var versionLink = document.createElement("a");
+				versionLink.href = transObj.getWebsite();
+				versionLink.textContent = note;
+				addEltsToFrame(detailsDiv, [versionLink], CLASS_INFO_VERSION_LABEL);
+			} else {
+				addEltsToFrame(detailsDiv, [note], CLASS_INFO_VERSION_LABEL);
+			}
 		}
 
-		if (ROM_LIST[id].hasDoc) {
+		if (transObj.hasDoc()) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
@@ -352,13 +319,14 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
-		if (ROM_LIST[id].website) {
-			var urlObj = new URL(ROM_LIST[id].website);
+		if (transObj.parentProject.getWebsiteFallback()) {
+			var urlStr = transObj.parentProject.getWebsiteFallback();
+			var urlObj = new URL(urlStr);
 			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 			var websiteLink = document.createElement("a");
-			websiteLink.title = websiteLink.href = ROM_LIST[id].website;
+			websiteLink.title = websiteLink.href = urlStr;
 			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = _('txtVisitSite').replace("%", ROM_LIST[id].author)
+			websiteLink.textContent = _('txtVisitSite').replace("%", transObj.getAuthor())
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
@@ -459,17 +427,17 @@ function onParsedInputRom(data) {
     gInputRomId = null;
 
     var romCrc = data.crc32;
-    for (var i in ROM_LIST) {
-        if (ROM_LIST[i].crc == romCrc) {
+    for (var i in PATCH_VERSIONS) {
+        if (PATCH_VERSIONS[i].getCrc() == romCrc) {
             gInputRomId = i;
             setMessage('');
             updatePatchInfo(FOR_INPUT);
-			setGameAnim(ROM_LIST[i].game);
-            break;
+			setGameAnim(PATCH_VERSIONS[i].getGameId());
+			el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAMES_LIST[PATCH_VERSIONS[i].getGameId()].nameShort) : '';
+			break;
         }
     }
 
-	el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAMES_LIST[ROM_LIST[i].game].nameShort) : '';
 
 	updatePatchSelect();
 	setUIBusy(false);
@@ -508,9 +476,9 @@ function processPatchingTasks(rom, romId, step) {
 	} else {
 		var patchId,nextRomIdAfterPatch;
 		// If a baseRom is specified, then our input is not the baseRom => reverse patching
-		if (!!(ROM_LIST[romId].baseRom) && !(ROM_LIST[romId].cantReverse)) {
+		if (!PATCH_VERSIONS[romId].isBaseRom() && PATCH_VERSIONS[romId].canReverse()) {
 			patchId = romId;
-			nextRomIdAfterPatch = ROM_LIST[romId].baseRom;
+			nextRomIdAfterPatch = PATCH_VERSIONS[romId].getBaseRomId();
 			if (nextRomIdAfterPatch == patchSelectVal()) { // this has to be the first step or the only one
 				step = undefined;
 			}
@@ -523,11 +491,11 @@ function processPatchingTasks(rom, romId, step) {
 		}
 
 		setMessage(_("txtDownloading").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);
-		var patchFileName = patchId + ROM_LIST[patchId].patchExt;
+		var patchFileName = PATCH_VERSIONS[patchId].getFileName();
 		downloadPatch(patchFileName, rom)
 			.then(function(patchFile) {
 				setMessage(_("txtApplyingPatch").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);;
-				return applyPatch(rom, patchFile, ROM_LIST[nextRomIdAfterPatch].crc);
+				return applyPatch(rom, patchFile, PATCH_VERSIONS[nextRomIdAfterPatch].getCrc());
 			})
 			.then(function(outputRom) {
 				processPatchingTasks(outputRom, nextRomIdAfterPatch, step + 1);
@@ -667,12 +635,12 @@ function deliverFinalRom(finalRomFile, romId) {
 function requestPatchUsage(patchId) {
 	return new Promise((successCallback, failureCallback) => {
 		var preSuccess = function(result) {
-			ROM_LIST[patchId].usage = result;
+			PATCH_VERSIONS[patchId].usage = result;
 			successCallback(result);
 		}
 
-		if (ROM_LIST[patchId].usage) {
-			successCallback(ROM_LIST[patchId].usage);
+		if (PATCH_VERSIONS[patchId].usage) {
+			successCallback(PATCH_VERSIONS[patchId].usage);
 		} else if (!STATS_FAKE) {
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', `${STATS_VALUE_URL}&${STATS_VALUE_PARAM}=${patchId}`);
@@ -702,7 +670,7 @@ function countPatchUsage(patchId) {
 		if (gStatsAlreadySent.includes(patchId)) { // don’t count a patchId twice for the same session
 			successCallback(false);
 		} else {
-			ROM_LIST[patchId].usage++;
+			PATCH_VERSIONS[patchId].usage++;
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', STATS_INCREMENT_URL);
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

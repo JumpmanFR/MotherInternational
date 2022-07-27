@@ -69,23 +69,22 @@ function initCreditsSelect() {
 	el(ELT_ABOUT_ALL_TRANSLATIONS).add(defaultOpt);
 	var curGroupName;
 	var curGroup;
-	for (var cur in PROJECTS_LIST) {
-		if (!PROJECTS_LIST[cur].specialAltRom) {
-			if (PROJECTS_LIST[cur].game != curGroupName) {
-				curGroup = document.createElement("optgroup");
-				curGroup.label = GAMES_LIST[PROJECTS_LIST[cur].game].nameFull;
-				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
-			}
-			var opt = document.createElement("option");
-			opt.value = cur;
-			opt.text = romDesc(PROJECTS_LIST[cur].latest, false, false) + (PROJECTS_LIST[cur].versionLabel ? ` (${PROJECTS_LIST[cur].versionLabel})` : '');
-			opt.title = PROJECTS_LIST[cur].website || '';
-			curGroup.appendChild(opt);
-			curGroupName = PROJECTS_LIST[cur].game;
+	for (var cur in PATCH_PROJECTS) {
+		var curTrans = PATCH_PROJECTS[cur];
+		if (curTrans.getGameId() != curGroupName) {
+			curGroup = document.createElement("optgroup");
+			curGroup.label = GAMES_LIST[curTrans.getGameId()].nameFull;
+			el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
 		}
+		var opt = document.createElement("option");
+		opt.value = cur;
+		opt.text = curTrans.getDesc(false) + (curTrans.getExtraNote() ? ` (${curTrans.getExtraNote()})` : '');
+		opt.title = curTrans.getWebsiteFallback() || '';
+		curGroup.appendChild(opt);
+		curGroupName = curTrans.getGameId();
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
-		if (url = PROJECTS_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
+		if (url = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value].getWebsiteFallback()) {
 			if (!window.open(url, '_blank')) {
 				window.location.href = url; // for devices like iOS that don’t allow window.open
 			}
