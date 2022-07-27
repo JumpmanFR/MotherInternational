@@ -29,6 +29,7 @@ const LOCALIZATION={
 		'txtDescUpdate':			'(mise à jour)',
 		'txtVisitSite':				'Page web de %',
 		'txtVisitSiteAt':			'sur %',
+		'txtUpdateInfo':			'Infos sur la mise à jour',
 		'txtReadDoc':				'Fichier lisez-moi',
 
 		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
@@ -105,6 +106,7 @@ const LOCALIZATION={
 		'txtDescUpdate':			'(update)',
 		'txtVisitSite':				'%’s webpage',
 		'txtVisitSiteAt':			'at %',
+		'txtUpdateInfo':			'Update info',
 		'txtReadDoc':				'Readme file',
 
 		'txtNbUses':				'Number of uses for this patch: %',
