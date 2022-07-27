@@ -1,12 +1,9 @@
 function TransVersion(json) {
-	this.getId = function() { // TODO remove if useless? (replace with crc)
-		return json.patchId;
-	}
 	this.getCrc = function() {
 		return json.crc;
 	}
 	this.getFileName = function() {
-		return this.getId() + json.patchExt;
+		return json.patchId + json.patchExt;
 	}
 	this.getVersionValue = function() {
 		return json.version;
@@ -26,8 +23,11 @@ function TransVersion(json) {
 	this.canReverse = function() {
 		return !json.cantReverse;
 	}
+	this.isBaseRom = function() {
+		return this.getBaseRomId() == json.patchId;
+	}
 	this.getBaseRomId = function() {
-		return json.baseRom || this.getId();
+		return json.baseRom || json.patchId;
 	}
 	this.isSpecialAltRom = function() { // things such as «EarthBound rom with header, sometimes used as in input»
 		return !!json.isSpecialAltRom;
@@ -37,9 +37,6 @@ function TransVersion(json) {
 	}
 }
 
-TransVersion.prototype.isBaseRom = function() {
-	return this.getBaseRomId() == this.getId();
-}
 TransVersion.prototype.setParentProject = function(translation) {
 	this.parentProject = translation;
 }
@@ -48,6 +45,12 @@ TransVersion.prototype.getTranslation = function() {
 }
 TransVersion.prototype.getGameId = function() {
 	return this.parentProject.getGameId();
+}
+TransVersion.prototype.getGameShortName = function() {
+	return this.parentProject.getGameShortName();
+}
+TransVersion.prototype.getGameFullName = function() {
+	return this.parentProject.getGameFullName();
 }
 TransVersion.prototype.getLangId = function() {
 	return this.parentProject.getLangId();
@@ -74,15 +77,15 @@ TransVersion.prototype.isWorthShowing = function() {
 	return this.isLatestVersion() && !this.isSpecialAltRom();
 }
 
-TransVersion.prototype.getDesc = function(withGameTitle) { // TODO virer de mother_patcher.js
+TransVersion.prototype.getDesc = function(withGameTitle) {
 	var res = "";
 	if (TransVersion.areFlagEmojiSupported()) {
-		res += LANG_LIST[this.getLangId()].flag + " "; // TODO lang?
+		res += LANG_LIST[this.getLangId()].flag + " "; // TODO objet lang?
 	}
 	if (withGameTitle) {
-		res += GAMES_LIST[this.getGameId()].nameFull + " – "; // TODO games?
+		res += this.getGameFullName() + " – "; // TODO objet games?
 	}
-	res += LANG_LIST[this.parentProject.getLangId()].name + " "; // TODO lang?
+	res += LANG_LIST[this.parentProject.getLangId()].name + " "; // TODO objet ang?
 	if (this.getVersionValue() && !this.isSpecialAltRom()) {
 		res += _("txtDescVersion") + this.getVersionValue() + " ";
 	}

@@ -282,13 +282,13 @@ function updatePatchInfo(target) {
 	infoFrame.textContent = '';
 
 	if (id) {
-		var transObj = PATCH_VERSIONS[id];
+		var patchObj = PATCH_VERSIONS[id];
 
-		addEltsToFrame(infoFrame, [transObj.getDesc(true)], CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, [patchObj.getDesc(true)], CLASS_INFO_TITLE);
 
 		var img = document.createElement("img");
-		img.src = PATCH_BOXARTS + transObj.getGameId() + (transObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
-		img.alt = GAMES_LIST[transObj.getGameId()].nameFull;
+		img.src = PATCH_BOXARTS + patchObj.getGameId() + (patchObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
+		img.alt = patchObj.getGameFullName();
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
 
@@ -296,14 +296,14 @@ function updatePatchInfo(target) {
 		detailsDiv.className = CLASS_INFO_DETAILS;
 		infoFrame.appendChild(detailsDiv);
 
-		if (transObj.getExtraNote() || transObj.getWebsite()) {
-			var note = transObj.getExtraNote();
+		if (patchObj.getExtraNote() || patchObj.getWebsite()) {
+			var note = patchObj.getExtraNote();
 			if (!note) {
 				note = _('txtUpdateInfo');
 			}
-			if (transObj.getWebsite()) {
+			if (patchObj.getWebsite()) {
 				var versionLink = document.createElement("a");
-				versionLink.href = transObj.getWebsite();
+				versionLink.href = patchObj.getWebsite();
 				versionLink.textContent = note;
 				addEltsToFrame(detailsDiv, [versionLink], CLASS_INFO_VERSION_LABEL);
 			} else {
@@ -311,7 +311,7 @@ function updatePatchInfo(target) {
 			}
 		}
 
-		if (transObj.hasDoc()) {
+		if (patchObj.hasDoc()) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
@@ -319,14 +319,14 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
-		if (transObj.parentProject.getWebsiteFallback()) {
-			var urlStr = transObj.parentProject.getWebsiteFallback();
+		if (patchObj.parentProject.getWebsiteFallback()) {
+			var urlStr = patchObj.parentProject.getWebsiteFallback();
 			var urlObj = new URL(urlStr);
 			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = urlStr;
 			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = _('txtVisitSite').replace("%", transObj.getAuthor())
+			websiteLink.textContent = _('txtVisitSite').replace("%", patchObj.getAuthor())
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
@@ -433,7 +433,7 @@ function onParsedInputRom(data) {
             setMessage('');
             updatePatchInfo(FOR_INPUT);
 			setGameAnim(PATCH_VERSIONS[i].getGameId());
-			el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', GAMES_LIST[PATCH_VERSIONS[i].getGameId()].nameShort) : '';
+			el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[i].getGameShortName()) : '';
 			break;
         }
     }
