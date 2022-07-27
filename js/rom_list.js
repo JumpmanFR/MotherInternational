@@ -19,10 +19,10 @@ var LANG_LIST = {
 }
 
 var GAMES_LIST = {
-	[ID_MOTHER_1]:	{nameJap:'MOTHER 1',	nameFull:'MOTHER 1 / EarthBound Beginnings',nameShort:'MOTHER 1 / EB Beginnings',	included:[ID_MOTHER_1]},
-	[ID_MOTHER_2]:	{nameJap:'MOTHER 2',	nameFull:'MOTHER 2 / EarthBound',			nameShort:'MOTHER 2 / EarthBound',		included:[ID_MOTHER_2]},
-	[ID_MOTHER_1_2]:{nameJap:'MOTHER 1+2',	nameFull:'MOTHER 1+2',						nameShort:'MOTHER 1+2',					included:[ID_MOTHER_1, ID_MOTHER_2]},
-	[ID_MOTHER_3]:	{nameJap:'MOTHER 3', 	nameFull:'MOTHER 3',						nameShort:'MOTHER 3',					included:[ID_MOTHER_3]},
+	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'MOTHER 1 / EB Beginnings',	included:[ID_MOTHER_1]},
+	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'MOTHER 2 / EarthBound',		included:[ID_MOTHER_2]},
+	[ID_MOTHER_1_2]:{japName:'MOTHER 1+2',	fullName:'MOTHER 1+2',						shortName:'MOTHER 1+2',					included:[ID_MOTHER_1, ID_MOTHER_2]},
+	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',					included:[ID_MOTHER_3]},
 }
 
 var PATCH_PROJECTS = Translation.createFromJson( [

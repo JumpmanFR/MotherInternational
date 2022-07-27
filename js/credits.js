@@ -70,18 +70,18 @@ function initCreditsSelect() {
 	var curGroupName;
 	var curGroup;
 	for (var cur in PATCH_PROJECTS) {
-		var curTrans = PATCH_PROJECTS[cur];
-		if (curTrans.getGameId() != curGroupName) {
+		var curProj = PATCH_PROJECTS[cur];
+		if (curProj.getGameFullName() != curGroupName) {
 			curGroup = document.createElement("optgroup");
-			curGroup.label = GAMES_LIST[curTrans.getGameId()].nameFull;
+			curGroup.label = curProj.getGameFullName();
 			el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
 		}
 		var opt = document.createElement("option");
 		opt.value = cur;
-		opt.text = curTrans.getDesc(false) + (curTrans.getExtraNote() ? ` (${curTrans.getExtraNote()})` : '');
-		opt.title = curTrans.getWebsiteFallback() || '';
+		opt.text = curProj.getDesc(false) + (curProj.getExtraNote() ? ` (${curProj.getExtraNote()})` : '');
+		opt.title = curProj.getWebsiteFallback() || '';
 		curGroup.appendChild(opt);
-		curGroupName = curTrans.getGameId();
+		curGroupName = curProj.getGameFullName();
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
 		if (url = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value].getWebsiteFallback()) {

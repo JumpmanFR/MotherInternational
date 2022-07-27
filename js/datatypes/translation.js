@@ -2,12 +2,17 @@ function Translation(json) {
 	//Translation.instances[id] = this;
 	this.versions = [];
 
-	this.getGameId = function() { // TODO remove if useless?
+	this.getGameId = function() {
+		// TODO replace: Game.instances[json.game];?
 		return json.game;
 	}
-	this.getGame = function() {
-		// TODO replace: Game.instances[json.game];?
-		return GAMES_LIST[json.game];
+	this.getGameFullName = function() {
+		// TODO replace: getFullName();?
+		return GAMES_LIST[json.game].fullName;
+	}
+	this.getGameShortName = function() {
+		// TODO replace: getShortName();?
+		return GAMES_LIST[json.game].shortName;
 	}
 	this.getLangId = function() { // TODO remove if useless?
 		return json.lang;
@@ -34,14 +39,6 @@ function Translation(json) {
 	}
 }
 
-Translation.prototype.getGameFullName = function() {
-	// TODO replace: this.getGame().getFullName();?
-	return this.getGame().nameFull;
-}
-Translation.prototype.getGameShortName = function() {
-	// TODO replace: this.getGame().getShortName();?
-	return this.getGame().nameShort;
-}
 Translation.prototype.getLangName = function() {
 	// TODO replace: this.getLang().getName();?
 	return this.getLang().name;
@@ -71,15 +68,15 @@ Translation.prototype.getExtraNoteFallback = function() {
 	return this.getExtraNote() || (this.latestVersion ? this.latestVersion.getExtraNote() : undefined);
 }
 
-Translation.prototype.getDesc = function(withGameTitle) { // TODO virer de mother_patcher.js
+Translation.prototype.getDesc = function(withGameTitle) {
 	var res = "";
 	if (gFlagEmojiSupported) {
-		res += this.getLangFlag() + " "; // TODO lang?
+		res += this.getLangFlag() + " "; // TODO objet lang?
 	}
 	if (withGameTitle) {
-		res += this.getGameFullName() + " – "; // TODO games?
+		res += this.getGameFullName() + " – "; // TODO objet games?
 	}
-	res += this.getLangName() + " "; // TODO lang?
+	res += this.getLangName() + " "; // TODO objet lang?
 	if (this.getAuthor()) {
 		res += _("txtDescBy") + " " + this.getAuthor() + " ";
 	}
