@@ -9,7 +9,7 @@ function PatchVersion(json) {
 		return json.version;
 	}
 	this.getAuthor = function() {
-		return json.getAuthor || this.parentProject.getAuthor();
+		return json.getAuthor;
 	}
 	this.hasDoc = function() {
 		return !!json.hasDoc;
@@ -29,17 +29,20 @@ function PatchVersion(json) {
 	this.getBaseRomId = function() {
 		return json.baseRom || json.patchId;
 	}
-	this.isSpecialAltRom = function() { // things such as «EarthBound rom with header, sometimes used as in input»
-		return !!json.isSpecialAltRom;
-	}
-	this.isAltVersionOf = function() { // when a team makes a new version that doesn’t entirely replaces the old one
-		return json.isAltVersionOf;
+	this.isSpecialHidden = function() { // things such as «EarthBound rom with header, sometimes used as in input»
+		return !!json.isSpecialHidden;
 	}
 }
 
 PatchVersion.prototype.setParentProject = function(patchProject) {
 	this.parentProject = patchProject;
 }
+PatchVersion.prototype.getAuthorFallback = function() {
+	 return this.getAuthor() || (this.parentProject ? this.parentProject.getAuthor() : undefined);
+}
+/*PatchVersion.prototype.getExtraNoteFallback = function() {
+	return this.getExtraNote() || (this.parentProject ? this.parentProject.getExtraNote() : undefined);
+}*/
 PatchVersion.prototype.getPatchProject = function() {
 	return this.parentProject;
 }
@@ -67,35 +70,45 @@ PatchVersion.prototype.hasPatchRouteTo = function(targetVersion) {
 }
 PatchVersion.prototype.isLatestVersion = function() {
 	if (this.parentProject) {
-		return (this.parentProject.getLatestVersion() === this)
-				|| (this.getVersionValue() == this.parentProject.getLatestVersion().isAltVersionOf());
+		return this.parentProject.thisIsLatestVersion(this);
+	} else {
+		return false;
+	}
+}
+PatchVersion.prototype.isAltLatestVersion = function() {
+	if (this.parentProject) {
+		return this.parentProject.thisIsAltLatestVersion(this);
 	} else {
 		return false;
 	}
 }
 PatchVersion.prototype.isWorthShowing = function() {
-	return this.isLatestVersion() && !this.isSpecialAltRom();
+	return this.isAltLatestVersion() && !this.isSpecialHidden();
 }
 
-PatchVersion.prototype.getDesc = function(withGameTitle) {
+PatchVersion.prototype.getDesc = function(withGameTitle, withProjectNote) {
 	var res = "";
-	if (PatchVersion.areFlagEmojiSupported()) {
-		res += LANG_LIST[this.getLangId()].flag + " "; // TODO objet lang?
-	}
+	res += this.parentProject.getLangFlag() + " ";
 	if (withGameTitle) {
-		res += this.getGameFullName() + " – "; // TODO objet games?
+		res += this.getGameFullName() + " – ";
 	}
-	res += LANG_LIST[this.parentProject.getLangId()].name + " "; // TODO objet ang?
-	if (this.getVersionValue() && !this.isSpecialAltRom()) {
+	res += this.parentProject.getLangName() + " ";
+	if (this.getVersionValue() && !this.isSpecialHidden()) {
 		res += _("txtDescVersion") + this.getVersionValue() + " ";
 	}
-	if (this.getAuthor()) {
-		res += _("txtDescBy") + " " + this.getAuthor() + " ";
+	if (this.getAuthorFallback()) {
+		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}
-	if (this.isSpecialAltRom()) {
+	if (this.isSpecialHidden()) { // here the version field acts as a description for this special hidden ROM
 		res += "(" + this.getVersionValue() + ") ";
 	}
-	return res;
+	if (withProjectNote && this.parentProject.getExtraNote()) {
+		res += "(" + this.parentProject.getExtraNote() + ") ";
+	}
+	if (withProjectNote && this.parentProject.isOfficial()) {
+		res += " " + _("txtDescOfficial");
+	}
+	return res.trim();
 }
 
 
@@ -108,30 +121,6 @@ PatchVersion.createFromJson = function(fullJson, patchProjects) {
 		}
 	}
 	return res;
-}
-
-PatchVersion.areFlagEmojiSupported = function() {
-	if (PatchVersion.knownFlagEmojiSupport === undefined) {
-		var canvas = document.createElement("canvas");
-		canvas.height = 10;
-		canvas.width = canvas.height * 2;
-		var ctx = canvas.getContext("2d");
-		ctx.font = canvas.height + "px Arial";
-		ctx.fillText("🇬🇧", 0, canvas.height);
-		var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-		var i = 0;
-		while(i < data.length) {
-			if (data[i] !== data[i + 1] || data[i] !== data[i + 2]) {
-				knownFlagEmojiSupport = true;
-				return true;
-			}
-			i+=4;
-		}
-		PatchVersion.knownFlagEmojiSupport = false;
-		return false;
-	} else {
-		return PatchVersion.knownFlagEmojiSupport;
-	}
 }
 
 // Fields present in both PatchProject and PatchVersion: extraNote, website, author

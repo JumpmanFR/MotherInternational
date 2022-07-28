@@ -220,11 +220,11 @@ function updatePatchSelect() {
 				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
-				opt.text = PATCH_VERSIONS[cur].getDesc(false);
+				opt.text = PATCH_VERSIONS[cur].getDesc(false, true);
 				opt.title = curObj.getExtraNote() || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
-				if (curObj.isLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
+				if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
 					opt.text += " " + _("txtDescUpdate");
 				}
 
@@ -284,7 +284,7 @@ function updatePatchInfo(target) {
 	if (id) {
 		var patchObj = PATCH_VERSIONS[id];
 
-		addEltsToFrame(infoFrame, [patchObj.getDesc(true)], CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, [patchObj.getDesc(true, false)], CLASS_INFO_TITLE);
 
 		var img = document.createElement("img");
 		img.src = PATCH_BOXARTS + patchObj.getGameId() + (patchObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
@@ -309,6 +309,8 @@ function updatePatchInfo(target) {
 			} else {
 				addEltsToFrame(detailsDiv, [note], CLASS_INFO_VERSION_LABEL);
 			}
+		} else if (patchObj.parentProject.getExtraNote()) {
+			addEltsToFrame(detailsDiv, [patchObj.parentProject.getExtraNote()], CLASS_INFO_VERSION_LABEL);
 		}
 
 		if (patchObj.hasDoc()) {
@@ -326,7 +328,7 @@ function updatePatchInfo(target) {
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = urlStr;
 			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = _('txtVisitSite').replace("%", patchObj.getAuthor())
+			websiteLink.textContent = _('txtVisitSite').replace("%", patchObj.getAuthorFallback())
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
