@@ -71,25 +71,28 @@ function initCreditsSelect() {
 	var curGroup;
 	for (var cur in PATCH_PROJECTS) {
 		var curProj = PATCH_PROJECTS[cur];
-		if (curProj.getGameFullName() != curGroupName) {
-			curGroup = document.createElement("optgroup");
-			curGroup.label = curProj.getGameFullName();
-			el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
+		if (!curProj.isOfficial()) {
+			if (curProj.getGameFullName() != curGroupName) {
+				curGroup = document.createElement("optgroup");
+				curGroup.label = curProj.getGameFullName();
+				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
+			}
+			var opt = document.createElement("option");
+			opt.value = cur;
+			opt.text = curProj.getDesc(false);
+			opt.title = curProj.getWebsiteFallback() || '';
+			curGroup.appendChild(opt);
+			curGroupName = curProj.getGameFullName();
 		}
-		var opt = document.createElement("option");
-		opt.value = cur;
-		opt.text = curProj.getDesc(false) + (curProj.getExtraNote() ? ` (${curProj.getExtraNote()})` : '');
-		opt.title = curProj.getWebsiteFallback() || '';
-		curGroup.appendChild(opt);
-		curGroupName = curProj.getGameFullName();
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
-		if (url = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value].getWebsiteFallback()) {
+		var selected = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value];
+		if (url = selected.getWebsiteFallback()) {
 			if (!window.open(url, '_blank')) {
 				window.location.href = url; // for devices like iOS that don’t allow window.open
 			}
 		} else {
-			window.alert(_('txtAboutAllTransNoSite'));
+			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true)));
 		}
 		el(ELT_ABOUT_ALL_TRANSLATIONS).value = '';
 	}
