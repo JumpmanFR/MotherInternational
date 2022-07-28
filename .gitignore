@@ -2,4 +2,5 @@
 *.gba
 *.sfc
 *.nes
+.smbdelete*
 .DS_Store

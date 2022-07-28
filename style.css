@@ -235,10 +235,11 @@ body {
 	content: '🌐 ';
 	display: inline-block;
 }
-.info-website-host {
+.info-link-host {
 	display: block;
 	font-size: smaller;
 	text-align: center;
+	margin: -2px 0;
 }
 .info-doc a:before {
 	content: '📄 ';

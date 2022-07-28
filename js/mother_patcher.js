@@ -322,16 +322,6 @@ function updatePatchInfo(target) {
 			var urlStr = patchObj.parentProject.getWebsiteFallback();
 			var text = _('txtVisitSite').replace("%", patchObj.getAuthorFallback());
 			addLinkToFrame(detailsDiv, text, urlStr, CLASS_INFO_WEBSITE);
-			/*var urlObj = new URL(urlStr);
-			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
-			var websiteLink = document.createElement("a");
-			websiteLink.title = websiteLink.href = urlStr;
-			websiteLink.setAttribute("target", "_blank");
-			websiteLink.textContent = _('txtVisitSite').replace("%", patchObj.getAuthorFallback())
-			var websiteDetails = document.createElement("span");
-			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
-			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
-			addEltsToFrame(detailsDiv, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);*/
 		}
 
 		var nbUsesElts = _('txtNbUses').split("%");
@@ -361,7 +351,7 @@ function addLinkToFrame(frameElt, text, url, className) {
 	var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 	var websiteDetails = document.createElement("span");
 	websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
-	websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
+	websiteDetails.className = CLASS_INFO_LINK_HOST;
 	addEltsToFrame(frameElt, [websiteLink, websiteDetails], className);
 }
 
