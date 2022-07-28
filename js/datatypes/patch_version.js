@@ -111,6 +111,9 @@ PatchVersion.prototype.getDesc = function(withGameTitle, withProjectNote) {
 	return res.trim();
 }
 
+PatchVersion.prototype.toString = function() {
+	return this.getDesc(true, false);
+}
 
 PatchVersion.createFromJson = function(fullJson, patchProjects) {
 	var res = {};

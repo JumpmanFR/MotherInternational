@@ -105,6 +105,10 @@ PatchProject.prototype.getDesc = function(withGameTitle) {
 	return res.trim();
 }
 
+PatchProject.prototype.toString = function() {
+	return this.getDesc(true);
+}
+
 PatchProject.createFromJson = function(fullJson) {
 	var res = [];
 	for (var i in fullJson) {
