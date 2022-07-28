@@ -1,5 +1,5 @@
-function Translation(json) {
-	//Translation.instances[id] = this;
+function PatchProject(json) {
+	//PatchProject.instances[id] = this;
 	this.versions = [];
 
 	this.getGameId = function() {
@@ -21,7 +21,7 @@ function Translation(json) {
 		// TODO replace: Lang.instances[json.lang]?
 		return LANG_LIST[json.lang];
 	}
-	this.addVersion = function(version) { // argument is TransVersion object
+	this.addVersion = function(version) { // argument is PatchVersion object
 		this.versions.push(version); // TODO change?
 		version.setParentProject(this);
 		if ((!json.latest && !version.isSpecialAltRom()) || json.latest == version.getVersionValue()) {
@@ -39,36 +39,36 @@ function Translation(json) {
 	}
 }
 
-Translation.prototype.getLangName = function() {
+PatchProject.prototype.getLangName = function() {
 	// TODO replace: this.getLang().getName();?
 	return this.getLang().name;
 }
-Translation.prototype.getLangFlag = function() {
+PatchProject.prototype.getLangFlag = function() {
 	// TODO replace: this.getLang().getFlag();?
 	return this.getLang().flag;
 }
-Translation.prototype.getVersions = function() {
+PatchProject.prototype.getVersions = function() {
 	return this.versions;
 }
-Translation.prototype.getLatestVersion = function() {
+PatchProject.prototype.getLatestVersion = function() {
 	return this.latestVersion;
 }
-/*Translation.prototype.getLatestVersionValue = function() {
+/*PatchProject.prototype.getLatestVersionValue = function() {
 	return this.latestVersion.getVersionValue();
 }*/
-Translation.prototype.getLatestVersionAuthor = function() {
+PatchProject.prototype.getLatestVersionAuthor = function() {
 	return this.getLatestVersion().getAuthor();
 }
 
-Translation.prototype.getWebsiteFallback = function() {
+PatchProject.prototype.getWebsiteFallback = function() {
 	return this.getWebsite() || (this.latestVersion ? this.latestVersion.getWebsite() : undefined);
 }
 
-Translation.prototype.getExtraNoteFallback = function() {
+PatchProject.prototype.getExtraNoteFallback = function() {
 	return this.getExtraNote() || (this.latestVersion ? this.latestVersion.getExtraNote() : undefined);
 }
 
-Translation.prototype.getDesc = function(withGameTitle) {
+PatchProject.prototype.getDesc = function(withGameTitle) {
 	var res = "";
 	if (gFlagEmojiSupported) {
 		res += this.getLangFlag() + " "; // TODO objet lang?
@@ -83,10 +83,10 @@ Translation.prototype.getDesc = function(withGameTitle) {
 	return res;
 }
 
-Translation.createFromJson = function(fullJson) {
+PatchProject.createFromJson = function(fullJson) {
 	var res = [];
 	for (var i in fullJson) {
-		res[fullJson[i].projectId] = new Translation(fullJson[i]);
+		res[fullJson[i].projectId] = new PatchProject(fullJson[i]);
 	}
 	return res;
 }

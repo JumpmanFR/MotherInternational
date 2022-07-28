@@ -25,7 +25,7 @@ var GAMES_LIST = {
 	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',					included:[ID_MOTHER_3]},
 }
 
-var PATCH_PROJECTS = Translation.createFromJson( [
+var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m1-ja',	game:ID_MOTHER_1,	lang:LANG_JAPANESE,					author:'Nintendo'},
 	{projectId:'m1-de',	game:ID_MOTHER_1,	lang:LANG_GERMAN,	latest:'1.0a1',	author:'G-TRANS'},
 	{projectId:'m1-en',	game:ID_MOTHER_1,	lang:LANG_ENGLISH,					author:'Nintendo'},
@@ -68,7 +68,7 @@ var PATCH_PROJECTS = Translation.createFromJson( [
 	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_PORTUG,latest:'1.0', 	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 ] );
 
-var PATCH_VERSIONS = TransVersion.createFromJson( [
+var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x282a5caa',	projectId:'m1-ja',	patchId:'m1-ja', 	patchExt:'.zip', baseRom:'m1-en',	hasDoc:false},
 	{crc:'0x8abea229',	projectId:'m1-de',	patchId:'m1-de10a', patchExt:'.zip', baseRom:'m1-en',	hasDoc:false,	version:'1.0a1'},
 	{crc:'0xf5ef5002',	projectId:'m1-en',	patchId:'m1-en'},

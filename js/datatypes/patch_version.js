@@ -1,4 +1,4 @@
-function TransVersion(json) {
+function PatchVersion(json) {
 	this.getCrc = function() {
 		return json.crc;
 	}
@@ -20,8 +20,8 @@ function TransVersion(json) {
 	this.getExtraNote = function() {
 		return json.extraNote;
 	}
-	this.canReverse = function() {
-		return !json.cantReverse;
+	this.isReversible = function() {
+		return !json.irreversible;
 	}
 	this.isBaseRom = function() {
 		return this.getBaseRomId() == json.patchId;
@@ -37,35 +37,35 @@ function TransVersion(json) {
 	}
 }
 
-TransVersion.prototype.setParentProject = function(translation) {
-	this.parentProject = translation;
+PatchVersion.prototype.setParentProject = function(patchProject) {
+	this.parentProject = patchProject;
 }
-TransVersion.prototype.getTranslation = function() {
+PatchVersion.prototype.getPatchProject = function() {
 	return this.parentProject;
 }
-TransVersion.prototype.getGameId = function() {
+PatchVersion.prototype.getGameId = function() {
 	return this.parentProject.getGameId();
 }
-TransVersion.prototype.getGameShortName = function() {
+PatchVersion.prototype.getGameShortName = function() {
 	return this.parentProject.getGameShortName();
 }
-TransVersion.prototype.getGameFullName = function() {
+PatchVersion.prototype.getGameFullName = function() {
 	return this.parentProject.getGameFullName();
 }
-TransVersion.prototype.getLangId = function() {
+PatchVersion.prototype.getLangId = function() {
 	return this.parentProject.getLangId();
 }
-TransVersion.prototype.isSameProjectAs = function(targetVersion) {
+PatchVersion.prototype.isSameProjectAs = function(targetVersion) {
 	return this.parentProject && (this.parentProject == targetVersion.parentProject);
 }
-TransVersion.prototype.hasPatchRouteTo = function(targetVersion) {
+PatchVersion.prototype.hasPatchRouteTo = function(targetVersion) {
 	if (this.getBaseRomId() != targetVersion.getBaseRomId()) {
 		return false;
 	}
 
-	return this.canReverse() || this.isBaseRom();
+	return this.isReversible() || this.isBaseRom();
 }
-TransVersion.prototype.isLatestVersion = function() {
+PatchVersion.prototype.isLatestVersion = function() {
 	if (this.parentProject) {
 		return (this.parentProject.getLatestVersion() === this)
 				|| (this.getVersionValue() == this.parentProject.getLatestVersion().isAltVersionOf());
@@ -73,13 +73,13 @@ TransVersion.prototype.isLatestVersion = function() {
 		return false;
 	}
 }
-TransVersion.prototype.isWorthShowing = function() {
+PatchVersion.prototype.isWorthShowing = function() {
 	return this.isLatestVersion() && !this.isSpecialAltRom();
 }
 
-TransVersion.prototype.getDesc = function(withGameTitle) {
+PatchVersion.prototype.getDesc = function(withGameTitle) {
 	var res = "";
-	if (TransVersion.areFlagEmojiSupported()) {
+	if (PatchVersion.areFlagEmojiSupported()) {
 		res += LANG_LIST[this.getLangId()].flag + " "; // TODO objet lang?
 	}
 	if (withGameTitle) {
@@ -99,19 +99,19 @@ TransVersion.prototype.getDesc = function(withGameTitle) {
 }
 
 
-TransVersion.createFromJson = function(fullJson, translations) {
+PatchVersion.createFromJson = function(fullJson, patchProjects) {
 	var res = {};
 	for (var i in fullJson) {
-		res[fullJson[i].patchId] = new TransVersion(fullJson[i]);
-		if (translations && translations[fullJson[i].projectId]) {
-			translations[fullJson[i].projectId].addVersion(res[fullJson[i].patchId]);
+		res[fullJson[i].patchId] = new PatchVersion(fullJson[i]);
+		if (patchProjects && patchProjects[fullJson[i].projectId]) {
+			patchProjects[fullJson[i].projectId].addVersion(res[fullJson[i].patchId]);
 		}
 	}
 	return res;
 }
 
-TransVersion.areFlagEmojiSupported = function() {
-	if (TransVersion.knownFlagEmojiSupport === undefined) {
+PatchVersion.areFlagEmojiSupported = function() {
+	if (PatchVersion.knownFlagEmojiSupport === undefined) {
 		var canvas = document.createElement("canvas");
 		canvas.height = 10;
 		canvas.width = canvas.height * 2;
@@ -127,11 +127,11 @@ TransVersion.areFlagEmojiSupported = function() {
 			}
 			i+=4;
 		}
-		TransVersion.knownFlagEmojiSupport = false;
+		PatchVersion.knownFlagEmojiSupport = false;
 		return false;
 	} else {
-		return TransVersion.knownFlagEmojiSupport;
+		return PatchVersion.knownFlagEmojiSupport;
 	}
 }
 
-// Fields present in both translation and transversion: extraNote, website, author
+// Fields present in both PatchProject and PatchVersion: extraNote, website, author
