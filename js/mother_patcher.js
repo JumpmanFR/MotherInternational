@@ -248,9 +248,9 @@ function updatePatchSelect() {
 		if (defaultSelection) {
 			//setTimeout(function() {
 				el(ELT_PATCH_SELECT).value = defaultSelection;
-				updatePatchInfo(FOR_OUTPUT);
 			//}, 500);
 		}
+		updatePatchInfo(FOR_OUTPUT);
 		//el(ELT_PATCH_SELECT).value = "";
 		//updatePatchInfo(FOR_OUTPUT);
 	}
@@ -302,10 +302,7 @@ function updatePatchInfo(target) {
 				note = _('txtUpdateInfo');
 			}
 			if (patchObj.getWebsite()) {
-				var versionLink = document.createElement("a");
-				versionLink.href = patchObj.getWebsite();
-				versionLink.textContent = note;
-				addEltsToFrame(detailsDiv, [versionLink], CLASS_INFO_VERSION_LABEL);
+				addLinkToFrame(detailsDiv, note, patchObj.getWebsite(), CLASS_INFO_VERSION_LABEL);
 			} else {
 				addEltsToFrame(detailsDiv, [note], CLASS_INFO_VERSION_LABEL);
 			}
@@ -323,7 +320,9 @@ function updatePatchInfo(target) {
 
 		if (patchObj.parentProject.getWebsiteFallback()) {
 			var urlStr = patchObj.parentProject.getWebsiteFallback();
-			var urlObj = new URL(urlStr);
+			var text = _('txtVisitSite').replace("%", patchObj.getAuthorFallback());
+			addLinkToFrame(detailsDiv, text, urlStr, CLASS_INFO_WEBSITE);
+			/*var urlObj = new URL(urlStr);
 			var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 			var websiteLink = document.createElement("a");
 			websiteLink.title = websiteLink.href = urlStr;
@@ -332,7 +331,7 @@ function updatePatchInfo(target) {
 			var websiteDetails = document.createElement("span");
 			websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 			websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
-			addEltsToFrame(detailsDiv, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);
+			addEltsToFrame(detailsDiv, [websiteLink, websiteDetails], CLASS_INFO_WEBSITE);*/
 		}
 
 		var nbUsesElts = _('txtNbUses').split("%");
@@ -351,6 +350,19 @@ function updatePatchInfo(target) {
 				}
 			});
 	}
+}
+
+function addLinkToFrame(frameElt, text, url, className) {
+	var websiteLink = document.createElement("a");
+	websiteLink.title = websiteLink.href = url;
+	websiteLink.setAttribute("target", "_blank");
+	websiteLink.textContent = text;
+	var urlObj = new URL(url);
+	var baseUrl = urlObj.hostname.replace(/^www\./g,'');
+	var websiteDetails = document.createElement("span");
+	websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
+	websiteDetails.className = CLASS_INFO_WEBSITE_HOST;
+	addEltsToFrame(frameElt, [websiteLink, websiteDetails], className);
 }
 
 // For updatePatchInfo: creates a paragraph with multiple elements inside, and adds it to a specific parent frame
