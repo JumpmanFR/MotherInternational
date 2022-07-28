@@ -27,8 +27,10 @@ const LOCALIZATION={
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
 		'txtDescUpdate':			'(mise à jour)',
+		'txtDescOfficial':			'(officiel)',
 		'txtVisitSite':				'Page web de %',
 		'txtVisitSiteAt':			'sur %',
+		'txtUpdateInfo':			'Infos sur la version',
 		'txtReadDoc':				'Fichier lisez-moi',
 
 		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
@@ -67,9 +69,9 @@ const LOCALIZATION={
 		'txtAboutSourceGitHub':		'distribué',
 		'txtAboutSourceLicense':	'licence MIT',
 		'txtAboutTeams':			'Tous droits réservés aux équipes qui ont créé les patchs de traduction inclus dans ce programme. Merci à elles !',
-		'txtAboutAllTranslations':	'Toutes les langues prises en charge :',
+		'txtAboutAllTranslations':	'Toutes les traductions prises en charge :',
 		'txtAboutAllTransLabel':	'– Sélectionnez pour accéder au site web –',
-		'txtAboutAllTransNoSite':	'Cette traduction n’a pas de page web connue.',
+		'txtAboutAllTransNoSite':	'Pas de page web connue pour %.',
 		'txtAboutTranslator1':		'Si vous êtes un traducteur, n’hésitez pas à % !',
 		'txtAboutTranslator2':		'nous contacter',
 		'txtAboutOldVersions':		'Anciennes versions de Mother International',
@@ -96,15 +98,17 @@ const LOCALIZATION={
 
 		'txtRomIdentified':			'ROM identified',
 
-		'txtAllTranslations':		'Available languages for %:',
+		'txtAllTranslations':		'Available translations for %:',
 
 		'txtShowAllVersions':		'Show all versions',
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
 		'txtDescUpdate':			'(update)',
+		'txtDescOfficial':			'(official)',
 		'txtVisitSite':				'%’s webpage',
 		'txtVisitSiteAt':			'at %',
+		'txtUpdateInfo':			'Version info',
 		'txtReadDoc':				'Readme file',
 
 		'txtNbUses':				'Number of uses for this patch: %',
@@ -145,7 +149,7 @@ const LOCALIZATION={
 		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
 		'txtAboutAllTranslations':	'All supported languages:',
 		'txtAboutAllTransLabel':	'– Select to access webpage –',
-		'txtAboutAllTransNoSite':	'This translation has no registered webpage.',
+		'txtAboutAllTransNoSite':	'No registered webpage for %.',
 		'txtAboutTranslator1':		'If you’re a translator, feel free to %!',
 		'txtAboutTranslator2':		'contact us',
 		'txtAboutOldVersions':		'Get the previous versions of Mother International here',

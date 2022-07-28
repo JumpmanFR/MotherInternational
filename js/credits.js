@@ -69,28 +69,30 @@ function initCreditsSelect() {
 	el(ELT_ABOUT_ALL_TRANSLATIONS).add(defaultOpt);
 	var curGroupName;
 	var curGroup;
-	for (var cur in ROM_LIST) {
-		if (!ROM_LIST[cur].oldVersionOf && !ROM_LIST[cur].specialAltRom) {
-			if (ROM_LIST[cur].game != curGroupName) {
+	for (var cur in PATCH_PROJECTS) {
+		var curProj = PATCH_PROJECTS[cur];
+		if (!curProj.isOfficial()) {
+			if (curProj.getGameFullName() != curGroupName) {
 				curGroup = document.createElement("optgroup");
-				curGroup.label = GAMES_LIST[ROM_LIST[cur].game].nameFull;
+				curGroup.label = curProj.getGameFullName();
 				el(ELT_ABOUT_ALL_TRANSLATIONS).add(curGroup);
 			}
 			var opt = document.createElement("option");
 			opt.value = cur;
-			opt.text = romDesc(cur, false, false) + (ROM_LIST[cur].versionLabel ? ` (${ROM_LIST[cur].versionLabel})` : '');
-			opt.title = ROM_LIST[cur].website || '';
+			opt.text = curProj.getDesc(false);
+			opt.title = curProj.getWebsiteFallback() || '';
 			curGroup.appendChild(opt);
-			curGroupName = ROM_LIST[cur].game;
+			curGroupName = curProj.getGameFullName();
 		}
 	}
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
-		if (url = ROM_LIST[el(ELT_ABOUT_ALL_TRANSLATIONS).value].website) {
+		var selected = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value];
+		if (url = selected.getWebsiteFallback()) {
 			if (!window.open(url, '_blank')) {
 				window.location.href = url; // for devices like iOS that don’t allow window.open
 			}
 		} else {
-			window.alert(_('txtAboutAllTransNoSite'));
+			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true)));
 		}
 		el(ELT_ABOUT_ALL_TRANSLATIONS).value = '';
 	}
@@ -134,15 +136,15 @@ function creditsNextFrame(time) {
 		}
 		gCreditsCurrentFrameElt = el(CREDITS_ANIM_FRAME_PREFIX + gCreditsFrameNumber);
 		gCreditsCurrentFrameElt.style.opacity = 1;
-		
+
 		gCreditsAnimTimeWhenLastUpdate = time;
-		
+
 		if (gCreditsFrameNumber >= CREDITS_ANIM_NB_FRAMES) {
 			gCreditsFrameNumber = 1;
 		} else {
 			gCreditsFrameNumber++;
 		}
 	}
-	
+
 	gCreditsDoNextFrame(creditsNextFrame);
 }
