@@ -476,7 +476,7 @@ function processPatchingTasks(rom, romId, step) {
 	} else {
 		var patchId,nextRomIdAfterPatch;
 		// If a baseRom is specified, then our input is not the baseRom => reverse patching
-		if (!PATCH_VERSIONS[romId].isBaseRom() && PATCH_VERSIONS[romId].canReverse()) {
+		if (!PATCH_VERSIONS[romId].isBaseRom() && PATCH_VERSIONS[romId].isReversible()) {
 			patchId = romId;
 			nextRomIdAfterPatch = PATCH_VERSIONS[romId].getBaseRomId();
 			if (nextRomIdAfterPatch == patchSelectVal()) { // this has to be the first step or the only one
