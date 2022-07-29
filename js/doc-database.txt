@@ -95,4 +95,4 @@ Ideally, this field should be in the same language as the corresponding translat
 
 isSpecialHidden (optional)
 ==========================
-Covers a very specific case. We included the support for ROMs that we wanted the program to recognize without showing it in the list. That way, the user can use these ROMs as an input in order to patch them. For example, the EarthBound official ROM with or without headers. The system has to support both of them. So for one of these two, this boolean field is set to true in order to hide it, just like older versions of translations but without the UI suggesting to update it.
+Covers a very specific case. We included the support for ROMs that we wanted the program to recognize without displaying them in the list. That way, the user can use these ROMs as an input in order to patch them. For example, there are at least two known ROMs for the the EarthBound game: with headers, and without headers. The system has to support both of them. So for one of these two, this boolean field is set to true in order to hide it, just like older versions of translations but without the UI suggesting to update it.
