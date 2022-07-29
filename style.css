@@ -275,16 +275,14 @@ input[type=button], button {
 	margin: auto;
 }
 
-#animation-container {
-	height: 68px;
-	margin-top: -34px;
-	margin-bottom: -6px;
-}
 #animation-mask {
 	position: relative;
 	overflow: hidden;
 	width: 280px;
+	height: 68px;
 	margin: auto;
+	margin-top: -34px;
+	margin-bottom: -4px;
 	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 	mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
