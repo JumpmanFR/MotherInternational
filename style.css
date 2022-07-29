@@ -41,7 +41,7 @@ body {
 	font-family: titlefont;
 	text-transform: uppercase;
 	text-align: left;
-	margin: -8px 0;
+	margin: -8px 1px;
 	color: #EBEBEB;
 }
 #subtitle {
@@ -285,8 +285,8 @@ input[type=button], button {
 	overflow: hidden;
 	width: 280px;
 	margin: auto;
-	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-	mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+	mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 #animation {
 	margin: auto;
