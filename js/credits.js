@@ -8,7 +8,7 @@ JumpmanFR 2021-2022 */
 addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_ABOUT_BTN), 'click', function(e) {onClickCredits(e, true)});
 	addEvent(el(ELT_ABOUT_CLOSE_BTN), 'click', function(e) {onClickCredits(e, false)});
-	addEvent(el(ELT_ABOUT_WRAPPER), 'click', function(e) {onClickCredits(e, false)});
+	addEvent(el(ELT_ABOUT_LAYER), 'click', function(e) {onClickCredits(e, false)});
 	addEvent(document, 'keydown', function(e) {if (e.key === 'Escape') onClickCredits(e, false)});
 	initCredits();
 });
@@ -16,11 +16,12 @@ addEvent(document, 'DOMContentLoaded', function() {
 function onClickCredits(e, value) {
 	if (value) {	// open
 		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
-		el(ELT_ABOUT_WRAPPER).classList.remove(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_LAYER).classList.remove(CLASS_CLOSED_CREDITS);
 	} else {		// close
 		el(ELT_ABOUT_WINDOW).classList.add(CLASS_CLOSED_CREDITS);
-		el(ELT_ABOUT_WRAPPER).classList.add(CLASS_CLOSED_CREDITS);
+		el(ELT_ABOUT_LAYER).classList.add(CLASS_CLOSED_CREDITS);
 	}
+	e.stopPropagation();
 	e.preventDefault();
 }
 

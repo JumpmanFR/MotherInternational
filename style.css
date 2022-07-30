@@ -20,8 +20,12 @@
 		content: '▼' !important;
 	}
 	#output-area.hidden, #arrow-between-areas.hidden {
-		height: 0;
+		height: 0 !important; /* allows the credits button to be directly below */
 		padding: 0;
+		z-index: -99; /* prevents overlapping the credits button */
+	}
+	#arrow-between-areas.hidden:after {
+		content: '' !important; /* prevents overlapping the credits button */
 	}
 }
 
@@ -355,18 +359,22 @@ input[type=button], button {
 	margin: 30px;
 }
 #about-close-btn {
+	top: 0;
+	z-index: 99;
 	font-weight: bold;
-	font-size: xx-large;
-	position: absolute;
-	right: 12px;
-	top: 2px;
+	font-size: 35px;
 	cursor: pointer;
+	position: sticky;
+	text-align: right;
+	height: 0;
+	margin-right: 14px;
+	line-height: 30px;
 }
 #about-close-btn:hover {
 	color: rgb(234, 183, 73);
 }
 
-#about-window-wrapper {
+#about-window-layer {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -375,29 +383,41 @@ input[type=button], button {
 	background-color: #00000090;
 }
 #about-window {
+	/*left: 50%;
+	transform: translate(-50%,-50%);*/
+	top: 50%;
 	left: 0;
 	right: 0;
+	transform: translateY(-50%);
 	text-align: left;
 	background-color: #8F2A2B;
 	color: white;
 	opacity: .94;
-	position: absolute;
+	position: fixed;
 	width: fit-content;
-	top: 50%;
-	transform: translateY(-50%);
+	max-width: min(720px,90vw);
+	max-height: 80vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	margin: auto;
+	padding: 8px 0;
 	box-shadow: 0px 0px 10px #BBBBBB;
 	border-radius: 10px;
 	border: 3px solid white;
 }
-#about-window-wrapper.closed-credits, #about-window.closed-credits {
+#about-window-inside {
+	min-height: 100%;
+	position: relative;
+	overflow: auto;
+}
+#about-window-layer.closed-credits, #about-window.closed-credits {
 	visibility: hidden;
 }
 #about-window a {
 	color: rgb(234, 183, 73);
 }
 #credits-staff, #about-side {
-	margin: 8px 20px;
+	margin: 0 20px;
 }
 #credits-logo {
 	margin-top: 10px;
@@ -414,17 +434,20 @@ input[type=button], button {
 	margin-top: 8px;
 }
 #about-side {
-	display: inline-block;
-	width: 300px;
+	display: block;
+	overflow: hidden;
+	min-width: 200px;
 	padding-top: 16px;
+	margin-bottom: 30px;
 }
 #about-side select {
 	width: 100%;
 }
 #about-version {
 	position: absolute;
-	right: 20px;
-	bottom: 0px;
+	right: 0;
+	bottom: 0;
+	margin-right: 24px;
 }
 #credits-animation {
   position: relative;
