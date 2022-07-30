@@ -1,0 +1,5 @@
+#To build the animation, join the images together with the command-line tool ImageMagick (imagemagick.org):
+convert -append m1/*.png m1.png
+convert -append m2/*.png m2.png
+convert -append m3/*.png m3.png
+convert -append saturn/*.png saturn.png
