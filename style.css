@@ -160,6 +160,17 @@ body {
 	margin-left: -10px;
 }
 
+#input-rom-checksum {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: smaller;
+	opacity: .8;
+}
+
 #patch-select-container {
 	margin-bottom: 15px;
 }

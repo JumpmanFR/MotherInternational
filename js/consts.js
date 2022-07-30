@@ -9,6 +9,7 @@ const ELT_ROM_FILE = "rom-file";
 const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_LABEL = "rom-label";
 const ELT_MSG = "msg";
+const ELT_CHECKSUM = "input-rom-checksum";
 const ELT_PATCH_SELECT_LABEL = "patch-select-label";
 const ELT_PATCH_SELECT = "patch-select";
 const ELT_SHOW_ALL_CONTAINER = "show-all-container";

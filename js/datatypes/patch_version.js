@@ -40,9 +40,6 @@ PatchVersion.prototype.setParentProject = function(patchProject) {
 PatchVersion.prototype.getAuthorFallback = function() {
 	 return this.getAuthor() || (this.parentProject ? this.parentProject.getAuthor() : undefined);
 }
-/*PatchVersion.prototype.getExtraNoteFallback = function() {
-	return this.getExtraNote() || (this.parentProject ? this.parentProject.getExtraNote() : undefined);
-}*/
 PatchVersion.prototype.getPatchProject = function() {
 	return this.parentProject;
 }

@@ -12,16 +12,16 @@ const LOCALIZATION={
 
 		'txtAnalyzingFile':			'Analyse du fichier…',
 		'txtAnalyzingRom':			'Analyse de la ROM…',
-		'txtApplyingPatch':			'Application du patch%…',
+		'txtRomIdentified':			'ROM reconnue !',
 		'txtDownloading':			'Téléchargement du patch%…',
 		'txtUnzipping':				'Décompression…',
+		'txtApplyingPatch':			'Application du patch%…',
 		'txtZipping':				'Création de l’archive',
 		'txtFinalizing':			'Finalisation…',
 
-		'txtRomIdentified':			'ROM reconnue',
+		'txtChecksum':				'Somme de contrôle CRC32 : %',
 
 		'txtAllTranslations':		'Langues disponibles pour % :',
-
 		'txtShowAllVersions':		'Afficher toutes les versions',
 
 		'txtDescVersion':			'v',
@@ -90,16 +90,16 @@ const LOCALIZATION={
 
 		'txtAnalyzingFile':			'Analyzing file…',
 		'txtAnalyzingRom':			'Analyzing ROM…',
-		'txtApplyingPatch':			'Applying patch%…',
+		'txtRomIdentified':			'ROM identified!',
 		'txtDownloading':			'Downloading patch%…',
 		'txtUnzipping':				'Unzipping…',
+		'txtApplyingPatch':			'Applying patch%…',
 		'txtZipping':				'Creating zip file…',
 		'txtFinalizing':			'Finalizing…',
 
-		'txtRomIdentified':			'ROM identified',
+		'txtChecksum':				'CRC32 checksum: %',
 
 		'txtAllTranslations':		'Available translations for %:',
-
 		'txtShowAllVersions':		'Show all versions',
 
 		'txtDescVersion':			'v',

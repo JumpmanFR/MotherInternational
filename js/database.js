@@ -105,7 +105,8 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x62c04f3f',	projectId:'m2-itB',	patchId:'m2-itB147',patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.47'},
 	{crc:'0xf693cf87',	projectId:'m2-pl',	patchId:'m2-pl100', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0.0'},
 	{crc:'0xf31c0606',	projectId:'m2-pl',	patchId:'m2-pl102', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0.2'},
-	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0'},
+	//{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0'},
+	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.ups', baseRom:'m2-ja',	hasDoc:true,	version:'1.0'},
 
 	{crc:'0x0a44569c',	projectId:'m12-ja',	patchId:'m12-ja'},
 	{crc:'0xc0cf1f7e',	projectId:'m12-ko',	patchId:'m12-ko11', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	version:'1.1'},

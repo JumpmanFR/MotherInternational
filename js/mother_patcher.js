@@ -37,10 +37,10 @@ var gWorkerChecksum = new Worker(PATH_LIBS + 'worker_crc.js');
 var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
 
 // Shortcuts
-function addEvent(e,ev,f){e.addEventListener(ev,f,false)}
-function el(e){return document.getElementById(e)}
-function _(str){return gUserLanguage[str] || gDefaultLanguage[str] || str}
-function patchSelectVal(){return el(ELT_PATCH_SELECT).value}
+function addEvent(e,ev,f) {e.addEventListener(ev,f,false)}
+function el(e) {return document.getElementById(e)}
+function _(str) {return gUserLanguage[str] || gDefaultLanguage[str] || str}
+function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 
 
 //==========================================
@@ -60,7 +60,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
- 	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updatePatchSelect);
+ 	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updateOutputSelect);
 	addEvent(el(ELT_APPLY), 'click',  function() {processPatchingTasks(gInputRom, gInputRomId, 1)});
 
 	zip.useWebWorkers = true;
@@ -95,18 +95,21 @@ function onDrag(val, e) {
 }
 
 function onInputFile(data) {
+	gInputRomId = null;
+	el(ELT_CHECKSUM).innerText = '';
+	data = data.files[0];
+	el(ELT_ROM_LABEL).innerText = data ? data.name : '';
+	clearPatchSelect();
+	setGameAnim(); // stop any ongoing animation
+	updatePatchInfo(FOR_INPUT);
+	setUIBusy(true);
 	try {
 		var inputRom = new MarcFile(data, parseInputRom);
-		el(ELT_ROM_LABEL).innerText = inputRom.fileName;
 		gInputRom = inputRom;
-		gInputRomId = null;
-		updatePatchInfo(FOR_INPUT);
 		setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
-		setUIBusy(true);
-		clearPatchSelect();
-		setGameAnim(); // stop any ongoing animation
 	} catch(error) {
 		setMessage(_('error_unknown_rom'), MSG_TYPE_ERROR);
+		setUIBusy(false);
 	}
 }
 
@@ -203,7 +206,7 @@ function setMessage(msg, type) {
 }
 
 // Builds the content in the scroll list and selects a default item
-function updatePatchSelect() {
+function updateOutputSelect() {
 	var inputId = gInputRomId;
 
 	var oldValue = patchSelectVal();
@@ -434,20 +437,23 @@ function onParsedInputRom(data) {
     for (var i in PATCH_VERSIONS) {
         if (PATCH_VERSIONS[i].getCrc() == romCrc) {
             gInputRomId = i;
-            setMessage('');
-            updatePatchInfo(FOR_INPUT);
-			setGameAnim(PATCH_VERSIONS[i].getGameId());
-			el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[i].getGameShortName()) : '';
-			break;
         }
     }
 
-
-	updatePatchSelect();
-	setUIBusy(false);
-
-    if (!gInputRomId) {
+    if (gInputRomId) {
+		setMessage(_('txtRomIdentified'));
+		updatePatchInfo(FOR_INPUT);
+		el(ELT_CHECKSUM).textContent = _('txtChecksum').replace('%', PATCH_VERSIONS[gInputRomId].getCrc());
+		el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameShortName()) : '';
+		updateOutputSelect();
+		setTimeout(function() {
+			setGameAnim(PATCH_VERSIONS[gInputRomId].getGameId());
+			setUIBusy(false);
+		}, 1000);
+	} else {
         setMessage(_("error_unknown_rom"), MSG_TYPE_ERROR) // TODO errors
+		updateOutputSelect();
+		setUIBusy(false);
     }
 
 }
