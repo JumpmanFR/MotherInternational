@@ -1,6 +1,6 @@
 /* MODDED VERSION OF MarcFile.js, Mother International version - Marc Robledo 2014-2018, JumpmanFR 2021-2022 */
 
-function MarcFile(source, onLoad){	
+function MarcFile(source, onLoad){
 	if(typeof source==='object' && source.files) /* get first file only if source is input with multiple files */
 		source=source.files[0];
 
@@ -25,6 +25,14 @@ function MarcFile(source, onLoad){
 			if(onLoad)
 				onLoad.call();
 		},false);
+		this._fileReader.addEventListener('error',function(){
+			var result=new ArrayBuffer(1);
+			this.marcFile._u8array=new Uint8Array(result);
+			this.marcFile._dataView=new DataView(result);
+
+			if(onLoad)
+				onLoad.call();
+		},false);
 
 		this._fileReader.readAsArrayBuffer(source);
 
@@ -38,7 +46,7 @@ function MarcFile(source, onLoad){
 		var ab=new ArrayBuffer(source);
 		this._u8array=new Uint8Array(this.fileType);
 		this._dataView=new DataView(this.fileType);
-		
+
 		source.copyToFile(this, 0);
 		if(onLoad)
 			onLoad.call();

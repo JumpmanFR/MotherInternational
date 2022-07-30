@@ -95,6 +95,9 @@ function onDrag(val, e) {
 }
 
 function onInputFile(data) {
+	if (!data || data.files.length == 0) {
+		return;
+	}
 	gInputRomId = null;
 	el(ELT_CHECKSUM).innerText = '';
 	data = data.files[0];
@@ -296,11 +299,11 @@ function updatePatchInfo(target) {
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
 
+		// Info and website for this version
 		var detailsDiv = document.createElement("div");
 		detailsDiv.className = CLASS_INFO_DETAILS;
 		infoFrame.appendChild(detailsDiv);
 
-		// Info and website for this version
 		if (patchObj.getExtraNote() || patchObj.getWebsite()) {
 			var note = patchObj.getExtraNote();
 			if (!note) {

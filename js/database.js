@@ -52,7 +52,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-en',game:ID_MOTHER_1_2,lang:LANG_ENGLISH,	latest:'1.0.1',	author:'Tomato',			website:'http://mother12.earthboundcentral.com/'},
 	{projectId:'m12-fr',game:ID_MOTHER_1_2,lang:LANG_FRENCH,	latest:'1.0',	author:'MotherVF',			website:'http://mother1vf.free.fr'},
 	{projectId:'m12-it',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM'},
-	{projectId:'m12-pt',game:ID_MOTHER_1_2,lang:LANG_PT_PORTUG,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m12-pt',game:ID_MOTHER_1_2,lang:LANG_PT_PORTUG,	latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',			website:'http://www.manyoteam.com/?p=32'},
@@ -105,8 +105,8 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x62c04f3f',	projectId:'m2-itB',	patchId:'m2-itB147',patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.47'},
 	{crc:'0xf693cf87',	projectId:'m2-pl',	patchId:'m2-pl100', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0.0'},
 	{crc:'0xf31c0606',	projectId:'m2-pl',	patchId:'m2-pl102', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0.2'},
-	//{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0'},
-	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.ups', baseRom:'m2-ja',	hasDoc:true,	version:'1.0'},
+	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	version:'1.0'},
+	//{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.ups', baseRom:'m2-ja',	hasDoc:true,	version:'1.0'},
 
 	{crc:'0x0a44569c',	projectId:'m12-ja',	patchId:'m12-ja'},
 	{crc:'0xc0cf1f7e',	projectId:'m12-ko',	patchId:'m12-ko11', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	version:'1.1'},
