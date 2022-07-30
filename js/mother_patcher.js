@@ -223,7 +223,7 @@ function updateOutputSelect() {
 				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
-				opt.text = PATCH_VERSIONS[cur].getDesc(false, true);
+				opt.text = PATCH_VERSIONS[cur].getDesc(false, true, true);
 				opt.title = curObj.getExtraNote() || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
@@ -287,8 +287,9 @@ function updatePatchInfo(target) {
 	if (id) {
 		var patchObj = PATCH_VERSIONS[id];
 
-		addEltsToFrame(infoFrame, [patchObj.getDesc(true, false)], CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, [patchObj.getDesc(true, false, false)], CLASS_INFO_TITLE);
 
+		// Box art
 		var img = document.createElement("img");
 		img.src = PATCH_BOXARTS + patchObj.getGameId() + (patchObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
 		img.alt = patchObj.getGameFullName();
@@ -299,6 +300,7 @@ function updatePatchInfo(target) {
 		detailsDiv.className = CLASS_INFO_DETAILS;
 		infoFrame.appendChild(detailsDiv);
 
+		// Info and website for this version
 		if (patchObj.getExtraNote() || patchObj.getWebsite()) {
 			var note = patchObj.getExtraNote();
 			if (!note) {
@@ -313,6 +315,7 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [patchObj.parentProject.getExtraNote()], CLASS_INFO_VERSION_LABEL);
 		}
 
+		// Readme file
 		if (patchObj.hasDoc()) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
@@ -321,27 +324,31 @@ function updatePatchInfo(target) {
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
+		// Website
 		if (patchObj.parentProject.getWebsiteFallback()) {
 			var urlStr = patchObj.parentProject.getWebsiteFallback();
 			var text = _('txtVisitSite').replace("%", patchObj.getAuthorFallback());
 			addLinkToFrame(detailsDiv, text, urlStr, CLASS_INFO_WEBSITE);
 		}
 
-		var nbUsesElts = _('txtNbUses').split("%");
-		var nbUsesP = addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
-		nbUsesP.classList.add(CLASS_INFO_LOADING);
+		// Patch usage
+		if (target == FOR_OUTPUT || !patchObj.parentProject.isOfficial()) {
+			var nbUsesElts = _('txtNbUses').split("%");
+			var nbUsesP = addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
+			nbUsesP.classList.add(CLASS_INFO_LOADING);
 
-		requestPatchUsage(id)
-			.then(function(nbUses) {
-				if (nbUsesP && nbUsesP.isConnected) { // to check if the view hasn’t been reloaded with another id since then
-					addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
-				}
-			})
-			.catch(function() {
-				if (nbUsesP && nbUsesP.isConnected) {
-					addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
-				}
-			});
+			requestPatchUsage(id)
+				.then(function(nbUses) {
+					if (nbUsesP && nbUsesP.isConnected) { // to check if the view hasn’t been reloaded with another id since then
+						addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+					}
+				})
+				.catch(function() {
+					if (nbUsesP && nbUsesP.isConnected) {
+						addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+					}
+				});
+		}
 	}
 }
 
@@ -449,7 +456,7 @@ function onParsedInputRom(data) {
 		setTimeout(function() {
 			setGameAnim(PATCH_VERSIONS[gInputRomId].getGameId());
 			setUIBusy(false);
-		}, 1000);
+		}, 600);
 	} else {
         setMessage(_("error_unknown_rom"), MSG_TYPE_ERROR) // TODO errors
 		updateOutputSelect();
@@ -633,7 +640,7 @@ function endProcessWithError(errorMsg) {
 function deliverFinalRom(finalRomFile, romId) {
 	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ` (patched-${romId}).$1`);
 	finalRomFile.save();
-	setMessage('');
+	setMessage(_('txtEndMsg'));
 	setUIBusy(false);
 }
 

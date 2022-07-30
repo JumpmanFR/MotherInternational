@@ -83,7 +83,7 @@ PatchVersion.prototype.isWorthShowing = function() {
 	return this.isAltLatestVersion() && !this.isSpecialHidden();
 }
 
-PatchVersion.prototype.getDesc = function(withGameTitle, withProjectNote) {
+PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withProjectNote) {
 	var res = "";
 	res += this.parentProject.getLangFlag() + " ";
 	if (withGameTitle) {
@@ -93,7 +93,7 @@ PatchVersion.prototype.getDesc = function(withGameTitle, withProjectNote) {
 	if (this.getVersionValue() && !this.isSpecialHidden()) {
 		res += _("txtDescVersion") + this.getVersionValue() + " ";
 	}
-	if (this.getAuthorFallback()) {
+	if (this.getAuthorFallback() && (!this.parentProject.isOfficial() || alwaysWithAuthor)) {
 		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}
 	if (this.isSpecialHidden()) { // here the version field acts as a description for this special hidden ROM

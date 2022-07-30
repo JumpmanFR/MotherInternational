@@ -18,6 +18,7 @@ const LOCALIZATION={
 		'txtApplyingPatch':			'Application du patch%…',
 		'txtZipping':				'Création de l’archive',
 		'txtFinalizing':			'Finalisation…',
+		'txtEndMsg':				'Votre ROM patchée est prête',
 
 		'txtChecksum':				'Somme de contrôle CRC32 : %',
 
@@ -96,6 +97,7 @@ const LOCALIZATION={
 		'txtApplyingPatch':			'Applying patch%…',
 		'txtZipping':				'Creating zip file…',
 		'txtFinalizing':			'Finalizing…',
+		'txtEndMsg':				'Your patched ROM is ready',
 
 		'txtChecksum':				'CRC32 checksum: %',
 
