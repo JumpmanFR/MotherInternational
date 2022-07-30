@@ -18,6 +18,12 @@
 	}
 }
 
+@media (max-width: 600px) {
+	#title {
+		font-size: 2.5vw;
+	}
+}
+
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
@@ -34,10 +40,10 @@ body {
 	text-align: left;
 }
 #title-logo {
-	height: 58px;
+	height: 3.625em;
 }
 #title-bottom {
-	font-size: 54px;
+	font-size: 3.375em;
 	font-family: titlefont;
 	text-transform: uppercase;
 	text-align: left;
