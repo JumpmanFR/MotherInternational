@@ -41,7 +41,7 @@
 		height: 340px !important;
 	}
 	.info-frame {
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 	.info-title {
 		-webkit-line-clamp: 2;
@@ -205,7 +205,8 @@ body {
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-size: smaller;
 	opacity: .8;
@@ -217,7 +218,7 @@ body {
 #patch-select-label {
 	margin: 0px;
 	white-space: nowrap;
-	overflow: hidden;
+	overflow-x: hidden;
 	text-overflow: ellipsis;
 }
 #patch-select {
@@ -228,7 +229,7 @@ body {
 	white-space: nowrap;
 	display: inline-block;
 	max-width: 100%;
-	overflow: hidden;
+	overflow-x: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -278,9 +279,11 @@ body {
 .info-details:empty {
 	display: none;
 }
-.info-details > p {
+.info-details > p > * {
+	display: block;
 	white-space: nowrap;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: visible;
 	text-overflow: ellipsis;
 }
 .info-details > p:first-child {
@@ -289,7 +292,7 @@ body {
 .info-details > p:last-child {
 	margin-bottom: 0px;
 }
-.info-version-label:before {
+.info-version-label *:first-child:before {
 	content: '💡 ';
 	display: inline-block;
 }
