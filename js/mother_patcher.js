@@ -139,7 +139,11 @@ function setLanguage(langId) {
 		} else if (translatableElements[i].tagName == "IMG") {
 			translatableElements[i].alt = _(translatableElements[i].dataset.localize);
 		} else {
-			translatableElements[i].textContent = _(translatableElements[i].dataset.localize);
+			if (translatableElements[i].dataset.htmlcontent) {
+				translatableElements[i].innerHTML = _(translatableElements[i].dataset.localize);
+			} else {
+				translatableElements[i].textContent = _(translatableElements[i].dataset.localize);
+			}
 		}
 	}
 }
