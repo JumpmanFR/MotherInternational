@@ -305,7 +305,7 @@ function updatePatchInfo(target) {
 
 		// Info and website for this version
 		var detailsDiv = document.createElement("div");
-		detailsDiv.className = CLASS_INFO_DETAILS;
+		detailsDiv.className = CLASS_INFO_REFERENCES;
 		infoFrame.appendChild(detailsDiv);
 
 		if (patchObj.getExtraNote() || patchObj.getWebsite()) {

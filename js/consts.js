@@ -42,7 +42,7 @@ const CLASS_MESSAGE_ERROR = "error";
 
 const CLASS_INFO_TITLE = "info-title";
 const CLASS_INFO_BOXART = "info-boxart";
-const CLASS_INFO_DETAILS = "info-details";
+const CLASS_INFO_REFERENCES = "info-references";
 const CLASS_INFO_VERSION_LABEL = "info-version-label";
 const CLASS_INFO_WEBSITE = "info-website";
 const CLASS_INFO_LINK_HOST = "info-link-host";

@@ -8,15 +8,15 @@
 @keyframes spriteanim { from { background-position: top; } to { background-position: bottom; } }
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
-@media (max-width: 1000px) {
+@media (max-width: 62rem) {
 	.area, #arrow-between-areas {
 		display: block !important;
 	}
 	#output-area {
-		height: 320px;
+		height: 20rem;
 	}
 	#arrow-between-areas:after {
-		font-size: 3em !important;
+		font-size: 3rem !important;
 		content: '▼' !important;
 	}
 	#output-area.hidden, #arrow-between-areas.hidden {
@@ -29,7 +29,7 @@
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 38em) {
 	#title {
 		font-size: 2.5vw;
 		margin-bottom: 5vw !important;
@@ -38,7 +38,7 @@
 		max-width: 80vw;
 	}
 	#output-area {
-		height: 340px !important;
+		height: 21.25rem !important;
 	}
 	.info-frame {
 		overflow-x: hidden;
@@ -52,14 +52,14 @@
 		overflow: hidden;
 	}
 	.info-nb-uses {
-		font-size: min(16px,4vw);
+		font-size: min(1em,4vw);
 	}
 }
 
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
-	margin-top: 4em;
+	margin-top: 4rem;
 	width: fit-content;
 	text-align: center;
 }
@@ -79,7 +79,7 @@ body {
 	font-family: titlefont;
 	text-transform: uppercase;
 	text-align: left;
-	margin: -8px 1px;
+	margin: -.14em -0.02em -.14em 0;
 	color: #EBEBEB;
 }
 #subtitle {
@@ -91,12 +91,12 @@ body {
 
 .area {
 	vertical-align: middle;
-	height: 300px;
-	width: 380px;
+	height: 18.75rem;
+	width: 23.75rem;
 	display: inline-block;
 	margin: auto;
-	padding: 15px 10px;
-	border-radius: 20px;
+	padding: 0.94em 0.625em;
+	border-radius: 1.25rem;
 	border-width: 3px;
 	/*overflow: hidden;*/
 	position: relative;
@@ -143,7 +143,7 @@ body {
 }
 
 #arrow-between-areas:after {
-	font-size: 5em;
+	font-size: 5rem;
 	color: #FFFFFFA0;
 	content: '▸';
 }
@@ -154,7 +154,7 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	margin-bottom: 2px;
+	margin-bottom: 0.125em;
 }
 #rom-file {
 	display: none;
@@ -166,7 +166,7 @@ body {
 #rom-label {
 	cursor: pointer;
 	vertical-align: middle;
-	margin-left: 5px;
+	margin-left: 0.31em;
 }
 #input-area.first-drop #rom-label {
 	cursor: auto;
@@ -179,17 +179,17 @@ body {
 	white-space: nowrap;
 }
 
-.loading{
-	width: 20px;
-	margin-right: 4px;
+.loading {
+	width: 1.25em;
+	margin-right: 0.25em;
 	display: inline-block;
 	position: relative;
 	animation: spin 1s ease-in-out infinite;
 	vertical-align: middle;
 }
-.loading:before{
-	width: 6px;
-	height: 6px;
+.loading:before {
+	width: 0.375em;
+	height: 0.375em;
 	background-color: #FFFFFFB0;
 	border-radius: 3px;
 	display: inline-block;
@@ -197,14 +197,14 @@ body {
 	position: absolute;
 	top: 0;
 	left: 50%;
-	margin-left: -10px;
+	margin-left: -0.625em;
 }
 
 #input-rom-checksum {
 	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -213,10 +213,10 @@ body {
 }
 
 #patch-select-container {
-	margin-bottom: 15px;
+	margin-bottom: 0.94rem;
 }
 #patch-select-label {
-	margin: 0px;
+	margin: 0;
 	white-space: nowrap;
 	overflow-x: hidden;
 	text-overflow: ellipsis;
@@ -236,64 +236,64 @@ body {
 .info-frame {
 	background-color: #FFFFFF20;
 	border-radius: 5px;
-	margin: 8px 0;
-	padding: 0 8px;
+	margin: 0.5em 0;
+	padding: 0 0.5em;
 	position: absolute;
-    width: calc(100% - 36px);
-    top: 74px;
+    width: calc(100% - 2.25em);
+    top: 4.63rem;
 	white-space: nowrap;
 }
 .info-frame p {
-	margin: 8px 0;
+	margin: 0.5rem 0;
 }
 .info-frame > p {
-	padding: 0 2px;
+	padding: 0 0.125em;
 }
 .info-frame > p:first-child {
-	margin-top: 8px;
+	margin-top: 0.5rem;
 }
 .info-frame > p:last-child {
-	margin-bottom: 8px;
+	margin-bottom: 0.5rem;
 }
 .info-title {
 	font-weight: bold;
 	white-space: normal;
 }
 .info-boxart {
-	width: 80px;
-	height: 80px;
+	width: 5rem;
+	height: 5rem;
 	object-fit: contain;
 	vertical-align: middle;
 	filter: drop-shadow(2px 2px 1px #00000030);
 }
-.info-details {
+.info-references {
 	margin-left: 16px;
-	max-width: calc(100% - 80px - 16px - 8px);
+	max-width: calc(100% - 5rem - 16rem - 8em);
 	text-align: left;
 	display: inline-block;
 	vertical-align: middle;
 }
-.info-boxart, .info-details {
-	margin-bottom: 8px;
+.info-boxart, .info-references {
+	margin-bottom: 0.5rem;
 }
-.info-details:empty {
+.info-references:empty {
 	display: none;
 }
-.info-details > p {
+.info-references > p {
 	max-width: fit-content;
 }
-.info-details > p > * {
+.info-references > p > * {
 	display: block;
 	white-space: nowrap;
 	overflow-x: hidden;
 	overflow-y: visible;
 	text-overflow: ellipsis;
 }
-.info-details > p:first-child {
-	margin-top: 0px;
+.info-references > p:first-child {
+	margin-top: 0;
 }
-.info-details > p:last-child {
-	margin-bottom: 0px;
+.info-references > p:last-child {
+	margin-bottom: 0;
 }
 .info-version-label *:first-child:before {
 	content: '💡 ';
@@ -307,7 +307,7 @@ body {
 	display: block;
 	font-size: smaller;
 	text-align: center;
-	margin: -2px 0;
+	margin: -0.125rem 0;
 }
 .info-doc a:before {
 	content: '📄 ';
@@ -341,16 +341,16 @@ input[type=button], button {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 15px;
+	bottom: 1rem;
 	margin: auto;
 }
 
 #animation {
 	margin: auto;
-	margin-top: -34px;
-	margin-bottom: -4px;
-	width: 280px;
-	height: 68px;
+	margin-top: -2.125rem;
+	margin-bottom: -0.25rem;
+	width: 17.5rem;
+	height: 4.25rem;
 	image-rendering: pixelated;
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -362,19 +362,19 @@ input[type=button], button {
 
 #about-btn {
 	display: block;
-	margin: 30px;
+	margin: 1.9em;
 }
 #about-close-btn {
 	top: 0;
 	z-index: 99;
 	font-weight: bold;
-	font-size: 35px;
+	font-size: 2.2rem;
 	cursor: pointer;
 	position: sticky;
 	text-align: right;
 	height: 0;
-	margin-right: 14px;
-	line-height: 30px;
+	margin-right: 0.875rem;
+	line-height: 1.875rem;
 }
 #about-close-btn:hover {
 	color: rgb(234, 183, 73);
@@ -401,14 +401,14 @@ input[type=button], button {
 	opacity: .94;
 	position: fixed;
 	width: fit-content;
-	max-width: min(720px,90vw);
+	max-width: min(45rem,90vw);
 	max-height: 80vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	margin: auto;
-	padding: 8px 0;
+	padding: 0.5em 0;
 	box-shadow: 0px 0px 10px #BBBBBB;
-	border-radius: 10px;
+	border-radius: 0.63rem;
 	border: 3px solid white;
 }
 #about-window-inside {
@@ -423,11 +423,11 @@ input[type=button], button {
 	color: rgb(234, 183, 73);
 }
 #credits-staff, #about-side {
-	margin: 0 20px;
+	margin: 0 1.25rem;
 }
 #credits-logo {
-	margin-top: 10px;
-	width: 200px;
+	margin-top: 0.625rem;
+	width: 12.5rem;
 }
 #credits-staff {
 	float: left;
@@ -437,14 +437,14 @@ input[type=button], button {
 	margin: 0.7em 0;
 }
 #credits-staff dt {
-	margin-top: 8px;
+	margin-top: 0.5em;
 }
 #about-side {
 	display: block;
 	overflow: hidden;
-	min-width: 200px;
-	padding-top: 16px;
-	margin-bottom: 30px;
+	min-width: 12rem;
+	padding-top: 1em;
+	margin-bottom: 1.9rem;
 }
 #about-side select {
 	width: 100%;
@@ -453,7 +453,7 @@ input[type=button], button {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	margin-right: 24px;
+	margin-right: 1.5rem;
 }
 #credits-animation {
   position: relative;
