@@ -279,6 +279,9 @@ body {
 .info-details:empty {
 	display: none;
 }
+.info-details > p {
+	max-width: fit-content;
+}
 .info-details > p > * {
 	display: block;
 	white-space: nowrap;
