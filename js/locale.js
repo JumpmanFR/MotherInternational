@@ -1,5 +1,6 @@
-const LOCALIZATION={
-	'fr':{
+const LOCALIZATION = {
+	'fr':
+	{
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
 
@@ -47,6 +48,7 @@ const LOCALIZATION={
 		'error_crc_output':			'ROM générée invalide',
 		'error_crc_input':			'La ROM spécifiée est incorrecte',
 		'error_patching':			'Erreur lors de l’application du patch',
+		'error_no_patch_route':		'Fichiers de patch non disponibles pour cette opération',
 		'error_downloading':		'Erreur de téléchargement du patch',
 		'error_unzipping':			'Erreur de décompression',
 		'error_invalid_patch':		'Fichier de patch non reconnu',
@@ -78,7 +80,8 @@ const LOCALIZATION={
 		'txtAboutOldVersions':		'Anciennes versions de Mother International',
 		'txtAboutVersion':			'Version %',
 	},
-	'en':{
+	'en':
+	{
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
@@ -126,6 +129,7 @@ const LOCALIZATION={
 		'error_crc_output':			'Wrong output ROM',
 		'error_crc_input':			'Wrong input ROM',
 		'error_patching':			'Patching error',
+		'error_no_patch_route':		'No patch file available for this operation',
 		'error_downloading':		'Downloading error',
 		'error_unzipping':			'Unzipping error',
 		'error_invalid_patch':		'Unidentified patch file',

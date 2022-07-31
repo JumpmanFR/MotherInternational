@@ -61,7 +61,7 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updateOutputSelect);
-	addEvent(el(ELT_APPLY), 'click',  function() {processPatchingTasks(gInputRom, gInputRomId, 1)});
+	addEvent(el(ELT_APPLY), 'click',  function() {startApply(gInputRom, gInputRomId, patchSelectVal())});
 
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
@@ -226,7 +226,7 @@ function updateOutputSelect() {
 			var curObj = PATCH_VERSIONS[cur];
 			var inputObj = PATCH_VERSIONS[inputId];
 			// TODO simplify the next condition by adding methods in the prototypes
-			if (inputId != cur && inputObj.hasPatchRouteTo(curObj)
+			if (inputId != cur && findRoute(inputId, cur)
 				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
@@ -247,14 +247,14 @@ function updateOutputSelect() {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
 				} else if (curObj.getLangId().startsWith(gUserLanguage.id)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
-				} else if (curObj.isBaseRom()) {
-					defaultSelectionCandidates.baseRom = cur; // a basic, unpatched ROM
+				} else if (curObj.parentProject.isOfficial()) {
+					defaultSelectionCandidates.official = cur; // a basic, unpatched ROM
 				}
 
 			}
 		}
 		// Default selection, in this priority order
-		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.baseRom;
+		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.official;
 		if (defaultSelection) {
 			//setTimeout(function() {
 				el(ELT_PATCH_SELECT).value = defaultSelection;
@@ -469,25 +469,92 @@ function onParsedInputRom(data) {
 		updateOutputSelect();
 		setUIBusy(false);
     }
-
 }
 
-// May be recursive; sees what the current input ROM is, what the patch selector is, and decides what to do from that
-function processPatchingTasks(rom, romId, step) {
-	setUIBusy(true);
-	if (!rom) {
-		endProcessWithError(_("error_no_rom"));
-		return;
-	}
+function startApply(rom, romId, destination) {
 	if (!romId) {
 		endProcessWithError(_("error_no_rom_info"));
 		return;
 	}
+	var route = findRoute(romId, destination);
+	if (route && route.length > 1) {
+		processListOfPatches(rom, route, 0);
+	} else {
+		endProcessWithError(_("error_no_patch_route"));
+	}
+}
 
-	if (romId == patchSelectVal()) {
-		// The romId is equal to what the user wanted, so our process is finished now!
-        setMessage(_("txtFinalizing")) // TODO errors
-		countPatchUsage(romId)
+// Recursive function; finds a sequence of patches to apply, to turn one ROM into another
+function findRoute(start, destination, currentRoute) {
+	if (!currentRoute) {
+		currentRoute = [];
+	}
+	if (!PATCH_VERSIONS[start] || !PATCH_VERSIONS[destination]) {
+		return null;
+	}
+	var currentRouteClone = [...currentRoute];
+	currentRouteClone.push(start);
+	if (start == destination) {
+		return currentRouteClone;
+	} else {
+		for (var i in PATCH_VERSIONS) { // look deeper
+			if (i != start && PATCH_VERSIONS[i].getBaseRomId() == start && !currentRoute.includes(i)) {
+				var lookDeeper = findRoute(i, destination, currentRouteClone);
+				if (lookDeeper) {
+					return lookDeeper;
+				}
+			}
+		}
+		if (!currentRoute.includes(PATCH_VERSIONS[start].getBaseRomId())
+				&& PATCH_VERSIONS[start].isReversible()) {
+			var lookHigher = findRoute(PATCH_VERSIONS[start].getBaseRomId(), destination, currentRouteClone);
+			if (lookHigher) {
+				return lookHigher;
+			}
+		}
+	}
+	return null;
+}
+
+// Recursive function; applies list of patches to ROM according to the given route
+function processListOfPatches(rom, route, step) {
+	setUIBusy(true);
+
+	if (!rom) {
+		endProcessWithError(_("error_no_rom"));
+		return;
+	}
+
+	if (step + 1 < route.length) {
+		var destId = route[step + 1];
+		var patchId;
+		if (PATCH_VERSIONS[route[step]].getBaseRomId() == route[step + 1]) { // reverse patching
+			patchId = route[step];
+		} else { // normal patching
+			patchId = destId;
+		}
+		var progressStr = '';
+		if (route.length > 2) {
+			progressStr += ` ${step + 1}/${route.length - 1}`;
+		}
+
+		setMessage(_("txtDownloading").replace("%", progressStr), MSG_TYPE_LOADING);
+		var patchFileName = PATCH_VERSIONS[patchId].getFileName();
+		downloadPatch(patchFileName, rom)
+			.then(function(patchFile) {
+				setMessage(_("txtApplyingPatch").replace("%", progressStr), MSG_TYPE_LOADING);;
+				return applyPatch(rom, patchFile, PATCH_VERSIONS[destId].getCrc());
+			})
+			.then(function(outputRom) {
+				processListOfPatches(outputRom, route, step + 1);
+			})
+			.catch(function(errorMsg) {
+				endProcessWithError(_(errorMsg || "error_patching")); // TODO error messages localization?
+			});
+	} else { // our process is finished now!
+		setMessage(_("txtFinalizing"))
+		var finalRomId = route[step];
+		countPatchUsage(finalRomId)
 			.then(function(hasIncreased) {
 				//console.log('Increased usage data: ' + hasIncreased);
 			})
@@ -495,37 +562,7 @@ function processPatchingTasks(rom, romId, step) {
 				console.warn('Failed to send patch usage.');
 			})
 			.finally(function() {
-				deliverFinalRom(rom, romId);
-			});
-	} else {
-		var patchId,nextRomIdAfterPatch;
-		// If a baseRom is specified, then our input is not the baseRom => reverse patching
-		if (!PATCH_VERSIONS[romId].isBaseRom() && PATCH_VERSIONS[romId].isReversible()) {
-			patchId = romId;
-			nextRomIdAfterPatch = PATCH_VERSIONS[romId].getBaseRomId();
-			if (nextRomIdAfterPatch == patchSelectVal()) { // this has to be the first step or the only one
-				step = undefined;
-			}
-		} else { // normal patching
-			patchId = patchSelectVal();
-			nextRomIdAfterPatch = patchId;
-			if (step <= 1) { // this has to be the last step or the only one
-				step = undefined;
-			}
-		}
-
-		setMessage(_("txtDownloading").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);
-		var patchFileName = PATCH_VERSIONS[patchId].getFileName();
-		downloadPatch(patchFileName, rom)
-			.then(function(patchFile) {
-				setMessage(_("txtApplyingPatch").replace("%", step ? ` ${step}/2` : ""), MSG_TYPE_LOADING);;
-				return applyPatch(rom, patchFile, PATCH_VERSIONS[nextRomIdAfterPatch].getCrc());
-			})
-			.then(function(outputRom) {
-				processPatchingTasks(outputRom, nextRomIdAfterPatch, step + 1);
-			})
-			.catch(function(errorMsg) {
-				endProcessWithError(_(errorMsg || "error_patching")); // TODO error messages localization?
+				deliverFinalRom(rom, finalRomId);
 			});
 	}
 }

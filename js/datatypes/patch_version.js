@@ -23,9 +23,6 @@ function PatchVersion(json) {
 	this.isReversible = function() {
 		return !json.irreversible;
 	}
-	this.isBaseRom = function() {
-		return this.getBaseRomId() == json.patchId;
-	}
 	this.getBaseRomId = function() {
 		return json.baseRom || json.patchId;
 	}
@@ -58,13 +55,7 @@ PatchVersion.prototype.getLangId = function() {
 PatchVersion.prototype.isSameProjectAs = function(targetVersion) {
 	return this.parentProject && (this.parentProject == targetVersion.parentProject);
 }
-PatchVersion.prototype.hasPatchRouteTo = function(targetVersion) {
-	if (this.getBaseRomId() != targetVersion.getBaseRomId()) {
-		return false;
-	}
 
-	return this.isReversible() || this.isBaseRom();
-}
 PatchVersion.prototype.isLatestVersion = function() {
 	if (this.parentProject) {
 		return this.parentProject.thisIsLatestVersion(this);
