@@ -12,7 +12,6 @@ const ELT_MSG = "msg";
 const ELT_CHECKSUM = "input-rom-checksum";
 const ELT_PATCH_SELECT_LABEL = "patch-select-label";
 const ELT_PATCH_SELECT = "patch-select";
-const ELT_SHOW_ALL_CONTAINER = "show-all-container";
 const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
@@ -27,11 +26,11 @@ const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
 const ELT_ABOUT_VERSION = "about-version";
 
-
 const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
 const CLASS_HIDDEN = "hidden"
+const CLASS_OPTION_UNAVAILABLE = "unavailable";
 const CLASS_FIRST_DROP = "first-drop";
 
 const CLASS_MESSAGE = "message";

@@ -9,7 +9,7 @@ function PatchVersion(json) {
 		return json.version;
 	}
 	this.getAuthor = function() {
-		return json.getAuthor;
+		return json.author;
 	}
 	this.hasDoc = function() {
 		return !!json.hasDoc;
@@ -87,7 +87,7 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 	if (this.getAuthorFallback() && (!this.parentProject.isOfficial() || alwaysWithAuthor)) {
 		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}
-	if (this.isSpecialHidden()) { // here the version field acts as a description for this special hidden ROM
+	if (this.isSpecialHidden() && this.getVersionValue()) { // here the version field acts as a description for this special hidden ROM
 		res += "(" + this.getVersionValue() + ") ";
 	}
 	if (withProjectNote && this.parentProject.getExtraNote()) {

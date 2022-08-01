@@ -76,7 +76,12 @@ function initCreditsSelect() {
 		var selected = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value];
 		if (url = selected.getWebsiteFallback()) {
 			if (!window.open(url, '_blank')) {
-				window.location.href = url; // for devices like iOS that don’t allow window.open
+				var author = selected.getAuthorFallback();
+				var urlObj = new URL(url);
+				var baseUrl = urlObj.hostname.replace(/^www\./g,'');
+				if (window.confirm(_('txtAboutAllTransSiteAsk').replace('%',author).replace('‰',baseUrl))) { // for devices like iOS that don’t allow window.open
+					window.location.href = url;
+				}
 			}
 		} else {
 			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true)));

@@ -24,7 +24,7 @@ MSG_CLASS[MSG_TYPE_WARNING] = CLASS_MESSAGE_WARNING;
 MSG_CLASS[MSG_TYPE_ERROR] = CLASS_MESSAGE_ERROR;
 
 var gUserLanguage, gDefaultLanguage;
-var gIsBusy;
+var gIsBusy, gIsInputDone;
 var gFlagEmojiSupported;
 
 var gInputRom, gInputRomId;
@@ -60,7 +60,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
- 	addEvent(el(ELT_SHOW_ALL_OPTION),'change', updateOutputSelect);
+ 	addEvent(el(ELT_SHOW_ALL_OPTION),'change', function() {updatePatchSelect()});
 	addEvent(el(ELT_APPLY), 'click',  function() {startApply(gInputRom, gInputRomId, patchSelectVal())});
 
 	zip.useWebWorkers = true;
@@ -69,7 +69,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
 	setLanguage(forcedLanguage || navigator.language.substr(0,2));
 
-	setUIBusy(false);
+	setUIState(false, false);
 })
 
 
@@ -105,19 +105,19 @@ function onInputFile(data) {
 	clearPatchSelect();
 	setGameAnim(); // stop any ongoing animation
 	updatePatchInfo(FOR_INPUT);
-	setUIBusy(true);
+	setUIState(true, false);
 	try {
 		var inputRom = new MarcFile(data, parseInputRom);
 		gInputRom = inputRom;
 		setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
 	} catch(error) {
 		setMessage(_('error_unknown_rom'), MSG_TYPE_ERROR);
-		setUIBusy(false);
+		setUIState(false);
 	}
 }
 
 function onSelectPatch(value) {
-	updateUIState();
+	refreshUIState();
 	updatePatchInfo(FOR_OUTPUT);
 }
 
@@ -148,13 +148,16 @@ function setLanguage(langId) {
 	}
 }
 
-function setUIBusy(value) {
-	gIsBusy = value;
-	updateUIState();
+function setUIState(busy, inputDone) {
+	gIsBusy = busy;
+	if (inputDone !== undefined) {
+		gIsInputDone = inputDone;
+	}
+	refreshUIState();
 }
 
 // Enables fields and buttons depending on busy status, specified fields and errors
-function updateUIState() {
+function refreshUIState() {
 	if (gIsBusy) {
 		el(ELT_ROM_FILE).disabled = true;
 		el(ELT_ROM_BTN).disabled = true;
@@ -166,7 +169,7 @@ function updateUIState() {
 	} else {
 		el(ELT_ROM_FILE).disabled = false;
 		el(ELT_ROM_BTN).disabled = false;
-		el(ELT_PATCH_SELECT).disabled = el(ELT_PATCH_SELECT).options.length == 0;
+		el(ELT_PATCH_SELECT).disabled = !el(ELT_PATCH_SELECT).options.length || !el(ELT_PATCH_SELECT).value;
 		el(ELT_SHOW_ALL_OPTION).disabled = false;
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
 		el(ELT_AREA_INPUT).classList.remove(CLASS_DISABLED);
@@ -177,7 +180,7 @@ function updateUIState() {
 		}
 	}
 
-	if (gInputRomId) {
+	if (gIsInputDone) {
 		el(ELT_AREA_OUTPUT).classList.remove(CLASS_HIDDEN);
 		el(ELT_ARROW).classList.remove(CLASS_HIDDEN);
 	} else {
@@ -200,23 +203,17 @@ function setMessage(msg, type) {
 			messageBox.appendChild(text);
 		} else {
 			messageBox.className = CLASS_MESSAGE + " " + MSG_CLASS[type];
-			if(type === MSG_TYPE_WARNING)
-				messageBox.textContent = '⚠ ' + msg;
-			else if(type === MSG_TYPE_ERROR)
-				messageBox.textContent = '✗ ' + msg;
-			else if(type === MSG_TYPE_OK)
-				messageBox.textContent = '✓ ' + msg;
-			else
-				messageBox.textContent = msg;
+			messageBox.textContent = msg;
+			messageBox.title = msg;
 		}
 	}
 }
 
 // Builds the content in the scroll list and selects a default item
-function updateOutputSelect() {
+function updatePatchSelect(showAllIfEmpty) {
 	var inputId = gInputRomId;
 
-	var oldValue = patchSelectVal();
+	var oldSelection = patchSelectVal();
 	var defaultSelectionCandidates = {};
 
 	clearPatchSelect();
@@ -226,7 +223,7 @@ function updateOutputSelect() {
 			var curObj = PATCH_VERSIONS[cur];
 			var inputObj = PATCH_VERSIONS[inputId];
 			// TODO simplify the next condition by adding methods in the prototypes
-			if (inputId != cur && findRoute(inputId, cur)
+			if (inputId != cur && (curObj.getGameId() == inputObj.getGameId())
 				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
@@ -234,17 +231,22 @@ function updateOutputSelect() {
 				opt.title = curObj.getExtraNote() || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
-				if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
+				if (!findRoute(inputId, cur)) {
+					opt.text += " " + _("txtDescIncompatible");
+					opt.className = CLASS_OPTION_UNAVAILABLE;
+				} else if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
 					opt.text += " " + _("txtDescUpdate");
 				}
 
 				// Default selection
-				if (oldValue && oldValue == cur) {
-					defaultSelectionCandidates.oldValue = cur; // the value that was selected before
-				} else if (oldValue && (curObj.isSameProjectAs(PATCH_VERSIONS[oldValue]))) {
-					defaultSelectionCandidates.akinToOldValue = cur; // another version of the translation that was selected before
-				} else if (!inputObj.isLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
+				if (oldSelection && oldSelection == cur) {
+					defaultSelectionCandidates.oldSelection = cur; // the value that was selected before
+				} else if (oldSelection && (curObj.isSameProjectAs(PATCH_VERSIONS[oldSelection]))) {
+					defaultSelectionCandidates.sameProject = cur; // another version of the translation that was selected before
+				} else if (curObj.isLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
+				} else if (!inputObj.isAltLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
+					defaultSelectionCandidates.otherVersion = cur; // another version of the user’s input ROM
 				} else if (curObj.getLangId().startsWith(gUserLanguage.id)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (curObj.parentProject.isOfficial()) {
@@ -253,19 +255,28 @@ function updateOutputSelect() {
 
 			}
 		}
-		// Default selection, in this priority order
-		var defaultSelection = defaultSelectionCandidates.oldValue || defaultSelectionCandidates.akinToOldValue || defaultSelectionCandidates.updateInput || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.official;
+		var defaultSelection = defaultSelectionCandidates.oldSelection || defaultSelectionCandidates.sameProject || defaultSelectionCandidates.updateInput
+				|| defaultSelectionCandidates.otherVersion || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.official;
 		if (defaultSelection) {
-			//setTimeout(function() {
-				el(ELT_PATCH_SELECT).value = defaultSelection;
-			//}, 500);
+			el(ELT_PATCH_SELECT).value = defaultSelection;
 		}
-		updatePatchInfo(FOR_OUTPUT);
-		//el(ELT_PATCH_SELECT).value = "";
-		//updatePatchInfo(FOR_OUTPUT);
-	}
 
-	el(ELT_SHOW_ALL_CONTAINER).style.visibility = el(ELT_PATCH_SELECT).options.length ? "inherit" : "hidden"
+		if (!el(ELT_PATCH_SELECT).options.length) { // if the list ends up being empty...
+			if (showAllIfEmpty && !showAllVersions) {
+				el(ELT_SHOW_ALL_OPTION).checked = true;
+				return updatePatchSelect();
+			} else {
+				var emptyOpt = document.createElement("option");
+				emptyOpt.value = '';
+				emptyOpt.text = _('txtNoTranslation');
+				emptyOpt.hidden = emptyOpt.disabled = emptyOpt.selected = true;
+				el(ELT_PATCH_SELECT).add(emptyOpt);
+			}
+		}
+
+		updatePatchInfo(FOR_OUTPUT);
+		refreshUIState();
+	}
 }
 
 function clearPatchSelect() {
@@ -327,14 +338,14 @@ function updatePatchInfo(target) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
 			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
-			docLink.textContent =  _('txtReadDoc');
+			docLink.title = docLink.textContent =  _('txtReadDoc');
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
 
 		// Website
 		if (patchObj.parentProject.getWebsiteFallback()) {
 			var urlStr = patchObj.parentProject.getWebsiteFallback();
-			var text = _('txtVisitSite').replace("%", patchObj.getAuthorFallback());
+			var text = _('txtVisitSite').replace("%", patchObj.parentProject.getAuthorFallback());
 			addLinkToFrame(detailsDiv, text, urlStr, CLASS_INFO_WEBSITE);
 		}
 
@@ -356,18 +367,29 @@ function updatePatchInfo(target) {
 					}
 				});
 		}
+		
+		// Output-specific stuff, like button text
+		if (target == FOR_OUTPUT) {
+			if (!findRoute(gInputRomId, id)) {
+				el(ELT_APPLY).value = '⚠ ' + _('txtApplyPatch');
+			} else if (patchObj.isSameProjectAs(PATCH_VERSIONS[gInputRomId]) && patchObj.isLatestVersion()) {
+				el(ELT_APPLY).value = _('txtUpdate');
+			} else {
+				el(ELT_APPLY).value = _('txtApplyPatch');
+			}
+		}
 	}
 }
 
 function addLinkToFrame(frameElt, text, url, className) {
 	var websiteLink = document.createElement("a");
-	websiteLink.title = websiteLink.href = url;
+	websiteLink.href = url;
 	websiteLink.setAttribute("target", "_blank");
-	websiteLink.textContent = text;
+	websiteLink.title = websiteLink.textContent = text;
 	var urlObj = new URL(url);
 	var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 	var websiteDetails = document.createElement("span");
-	websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
+	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
 	websiteDetails.className = CLASS_INFO_LINK_HOST;
 	addEltsToFrame(frameElt, [websiteLink, websiteDetails], className);
 }
@@ -387,6 +409,7 @@ function addEltsToFrame(frameElt, eltsToAdd, className) {
 		if (typeof(eltsToAdd[i]) == "string") {
 			var textElt = document.createElement("span");
 			textElt.textContent = eltsToAdd[i];
+			textElt.title = eltsToAdd[i];
 			eltsToAdd[i] = textElt;
 		}
 		paragraph.appendChild(eltsToAdd[i]);
@@ -400,8 +423,7 @@ function reset() {
     updatePatchInfo(FOR_INPUT);
 	gPatchFiles = [];
 	setMessage(_('txtSpecifyRom'));
-	clearPatchSelect();
-	setUIBusy(false);
+	setUIState(false, false);
 }
 
 
@@ -415,7 +437,7 @@ function parseInputRom() {
 	};
 	gWorkerChecksum.onerror = event => {
 		setMessage(_(event.message.replace('Error: ','')), MSG_TYPE_ERROR);
-		setUIBusy(false);
+		setUIState(false);
 	};
 
 	if (gInputRom.readString(4).startsWith(ZIP_MAGIC)) {
@@ -428,12 +450,12 @@ function parseInputRom() {
 					gWorkerChecksum.postMessage({u8array:unzippedFile._u8array, startOffset:0}, [unzippedFile._u8array.buffer]);
 				} else {
 					setMessage(_('error_no_rom_in_zip'), MSG_TYPE_ERROR) // TODO errors
-					setUIBusy(false);
+					setUIState(false);
 				}
         	})
         	.catch(function() {
 				setMessage(_('error_unzipping'), MSG_TYPE_ERROR) // TODO errors
-				setUIBusy(false);
+				setUIState(false);
        	});
 	} else {
 		setMessage(_('txtAnalyzingRom'), MSG_TYPE_LOADING)
@@ -455,19 +477,20 @@ function onParsedInputRom(data) {
     }
 
     if (gInputRomId) {
-		setMessage(_('txtRomIdentified'));
+		setMessage(_('txtRomIdentified'), MSG_TYPE_OK);
 		updatePatchInfo(FOR_INPUT);
 		el(ELT_CHECKSUM).textContent = _('txtChecksum').replace('%', PATCH_VERSIONS[gInputRomId].getCrc());
 		el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameShortName()) : '';
-		updateOutputSelect();
+		el(ELT_SHOW_ALL_OPTION).checked = false;
+		updatePatchSelect(true);
 		setTimeout(function() {
 			setGameAnim(PATCH_VERSIONS[gInputRomId].getGameId());
-			setUIBusy(false);
+			setUIState(false, true);
 		}, 600);
 	} else {
         setMessage(_("error_unknown_rom"), MSG_TYPE_ERROR) // TODO errors
-		updateOutputSelect();
-		setUIBusy(false);
+		updatePatchSelect();
+		setUIState(false);
     }
 }
 
@@ -518,7 +541,7 @@ function findRoute(start, destination, currentRoute) {
 
 // Recursive function; applies list of patches to ROM according to the given route
 function processListOfPatches(rom, route, step) {
-	setUIBusy(true);
+	setUIState(true);
 
 	if (!rom) {
 		endProcessWithError(_("error_no_rom"));
@@ -678,14 +701,14 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 
 function endProcessWithError(errorMsg) {
 	setMessage(errorMsg, MSG_TYPE_ERROR);
-	setUIBusy(false);
+	setUIState(false);
 }
 
 function deliverFinalRom(finalRomFile, romId) {
 	finalRomFile.fileName=gInputRom.fileName.replace(/\.([^\.]*?)$/, ` (patched-${romId}).$1`);
 	finalRomFile.save();
-	setMessage(_('txtEndMsg'));
-	setUIBusy(false);
+	setMessage(_('txtEndMsg'), MSG_TYPE_OK);
+	setUIState(false);
 }
 
 

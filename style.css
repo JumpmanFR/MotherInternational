@@ -29,7 +29,7 @@
 	}
 }
 
-@media (max-width: 38em) {
+@media (max-width: 38rem) {
 	#title {
 		font-size: 2.9vw;
 		margin-bottom: 5vw !important;
@@ -43,23 +43,15 @@
 	.info-frame {
 		overflow-x: hidden;
 	}
-	.info-title {
-		-webkit-line-clamp: 2;
-		line-clamp: 2;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		box-orient: vertical;
-		overflow: hidden;
-	}
-	.info-nb-uses {
-		font-size: min(1em,4vw);
+	.info-references {
+		margin-left: 0.6em !important;
 	}
 }
 
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
-	margin-top: 4rem;
+	margin-top: 2rem;
 	width: fit-content;
 	text-align: center;
 }
@@ -91,7 +83,7 @@ body {
 
 .area {
 	vertical-align: middle;
-	height: 18.75rem;
+	height: 19.5rem;
 	width: 23.75rem;
 	display: inline-block;
 	margin: auto;
@@ -179,6 +171,18 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+#msg.error {
+	color: darkred;
+}
+#msg.error:before {
+	content: '✗ ';
+}
+#msg.warning:before {
+	content: '⚠ ';
+}
+#msg.ok:before {
+	content: '✓ ';
+}
 
 .loading {
 	width: 1.25em;
@@ -228,6 +232,10 @@ body {
 	width: 90%;
 	height: 1.8em;
 }
+#patch-select > option.unavailable {
+	color: grey;
+}
+
 #show-all-container {
 	white-space: nowrap;
 	display: inline-block;
@@ -266,6 +274,12 @@ body {
 .info-title {
 	font-weight: bold;
 	white-space: normal;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+	overflow: hidden;
 }
 .info-boxart {
 	width: 5rem;
@@ -275,7 +289,7 @@ body {
 	filter: drop-shadow(2px 2px 1px #00000030);
 }
 .info-references {
-	margin-left: 16px;
+	margin-left: 1rem;
 	max-width: calc(100% - 5rem - 1rem - 0.5em);
 	text-align: left;
 	display: inline-block;
@@ -289,6 +303,7 @@ body {
 }
 .info-references > p {
 	max-width: fit-content;
+	font-size: min(1em,4vw);
 }
 .info-references > p > * {
 	display: block;
@@ -326,6 +341,7 @@ body {
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-size: min(1em,4vw);
 }
 
 .info-loading > span:not(:last-child):after {
@@ -423,17 +439,17 @@ input[type=button], button {
 	max-width: min(45rem,90vw);
 	max-height: 80vh;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	margin: auto;
 	padding: 0.5em 0;
-	box-shadow: 0px 0px 10px #BBBBBB;
+	box-shadow: 0 0 0.7em #BBBBBB;
 	border-radius: 0.63rem;
 	border: 0.25rem solid white;
 }
 #about-window-inside {
 	min-height: 100%;
 	position: relative;
-	overflow: auto;
+	overflow-y: auto;
 }
 #about-window-layer.closed-credits, #about-window.closed-credits {
 	visibility: hidden;
