@@ -28,7 +28,6 @@ var gIsBusy, gIsInputDone;
 var gFlagEmojiSupported;
 
 var gInputRom, gInputRomId;
-var gPatchFiles = [];
 
 var gStatsAlreadySent = [];
 
@@ -128,7 +127,7 @@ function onSelectPatch(value) {
 function setLanguage(langId) {
 	langId = langId || LANG_DEFAULT;
 	gUserLanguage = LOCALIZATION[langId] || {};
-	gUserLanguage.id = langId;
+	Utils.langId = langId;
 
 	gDefaultLanguage = LOCALIZATION[LANG_DEFAULT] || {};
 
@@ -232,9 +231,12 @@ function updatePatchSelect(showAllIfEmpty) {
 				el(ELT_PATCH_SELECT).add(opt);
 
 				if (!findRoute(inputId, cur)) {
-					opt.text += " " + _("txtDescIncompatible");
+					opt.text += " ⛔";
 					opt.className = CLASS_OPTION_UNAVAILABLE;
-				} else if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
+					continue;
+				}
+
+				if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
 					opt.text += " " + _("txtDescUpdate");
 				}
 
@@ -247,7 +249,7 @@ function updatePatchSelect(showAllIfEmpty) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
 				} else if (!inputObj.isAltLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
 					defaultSelectionCandidates.otherVersion = cur; // another version of the user’s input ROM
-				} else if (curObj.getLangId().startsWith(gUserLanguage.id)) {
+				} else if (curObj.getLangId().startsWith(Utils.langId)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (curObj.parentProject.isOfficial()) {
 					defaultSelectionCandidates.official = cur; // a basic, unpatched ROM
@@ -309,7 +311,7 @@ function updatePatchInfo(target) {
 
 		// Box art
 		var img = document.createElement("img");
-		img.src = PATCH_BOXARTS + patchObj.getGameId() + (patchObj.getLangId() == LANG_JAPANESE ? LANG_JAPANESE : "") + ".jpg";
+		img.src = PATCH_BOXARTS + patchObj.parentProject.getBoxart();
 		img.alt = patchObj.getGameFullName();
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
@@ -367,7 +369,7 @@ function updatePatchInfo(target) {
 					}
 				});
 		}
-		
+
 		// Output-specific stuff, like button text
 		if (target == FOR_OUTPUT) {
 			if (!findRoute(gInputRomId, id)) {
@@ -386,10 +388,8 @@ function addLinkToFrame(frameElt, text, url, className) {
 	websiteLink.href = url;
 	websiteLink.setAttribute("target", "_blank");
 	websiteLink.title = websiteLink.textContent = text;
-	var urlObj = new URL(url);
-	var baseUrl = urlObj.hostname.replace(/^www\./g,'');
 	var websiteDetails = document.createElement("span");
-	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace("%", baseUrl);
+	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace("%", Utils.getHostname(url));
 	websiteDetails.className = CLASS_INFO_LINK_HOST;
 	addEltsToFrame(frameElt, [websiteLink, websiteDetails], className);
 }
@@ -418,12 +418,16 @@ function addEltsToFrame(frameElt, eltsToAdd, className) {
 }
 
 function reset() {
+	setGameAnim();
+	setUIState(false, false);
+	// Input
 	gInputRom = null;
 	gInputRomId = null;
     updatePatchInfo(FOR_INPUT);
-	gPatchFiles = [];
+	el(ELT_ROM_LABEL).innerText = _('txtNoRom');
 	setMessage(_('txtSpecifyRom'));
-	setUIState(false, false);
+	// Output
+	clearPatchSelect();
 }
 
 

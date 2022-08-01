@@ -21,7 +21,7 @@ function PatchVersion(json) {
 		return json.extraNote;
 	}
 	this.isReversible = function() {
-		return !json.irreversible;
+		return !json.isOneWayOnly;
 	}
 	this.getBaseRomId = function() {
 		return json.baseRom || json.patchId;

@@ -261,6 +261,7 @@ body {
 }
 .info-frame p {
 	margin: 0.5rem 0;
+	line-height: 1.2em;
 }
 .info-frame > p {
 	padding: 0 0.125em;
@@ -269,7 +270,7 @@ body {
 	margin-top: 0.5rem;
 }
 .info-frame > p:last-child {
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.4rem;
 }
 .info-title {
 	font-weight: bold;

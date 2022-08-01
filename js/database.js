@@ -1,23 +1,14 @@
+// Language table for a few specific cases
 var LANG_LIST = {
-	[LANG_JAPANESE]:	{flag:'🇯🇵', name:'日本語'},
-	[LANG_ENGLISH]:		{flag:'🇬🇧', name:'English'},
-	[LANG_FRENCH]:		{flag:'🇫🇷', name:'français'},
-	[LANG_GERMAN]:		{flag:'🇩🇪', name:'Deutsch'},
-	[LANG_ITALIAN]:		{flag:'🇮🇹', name:'italiano'},
-	[LANG_SPANISH]:		{flag:'🇪🇸', name:'español'},
-	[LANG_SP_SPAIN]:	{flag:'🇪🇸', name:'español de España'},
-	[LANG_SP_MEXICO]:	{flag:'🇲🇽', name:'español americano'},
-	[LANG_SP_ARGENT]:	{flag:'🇦🇷', name:'español americano'},
-	[LANG_PORTUGUES]:	{flag:'🇵🇹', name:'português'},
-	[LANG_PT_PORTUG]:	{flag:'🇵🇹', name:'português de Portugal'},
-	[LANG_PT_BRAZIL]:	{flag:'🇧🇷', name:'português do Brasil'},
-	[LANG_POLISH]:		{flag:'🇵🇱', name:'polski'},
-	[LANG_DUTCH]:		{flag:'🇳🇱', name:'Nederlands'},
-	[LANG_RUSSIAN]:		{flag:'🇷🇺', name:'русский'},
-	[LANG_CHINESE]:		{flag:'🇨🇳', name:'中文'},
-	[LANG_KOREAN]:		{flag:'🇰🇷', name:'한국어'},
+	[LANG_JAPANESE]:	{flagId:'JP', boxartId:'j'},
+	[LANG_ENGLISH]:		{flagId:'GB'},
+	[LANG_SP_MEXICO]:	{nameId:'es-419'}, // same "Latin American Spanish" label
+	[LANG_SP_ARGENT]:	{nameId:'es-419'}, // same "Latin American Spanish" label
+	[LANG_CHINESE]:		{flagId:'CN'},
+	[LANG_KOREAN]:		{flagId:'KR'},
 }
 
+// Data table for the 4 supported games
 var GAMES_LIST = {
 	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'MOTHER 1 / EB Beginnings',	included:[ID_MOTHER_1]},
 	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'MOTHER 2 / EarthBound',		included:[ID_MOTHER_2]},
@@ -25,6 +16,7 @@ var GAMES_LIST = {
 	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',					included:[ID_MOTHER_3]},
 }
 
+// Table for all supported translation projects, without detailing the individual versions and patches released by these teams
 var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m1-ja',	game:ID_MOTHER_1,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m1-de',	game:ID_MOTHER_1,	lang:LANG_GERMAN,	latest:'1.0a1',	author:'G-TRANS'},
@@ -44,7 +36,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m2-itA',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.1',	author:'CRefice',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/EarthBound-Italian-Translation-COMPLETED'},
 	{projectId:'m2-itB',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.47',	author:'Vecna',				website:'https://romhacking.it/project/view/id/646'},
 	{projectId:'m2-pl',	game:ID_MOTHER_2,	lang:LANG_POLISH,	latest:'1.0.2',	author:'Voxar',				website:'https://www.romhacking.net/translations/5600/'},
-	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_PORTUG,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m12-ja',game:ID_MOTHER_1_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m12-ko',game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	latest:'1.1',	author:'아루미 & pjs',			website:'https://blog.naver.com/pjs0493/220591359815'},
@@ -52,7 +44,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-en',game:ID_MOTHER_1_2,	lang:LANG_ENGLISH,	latest:'1.0.1',	author:'Tomato',			website:'http://mother12.earthboundcentral.com/'},
 	{projectId:'m12-fr',game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	latest:'1.0',	author:'MotherVF',			website:'http://mother1vf.free.fr'},
 	{projectId:'m12-it',game:ID_MOTHER_1_2,	lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM'},
-	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_PORTUG,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',			website:'http://www.manyoteam.com/?p=32'},
@@ -65,9 +57,10 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'http://snifit.altervista.org/'},
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://www.romhacking.net/translations/5722/'},
 	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
-	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_PORTUG,latest:'1.0', 	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
-] );
+	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+], GAMES_LIST, LANG_LIST );
 
+// Table for all supported versions of the translations
 var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x282a5caa',	projectId:'m1-ja',	patchId:'m1-ja', 	patchExt:'.zip', baseRom:'m1-en',	hasDoc:false},
 	{crc:'0x8abea229',	projectId:'m1-de',	patchId:'m1-de10a', patchExt:'.zip', baseRom:'m1-en',	hasDoc:false,	version:'1.0a1'},
@@ -126,7 +119,7 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0xa323c029',	projectId:'m3-en',	patchId:'m3-en12',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.2'},
 	{crc:'0x8A3BC5A8',	projectId:'m3-en',	patchId:'m3-en13',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.3', 		author:'Tomato / Lorenzooone'},
 	{crc:'0x0e013b7b',	projectId:'m3-en',	patchId:'m3-en13f', patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.3+fix',	author:'Tomato / Lorenzooone',	website:'https://github.com/Lorenzooone/M3_Eng_1_3/releases/tag/1.3', extraNote:'Extra fix by Lorenzooone'},
-//	{crc:'0xd3c3b31c',	projectId:'m3-en',	patchId:'m3-en13hq',patchExt:'.xdelta',baseRom:'m3-en13',hasDoc:true,	version:'1.3 HQ',	author:'Tomato / Summer Dragonfly',	website:'https://github.com/MusicTheorist/MOTHER-3-HQ-Sound-Mixing-hack', extraNote:'HQ Sound Mixing hack included!', irreversible:true},
+//	{crc:'0xd3c3b31c',	projectId:'m3-en',	patchId:'m3-en13hq',patchExt:'.xdelta',baseRom:'m3-en13',hasDoc:true,	version:'1.3 HQ',	author:'Tomato / Summer Dragonfly',	website:'https://github.com/MusicTheorist/MOTHER-3-HQ-Sound-Mixing-hack', extraNote:'HQ Sound Mixing hack included!', isOneWayOnly:true},
 	{crc:'0x75a955a1',	projectId:'m3-es',	patchId:'m3-es10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.0'},
 	{crc:'0xc0cdfcf5',	projectId:'m3-fr',	patchId:'m3-fr10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.0'},
 	{crc:'0x72000342',	projectId:'m3-fr',	patchId:'m3-fr11',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	version:'1.1'},

@@ -1,28 +1,30 @@
-function PatchProject(json) {
-	//PatchProject.instances[id] = this;
+function PatchProject(json, game, langObj) {
 	this.versions = [];
 
 	this.getGameId = function() {
-		// TODO replace: Game.instances[json.game];?
 		return json.game;
 	}
 	this.getGameFullName = function() {
-		// TODO replace: getFullName();?
-		return GAMES_LIST[json.game].fullName;
+		return game.fullName;
 	}
 	this.getGameShortName = function() {
-		// TODO replace: getShortName();?
-		return GAMES_LIST[json.game].shortName;
+		return game.shortName;
 	}
-	this.getLangId = function() { // TODO remove if useless?
+	this.getLangId = function() {
 		return json.lang;
 	}
-	this.getLang = function() {
-		// TODO replace: Lang.instances[json.lang]?
-		return LANG_LIST[json.lang];
+	this.getLangName = function() {
+		var nameId = (langObj ? langObj.nameId || json.lang : json.lang);
+		return Utils.getLangName(nameId);
+	}
+	this.getLangFlag = function() {
+		return Utils.getFlagEmoji(langObj ? langObj.flagId || json.lang : json.lang);
+	}
+	this.getBoxart = function() {
+		return json.game + (langObj ? langObj.boxartId || "" : "") + ".jpg";
 	}
 	this.addVersion = function(patchVersion) { // argument is PatchVersion object
-		this.versions.push(patchVersion); // TODO change?
+		this.versions.push(patchVersion);
 		patchVersion.setParentProject(this);
 		json.latest = json.latest || [];
 		if (typeof(json.latest) == "string") {
@@ -49,18 +51,6 @@ function PatchProject(json) {
 	}
 }
 
-PatchProject.prototype.getLangName = function() {
-	// TODO replace: this.getLang().getName();?
-	return this.getLang().name;
-}
-PatchProject.prototype.getLangFlag = function() {
-	// TODO replace: this.getLang().getFlag();?
-	if (PatchProject.areFlagEmojiSupported()) {
-		return this.getLang().flag;
-	} else {
-		return "";
-	}
-}
 PatchProject.prototype.getVersions = function() {
 	return this.versions;
 }
@@ -88,11 +78,11 @@ PatchProject.prototype.getExtraNoteFallback = function() {
 
 PatchProject.prototype.getDesc = function(withGameTitle) {
 	var res = "";
-	res += this.getLangFlag() + " "; // TODO objet lang?
+	res += this.getLangFlag() + " ";
 	if (withGameTitle) {
-		res += this.getGameFullName() + " – "; // TODO objet games?
+		res += this.getGameFullName() + " – ";
 	}
-	res += this.getLangName() + " "; // TODO objet lang?
+	res += this.getLangName() + " ";
 	if (this.getAuthorFallback()) {
 		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}
@@ -109,34 +99,10 @@ PatchProject.prototype.toString = function() {
 	return this.getDesc(true);
 }
 
-PatchProject.createFromJson = function(fullJson) {
+PatchProject.createFromJson = function(fullJson, games, langs) {
 	var res = [];
 	for (var i in fullJson) {
-		res[fullJson[i].projectId] = new PatchProject(fullJson[i]);
+		res[fullJson[i].projectId] = new PatchProject(fullJson[i], games[fullJson[i].game], langs[fullJson[i].lang]);
 	}
 	return res;
-}
-
-PatchProject.areFlagEmojiSupported = function() {
-	if (PatchVersion.knownFlagEmojiSupport === undefined) {
-		var canvas = document.createElement("canvas");
-		canvas.height = 10;
-		canvas.width = canvas.height * 2;
-		var ctx = canvas.getContext("2d");
-		ctx.font = canvas.height + "px Arial";
-		ctx.fillText("🇬🇧", 0, canvas.height);
-		var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-		var i = 0;
-		while(i < data.length) {
-			if (data[i] !== data[i + 1] || data[i] !== data[i + 2]) {
-				knownFlagEmojiSupport = true;
-				return true;
-			}
-			i+=4;
-		}
-		PatchVersion.knownFlagEmojiSupport = false;
-		return false;
-	} else {
-		return PatchVersion.knownFlagEmojiSupport;
-	}
 }

@@ -14,7 +14,7 @@ const LOCALIZATION = {
 		'txtAnalyzingFile':			'Analyse du fichier…',
 		'txtAnalyzingRom':			'Analyse de la ROM…',
 		'txtRomIdentified':			'ROM reconnue !',
-		
+
 		'txtDownloading':			'Téléchargement du patch%…',
 		'txtUnzipping':				'Décompression…',
 		'txtApplyingPatch':			'Application du patch%…',
@@ -51,7 +51,7 @@ const LOCALIZATION = {
 		'error_crc_output':			'ROM générée invalide',
 		'error_crc_input':			'La ROM spécifiée est incorrecte',
 		'error_patching':			'Erreur lors de l’application du patch',
-		'error_no_patch_route':		'Votre ROM est déjà patchée de façon irréversible',
+		'error_no_patch_route':		'Impossible de dépatcher votre ROM déjà patchée',
 		'error_downloading':		'Erreur de téléchargement du patch',
 		'error_unzipping':			'Erreur de décompression',
 		'error_invalid_patch':		'Fichier de patch non reconnu',
@@ -135,7 +135,7 @@ const LOCALIZATION = {
 		'error_crc_output':			'Wrong output ROM',
 		'error_crc_input':			'Wrong input ROM',
 		'error_patching':			'Patching error',
-		'error_no_patch_route':		'Your ROM already includes an irreversible patch',
+		'error_no_patch_route':		'Couldn’t unpatch your already patched ROM',
 		'error_downloading':		'Downloading error',
 		'error_unzipping':			'Unzipping error',
 		'error_invalid_patch':		'Unidentified patch file',

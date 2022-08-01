@@ -77,9 +77,7 @@ function initCreditsSelect() {
 		if (url = selected.getWebsiteFallback()) {
 			if (!window.open(url, '_blank')) {
 				var author = selected.getAuthorFallback();
-				var urlObj = new URL(url);
-				var baseUrl = urlObj.hostname.replace(/^www\./g,'');
-				if (window.confirm(_('txtAboutAllTransSiteAsk').replace('%',author).replace('‰',baseUrl))) { // for devices like iOS that don’t allow window.open
+				if (window.confirm(_('txtAboutAllTransSiteAsk').replace('%',author).replace('‰',Utils.getHostname(url)))) { // for devices like iOS that don’t allow window.open
 					window.location.href = url;
 				}
 			}

@@ -15,7 +15,7 @@ The gameId for the relevant game: "m1", "m2", "m3" or "m12". They’ve been stor
 
 lang (mandatory)
 ================
-Represents the language the game has been translated to. You need to use a language code as specified by ISO 639-1 because the program checks the user’s browser settings to automatically suggest them the corresponding translation. It’s generally a two-letter string ("ja" for "Japanese"), sometimes followed by the country ("pt-BR" for Brazilian Portuguese). Many languages codes are already stored as constants (LANG_JAPANESE, LANG_ENGLISH, LANG_FRENCH, etc.) so it’s better to use these identifiers. Please refer to consts.js. If the language you’re looking for is not listed there, please visit https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes to find the language code you’re looking for and add a constant to consts.js
+Represents the language the game has been translated to. You need to use a language code as specified by ISO 639-1 because the program checks the user’s browser settings to automatically suggest them the corresponding translation. It’s generally a pair of two-letter strings, separated by a dash, to indicate the language and the country ("pt-BR" for Brazilian Portuguese). The country part allows us to display a flag in the UI in front of the corresponding language. Many languages codes are already stored as constants (LANG_JAPANESE, LANG_ENGLISH, LANG_FRENCH, etc.) so it’s better to use these identifiers. Please refer to consts.js. If the language you’re looking for is not listed there, please visit https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes to find the language code you’re looking for and add a constant to consts.js
 
 latest (strongly recommended)
 =============================
@@ -69,6 +69,10 @@ baseRom (mandatory*)
 ====================
 The ROM for which the patch file is made. Patch files that you’ll upload on the server are made to work with a specific ROM, that’s the one. But you won’t write any filename here. Instead, just specify the patchId that corresponds to that original, untranslated ROM, in this same table.
 * Of course, if you didn’t specify a patchExt, you won’t have to specify a baseRom as well; please see above.
+
+isOneWayOnly (mandatory*)
+=========================
+This program takes advantage of a special feature the UPS format has: the ability to apply patches in reverse, or, in other words, to "unpatch". That’s what allows the user to input just any ROM, already translated or not, that the program will then unpatch and re-patch into another language. If the patch file you’re including is not an UPS patch (and, as far as I know, only UPS patches can do that), then you’ll have to specify your patch is incompatible with the "unpatch" feature by setting this boolean field to true. Otherwise, you can omit it.
 
 hasDoc (optional)
 =================
