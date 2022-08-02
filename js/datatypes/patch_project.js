@@ -81,8 +81,10 @@ PatchProject.prototype.getDesc = function(withGameTitle) {
 	res += this.getLangFlag() + " ";
 	if (withGameTitle) {
 		res += this.getGameFullName() + " – ";
+		res += this.getLangName() + " ";
+	} else {
+		res += Utils.capitalizeFirstLetter(this.getLangName()) + " ";
 	}
-	res += this.getLangName() + " ";
 	if (this.getAuthorFallback()) {
 		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}

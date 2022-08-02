@@ -1,5 +1,14 @@
 Utils = {};
 
+Utils.toHex = function (value) {
+	var hex = new Number(value).toString(16);
+	return '0x' + hex.padStart(8, '0');
+}
+
+Utils.capitalizeFirstLetter = function (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 Utils.getLangName = function (id) {
 	var localLangNames = new Intl.DisplayNames([Utils.langId], { type: 'language', style: 'narrow', languageDisplay:'dialect' })
 	return localLangNames.of(id).replace(/ \(....+\)/g, '');

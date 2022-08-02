@@ -29,6 +29,89 @@ function PatchVersion(json) {
 	this.isSpecialHidden = function() { // things such as «EarthBound rom with header, sometimes used as in input»
 		return !!json.isSpecialHidden;
 	}
+	
+	this.requestPatchUsage = function() {
+		var _this = this;
+		return new Promise((successCallback, failureCallback) => {
+			var preSuccess = function(result) {
+				_this.usage = result;
+				successCallback(result);
+			}
+
+			if (_this.usage) {
+				preSuccess(_this.usage);
+			} else if (!STATS_FAKE) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', `${STATS_VALUE_URL}&${STATS_VALUE_PARAM}=${json.patchId}`);
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							preSuccess(xhr.responseText);
+						} else {
+							failureCallback();
+						}
+					}
+				};
+				xhr.onerror = function() {
+					failureCallback();
+				}
+				xhr.send('');
+			} else {
+				console.log(`FAKE server request: number of uses for patch ${json.patchId}`); 
+				setTimeout(function () {
+					var fakeValue = Math.floor(Math.random() * 1000);
+					console.log(`FAKE server response: returning ${fakeValue} uses for patch ${json.patchId}`); 
+					preSuccess(fakeValue + "🤥");
+				}, 2000);
+			}
+		});
+	}
+
+	this.incrementPatchUsage = function() {
+		var _this = this;
+		return new Promise((successCallback, failureCallback) => {
+			var preSuccess = function(result) {
+				if (result) {
+					_this.usage = result;
+					_this.usageIncremented = true;
+				}
+				successCallback(result);
+			}
+			if (_this.usageIncremented) { // don’t count a patchId twice for the same session
+				preSuccess(NaN);
+			} else if (!STATS_FAKE) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', STATS_INCREMENT_URL);
+				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							preSuccess(xhr.responseText);
+						} else {
+							failureCallback();
+						}
+					}
+				};
+				xhr.onerror = function() {
+					failureCallback();
+				}
+				xhr.send(`${STATS_INCREMENT_PARAM}=${json.patchId}`);
+			} else {
+				console.log(`FAKE server request: incrementation of uses for patch ${json.patchId}`); 
+				setTimeout(function () {
+					var fakeValue;
+					if (_this.usage) {
+						fakeValue = parseInt(_this.usage) + 1;
+					} else {
+						fakeValue = Math.floor(Math.random() * 1000);
+					}
+					console.log(`FAKE server response: incremented to ${fakeValue} uses for patch ${json.patchId}`); 
+					preSuccess(fakeValue + "🤥");
+				}, 2000);
+			}
+		});
+	}
+
 }
 
 PatchVersion.prototype.setParentProject = function(patchProject) {
@@ -82,8 +165,10 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 	res += this.parentProject.getLangFlag() + " ";
 	if (withGameTitle) {
 		res += this.getGameFullName() + " – ";
+		res += this.parentProject.getLangName() + " ";
+	} else {
+		res += Utils.capitalizeFirstLetter(this.parentProject.getLangName()) + " ";
 	}
-	res += this.parentProject.getLangName() + " ";
 	if (this.getVersionValue() && !this.isSpecialHidden()) {
 		res += _("txtDescVersion") + this.getVersionValue() + " ";
 	}
