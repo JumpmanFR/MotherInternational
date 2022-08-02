@@ -236,7 +236,7 @@ function updatePatchSelect(showAllIfEmpty) {
 					continue;
 				}
 
-				if (curObj.isLatestVersion() && inputObj.isSameProjectAs(curObj) && !inputObj.isSpecialHidden()) {
+				if (curObj.isUpdateOf(inputObj)) {
 					opt.text += " " + _("txtDescUpdate");
 				}
 
@@ -374,7 +374,7 @@ function updatePatchInfo(target) {
 		if (target == FOR_OUTPUT) {
 			if (!findRoute(gInputRomId, id)) {
 				el(ELT_APPLY).value = '⚠ ' + _('txtApplyPatch');
-			} else if (patchObj.isSameProjectAs(PATCH_VERSIONS[gInputRomId]) && patchObj.isLatestVersion()) {
+			} else if (patchObj.isUpdateOf(PATCH_VERSIONS[gInputRomId])) {
 				el(ELT_APPLY).value = _('txtUpdate');
 			} else {
 				el(ELT_APPLY).value = _('txtApplyPatch');

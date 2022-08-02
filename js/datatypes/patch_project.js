@@ -1,4 +1,4 @@
-function PatchProject(json, game, langObj) {
+function PatchProject(json, game, lang) {
 	this.versions = [];
 
 	this.getGameId = function() {
@@ -14,14 +14,14 @@ function PatchProject(json, game, langObj) {
 		return json.lang;
 	}
 	this.getLangName = function() {
-		var nameId = (langObj ? langObj.nameId || json.lang : json.lang);
+		var nameId = (lang ? lang.nameId || json.lang : json.lang);
 		return Utils.getLangName(nameId);
 	}
 	this.getLangFlag = function() {
-		return Utils.getFlagEmoji(langObj ? langObj.flagId || json.lang : json.lang);
+		return Utils.getFlagEmoji(lang ? lang.flagId || json.lang : json.lang);
 	}
 	this.getBoxart = function() {
-		return json.game + (langObj ? langObj.boxartId || "" : "") + ".jpg";
+		return json.game + (lang ? lang.boxartId || "" : "") + ".jpg";
 	}
 	this.addVersion = function(patchVersion) { // argument is PatchVersion object
 		this.versions.push(patchVersion);

@@ -55,6 +55,9 @@ PatchVersion.prototype.getLangId = function() {
 PatchVersion.prototype.isSameProjectAs = function(targetVersion) {
 	return this.parentProject && (this.parentProject == targetVersion.parentProject);
 }
+PatchVersion.prototype.isUpdateOf = function(targetVersion) {
+	return this.isSameProjectAs(targetVersion) && this.isLatestVersion() && !targetVersion.isAltLatestVersion() && !targetVersion.isSpecialHidden();
+}
 
 PatchVersion.prototype.isLatestVersion = function() {
 	if (this.parentProject) {
