@@ -75,10 +75,10 @@ const LANG_KOREAN	 = 'ko';
 
 const LANG_DEFAULT = LANG_ENGLISH;
 
-const STATS_FAKE = true;                        // Change it use the real patch usage data!
-const STATS_VALUE_URL = "getpatchusage.php";
+const STATS_FAKE = false;                        // Change it use the real patch usage data!
+const STATS_VALUE_URL = "php/getpatchusage.php";
 const STATS_VALUE_PARAM = "patchId";
-const STATS_INCREMENT_URL = "addpatchusage.php";
+const STATS_INCREMENT_URL = "php/addpatchusage.php";
 const STATS_INCREMENT_PARAM = "patchId";
 
 const MAIL_ADDRESS = 'contact@mother4ever.net';

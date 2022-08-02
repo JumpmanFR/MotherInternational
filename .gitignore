@@ -4,3 +4,5 @@
 *.nes
 .smbdelete*
 .DS_Store
+wip
+php/passwords.php

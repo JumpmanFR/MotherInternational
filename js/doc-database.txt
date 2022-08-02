@@ -6,7 +6,7 @@ If you want to add a new translation that isn’t an more recent version of anot
 
 projectId (mandatory)
 ====================
-Put any name to identify the translation project. This identifier will be referred to elsewhere. There is a naming convention, so even if it’s not absolutely needed, it would be better if you follow it for clarity and consistency. The convention is as follows: gameId (can be "m1", "m2", "m3" or "m12" to represent the game), dash, language code (two-letters, like "en" for English and "ja" for Japanese as specified by ISO 639-1). For example, "m12-pl" means "Mother 1+2 in Polish". An upper-case letter can be added to distinguish multiple translations made by different teams: "m2-esA" and "m2-esB" designate two different Spanish translation projects for Mother 2.
+Put any name to identify the translation project. This identifier is unique and will be referred to elsewhere. There is a naming convention, so even if it’s not absolutely needed, it would be better if you follow it for clarity and consistency. The convention is as follows: gameId (can be "m1", "m2", "m3" or "m12" to represent the game), dash, language code (two-letters, like "en" for English and "ja" for Japanese as specified by ISO 639-1). For example, "m12-pl" means "Mother 1+2 in Polish". An upper-case letter can be added to distinguish multiple translations made by different teams: "m2-esA" and "m2-esB" designate two different Spanish translation projects for Mother 2.
 Please note the original games and official translations also need to have a projectId, so that the program can identify these ROMs as well.
 
 game (mandatory)
@@ -57,7 +57,7 @@ The same projectId you’ve specified in the patch project table. It allows the 
 
 patchId (mandatory)
 ===================
-You’ll have to give an id to all included patches. The id can be any string, but it has to match the name (without extension) of the included patch file and the associated readme file on the server. For example, if patchId is "foo", the readme file must be named foo.txt, and the patch file must be named foo.ups, foo.zip, foo.ips or any other extension. There is a naming convention for the patchId as well: it starts with the projectId, to which you append an abbreviated form of the version number. For example, "m3-fr19" means "Mother 3 in French version 1.9".
+You’ll have to give a unique id to each included patches. The id can be any string, but it has to match the name (without extension) of the included patch file and the associated readme file on the server. For example, if patchId is "foo", the readme file must be named foo.txt, and the patch file must be named foo.ups, foo.zip, foo.ips or any other extension. There is a naming convention for the patchId as well: it starts with the projectId, to which you append an abbreviated form of the version number. For example, "m3-fr19" means "Mother 3 in French version 1.9".
 You’ll need to specify a "patchId" for the original, unpatched game as well, even though there is no patch file associated to it. So maybe the name "patchId" isn’t the best choice for this field, but whatever.
 
 patchExt (mandatory*)

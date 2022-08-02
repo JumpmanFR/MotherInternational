@@ -29,7 +29,7 @@ function PatchVersion(json) {
 	this.isSpecialHidden = function() { // things such as «EarthBound rom with header, sometimes used as in input»
 		return !!json.isSpecialHidden;
 	}
-	
+
 	this.requestPatchUsage = function() {
 		var _this = this;
 		return new Promise((successCallback, failureCallback) => {
@@ -42,10 +42,10 @@ function PatchVersion(json) {
 				preSuccess(_this.usage);
 			} else if (!STATS_FAKE) {
 				var xhr = new XMLHttpRequest();
-				xhr.open('GET', `${STATS_VALUE_URL}&${STATS_VALUE_PARAM}=${json.patchId}`);
+				xhr.open('GET', `${STATS_VALUE_URL}?${STATS_VALUE_PARAM}=${json.patchId}`);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === XMLHttpRequest.DONE) {
-						if (xhr.status === 200) {
+						if (xhr.status === 200 && xhr.responseText) {
 							preSuccess(xhr.responseText);
 						} else {
 							failureCallback();
@@ -57,10 +57,10 @@ function PatchVersion(json) {
 				}
 				xhr.send('');
 			} else {
-				console.log(`FAKE server request: number of uses for patch ${json.patchId}`); 
+				console.log(`FAKE server request: number of uses for patch ${json.patchId}`);
 				setTimeout(function () {
 					var fakeValue = Math.floor(Math.random() * 1000);
-					console.log(`FAKE server response: returning ${fakeValue} uses for patch ${json.patchId}`); 
+					console.log(`FAKE server response: returning ${fakeValue} uses for patch ${json.patchId}`);
 					preSuccess(fakeValue + "🤥");
 				}, 2000);
 			}
@@ -85,7 +85,7 @@ function PatchVersion(json) {
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === XMLHttpRequest.DONE) {
-						if (xhr.status === 200) {
+						if (xhr.status === 200 && xhr.responseText) {
 							preSuccess(xhr.responseText);
 						} else {
 							failureCallback();
@@ -97,7 +97,7 @@ function PatchVersion(json) {
 				}
 				xhr.send(`${STATS_INCREMENT_PARAM}=${json.patchId}`);
 			} else {
-				console.log(`FAKE server request: incrementation of uses for patch ${json.patchId}`); 
+				console.log(`FAKE server request: incrementation of uses for patch ${json.patchId}`);
 				setTimeout(function () {
 					var fakeValue;
 					if (_this.usage) {
@@ -105,7 +105,7 @@ function PatchVersion(json) {
 					} else {
 						fakeValue = Math.floor(Math.random() * 1000);
 					}
-					console.log(`FAKE server response: incremented to ${fakeValue} uses for patch ${json.patchId}`); 
+					console.log(`FAKE server response: incremented to ${fakeValue} uses for patch ${json.patchId}`);
 					preSuccess(fakeValue + "🤥");
 				}, 2000);
 			}

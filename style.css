@@ -51,7 +51,7 @@
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
-	margin-top: 2rem;
+	margin-top: 3rem;
 	width: fit-content;
 	text-align: center;
 }
@@ -398,7 +398,7 @@ input[type=button], button {
 
 #about-btn {
 	display: block;
-	margin: 1.9em;
+	margin: 2.5rem;
 }
 #about-close-btn {
 	top: 0;
