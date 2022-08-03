@@ -51,7 +51,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-ko',	game:ID_MOTHER_3,	lang:LANG_KOREAN,	latest:'1.0',	author:'pjs',				website:'http://blog.naver.com/pjs0493/220392308242'},
 	{projectId:'m3-de',	game:ID_MOTHER_3,	lang:LANG_GERMAN,	latest:'1.1',	author:'Madokami',			website:'https://github.com/Madokamiiiiii/Mother3German/releases'},
 	{projectId:'m3-en',	game:ID_MOTHER_3,	lang:LANG_ENGLISH,	latest:['1.3','1.3+fix', '1.3 HQ'],author:'Tomato',	website:'http://mother3.fobby.net/'},
-	{projectId:'m3-es',	game:ID_MOTHER_3,	lang:LANG_SPANISH,	latest:'1.0',	author:'Jimmytrius',		website:'http://mother3spanish.blogspot.com/'},
+	{projectId:'m3-es',	game:ID_MOTHER_3,	lang:LANG_SP_SPAIN,	latest:'1.0',	author:'Jimmytrius',		website:'http://mother3spanish.blogspot.com/'},
 	{projectId:'m3-fr',	game:ID_MOTHER_3,	lang:LANG_FRENCH,	latest:'1.9',	author:'MotherVF',			website:'http://mother3vf.free.fr/'},
 	{projectId:'m3-itA',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.1.1',	author:'Lorenzooone',		website:'https://www.romhacking.net/translations/2473/'},
 	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'http://snifit.altervista.org/'},
