@@ -2,14 +2,16 @@
 ## GENERAL PROCEDURE
 ### NEW PROJECT OR NEW VERSION
 There are two possibilites when you want to add a new patch into Mother International: either you want to include a new version of an existing translation project already supported by the program, or you want to include an all-new translation that has never been included into Mother International.
-In the former case, you’ll just have to create a new Version, by specifying a new patchId and adding a new entry in the Versions Table.
-In the latter case, however, you’ll have to create a new Project first, with a new projectId and a new entry in the Projects Table, and then, you’ll **also** create a new Version as stated before.
+
+In the former case, you’ll just have to create a new Version, by specifying a new patchId and adding a new entry in the Versions Table.\
+In the latter case, however, you’ll have to create a new Project first, with a new projectId and a new entry in the Projects Table, and then, you’ll **also** create a new Version as stated before.\
 
 In both cases though, you’ll need to know what your projectId and patchId are, before editing both tables. So please read the following sections to learn how to put them together.
 
 #### projectId
-Let’s start with the projectId. It starts with a *gameId* which can be `m1`, `m2`, `m12` or `m3` depending on the relevant game, respectively MOTHER 1 (EarthBound Beginnings), MOTHER 2 (EarthBound), MOTHER 1+2 or MOTHER 3. Then, it’s followed by a dash. Next is the language code for the relevant language, which is a 2-letter code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Finally, an upper-case letter can be added to distinguish multiple translation projects for the same game in the same language, when necessary.
+Let’s start with the projectId. It starts with a *gameId* which can be `m1`, `m2`, `m12` or `m3` depending on the relevant game, respectively MOTHER 1 (EarthBound Beginnings), MOTHER 2 (EarthBound), MOTHER 1+2 or MOTHER 3. Then, it’s followed by a dash. Next is the language code for the relevant language, which is a 2-letter code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Finally, an upper-case letter can be added to distinguish multiple translation projects for the same game in the same language, when necessary.\
 You’ll notice the official, untranslated games also have a projectId and patchId!
+
 Examples:
 * `m3-ja` means MOTHER 3 in Japanese
 * `m12-pl` means MOTHER 1+2 in Polish
@@ -17,6 +19,7 @@ Examples:
 
 #### patchId
 For the patchId, simply append an abbreviated form of the version number to the projectId.
+
 Examples:
 * `m3-fr19` means MOTHER 3 in French version 1.9
 * `m2-esA33b` means MOTHER 2 in Spanish, ShadowOne333’s translation (which is project `A`), version 3.3.3 January 2018 build (here called `b`)
@@ -34,15 +37,16 @@ Once you’re done putting the patch and readme files into the server, it’s ti
 
 ## DATABASE TABLES
 Please open `js/database.js`. You’ll find two big tables there. One is the Projects Table, called `PATCH_PROJECTS`, and the other one is the Versions Table, called `PATCH_VERSIONS`.
-You’ll have to add an entry to both of them if you’re adding an entirely new translation.
+
+You’ll have to add an entry to both of them if you’re adding an entirely new translation.\
 On the other hand, if you’re adding a new version of an existing translation that Mother International already knows, then an entry already exists in the Project Table for this translation. Just edit the `latest` field (see below) in this entry to change the latest version, and then, head to the next section for the Versions Table.
 
 ### PROJECTS TABLE
-This table is an array of objects. To add a new translation project, just add a new entry in the table and fill in the fields as specified below.
+This table is an array of objects. To add a new translation project, just add a new entry in the table and fill in the fields as specified below.\
 All fields are strings unless otherwise stated.
 
 #### projectId *(mandatory)*
-You already know this one. If not, please read the first section. Then please fill in this field with the projectId for the new translation.
+You already know this one. If not, please read the first section. Then please fill in this field with the projectId for the new translation.\
 Please note the original games and official translations also need to have a projectId, so that the program can identify these ROMs as well.
 
 #### game *(mandatory)*
@@ -52,7 +56,7 @@ The gameId for the relevant game: `m1`, `m2`, `m3` or `m12`. They’ve been stor
 Represents the language the game has been translated to. Should be written as a 2-letter language code, followed by a dash and by a 2-letter country code (`pt-BR` for Brazilian Portuguese). The language code should be as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) because the program checks the user’s browser settings to automatically suggest them the corresponding translation. The country part should be as specified by [ISO_3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), it’s not always mandatory (especially when it’s the same as the language code) but it allows the UI to display a flag in front of the corresponding language, so you may need to put it to make sure the right flag is displayed (the GB one for English, for example). Many language+country code pairings are already stored as constants (LANG_JAPANESE, LANG_ENGLISH, LANG_FRENCH, etc.) so it’s better to use these identifiers. Please refer to js/consts.js. If the language you’re looking for is not listed there, please refer to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and [ISO_3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) to specify the right constant value and add it to consts.js.
 
 #### latest *(strongly recommended)*
-The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. Can be any type of version number, like "1.0.2", "1.3+fix", or even the release date. Of course, you’ll have to respect the naming used by the translation team. If there’s only one version of this patch, you may omit to fill in this field, but it may lead to issues when a new version of this translation is released and added to Mother International. Also, please note the version number you put here allows the program to know which version to show first, so it also needs to be present for the relevant version in the Versions Table. Please make sure you wrote the exact same value in both tables.
+The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. Can be any type of version number, like "1.0.2", "1.3+fix", or even the release date. Of course, you’ll have to respect the naming used by the translation team. If there’s only one version of this patch, you may omit to fill in this field, but it may lead to issues when a new version of this translation is released and added to Mother International. Also, please note the version number you put here allows the program to know which version to show first, so it also needs to be present for the relevant version in the Versions Table. Please make sure you wrote the exact same value in both tables.\
 Optionally, this field may also be an array of strings, if you think two or more versions are worth appearing in the UI by default. In that case, the real latest version must be the first item in the array.
 
 #### author *(mandatory\*)*
@@ -63,7 +67,7 @@ The name of the translation team, or alternatively, the project leader. Apart fr
 The website URL for this translation project; the one that showcases it the best. Can be a page on romhacking.net or a forum post if nothing else was found. Must be entered as a full, absolute URL. If not filled in, the program will check the website field in the Versions Table as well.
 
 #### extraNote *(optional)*
-A short note you may want to add in case this translation is unconventional and has something specific about it. It may have a special flair to it, or be created with a specific intention. Or, it may be incomplete. But this field here has to apply to all versions of the translation. So in most cases, it may be preferable to fill in the corresponding field in the Versions Table instead.
+A short note you may want to add in case this translation is unconventional and has something specific about it. It may have a special flair to it, or be created with a specific intention. Or, it may be incomplete. But this field here has to apply to all versions of the translation. So in most cases, it may be preferable to fill in the corresponding field in the Versions Table instead.\
 Ideally, this field should be written in the same language as the corresponding translation, because the UI of Mother International is localized as well and we can’t afford to add an extra note for every possible language.
 
 #### isOfficial *(optional)*
@@ -71,15 +75,15 @@ A boolean field to indicate this is an official game. Like the English version o
 
 
 ### VERSIONS TABLE
-All supported versions of the games need to be listed here, which means, all the translations, but also the original, unpatched games. Of course we’re not putting the ROM files on the site, but they must be "known" by the system, and the corresponding patches still need to be available on the server.
+All supported versions of the games need to be listed here, which means, all the translations, but also the original, unpatched games. Of course we’re not putting the ROM files on the site, but they must be "known" by the system, and the corresponding patches still need to be available on the server.\
 Please don’t remove the old versions that appear in this table. The program will only suggest the most recent ones by default, but it needs to be able to identify and update/translate an old ROM if the user inputs it. That’s the other purpose of this table.
 
 #### crc *(mandatory)*
 The [CRC-32](https://emn178.github.io/online-tools/crc32_checksum.html) checksum for the translated/associated ROM (not the patch!). The program needs this field to identify the ROM in case it has been input by the user, and, in the other way around, to check the ROM integrity after the patching process. So, please be sure you wrote it right. You’ll have to write it as a hexadecimal string that starts with "0x" (that’s a zero!).
 
 #### projectId *(mandatory)*
-You already know this one. If not, please read the first section.
-Here, you’ll enter the projectId for the project this patch is associated to. This projectId also needs to be present in the Projects Table. 
+You already know this one. If not, please read the first section.\
+Here, you’ll enter the projectId for the project this patch is associated to. This projectId also needs to be present in the Projects Table.\
 This field allows the program to link the translation project and the associated versions together.
 
 #### patchId *(mandatory)*
@@ -101,18 +105,18 @@ This program takes advantage of a special feature the UPS format has: the abilit
 This time, it must be a boolean, and the field will be interpreted as false if omitted. It specifies if this version of the translation includes a readme file. If included, the readme file must be a text file with the ".txt" extension, and it must be present in the "patches" folder. Its name must match the "patchId" field.
 
 #### version *(strongly recommended)*
-The version of the patch made by the translation team. Yeah, as a translator you can’t always get it perfectly right on the first try, so this table includes all versions and patches as opposed to the Projects Table which lists the translation projects in general. The version field can be any string, but generally follows a 1.2 / 1.2.3 format.
-You may omit this field if a translation only has one version, but just give it a good old "1.0" number for future-proofness.
+The version of the patch made by the translation team. Yeah, as a translator you can’t always get it perfectly right on the first try, so this table includes all versions and patches as opposed to the Projects Table which lists the translation projects in general. The version field can be any string, but generally follows a 1.2 / 1.2.3 format.\
+You may omit this field if a translation only has one version, but I’d suggest just giving it a good old "1.0" number for future-proofness.
 
 #### author *(optional\*)*
-It may happen that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the author field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the auhtor field in the Projects Table section above.\
+It happens that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the author field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the auhtor field in the Projects Table section above.\
 *\* In case you didn’t specify an author for the project, you must specify an author here in the version table.*
 
 #### website *(optional)*
 In case there is a specific website for this version of the translation, that’s where you’ll put the URL. Also acts as a fallback for the project website if that one is omitted. Must be entered as a full, absolute URL.
 
 #### extraNote *(optional)*
-A short note you may want to add for this version of the translation, in case there is something special to know about it. Typically, that’s where you can indicate that a MOTHER 1+2 translation only includes the MOTHER 1 part. If you specified a website for this version, just above, then the extraNote will act as the text for the link in the UI.
+A short note you may want to add for this version of the translation, in case there is something special to know about it. Typically, that’s where you can indicate that a MOTHER 1+2 translation only includes the MOTHER 1 part. If you specified a website for this version, just above, then the extraNote will act as the text for the link in the UI.\
 Ideally, this field should be in the same language as the corresponding translation, because the UI of Mother International is localized as well and we can’t afford to add an extra note for every possible language.
 
 #### isSpecialHidden *(optional)*
