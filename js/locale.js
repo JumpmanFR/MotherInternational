@@ -1,4 +1,88 @@
 const LOCALIZATION = {
+	'en':
+	{
+		'txtTitleBottom':			'International',
+		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
+
+		'txtBrowse':				'Browse…',
+		'txtNoRom':					'No ROM specified',
+
+		'txtSpecifyRom':			'Please specify the ROM to patch',
+		'txtApplyPatch':			'Apply patch',
+		'txtUpdate':				'Update',
+
+		'txtAnalyzingFile':			'Analyzing file…',
+		'txtAnalyzingRom':			'Analyzing ROM…',
+		'txtRomIdentified':			'ROM identified!',
+		'txtDownloading':			'Downloading patch%…',
+		'txtUnzipping':				'Unzipping…',
+		'txtApplyingPatch':			'Applying patch%…',
+		'txtZipping':				'Creating zip file…',
+		'txtFinalizing':			'Finalizing…',
+		'txtEndMsg':				'Your patched ROM is ready!',
+
+		'txtChecksum':				'CRC-32 checksum: %',
+
+		'txtAllTranslations':		'Available options for %:',
+		'txtNoTranslation':			'No translation available',
+		'txtShowAllVersions':		'Show all versions',
+
+		'txtDescVersion':			'v',
+		'txtDescBy':				'by',
+		'txtDescUpdate':			'(update)',
+		'txtDescOfficial':			'(official)',
+		'txtDescIncompatible':		'(incompatible)',
+		'txtVisitSite':				'%’s webpage',
+		'txtVisitSiteAt':			'at %',
+		'txtUpdateInfo':			'Version info',
+		'txtReadDoc':				'Readme file',
+
+		'txtNbUses':				'Number of uses for this patch: %',
+		'txtNbUsesUnknown':			'unknown',
+
+		'txtReadmeFile':			'readme',
+
+		'error_no_rom':				'No ROM specified',
+		'error_no_rom_info':		'This ROM hasn’t been analyzed',
+		'error_already_patched':	'This ROM has already been patched',
+		'error_unknown_rom':		'Unknown ROM',
+		'error_no_rom_in_zip':		'No ROM has been found in this zip file',
+		'error_crc_output':			'Wrong output ROM',
+		'error_crc_input':			'Wrong input ROM',
+		'error_patching':			'Patching error',
+		'error_no_patch_route':		'Couldn’t unpatch your already patched ROM',
+		'error_downloading':		'Downloading error',
+		'error_unzipping':			'Unzipping error',
+		'error_invalid_patch':		'Unidentified patch file',
+		'error_crc_patch':			'Wrong patch file',
+		'warning_too_big':			'Too big files',
+		'Not Found':				'A patch file was not found',
+
+		'txtAbout':					'About',
+
+		'txtCredits':				'Credits',
+		'txtCreditsDesign':			'Design',
+		'txtCreditsProgramming':	'Programming',
+		'txtCreditsAnimations':		'Animations',
+		'txtCreditsLegacy':			'Legacy app',
+		'txtCreditsPlayer':			'Player',
+		'txtCreditsPlayerYou':		'You!',
+
+		'txtAboutFreeProg1':		'Mother International is a free to use program.',
+		'txtAboutFreeProg2':		'This program is not for sale.',
+		'txtAboutSource':			'The source code of Mother International is % under the ‰.',
+		'txtAboutSourceGitHub':		'distributed',
+		'txtAboutSourceLicense':	'MIT license',
+		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
+		'txtAboutAllTranslations':	'All supported languages:',
+		'txtAboutAllTransLabel':	'– Select to access webpage –',
+		'txtAboutAllTransNoSite':	'No registered webpage for %.',
+		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?',
+		'txtAboutTranslator1':		'If you’re a translator, feel free to %!',
+		'txtAboutTranslator2':		'contact us',
+		'txtAboutOldVersions':		'Get the previous versions of Mother International here',
+		'txtAboutVersion':			'Version %',
+	},
 	'fr':
 	{
 		'txtTitleBottom':			'International',
@@ -22,7 +106,7 @@ const LOCALIZATION = {
 		'txtFinalizing':			'Finalisation…',
 		'txtEndMsg':				'Votre ROM patchée est prête !',
 
-		'txtChecksum':				'Somme de contrôle CRC32 : %',
+		'txtChecksum':				'Somme de contrôle CRC-32 : %',
 
 		'txtAllTranslations':		'Options disponibles pour % :',
 		'txtNoTranslation':			'Aucune traduction n’est disponible',
@@ -84,88 +168,4 @@ const LOCALIZATION = {
 		'txtAboutOldVersions':		'Anciennes versions de Mother International',
 		'txtAboutVersion':			'Version %',
 	},
-	'en':
-	{
-		'txtTitleBottom':			'International',
-		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
-
-		'txtBrowse':				'Browse…',
-		'txtNoRom':					'No ROM specified',
-
-		'txtSpecifyRom':			'Please specify the ROM to patch',
-		'txtApplyPatch':			'Apply patch',
-		'txtUpdate':				'Update',
-
-		'txtAnalyzingFile':			'Analyzing file…',
-		'txtAnalyzingRom':			'Analyzing ROM…',
-		'txtRomIdentified':			'ROM identified!',
-		'txtDownloading':			'Downloading patch%…',
-		'txtUnzipping':				'Unzipping…',
-		'txtApplyingPatch':			'Applying patch%…',
-		'txtZipping':				'Creating zip file…',
-		'txtFinalizing':			'Finalizing…',
-		'txtEndMsg':				'Your patched ROM is ready!',
-
-		'txtChecksum':				'CRC32 checksum: %',
-
-		'txtAllTranslations':		'Available options for %:',
-		'txtNoTranslation':			'No translation available',
-		'txtShowAllVersions':		'Show all versions',
-
-		'txtDescVersion':			'v',
-		'txtDescBy':				'by',
-		'txtDescUpdate':			'(update)',
-		'txtDescOfficial':			'(official)',
-		'txtDescIncompatible':		'(incompatible)',
-		'txtVisitSite':				'%’s webpage',
-		'txtVisitSiteAt':			'at %',
-		'txtUpdateInfo':			'Version info',
-		'txtReadDoc':				'Readme file',
-
-		'txtNbUses':				'Number of uses for this patch: %',
-		'txtNbUsesUnknown':			'unknown',
-
-		'txtReadmeFile':			'readme',
-
-		'error_no_rom':				'No ROM specified',
-		'error_no_rom_info':		'This ROM hasn’t been analyzed',
-		'error_already_patched':	'This ROM has already been patched',
-		'error_unknown_rom':		'Unknown ROM',
-		'error_no_rom_in_zip':		'No ROM has been found in this zip file',
-		'error_crc_output':			'Wrong output ROM',
-		'error_crc_input':			'Wrong input ROM',
-		'error_patching':			'Patching error',
-		'error_no_patch_route':		'Couldn’t unpatch your already patched ROM',
-		'error_downloading':		'Downloading error',
-		'error_unzipping':			'Unzipping error',
-		'error_invalid_patch':		'Unidentified patch file',
-		'error_crc_patch':			'Wrong patch file',
-		'warning_too_big':			'Too big files',
-		'Not Found':				'A patch file was not found',
-
-		'txtAbout':					'About',
-
-		'txtCredits':				'Credits',
-		'txtCreditsDesign':			'Design',
-		'txtCreditsProgramming':	'Programming',
-		'txtCreditsAnimations':		'Animations',
-		'txtCreditsLegacy':			'Legacy app',
-		'txtCreditsPlayer':			'Player',
-		'txtCreditsPlayerYou':		'You!',
-
-		'txtAboutFreeProg1':		'Mother International is a free to use program.',
-		'txtAboutFreeProg2':		'This program is not for sale.',
-		'txtAboutSource':			'The source code of Mother International is % under the ‰.',
-		'txtAboutSourceGitHub':		'distributed',
-		'txtAboutSourceLicense':	'MIT license',
-		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
-		'txtAboutAllTranslations':	'All supported languages:',
-		'txtAboutAllTransLabel':	'– Select to access webpage –',
-		'txtAboutAllTransNoSite':	'No registered webpage for %.',
-		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?',
-		'txtAboutTranslator1':		'If you’re a translator, feel free to %!',
-		'txtAboutTranslator2':		'contact us',
-		'txtAboutOldVersions':		'Get the previous versions of Mother International here',
-		'txtAboutVersion':			'Version %',
-	}
 };
