@@ -243,11 +243,13 @@ body {
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 }
+#show-all-container > * {
+	vertical-align: middle;
+}
 #show-all-option {
 	width: 1.1em;
 	height: 1.1em;
 	margin: 0.3em 0;
-	vertical-align: middle;
 }
 .info-frame {
 	background-color: #FFFFFF20;
