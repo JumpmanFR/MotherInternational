@@ -1,7 +1,7 @@
 // Language table for a few specific cases
 var LANG_LIST = {
 	[LANG_JAPANESE]:	{flagId:'JP', boxartId:'j'},
-	[LANG_ENGLISH]:		{flagId:'GB'},
+	[LANG_ENGLISH]:		{flagId:'GB', nameId: 'en'},
 	[LANG_SP_MEXICO]:	{nameId:'es-419'}, // same "Latin American Spanish" label
 	[LANG_SP_ARGENT]:	{nameId:'es-419'}, // same "Latin American Spanish" label
 	[LANG_CHINESE]:		{flagId:'CN'},
