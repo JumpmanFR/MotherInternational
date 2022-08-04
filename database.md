@@ -8,7 +8,7 @@ In the latter case, however, you’ll have to create a new Project first, with a
 In both cases though, you’ll need to know what your projectId and patchId are, before editing both tables. So please read the following sections to learn how to put them together.
 
 #### projectId
-Let’s start with the projectId. It starts with a *gameId* which can be `m1`, `m2`, `m12` or `m3` depending on the relevant game, respectively MOTHER 1 (EarthBound Beginnings), MOTHER 2 (EarthBound), MOTHER 1+2 or MOTHER 3. Then, it’s followed by a dash. Next is the language code for the relevant language, which is a 2-letter code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes. Finally, an upper-case letter can be added to distinguish multiple translation projects for the same game in the same language, when necessary.
+Let’s start with the projectId. It starts with a *gameId* which can be `m1`, `m2`, `m12` or `m3` depending on the relevant game, respectively MOTHER 1 (EarthBound Beginnings), MOTHER 2 (EarthBound), MOTHER 1+2 or MOTHER 3. Then, it’s followed by a dash. Next is the language code for the relevant language, which is a 2-letter code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Finally, an upper-case letter can be added to distinguish multiple translation projects for the same game in the same language, when necessary.
 You’ll notice the official, untranslated games also have a projectId and patchId!
 Examples:
 * `m3-ja` means MOTHER 3 in Japanese
@@ -56,7 +56,7 @@ The version name or number (as a string) used by the translation team for the mo
 Optionally, this field may also be an array of strings, if you think two or more versions are worth appearing in the UI by default. In that case, the real latest version must be the first item in the array.
 
 #### author *(mandatory\*)*
-The name of the translation team, or alternatively, the project leader. Apart from the names themselves, please avoid putting English words in this field: the UI of Mother International is localized. Maybe just put a "&" for "and", or use the language of the associated translation. For the original games, we just specify that the author is "Nintendo".
+The name of the translation team, or alternatively, the project leader. Apart from the names themselves, please avoid putting English words in this field: the UI of Mother International is localized. Maybe just put a "&" for "and", or use the language of the associated translation. For the original games, we just specify that the author is "Nintendo".\
 *\* In the Versions Table, there is also an author field that’s intended to override this one in the main UI if both of them are filled in. You have to fill in at least one of these two.*
 
 #### website *(optional)*
@@ -86,15 +86,15 @@ This field allows the program to link the translation project and the associated
 You should know this one as well, please refer to the first section. As already stated, the patchId should match the name of the included patch file and readme file.
 
 #### patchExt *(mandatory\*)*
-The extension to the patch file. It allows the program to fetch the right patch file, by appending this extension to the patchId. The dot must be included. The program supports multiple patch formats and also zip files, but the patch format is automatically detected and it doesn’t rely on the extension to identify it.
+The extension to the patch file. It allows the program to fetch the right patch file, by appending this extension to the patchId. The dot must be included. The program supports multiple patch formats and also zip files, but the patch format is automatically detected and it doesn’t rely on the extension to identify it.\
 *\* You don’t need to specify a patchExt field for the original, unpatched game because obviously there is no corresponding patch file on the server. But please consider that in our current database, the Japanese versions of MOTHER 1 and MOTHER 2 are treated technically as patched versions of the English games, because it allows the user to input any ROM, either English or Japanese (or other), and apply any patch to it. So don’t be surprised the Japanese versions still have a "patchExt".*
 
 #### baseRom *(mandatory\*)*
-The ROM for which the patch file is made. Patch files are intended to work with a specific ROM, that’s the one. But you won’t write any filename here. Instead, just specify the patchId that corresponds to that original, untranslated ROM, in this same table.
+The ROM for which the patch file is made. Patch files are intended to work with a specific ROM, that’s the one. But you won’t write any filename here. Instead, just specify the patchId that corresponds to that original, untranslated ROM, in this same table.\
 *\* Of course, if you didn’t specify a patchExt, you won’t have to specify a baseRom either; please see above.*
 
 #### isOneWayOnly *(mandatory\*)*
-This program takes advantage of a special feature the UPS format has: the ability to apply patches in reverse, or, in other words, to "unpatch". That’s what allows the user to input just any ROM, already translated or not, that the program will then unpatch and re-patch into another language. If the patch file you’re including is not an UPS patch (and, as far as I know, only UPS patches can do that), then you’ll have to specify your patch is incompatible with the "unpatch" feature by setting this boolean field to true. Otherwise, you can set it to false.
+This program takes advantage of a special feature the UPS format has: the ability to apply patches in reverse, or, in other words, to "unpatch". That’s what allows the user to input just any ROM, already translated or not, that the program will then unpatch and re-patch into another language. If the patch file you’re including is not an UPS patch (and, as far as I know, only UPS patches can do that), then you’ll have to specify your patch is incompatible with the "unpatch" feature by setting this boolean field to true. Otherwise, you can set it to false.\
 *\* Treated as false if omitted, so it’s not exactly mandatory but just make sure it’s false!*
 
 #### hasDoc *(optional)*
@@ -105,7 +105,7 @@ The version of the patch made by the translation team. Yeah, as a translator you
 You may omit this field if a translation only has one version, but just give it a good old "1.0" number for future-proofness.
 
 #### author *(optional\*)*
-It may happen that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the author field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the auhtor field in the Projects Table section above.
+It may happen that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the author field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the auhtor field in the Projects Table section above.\
 *\* In case you didn’t specify an author for the project, you must specify an author here in the version table.*
 
 #### website *(optional)*
