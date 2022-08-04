@@ -121,11 +121,13 @@ function onSelectPatch(value) {
 //==========================================
 
 function setLanguage(langId) {
-	langId = langId || LANG_DEFAULT;
+	langDefaultId = LANG_DEFAULT.substr(0,2);
+	langId = langId || langDefaultId;
 	gUserLanguage = LOCALIZATION[langId] || {};
 	Utils.langId = langId;
+	document.documentElement.setAttribute("lang", langId);
 
-	gDefaultLanguage = LOCALIZATION[LANG_DEFAULT] || {};
+	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
 
 	var translatableElements = document.querySelectorAll('*[data-localize]');
 	for(var i = 0; i < translatableElements.length; i++) {
@@ -187,20 +189,29 @@ function refreshUIState() {
 
 function setMessage(msg, type) {
 	var messageBox = el(ELT_MSG);
-	messageBox.title = messageBox.textContent = '';
+	messageBox.title = msg || '';
 	if (msg) {
 		if (type === MSG_TYPE_LOADING) {
-			messageBox.className = CLASS_MESSAGE;
-			var span = document.createElement("span");
-			span.className = MSG_CLASS[type];
-			messageBox.appendChild(span);
-			var text = document.createTextNode(` ${msg}`);
-			messageBox.appendChild(text);
+			var spinSpan, textSpan;
+			if (messageBox.classList.contains(MSG_CLASS[type])) { // reuse the spinner instead of recreating it
+				spinSpan = messageBox.getElementsByClassName(CLASS_MESSAGE_LOADING_SPIN)[0];
+				textSpan = messageBox.getElementsByClassName(CLASS_MESSAGE_LOADING_TEXT)[0];
+			} else {
+				messageBox.textContent = '';
+				spinSpan = document.createElement("span");
+				textSpan = document.createElement("span");
+				spinSpan.className = CLASS_MESSAGE_LOADING_SPIN;
+				textSpan.className = CLASS_MESSAGE_LOADING_TEXT;
+				messageBox.appendChild(spinSpan);
+				messageBox.appendChild(textSpan);
+			}
+			textSpan.textContent = ` ${msg}`;
 		} else {
-			messageBox.className = CLASS_MESSAGE + " " + MSG_CLASS[type];
 			messageBox.textContent = msg;
-			messageBox.title = msg;
 		}
+		messageBox.className = CLASS_MESSAGE + " " + MSG_CLASS[type];
+	} else {
+		messageBox.textContent = '';
 	}
 }
 

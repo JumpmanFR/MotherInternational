@@ -36,6 +36,8 @@ const CLASS_FIRST_DROP = "first-drop";
 const CLASS_MESSAGE = "message";
 const CLASS_MESSAGE_OK = "ok";
 const CLASS_MESSAGE_LOADING = "loading";
+const CLASS_MESSAGE_LOADING_SPIN = "loading-spin";
+const CLASS_MESSAGE_LOADING_TEXT = "loading-text";
 const CLASS_MESSAGE_WARNING = "warning";
 const CLASS_MESSAGE_ERROR = "error";
 
@@ -56,7 +58,7 @@ const ID_MOTHER_3 = 'm3';
 
 // ISO 639 values
 const LANG_JAPANESE	 = 'ja';
-const LANG_ENGLISH	 = 'en';
+const LANG_ENGLISH	 = 'en-GB';
 const LANG_FRENCH	 = 'fr';
 const LANG_GERMAN	 = 'de';
 const LANG_ITALIAN	 = 'it';

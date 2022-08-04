@@ -107,7 +107,7 @@ The extension to the patch file. It allows the program to fetch the right patch 
 baseRom (mandatory*)
 ––––––––––––––––––––
 The ROM for which the patch file is made. Patch files that you’ll upload on the server are made to work with a specific ROM, that’s the one. But you won’t write any filename here. Instead, just specify the patchId that corresponds to that original, untranslated ROM, in this same table.
-* Of course, if you didn’t specify a patchExt, you won’t have to specify a baseRom as well; please see above.
+* Of course, if you didn’t specify a patchExt, you won’t have to specify a baseRom either; please see above.
 
 isOneWayOnly (mandatory*)
 –––––––––––––––––––––––––
