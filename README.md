@@ -1,6 +1,10 @@
 # MOTHER INTERNATIONAL
-A proposition for a Web version of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.\
-The patching mechanism relies on a modified version of Marc Robledo’s *Rom Patcher JS*.
+A proposition for a Web version of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.
+
+Although this new version is hosted on a webpage, it does everything client-side, like unzipping and patching, so no ROM needs to be transfered from and to the server.
+
+It’s been developped by JumpmanFR under the supervision of Kody NOKOLO from Mother Forever. The source code is available here under the [MIT license](https://opensource.org/licenses/MIT).\
+The patching mechanism relies on a modified version of Marc Robledo’s [Rom Patcher JS](https://github.com/marcrobledo/RomPatcher.js/).
 
 ## FEATURES
 
@@ -57,4 +61,3 @@ To test your new translation, you can force the program to load in the language 
 	* [thequickslash](https://twitter.com/thequickslash)
 * Player
 	* You!
-
