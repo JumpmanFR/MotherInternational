@@ -1,6 +1,6 @@
 # MOTHER INTERNATIONAL
-A proposition for a Web version of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.
-The patching mechanism is a modified version of Marc Robledo’s *Rom Patcher JS*.
+A proposition for a Web version of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.\
+The patching mechanism relies on a modified version of Marc Robledo’s *Rom Patcher JS*.
 
 ## FEATURES
 
@@ -29,14 +29,17 @@ The patching mechanism is a modified version of Marc Robledo’s *Rom Patcher JS
 * Open source project available [on GitHub](https://github.com/JumpmanFR/MotherInternational).
 
 ## HOW TO INCLUDE MORE TRANSLATION PATCHES
-Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to follow a specific naming convention.
-Then, `js/database.js` has to be updated with more entries.
-Please refer to [database.md](database.md) to find out about the database specifications.
+Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to follow a specific naming convention.\
+Then, `js/database.js` has to be updated to add new entries.
+
+Please refer to [database.md](database.md) to find out about the detailed procedure.
 
 ## HOW TO TRANSLATE THE UI INTO MORE LANGUAGES
 The file is `js/locale.js`. It currently includes two main entries, `'en'` for English and `'fr'` for French. All localized texts are listed there, for every supported language.
-To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is used automatically based on their browser settings.
+
+To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is used automatically based on their browser settings.\
 Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for English and French. If a field is omitted, the program will fallback to English for this field.
+
 To test your new translation, you can force the program to load in the language of your choice. To that end, complete the URL in the address bar with `?lang=` followed by your 2-letter language code.
 
 ## CREDITS

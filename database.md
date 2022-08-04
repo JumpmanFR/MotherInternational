@@ -4,7 +4,7 @@
 There are two possibilites when you want to add a new patch into Mother International: either you want to include a new version of an existing translation project already supported by the program, or you want to include an all-new translation that has never been included into Mother International.
 
 In the former case, you’ll just have to create a new Version, by specifying a new patchId and adding a new entry in the Versions Table.\
-In the latter case, however, you’ll have to create a new Project first, with a new projectId and a new entry in the Projects Table, and then, you’ll **also** create a new Version as stated before.\
+In the latter case, however, you’ll have to create a new Project first, with a new projectId and a new entry in the Projects Table, and then, you’ll **also** create a new Version as stated before.
 
 In both cases though, you’ll need to know what your projectId and patchId are, before editing both tables. So please read the following sections to learn how to put them together.
 
