@@ -406,7 +406,8 @@ input[type=button], button {
 	background-repeat: no-repeat;
 	background-size: 100%;
 	animation-name: spriteanim;
-	animation-iteration-count: infinite;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 #about-btn {
