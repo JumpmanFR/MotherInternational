@@ -1,6 +1,6 @@
-# HOW TO ADD MORE TRANSLATIONS TO THE DATABASE
-## GENERAL PROCEDURE
-### NEW PROJECT OR NEW VERSION
+# How to add more translations to the database
+## General procedure
+### New project or new version
 There are two possibilites when you want to add a new patch into Mother International: either you want to include a new version of an existing translation project already supported by the program, or you want to include an all-new translation that has never been included into Mother International.
 
 In the former case, you’ll just have to create a new Version, by specifying a new patchId and adding a new entry in the Versions Table.\
@@ -8,7 +8,7 @@ In the latter case, however, you’ll have to create a new Project first, with a
 
 In both cases though, you’ll need to know what your projectId and patchId are, before editing both tables. So please read the following sections to learn how to put them together.
 
-#### projectId
+#### *projectId*
 Let’s start with the projectId. It starts with a *gameId* which can be `m1`, `m2`, `m12` or `m3` depending on the relevant game, respectively MOTHER 1 (EarthBound Beginnings), MOTHER 2 (EarthBound), MOTHER 1+2 or MOTHER 3. Then, it’s followed by a dash `-`. Next is the language code for the relevant language, which is a 2-letter code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), like `ja` for Japanese or `de` for German. Finally, an upper-case letter (A, B, C, etc.) can be added to distinguish multiple translation projects for the same game in the same language, when necessary.\
 You’ll notice the official, untranslated games also have a projectId and patchId!
 
@@ -17,14 +17,14 @@ Examples:
 * `m12-pl` means MOTHER 1+2 in Polish
 * `m2-esA` and `m2-esB` are two Spanish translations for EarthBound made by two different teams
 
-#### patchId
+#### *patchId*
 For the patchId, simply append an abbreviated form of the version number to the projectId.
 
 Examples:
 * `m3-fr19` means MOTHER 3 in French version 1.9
 * `m2-esA33b` means MOTHER 2 in Spanish, ShadowOne333’s translation (which is project `A`), version 3.3.3 January 2018 build (abbreviated here as `33b`)
 
-### ADDING THE PATCH FILE
+### Adding the patch file
 At this point, you should now the projectId and the patchId of your new translation. You’ll need them throughout this process.
 
 First, you’ll need to add your patch file to the server. Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to match your patchId. For example, if the patchId is `m3-vi10` (MOTHER 3 in Vietnamese, because why not!), your patch file should be named `m3-vi10.zip`, `m3-vi10.ups`, `m3-vi10.ips` or something similar. To take advantage of the full features of Mother International, it’s much better if your patch file is in the UPS format (zipped or not).
@@ -35,13 +35,13 @@ Don’t include any translated ROM! But if you have used the patch before, pleas
 
 Once you’re done putting the patch and readme files into the server, it’s time to update the database.
 
-## DATABASE TABLES
+## Database tables
 Please open `js/database.js`. You’ll find two big tables there. One is the Projects Table, called `PATCH_PROJECTS`, and the other one is the Versions Table, called `PATCH_VERSIONS`.
 
 You’ll have to add an entry to both of them if you’re adding an entirely new translation.\
 On the other hand, if you’re adding a new version of an existing translation that Mother International already knows, then an entry already exists in the Project Table for this translation. Just edit the `latest` field (see below) in this entry to change the latest version, and then, head to the next section for the Versions Table.
 
-### PROJECTS TABLE
+### Projects table
 This table is an array of objects. To add a new translation project, just add a new entry in the table and fill in the fields as specified below.\
 All fields are strings unless otherwise stated.
 
@@ -75,9 +75,10 @@ Ideally, this field should be written in the same language as the corresponding 
 A boolean field to indicate this is an official game. Like the English version of the first two games, or all the Japanese games. Treated as false if omitted.
 
 
-### VERSIONS TABLE
+### Versions table
 All supported versions of the games need to be listed here, which means, all the translations, but also the original, unpatched games. Of course we’re not putting the ROM files on the site, but they must be "known" by the system, and the corresponding patches still need to be available on the server.\
-Please don’t remove the old versions that appear in this table. The program will only suggest the most recent ones by default, but it needs to be able to identify and update/translate an old ROM if the user inputs it. That’s the other purpose of this table.
+Please don’t remove the old versions that appear in this table. The program will only suggest the most recent ones by default, but it needs to be able to identify and update/translate an old ROM if the user inputs it. That’s the other purpose of this table.\
+All fields are strings unless otherwise stated.
 
 #### crc *(mandatory)*
 The [CRC-32](https://emn178.github.io/online-tools/crc32_checksum.html) checksum for the translated/associated ROM (not the patch!). The program needs this field to identify the ROM in case it has been input by the user, and, in the other way around, to check the ROM integrity after the patching process. So, please be sure you wrote it right. You’ll have to write it as a hexadecimal string that starts with "0x" (that’s a zero!).
