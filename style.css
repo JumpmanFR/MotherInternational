@@ -101,6 +101,7 @@ body {
 	border-width: 0.19rem;
 	/*overflow: hidden;*/
 	position: relative;
+	box-shadow: 2px 2px 0.5em #00000030;
 }
 
 #input-area {
@@ -136,6 +137,7 @@ body {
 	vertical-align: middle;
 	transition: opacity 0.6s ease-out;
 	margin: auto;
+	filter: drop-shadow(2px 2px 2px #00000040);
 }
 
 #output-area.hidden, #arrow-between-areas.hidden {
@@ -271,6 +273,7 @@ body {
     width: calc(100% - 2.25em);
     top: 4.63rem;
 	white-space: nowrap;
+	box-shadow: 2px 2px 4px #00000010;
 }
 .info-frame p {
 	margin: 0.5rem 0;
@@ -393,8 +396,8 @@ input[type=button], button {
 	justify-content: center;
 	margin-top: -2.125rem;
 	margin-bottom: -0.25rem;
-	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-	mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+	mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 #animation {
@@ -408,6 +411,7 @@ input[type=button], button {
 	animation-name: spriteanim;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
+	filter: drop-shadow(3px 3px 1px #00000040);
 }
 
 #about-btn {
