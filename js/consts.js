@@ -51,6 +51,8 @@ const CLASS_INFO_DOC = "info-doc";
 const CLASS_INFO_NB_USES = "info-nb-uses";
 const CLASS_INFO_LOADING = "info-loading";
 
+const IFRAME_ZOOM_THRESHOLD = 1.15;
+
 const ID_MOTHER_1 = 'm1';
 const ID_MOTHER_2 = 'm2';
 const ID_MOTHER_1_2 = 'm12';

@@ -52,9 +52,10 @@
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
-	padding: 2rem 0.8rem 0.1rem 0.8rem; /* adjustment inside iframe */
 	width: fit-content;
 	text-align: center;
+	padding: 2rem 0.8rem 0.1rem 0.8rem; /* adjustment inside iframe */
+	transform-origin: top center;
 }
 [lang|="ar"], [lang|="az"], [lang|="dv"], [lang|="fa"], [lang|="he"], [lang|="ku"], [lang|="ur"] {
 	direction: rtl;

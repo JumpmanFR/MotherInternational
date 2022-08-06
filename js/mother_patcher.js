@@ -125,19 +125,19 @@ function onSelectPatch(value) {
 // To set the height of the parent iframe if appropriate
 // The iframe must have its width set to 100% and its scrolling attribute set to no
 function resizeParent() {
-	var iframe;
-	iframe = window.frameElement;
+	var iframe = window.frameElement;
 	if (iframe) {
 		var screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 		var zoom = iframe.clientWidth / (document.body.clientWidth);
+		if (zoom < IFRAME_ZOOM_THRESHOLD) {
+			zoom = 1;
+		}
 		document.body.style.transform = `scale(${zoom})`;
-		document.body.style.transformOrigin = 'top center';
 		document.querySelector("meta[name=viewport]").setAttribute("content", `width=${iframe.clientWidth / zoom}, shrink-to-fit=no`);
 		setTimeout(function() {
 			var height = document.body.clientHeight;
 			iframe.style.height = height * zoom;
 		}, 0);
-
 	}
 }
 
