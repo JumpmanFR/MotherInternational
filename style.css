@@ -8,7 +8,7 @@
 @keyframes spriteanim { from { background-position: top; } to { background-position: bottom; } }
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
-@media (max-width: 62rem) {
+@media (max-width: 60rem) {
 	.area, #arrow-between-areas {
 		display: block !important;
 	}
@@ -137,7 +137,7 @@ body {
 	vertical-align: middle;
 	transition: opacity 0.6s ease-out;
 	margin: auto;
-	filter: drop-shadow(2px 2px 2px #00000040);
+	box-shadow: 3px 3px 2px #00000030;
 }
 
 #output-area.hidden, #arrow-between-areas.hidden {
@@ -411,7 +411,7 @@ input[type=button], button {
 	animation-name: spriteanim;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
-	filter: drop-shadow(3px 3px 1px #00000040);
+	filter: drop-shadow(3px 3px 0px #00000040);
 }
 
 #about-btn {

@@ -1,5 +1,7 @@
 const VERSION = "3.0";
 
+const ELT_PARENT_IFRAME = "mi-frame";
+
 const ELT_ANIMATION_MASK = "animation-mask";
 const ELT_ANIMATION = "animation";
 const ELT_AREA_INPUT = "input-area";
