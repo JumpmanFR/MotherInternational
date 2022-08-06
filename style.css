@@ -235,6 +235,7 @@ body {
 }
 
 #patch-select-container {
+	margin-top: -0.2rem;
 	margin-bottom: 0.94rem;
 }
 #patch-select-label {
@@ -252,6 +253,7 @@ body {
 }
 
 #show-all-container {
+	line-height: 1em;
 	white-space: nowrap;
 	display: inline-block;
 	max-width: 100%;

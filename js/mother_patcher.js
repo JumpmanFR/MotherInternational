@@ -64,7 +64,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
-	var forcedLanguage = new URLSearchParams(window.location.search).get("lang");
+	var forcedLanguage = new URLSearchParams(window.parent.location.search).get("lang");
 	setLanguage(forcedLanguage || navigator.language.substr(0,2));
 
 	setUIState(false, false);
@@ -146,7 +146,9 @@ function setLanguage(langId) {
 	langId = langId || langDefaultId;
 	gUserLanguage = LOCALIZATION[langId] || {};
 	Utils.langId = langId;
-	document.documentElement.setAttribute("lang", langId);
+	if (LOCALIZATION[langId]) {
+		document.documentElement.setAttribute("lang", langId);
+	}
 
 	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
 
