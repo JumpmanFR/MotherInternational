@@ -132,7 +132,7 @@ function resizeParent() {
 		if (zoom < IFRAME_ZOOM_THRESHOLD) {
 			zoom = 1;
 		}
-		document.body.style.transform = `scale(${zoom})`;
+		document.body.style.transform = zoom > 1 ? `scale(${zoom})` : 'none';
 		document.querySelector("meta[name=viewport]").setAttribute("content", `width=${iframe.clientWidth / zoom}, shrink-to-fit=no`);
 		setTimeout(function() {
 			var height = document.body.clientHeight;
