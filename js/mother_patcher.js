@@ -65,7 +65,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
 	var forcedLanguage = new URLSearchParams(window.parent.location.search).get("lang");
-	setLanguage(forcedLanguage || navigator.language.substr(0,2));
+	setLanguage(forcedLanguage || navigator.language);
 
 	setUIState(false, false);
 })
@@ -143,14 +143,18 @@ function resizeParent() {
 
 function setLanguage(langId) {
 	langDefaultId = LANG_DEFAULT.substr(0,2);
-	langId = langId || langDefaultId;
-	gUserLanguage = LOCALIZATION[langId] || {};
-	Utils.langId = langId;
+	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
+	langId = (langId || LANG_DEFAULT).substr(0,2);
 	if (LOCALIZATION[langId]) {
+		gUserLanguage = LOCALIZATION[langId];
 		document.documentElement.setAttribute("lang", langId);
+		Utils.langId = langId;
+	} else {
+		gUserLanguage = {};
+		document.documentElement.setAttribute("lang", langDefaultId);
+		Utils.langId = langDefaultId;
 	}
 
-	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
 
 	var translatableElements = document.querySelectorAll('*[data-localize]');
 	for(var i = 0; i < translatableElements.length; i++) {
