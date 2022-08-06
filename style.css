@@ -52,7 +52,7 @@
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
-	margin-top: 3rem;
+	padding: 2rem 0.8rem 0.1rem 0.8rem; /* adjustment inside iframe */
 	width: fit-content;
 	text-align: center;
 }
@@ -128,16 +128,16 @@ body {
 #output-area {
 	border-color: transparent;
 	border-style: solid;
-	transition: opacity 0.6s ease-out;
+	transition: opacity 1s ease-out;
 	background-color: #FFFFFF28;
 }
 
 #arrow-between-areas {
 	display: inline-block;
 	vertical-align: middle;
-	transition: opacity 0.6s ease-out;
+	transition: opacity 1s ease-out;
 	margin: auto;
-	box-shadow: 3px 3px 2px #00000030;
+	text-shadow: 3px 2px 4px #00000030;
 }
 
 #output-area.hidden, #arrow-between-areas.hidden {
@@ -414,7 +414,7 @@ input[type=button], button {
 	filter: drop-shadow(3px 3px 0px #00000040);
 }
 
-#about-btn {
+#about-btn-container {
 	display: block;
 	margin: 2.5rem;
 }
@@ -443,8 +443,6 @@ input[type=button], button {
 	background-color: #00000090;
 }
 #about-window {
-	/*left: 50%;
-	transform: translate(-50%,-50%);*/
 	top: 50%;
 	left: 0;
 	right: 0;
@@ -455,8 +453,8 @@ input[type=button], button {
 	opacity: .94;
 	position: fixed;
 	width: fit-content;
-	max-width: min(45rem,90vw);
-	max-height: 80vh;
+	max-width: min(45rem,90vw,90%);
+	max-height: min(80vh,80%);
 	overflow-x: hidden;
 	overflow-y: auto;
 	margin: auto;
@@ -484,7 +482,8 @@ input[type=button], button {
 	width: 12.5rem;
 }
 #credits-staff {
-	float: inline-start;
+	float: left; /* if inline-start not supported */
+	float: inline-start !important;
 	width: fit-content;
 }
 #credits-staff h2 {

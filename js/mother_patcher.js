@@ -44,6 +44,8 @@ function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
+	document.body.onresize = resizeParent;
+	addEvent(window, 'load', resizeParent);
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
 	addEvent(el(ELT_AREA_INPUT), 'dragenter', function(e) {onDrag(true, e)});
@@ -120,6 +122,25 @@ function onSelectPatch(value) {
 // UI METHODS
 //==========================================
 
+// To set the height of the parent iframe if appropriate
+// The iframe must have its width set to 100% and its scrolling attribute set to no
+function resizeParent() {
+	var iframe;
+	iframe = window.frameElement;
+	if (iframe) {
+		var screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		var zoom = iframe.clientWidth / (document.body.clientWidth);
+		document.body.style.transform = `scale(${zoom})`;
+		document.body.style.transformOrigin = 'top center';
+		document.querySelector("meta[name=viewport]").setAttribute("content", `width=${iframe.clientWidth / zoom}, shrink-to-fit=no`);
+		setTimeout(function() {
+			var height = document.body.clientHeight;
+			iframe.style.height = height * zoom;
+		}, 0);
+
+	}
+}
+
 function setLanguage(langId) {
 	langDefaultId = LANG_DEFAULT.substr(0,2);
 	langId = langId || langDefaultId;
@@ -149,6 +170,7 @@ function setUIState(busy, inputDone) {
 	gIsBusy = busy;
 	if (inputDone !== undefined) {
 		gIsInputDone = inputDone;
+		resizeParent();
 	}
 	refreshUIState();
 }
@@ -167,7 +189,7 @@ function refreshUIState() {
 		el(ELT_ROM_FILE).disabled = false;
 		el(ELT_ROM_BTN).disabled = false;
 		el(ELT_PATCH_SELECT).disabled = !el(ELT_PATCH_SELECT).options.length || !el(ELT_PATCH_SELECT).value;
-		el(ELT_SHOW_ALL_OPTION).disabled = false;
+		el(ELT_SHOW_ALL_OPTION).disabled = !gIsInputDone;
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
 		el(ELT_AREA_INPUT).classList.remove(CLASS_DISABLED);
 		if (gInputRomId) {
@@ -194,8 +216,8 @@ function setMessage(msg, type) {
 		if (type === MSG_TYPE_LOADING) {
 			var spinSpan, textSpan;
 			if (messageBox.classList.contains(MSG_CLASS[type])) { // reuse the spinner instead of recreating it
-				spinSpan = messageBox.getElementsByClassName(CLASS_MESSAGE_LOADING_SPIN)[0];
-				textSpan = messageBox.getElementsByClassName(CLASS_MESSAGE_LOADING_TEXT)[0];
+				spinSpan = messageBox.querySelector('.' + CLASS_MESSAGE_LOADING_SPIN);
+				textSpan = messageBox.querySelector('.' + CLASS_MESSAGE_LOADING_TEXT);
 			} else {
 				messageBox.textContent = '';
 				spinSpan = document.createElement("span");
