@@ -49,40 +49,40 @@ To find out about the detailed procedure, please read this document: [How to add
 
 ## Supported translations
 * MOTHER 1 / EarthBound Beginnings
-	* German v1.0a1 by G-TRANS ***(new!)***
-	* Latin American Spanish v2.2 by OAD
-	* European Spanish v0.99 by Jackic ***(new!)***
 	* French v1.0 by Ridculle
+	* German v1.0a1 by G-TRANS ***(new!)***
 	* Polish v1.0 by Voxar
 	* Russian v0.9 by CHIEF-NET
+	* Latin American Spanish v2.2 by OAD
+	* European Spanish v0.99 by Jackic ***(new!)***
 * MOTHER 2 / EarthBound
-	* German v1.0-v1.2.3 by GlostU/Mexos ***(updated!)***
-	* Latin American Spanish v2.0-v4.0 by ShadowOne333
-	* European Spanish v1.0a by josete2k ***(new!)***
 	* French v1.1 by Team MAMBO
+	* German v1.0-v1.2.3 by GlostU/Mexos ***(updated!)***
 	* Italian v1.0-v1.1 by CRefice
 	* Italian v1.0-v1.47 by Vecna ***(new!)***
 	* Polish v1.0.0-v1.0.2 by Voxar ***(updated!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
+	* Latin American Spanish v2.0-v4.0 by ShadowOne333
+	* European Spanish v1.0a by josete2k ***(new!)***
 * MOTHER 1+2
-	* Korean v1.1 by 아루미 & pjs
-	* German v1.0 by domflo
 	* English v1.0.1 by Tomato
 	* French v1.0 by MotherVF ***(new!)***
+	* German v1.0 by domflo
 	* Italian v1.0 by SilverM ***(new!)***
+	* Korean v1.1 by 아루미 & pjs
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 * MOTHER 3
 	* Chinese v1.0(+fix) by 漫游汉化组
-	* Korean v1.0 by pjs
-	* German v1.0-v1.1 by Madokami
+	* Dutch v1.0 by PrismaticAngel ***(new!)***
 	* English v1.0-v1.3 by Tomato
-	* European Spanish v1.0 by Jimmytrius
 	* French v1.0-v1.9 by MotherVF
+	* German v1.0-v1.1 by Madokami
 	* Italian v1.0-v1.1.1 by Lorenzooone
 	* Italian v1.0 by Snifit
-	* Dutch v1.0 by PrismaticAngel ***(new!)***
+	* Korean v1.0 by pjs
 	* Polish v1.0 by Voxar ***(new!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
+	* European Spanish v1.0 by Jimmytrius
 
 ## Credits
 * Design

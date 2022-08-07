@@ -203,6 +203,10 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 	return res.trim();
 }
 
+PatchVersion.prototype.sort = function(otherVersion) {
+	return this.parentProject.sort(otherVersion.parentProject) || (this.getVersionValue().localeCompare(otherVersion.getVersionValue()));
+}
+
 PatchVersion.prototype.toString = function() {
 	return this.getDesc(true, false);
 }

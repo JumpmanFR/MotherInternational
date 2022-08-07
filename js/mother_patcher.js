@@ -64,8 +64,10 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
-	var forcedLanguage = new URLSearchParams(window.parent.location.search).get("lang");
-	setLanguage(forcedLanguage || navigator.language);
+	var urlParams = new URLSearchParams(window.parent.location.search);
+	var lang = urlParams.get("lang");
+	var isForcedLang = !!urlParams.get("forcelang")
+	setLanguage(lang || navigator.language, isForcedLang);
 
 	setUIState(false, false);
 })
@@ -142,12 +144,16 @@ function resizeParent() {
 	}
 }
 
-function setLanguage(langId) {
+function setLanguage(langId, isForced) {
 	langDefaultId = LANG_DEFAULT.substr(0,2);
 	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
 	langId = (langId || LANG_DEFAULT).substr(0,2);
 	if (LOCALIZATION[langId]) {
 		gUserLanguage = LOCALIZATION[langId];
+		document.documentElement.setAttribute("lang", langId);
+		Utils.langId = langId;
+	} else if (isForced) {
+		gUserLanguage = {};
 		document.documentElement.setAttribute("lang", langId);
 		Utils.langId = langId;
 	} else {
@@ -256,7 +262,9 @@ function updatePatchSelect(showAllIfEmpty) {
 	clearPatchSelect();
 	if (inputId) {
 		var showAllVersions = el(ELT_SHOW_ALL_OPTION).checked;
-		for (var cur in PATCH_VERSIONS) { // let’s determine which entries can appear in the scroll list…
+		Object.keys(PATCH_VERSIONS).sort(function(a, b) {
+			return PATCH_VERSIONS[a].sort(PATCH_VERSIONS[b]);
+		}).forEach(function(cur) {
 			var curObj = PATCH_VERSIONS[cur];
 			var inputObj = PATCH_VERSIONS[inputId];
 			if (inputId != cur && (curObj.getGameId() == inputObj.getGameId())
@@ -270,7 +278,7 @@ function updatePatchSelect(showAllIfEmpty) {
 				if (!findRoute(inputId, cur)) {
 					opt.text += " ⛔";
 					opt.className = CLASS_OPTION_UNAVAILABLE;
-					continue;
+					return;
 				}
 
 				if (curObj.isUpdateOf(inputObj)) {
@@ -293,7 +301,7 @@ function updatePatchSelect(showAllIfEmpty) {
 				}
 
 			}
-		}
+		});
 		var defaultSelection = defaultSelectionCandidates.oldSelection || defaultSelectionCandidates.sameProject || defaultSelectionCandidates.updateInput
 				|| defaultSelectionCandidates.otherVersion || defaultSelectionCandidates.userLanguage || defaultSelectionCandidates.official;
 		if (defaultSelection) {

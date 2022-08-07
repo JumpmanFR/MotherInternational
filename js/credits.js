@@ -56,7 +56,10 @@ function initCreditsSelect() {
 	el(ELT_ABOUT_ALL_TRANSLATIONS).add(defaultOpt);
 	var curGroupName;
 	var curGroup;
-	for (var cur in PATCH_PROJECTS) {
+
+	Object.keys(PATCH_PROJECTS).sort(function(a, b) {
+		return PATCH_PROJECTS[a].sort(PATCH_PROJECTS[b]);
+	}).forEach(function(cur) {
 		var curProj = PATCH_PROJECTS[cur];
 		if (!curProj.isOfficial()) {
 			if (curProj.getGameFullName() != curGroupName) {
@@ -71,7 +74,7 @@ function initCreditsSelect() {
 			curGroup.appendChild(opt);
 			curGroupName = curProj.getGameFullName();
 		}
-	}
+	});
 	el(ELT_ABOUT_ALL_TRANSLATIONS).onchange = function(e) {
 		var selected = PATCH_PROJECTS[el(ELT_ABOUT_ALL_TRANSLATIONS).value];
 		if (url = selected.getWebsiteFallback()) {

@@ -9,9 +9,9 @@ Utils.capitalizeFirstLetter = function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-Utils.getLangName = function (id) {
-	var localLangNames = new Intl.DisplayNames([Utils.langId], { type: 'language', style: 'narrow', languageDisplay:'dialect' })
-	return localLangNames.of(id).replace(/ \(....+\)/g, '');
+Utils.getLangName = function (id, longVersion) {
+	var localLangNames = new Intl.DisplayNames([Utils.langId], { type: 'language', style: longVersion ? 'long' : 'narrow', languageDisplay: longVersion ? 'standard' : 'dialect' });
+	return localLangNames.of(id);//.replace(/ \(....+\)/g, '');
 }
 
 Utils.getFlagEmoji = function (id) {

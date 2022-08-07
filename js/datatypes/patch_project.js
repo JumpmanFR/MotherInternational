@@ -20,17 +20,28 @@ function PatchProject(json, game, lang) {
 		}
 	}
 	this.getLangId = function() {
-		return json.lang;
-	}
-	this.getLangName = function() {
-		var nameId = (lang ? lang.nameId || json.lang : json.lang);
-		return Utils.getLangName(nameId);
+		return lang ? lang.nameId || json.lang : json.lang;
 	}
 	this.getLangFlag = function() {
 		return Utils.getFlagEmoji(lang ? lang.flagId || json.lang : json.lang);
 	}
 	this.getBoxart = function() {
 		return json.game + (lang ? lang.boxartId || "" : "") + ".jpg";
+	}
+	this.getAuthor = function() {
+		return json.author;
+	}
+	this.getWebsite = function() {
+		return json.website;
+	}
+	this.getExtraNote = function() {
+		return json.extraNote;
+	}
+	this.isOfficial = function() {
+		return !!json.isOfficial;
+	}
+	this.getDescForSort = function() {
+		return game.year + " " + Utils.getLangName(this.getLangId(), true) + " " + this.getAuthor();
 	}
 	this.addVersion = function(patchVersion) { // argument is PatchVersion object
 		this.versions.push(patchVersion);
@@ -46,18 +57,10 @@ function PatchProject(json, game, lang) {
 			this.altLatestVersions.push(patchVersion);
 		}
 	}
-	this.getAuthor = function() {
-		return json.author;
-	}
-	this.getWebsite = function() {
-		return json.website;
-	}
-	this.getExtraNote = function() {
-		return json.extraNote;
-	}
-	this.isOfficial = function() {
-		return !!json.isOfficial;
-	}
+}
+
+PatchProject.prototype.getLangName = function() {
+	return Utils.getLangName(this.getLangId());
 }
 
 PatchProject.prototype.getVersions = function() {
@@ -108,6 +111,10 @@ PatchProject.prototype.getDesc = function(withGameTitle) {
 
 PatchProject.prototype.toString = function() {
 	return this.getDesc(true);
+}
+
+PatchProject.prototype.sort = function(otherProject) {
+	return this.getDescForSort().localeCompare(otherProject.getDescForSort());
 }
 
 PatchProject.createFromJson = function(fullJson, games, langs) {
