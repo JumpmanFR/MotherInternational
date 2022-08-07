@@ -29,8 +29,8 @@ const LOCALIZATION = {
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
+		'txtDescOfficial':			'official',
 		'txtDescUpdate':			'(update)',
-		'txtDescOfficial':			'(official)',
 		'txtDescIncompatible':		'(incompatible)',
 		'txtVisitSite':				'%’s webpage',
 		'txtVisitSiteAt':			'at %',
@@ -114,8 +114,8 @@ const LOCALIZATION = {
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
+		'txtDescOfficial':			'officiel',
 		'txtDescUpdate':			'(mise à jour)',
-		'txtDescOfficial':			'(officiel)',
 		'txtDescIncompatible':		'(incompatible)',
 		'txtVisitSite':				'Page web de %',
 		'txtVisitSiteAt':			'sur %',

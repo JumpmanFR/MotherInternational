@@ -2,7 +2,7 @@ function PatchVersion(json) {
 	this.getCrc = function() {
 		return json.crc;
 	}
-	this.getFileName = function() {
+	this.getPatchFileName = function() {
 		return json.patchId + json.patchExt;
 	}
 	this.getVersionValue = function() {
@@ -129,6 +129,9 @@ PatchVersion.prototype.getGameId = function() {
 PatchVersion.prototype.getGameShortName = function() {
 	return this.parentProject.getGameShortName();
 }
+PatchVersion.prototype.getGameLocalName = function() {
+	return this.parentProject.getGameLocalName();
+}
 PatchVersion.prototype.getGameFullName = function() {
 	return this.parentProject.getGameFullName();
 }
@@ -160,11 +163,24 @@ PatchVersion.prototype.isWorthShowing = function() {
 	return this.isAltLatestVersion() && !this.isSpecialHidden();
 }
 
+PatchVersion.prototype.getExportName = function() {
+	var res = this.parentProject.getLangName() + ' ';
+	if (this.getVersionValue()) {
+		if (this.getAuthorFallback()) {
+			res += this.getAuthorFallback().charAt(0);
+		}
+		res += this.getVersionValue();
+	} else if (this.parentProject.isOfficial()) {
+		res += _('txtDescOfficial');
+	}
+	return res;
+}
+
 PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withProjectNote) {
 	var res = "";
 	res += this.parentProject.getLangFlag() + " ";
 	if (withGameTitle) {
-		res += this.getGameFullName() + " – ";
+		res += this.getGameLocalName() + " – ";
 		res += this.parentProject.getLangName() + " ";
 	} else {
 		res += Utils.capitalizeFirstLetter(this.parentProject.getLangName()) + " ";
@@ -182,7 +198,7 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 		res += "(" + this.parentProject.getExtraNote() + ") ";
 	}
 	if (withProjectNote && this.parentProject.isOfficial()) {
-		res += " " + _("txtDescOfficial");
+		res += " " + `(${_('txtDescOfficial')})`;
 	}
 	return res.trim();
 }

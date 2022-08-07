@@ -1,6 +1,6 @@
 // Language table for a few specific cases
 var LANG_LIST = {
-	[LANG_JAPANESE]:	{flagId:'JP', boxartId:'j'},
+	[LANG_JAPANESE]:	{flagId:'JP', boxartId:'j', useJapName:true},
 	[LANG_ENGLISH]:		{flagId:'GB', nameId: 'en'},
 	[LANG_SP_MEXICO]:	{nameId:'es-419'}, // same "Latin American Spanish" label
 	[LANG_SP_ARGENT]:	{nameId:'es-419'}, // same "Latin American Spanish" label
@@ -10,10 +10,10 @@ var LANG_LIST = {
 
 // Data table for the 4 supported games
 var GAMES_LIST = {
-	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'MOTHER 1 / EB Beginnings',	included:[ID_MOTHER_1]},
-	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'MOTHER 2 / EarthBound',		included:[ID_MOTHER_2]},
-	[ID_MOTHER_1_2]:{japName:'MOTHER 1+2',	fullName:'MOTHER 1+2',						shortName:'MOTHER 1+2',					included:[ID_MOTHER_1, ID_MOTHER_2]},
-	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',					included:[ID_MOTHER_3]},
+	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'EarthBound Beginnings',	included:[ID_MOTHER_1]},
+	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'EarthBound',				included:[ID_MOTHER_2]},
+	[ID_MOTHER_1_2]:{japName:'MOTHER 1+2',	fullName:'MOTHER 1+2',						shortName:'MOTHER 1+2',				included:[ID_MOTHER_1, ID_MOTHER_2]},
+	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',				included:[ID_MOTHER_3]},
 }
 
 // Table for all supported translation projects, without detailing the individual versions and patches released by these teams

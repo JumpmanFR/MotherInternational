@@ -10,6 +10,15 @@ function PatchProject(json, game, lang) {
 	this.getGameShortName = function() {
 		return game.shortName;
 	}
+	this.getGameLocalName = function() {
+		if (lang && lang.useJapName) {
+			return game.japName;
+		} else if (json.isOfficial) {
+			return game.shortName;
+		} else {
+			return game.fullName;
+		}
+	}
 	this.getLangId = function() {
 		return json.lang;
 	}
@@ -80,7 +89,7 @@ PatchProject.prototype.getDesc = function(withGameTitle) {
 	var res = "";
 	res += this.getLangFlag() + " ";
 	if (withGameTitle) {
-		res += this.getGameFullName() + " – ";
+		res += this.getGameLocalName() + " – ";
 		res += this.getLangName() + " ";
 	} else {
 		res += Utils.capitalizeFirstLetter(this.getLangName()) + " ";

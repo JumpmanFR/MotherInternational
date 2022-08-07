@@ -78,11 +78,11 @@ addEvent(document, 'DOMContentLoaded', function() {
 function onDrag(val, e) {
 	var col = el(ELT_AREA_INPUT);
  	if (val) {
-		col.classList.add(CLASS_DRAG);
-		if (e.target.classList.contains(CLASS_DISABLED)) {
+		if (col.classList.contains(CLASS_DISABLED)) {
 			e.dataTransfer.effectAllowed = "none";
 			e.dataTransfer.dropEffect = "none";
 		} else {
+			col.classList.add(CLASS_DRAG);
 			e.dataTransfer.effectAllowed = "copy";
 			e.dataTransfer.dropEffect = "copy";
 		}
@@ -137,6 +137,7 @@ function resizeParent() {
 		setTimeout(function() {
 			var height = document.body.clientHeight;
 			iframe.style.height = height * zoom;
+			iframe.style.width = "100%";
 		}, 0);
 	}
 }
@@ -346,7 +347,7 @@ function updatePatchInfo(target) {
 		// Box art
 		var img = document.createElement("img");
 		img.src = PATCH_BOXARTS + patchObj.parentProject.getBoxart();
-		img.alt = patchObj.getGameFullName();
+		img.alt = patchObj.getGameLocalName();
 		img.className = CLASS_INFO_BOXART;
 		infoFrame.appendChild(img);
 
@@ -373,7 +374,7 @@ function updatePatchInfo(target) {
 		if (patchObj.hasDoc()) {
 			var docLink = document.createElement("a");
 			docLink.href = `patches/${id}.txt`;
-			docLink.setAttribute("download", `${_('txtReadmeFile')}-${id}.txt`);
+			docLink.setAttribute("download", `${_('txtReadmeFile')} ${patchObj.getGameLocalName()} ${patchObj.getExportName()}.txt`);
 			docLink.title = docLink.textContent =  _('txtReadDoc');
 			addEltsToFrame(detailsDiv, [docLink], CLASS_INFO_DOC);
 		}
@@ -607,7 +608,7 @@ function processListOfPatches(rom, route, step) {
 		}
 
 		setMessage(_("txtDownloading").replace("%", progressStr), MSG_TYPE_LOADING);
-		var patchFileName = PATCH_VERSIONS[patchId].getFileName();
+		var patchFileName = PATCH_VERSIONS[patchId].getPatchFileName();
 		downloadPatch(patchFileName, rom)
 			.then(function(patchFile) {
 				setMessage(_("txtApplyingPatch").replace("%", progressStr), MSG_TYPE_LOADING);;
@@ -755,12 +756,7 @@ function endProcessWithError(errorMsg) {
 }
 
 function deliverFinalRom(finalRomFile, finalPatch) {
-	var fileNameAppend = ' (patch ';
-	fileNameAppend += finalPatch.parentProject.getLangName() + ' ';
-	if (finalPatch.getAuthorFallback()) {
-		fileNameAppend += finalPatch.getAuthorFallback().charAt(0);
-	}
-	fileNameAppend += finalPatch.getVersionValue() + ')';
+	var fileNameAppend = ` (patch ${finalPatch.getExportName()})`;
 	finalRomFile.fileName = gInputRom.fileName.replace(/\.([^\.]*?)$/, fileNameAppend + '.$1');
 	finalRomFile.save();
 	setMessage(_('txtEndMsg'), MSG_TYPE_OK);
