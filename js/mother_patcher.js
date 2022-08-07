@@ -76,18 +76,18 @@ addEvent(document, 'DOMContentLoaded', function() {
 //==========================================
 
 function onDrag(val, e) {
-	var col = el(ELT_AREA_INPUT);
+	var area = el(ELT_AREA_INPUT);
  	if (val) {
-		if (col.classList.contains(CLASS_DISABLED)) {
+		if (area.classList.contains(CLASS_DISABLED)) {
 			e.dataTransfer.effectAllowed = "none";
 			e.dataTransfer.dropEffect = "none";
 		} else {
-			col.classList.add(CLASS_DRAG);
+			area.classList.add(CLASS_DRAG);
 			e.dataTransfer.effectAllowed = "copy";
 			e.dataTransfer.dropEffect = "copy";
 		}
 	} else {
-		col.classList.remove(CLASS_DRAG);
+		area.classList.remove(CLASS_DRAG);
 	}
 	e.preventDefault();
 }
@@ -191,6 +191,7 @@ function refreshUIState() {
 		el(ELT_SHOW_ALL_OPTION).disabled = true;
 		el(ELT_APPLY).disabled = true;
 		el(ELT_AREA_INPUT).classList.add(CLASS_DISABLED);
+		el(ELT_AREA_OUTPUT).classList.add(CLASS_DISABLED);
 		el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
 	} else {
 		el(ELT_ROM_FILE).disabled = false;
@@ -199,6 +200,7 @@ function refreshUIState() {
 		el(ELT_SHOW_ALL_OPTION).disabled = !gIsInputDone;
 		el(ELT_APPLY).disabled = !patchSelectVal() || !gInputRom;
 		el(ELT_AREA_INPUT).classList.remove(CLASS_DISABLED);
+		el(ELT_AREA_OUTPUT).classList.remove(CLASS_DISABLED);
 		if (gInputRomId) {
 			el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
 		} else {

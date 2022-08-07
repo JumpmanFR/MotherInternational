@@ -430,7 +430,7 @@ input[type=button], button {
 	animation-name: spriteanim;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
-	filter: drop-shadow(3px 3px 0px #00000040);
+	filter: drop-shadow(2px 2px 0px #00000040);
 }
 
 #about-btn-container {
