@@ -46,7 +46,7 @@ function PatchProject(json, game, lang) {
 	this.addVersion = function(patchVersion) { // argument is PatchVersion object
 		this.versions.push(patchVersion);
 		patchVersion.setParentProject(this);
-		json.latest = json.latest || [];
+		json.latest = json.latest || [''];
 		if (typeof(json.latest) == "string") {
 			json.latest = [json.latest];
 		}

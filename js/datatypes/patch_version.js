@@ -6,7 +6,7 @@ function PatchVersion(json) {
 		return json.patchId + json.patchExt;
 	}
 	this.getVersionValue = function() {
-		return json.version;
+		return json.version || "";
 	}
 	this.getAuthor = function() {
 		return json.author;
@@ -204,7 +204,7 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 }
 
 PatchVersion.prototype.sort = function(otherVersion) {
-	return this.parentProject.sort(otherVersion.parentProject) || (this.getVersionValue().localeCompare(otherVersion.getVersionValue()));
+	return this.parentProject.sort(otherVersion.parentProject) || ((this.getVersionValue()).localeCompare(otherVersion.getVersionValue()));
 }
 
 PatchVersion.prototype.toString = function() {

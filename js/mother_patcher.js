@@ -44,7 +44,7 @@ function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
-	document.body.onresize = resizeParent;
+	document.body.onresize = onResize;
 	addEvent(window, 'load', resizeParent);
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
@@ -118,6 +118,14 @@ function onInputFile(data) {
 function onSelectPatch(value) {
 	refreshUIState();
 	updatePatchInfo(FOR_OUTPUT);
+}
+
+function onResize() {
+	var aboutWin = el(ELT_ABOUT_WINDOW);
+	if (aboutWin.clientHeight >= aboutWin.scrollHeight) {
+		aboutWin.scrollTop = 0; // because Safari fails to reset scroll position
+	}
+	resizeParent();
 }
 
 //==========================================

@@ -18,6 +18,8 @@
 	#arrow-between-areas:after {
 		font-size: 3rem !important;
 		content: '▼' !important;
+		left: 0 !important;
+		top: 0.05em;
 	}
 	#output-area.hidden, #arrow-between-areas.hidden {
 		height: 0 !important; /* allows the credits button to be directly below */
@@ -165,6 +167,8 @@ a:not([href='#']):not([href='']):visited {
 	font-size: 5rem;
 	color: #FFFFFFA0;
 	content: '▸';
+	position: relative;
+	left: -0.05em;
 }
 
 #rom-container {
