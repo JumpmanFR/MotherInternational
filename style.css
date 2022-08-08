@@ -163,11 +163,11 @@ a:not([href='#']):not([href='']):visited {
 }
 
 #arrow-between-areas:after {
+	font-family: Arial, Helvetica;
 	font-size: 5rem;
 	color: #FFFFFFA0;
 	content: '▸';
-	position: relative;
-	left: -0.05em;
+	/*position: relative;*/
 }
 
 #rom-container {
