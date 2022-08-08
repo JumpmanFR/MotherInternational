@@ -1,0 +1,12 @@
+Instrucciones para los parches que salgan: Aplicar el parche con [Floating IPS](https://www.romhacking.net/utilities/1040/)  
+en una ROM sin alterar de "Mother 1+2 (J)". Tal ROM utiliza el siguiente hash:
+
+CRC: 0a44569c
+MD5: f41e36204356974c94fabf7d144dd32a
+SHA-1: f27336b9c96ca2d06c34e07a61a78538deac32b3
+SHA-256: fd444702f465698e8608e3034b68a65d59b538febb5aec371370435e9fea6e7a
+SHA-512: f2b9a37924000547f74d72fa39726a5af7c46ad805e1433257b2df2f15a76a80b78b6cf5f4b77ffdb7edff42bb50d9305551a3d450a5d5935c9705a9b8f423cc
+
+Una vez que tengamos las tres cosas, parche, Floating IPS y ROM de Mother 1+2 (J), pulsaremos en floating IPS en 
+"apply patch", tendremos que seleccionar el parche (un archivo .bps) y seguidamente la ROM, en cuanto nos salga 
+que el parche se ha aplicado correctamente, podemos meternos en el juego y probar la traducción!
