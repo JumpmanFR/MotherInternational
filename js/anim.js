@@ -3,7 +3,7 @@ JumpmanFR 2021-2022
 Animation method taken from Michael Romanov https://www.sitepoint.com/frame-by-frame-animation-css-javascript/
 Animations by Sam the Salmon */
 
-const ANIM_FOLDER = "anim";
+const ANIM_FOLDER = "assets/anim";
 const ANIM_TIME_PER_FRAME = 50;
 const ANIM_TIME_BETWEEN_LOOPS = 4000;
 var NB_FRAMES_PER_GAME = {[ID_MOTHER_1]: 192, [ID_MOTHER_2]: 139, [ID_MOTHER_3]: 410};
