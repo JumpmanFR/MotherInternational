@@ -45,7 +45,7 @@ To test your changes, you can force the program to load in the language of your 
 Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to follow a specific naming convention.\
 Then, `js/database.js` has to be updated to add new entries.
 
-To find out about the detailed procedure, please read this document: [How to add more translations to the database](database.md).
+To find out about the detailed procedure, please read this document: [How to add more translations to the database](doc_database.md).
 
 ## Supported translations
 * MOTHER 1 / EarthBound Beginnings
