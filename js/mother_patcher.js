@@ -23,7 +23,9 @@ MSG_CLASS[MSG_TYPE_LOADING] = CLASS_MESSAGE_LOADING;
 MSG_CLASS[MSG_TYPE_WARNING] = CLASS_MESSAGE_WARNING;
 MSG_CLASS[MSG_TYPE_ERROR] = CLASS_MESSAGE_ERROR;
 
-var gUserLanguage, gDefaultLanguage;
+var gLocalTexts, gDefaultTexts;
+var gUserPrefLangId;
+
 var gIsBusy, gIsInputDone;
 
 var gInputRom, gInputRomId;
@@ -35,7 +37,7 @@ var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
 // Shortcuts
 function addEvent(e,ev,f) {e.addEventListener(ev,f,false)}
 function el(e) {return document.getElementById(e)}
-function _(str) {return gUserLanguage[str] || gDefaultLanguage[str] || str}
+function _(str) {return gLocalTexts[str] || gDefaultTexts[str] || str}
 function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 
 
@@ -65,9 +67,9 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
 	var urlParams = new URLSearchParams(window.parent.location.search);
-	var lang = urlParams.get("lang");
+	var customLang = urlParams.get("lang");
 	var isForcedLang = !!urlParams.get("forcelang")
-	setLanguage(lang || navigator.language, isForcedLang);
+	setLanguage(customLang || navigator.language, isForcedLang);
 
 	setUIState(false, false);
 })
@@ -137,7 +139,6 @@ function onResize() {
 function resizeParent() {
 	var iframe = window.frameElement;
 	if (iframe) {
-		var screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 		var zoom = iframe.clientWidth / (document.body.clientWidth);
 		if (zoom < IFRAME_ZOOM_THRESHOLD) {
 			zoom = 1;
@@ -153,23 +154,21 @@ function resizeParent() {
 }
 
 function setLanguage(langId, isForced) {
-	langDefaultId = LANG_DEFAULT.substr(0,2);
-	gDefaultLanguage = LOCALIZATION[langDefaultId] || {};
+	var langDefaultId = LANG_DEFAULT.substr(0,2);
 	langId = (langId || LANG_DEFAULT).substr(0,2);
+	gDefaultTexts = LOCALIZATION[langDefaultId] || {};
 	if (LOCALIZATION[langId]) {
-		gUserLanguage = LOCALIZATION[langId];
+		gLocalTexts = LOCALIZATION[langId];
 		document.documentElement.setAttribute("lang", langId);
-		Utils.langId = langId;
 	} else if (isForced) {
-		gUserLanguage = {};
+		gLocalTexts = {};
 		document.documentElement.setAttribute("lang", langId);
-		Utils.langId = langId;
 	} else {
-		gUserLanguage = {};
+		gLocalTexts = {};
 		document.documentElement.setAttribute("lang", langDefaultId);
-		Utils.langId = langDefaultId;
 	}
 
+	gUserPrefLangId = langId;
 
 	var translatableElements = document.querySelectorAll('*[data-localize]');
 	for(var i = 0; i < translatableElements.length; i++) {
@@ -302,7 +301,7 @@ function updatePatchSelect(showAllIfEmpty) {
 					defaultSelectionCandidates.updateInput = cur; // a value that will update the user’s input ROM
 				} else if (!inputObj.isAltLatestVersion() && (inputObj.isSameProjectAs(curObj))) {
 					defaultSelectionCandidates.otherVersion = cur; // another version of the user’s input ROM
-				} else if (curObj.getLangId().startsWith(Utils.langId)) {
+				} else if (curObj.getLangId().startsWith(gUserPrefLangId)) {
 					defaultSelectionCandidates.userLanguage = cur; // a language that corresponds to the user
 				} else if (curObj.parentProject.isOfficial()) {
 					defaultSelectionCandidates.official = cur; // a basic, unpatched ROM

@@ -10,7 +10,8 @@ Utils.capitalizeFirstLetter = function (str) {
 }
 
 Utils.getLangName = function (id, longVersion) {
-	var localLangNames = new Intl.DisplayNames([Utils.langId], { type: 'language', style: longVersion ? 'long' : 'narrow', languageDisplay: longVersion ? 'standard' : 'dialect' });
+	var pageLang = document.documentElement.getAttribute("lang");
+	var localLangNames = new Intl.DisplayNames([pageLang], { type: 'language', style: longVersion ? 'long' : 'narrow', languageDisplay: longVersion ? 'standard' : 'dialect' });
 	return localLangNames.of(id);//.replace(/ \(....+\)/g, '');
 }
 
