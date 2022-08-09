@@ -515,10 +515,13 @@ input[type=button], button {
 	width: fit-content;
 }
 #credits-staff h2 {
-	margin: 0.7em 0;
+	margin: 0.7rem 0;
 }
 #credits-staff dt {
-	margin-top: 0.5em;
+	margin-top: 0.5rem;
+}
+#credits-staff dd {
+	margin-left: 2rem;
 }
 #about-side {
 	display: block;
@@ -526,6 +529,9 @@ input[type=button], button {
 	min-width: 12rem;
 	padding-top: 1em;
 	margin-bottom: 1.9rem;
+}
+#about-side * {
+	vertical-align: top;
 }
 #about-side select {
 	width: 100%;
@@ -539,18 +545,16 @@ input[type=button], button {
 	text-align: end;
 }
 #credits-animation {
-  position: relative;
-  top: 0.13em;
-  margin: 0 0.25em;
-  width: 1em;
-  height: 1.3125em; /*ratio 16:21*/
-  display: inline-block;
-  image-rendering: pixelated;
-  background-image: url("assets/anim/saturn.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  animation-iteration-count: infinite;
-  animation-name: creditsanim;
-  animation-duration: 1s;
-  animation-timing-function: steps(1);
+	margin: -0.25em 0.36em;
+	width: 1em;
+	height: 1.3125em; /*ratio 16:21*/
+	display: inline-block;
+	image-rendering: pixelated;
+	background-image: url("assets/anim/saturn.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	animation-iteration-count: infinite;
+	animation-name: creditsanim;
+	animation-duration: 1s;
+	animation-timing-function: steps(1);
 }
