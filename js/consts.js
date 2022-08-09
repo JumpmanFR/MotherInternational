@@ -16,6 +16,7 @@ const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
+const ELT_SOUND_FX = "sound-fx";
 
 const ELT_ABOUT_BTN = "about-btn";
 const ELT_ABOUT_CLOSE_BTN = "about-close-btn";

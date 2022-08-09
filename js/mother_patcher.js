@@ -3,6 +3,7 @@ JumpmanFR 2021-2022
 Contains elements from Rom Patcher JS by Marc Robledo */
 
 const PATH_PATCH_FOLDER = "patches/";
+const PATH_ASSETS_FOLDER = "assets/";
 const PATCH_BOXARTS = "assets/boxarts/";
 const PATH_LIBS = "./js/libs/";
 
@@ -65,6 +66,8 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
+
+	el(ELT_SOUND_FX).src = PATH_ASSETS_FOLDER + 'okdesuka.mp3';
 
 	var urlParams = new URLSearchParams(window.parent.location.search);
 	var customLang = urlParams.get("lang");
@@ -476,6 +479,12 @@ function addEltsToFrame(frameElt, eltsToAdd, className) {
 	return paragraph;
 }
 
+function playGoSound() {
+	var lect = el(ELT_SOUND_FX);
+	lect.currentTime = 0;
+	lect.play();
+}
+
 function reset() {
 	setGameAnim();
 	setUIState(false, false);
@@ -565,6 +574,7 @@ function startApply(rom, romId, destination) {
 	var route = findRoute(romId, destination);
 	if (route && route.length > 1) {
 		processListOfPatches(rom, route, 0);
+		playGoSound();
 	} else {
 		endProcessWithError(_("error_no_patch_route"));
 	}
