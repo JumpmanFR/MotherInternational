@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Supports UPS and IPS patch formats.
 
 ### New features
-* Includes 31 translation projects, or 63 translation patches if you count all included patch versions.
+* Includes 32 translation projects, or 65 translation patches if you count all included patch versions.
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game for any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -49,7 +49,7 @@ To find out about the detailed procedure, please read this document: [How to add
 
 ## Supported translations
 * MOTHER 1 / EarthBound Beginnings
-	* French v1.0 by Ridculle
+	* French v1.0 by Terminus Traduction
 	* German v1.0a1 by G-TRANS ***(new!)***
 	* Polish v1.0 by Voxar
 	* Russian v0.9 by CHIEF-NET
@@ -71,6 +71,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* Italian v1.0 by SilverM ***(new!)***
 	* Korean v1.1 by 아루미 & pjs
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
+	* European Spanish v0.5.1 by Z3R0 ***(new!)***
 * MOTHER 3
 	* Chinese v1.0(+fix) by 漫游汉化组
 	* Dutch v1.0 by PrismaticAngel ***(new!)***
@@ -83,6 +84,12 @@ To find out about the detailed procedure, please read this document: [How to add
 	* Polish v1.0 by Voxar ***(new!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v1.0 by Jimmytrius
+
+Thanks to these 26 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 12 different languages : Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
+Nine of these languages allow their speakers to play the entire MOTHER series from beginnings to end : English, French, German, Italian, Japanese, Korean, Polish, Portuguese and Spanish.\
+Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
+
+Many thanks and congrats to all the people involved!
 
 ## Credits
 * Design
