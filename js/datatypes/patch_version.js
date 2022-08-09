@@ -20,6 +20,9 @@ function PatchVersion(json) {
 	this.getExtraNote = function() {
 		return json.extraNote;
 	}
+	this.getYear = function() {
+		return json.year ? json.year.toString() : "";
+	}
 	this.isReversible = function() {
 		return !json.isOneWayOnly;
 	}
@@ -176,7 +179,7 @@ PatchVersion.prototype.getExportName = function() {
 	return res;
 }
 
-PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withProjectNote) {
+PatchVersion.prototype.getDesc = function(withGameTitle, withDetails, withYear) {
 	var res = "";
 	res += this.parentProject.getLangFlag() + " ";
 	if (withGameTitle) {
@@ -188,23 +191,28 @@ PatchVersion.prototype.getDesc = function(withGameTitle, alwaysWithAuthor, withP
 	if (this.getVersionValue() && !this.isSpecialHidden()) {
 		res += _("txtDescVersion") + this.getVersionValue() + " ";
 	}
-	if (this.getAuthorFallback() && (!this.parentProject.isOfficial() || alwaysWithAuthor)) {
+	if (this.getAuthorFallback() && (!this.parentProject.isOfficial() || withDetails)) {
 		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
 	}
 	if (this.isSpecialHidden() && this.getVersionValue()) { // here the version field acts as a description for this special hidden ROM
 		res += "(" + this.getVersionValue() + ") ";
 	}
-	if (withProjectNote && this.parentProject.getExtraNote()) {
+	if (withDetails && this.parentProject.getExtraNote()) {
 		res += "(" + this.parentProject.getExtraNote() + ") ";
+	} else if (withDetails && this.parentProject.isOfficial()) {
+		res += "(" + _('txtDescOfficial')  + ") ";
 	}
-	if (withProjectNote && this.parentProject.isOfficial()) {
-		res += " " + `(${_('txtDescOfficial')})`;
+
+	if (withYear && this.getYear()) {
+		res += "(" + this.getYear() + ") ";
 	}
 	return res.trim();
 }
 
 PatchVersion.prototype.sort = function(otherVersion) {
-	return this.parentProject.sort(otherVersion.parentProject) || ((this.getVersionValue()).localeCompare(otherVersion.getVersionValue()));
+	return this.parentProject.sort(otherVersion.parentProject)
+		|| ((this.getYear() && otherVersion.getYear()) ? this.getYear().localeCompare(otherVersion.getYear()) : 0)
+		|| ((this.getVersionValue()).localeCompare(otherVersion.getVersionValue()));
 }
 
 PatchVersion.prototype.toString = function() {
