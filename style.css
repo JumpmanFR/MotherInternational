@@ -463,7 +463,7 @@ input[type=button], button {
 	color: rgb(234, 183, 73);
 }
 
-#about-window-layer {
+#about-window-overlay {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -497,7 +497,7 @@ input[type=button], button {
 	position: relative;
 	overflow-y: auto;
 }
-#about-window-layer.closed-credits, #about-window.closed-credits {
+#about-window-overlay.closed-credits, #about-window.closed-credits {
 	visibility: hidden;
 }
 #about-window a {
