@@ -365,11 +365,9 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-version-label *:first-child:before {
 	content: '💡 ';
-	display: inline-block;
 }
 .info-website a:before {
 	content: '🌐 ';
-	display: inline-block;
 }
 .info-link-host {
 	display: block;
@@ -379,7 +377,10 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-doc a:before {
 	content: '📄 ';
+}
+.info-version-label *:first-child:before, .info-website a:before, .info-doc a:before {
 	display: inline-block;
+	font-size: 0.9em; /* to avoid cutting the top/bottom of the emoji */
 }
 .info-frame p.info-nb-uses {
 	line-height: 1.2em;
