@@ -90,18 +90,18 @@ PatchProject.prototype.getExtraNoteFallback = function() {
 
 PatchProject.prototype.getDesc = function(withGameTitle) {
 	var res = "";
-	res += this.getLangFlag() + " ";
+	res += this.getLangFlag();
 	if (withGameTitle) {
-		res += this.getGameLocalName() + " – ";
-		res += this.getLangName() + " ";
+		res += " " + this.getGameLocalName();
+		res += " – " + this.getLangName();
 	} else {
-		res += Utils.capitalizeFirstLetter(this.getLangName()) + " ";
+		res += " " + Utils.capitalizeFirstLetter(this.getLangName());
 	}
 	if (this.getAuthorFallback()) {
-		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
+		res += " " + _("txtDescBy") + " " + this.getAuthorFallback();
 	}
 	if (this.getExtraNote()) {
-		res += "(" + this.getExtraNote() + ") ";
+		res += " (" + this.getExtraNote() + ")";
 	}
 	if (this.isOfficial()) {
 		res += " " + _("txtDescOfficial");

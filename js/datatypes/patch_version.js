@@ -181,30 +181,30 @@ PatchVersion.prototype.getExportName = function() {
 
 PatchVersion.prototype.getDesc = function(withGameTitle, withDetails, withYear) {
 	var res = "";
-	res += this.parentProject.getLangFlag() + " ";
+	res += this.parentProject.getLangFlag();
 	if (withGameTitle) {
-		res += this.getGameLocalName() + " – ";
-		res += this.parentProject.getLangName() + " ";
+		res += " " + this.getGameLocalName();
+		res += " – " + this.parentProject.getLangName()
 	} else {
-		res += Utils.capitalizeFirstLetter(this.parentProject.getLangName()) + " ";
+		res += " " + Utils.capitalizeFirstLetter(this.parentProject.getLangName());
 	}
 	if (this.getVersionValue() && !this.isSpecialHidden()) {
-		res += _("txtDescVersion") + this.getVersionValue() + " ";
+		res += " " + _("txtDescVersion") + this.getVersionValue();
 	}
 	if (this.getAuthorFallback() && (!this.parentProject.isOfficial() || withDetails)) {
-		res += _("txtDescBy") + " " + this.getAuthorFallback() + " ";
+		res += " " + _("txtDescBy") + " " + this.getAuthorFallback();
 	}
 	if (this.isSpecialHidden() && this.getVersionValue()) { // here the version field acts as a description for this special hidden ROM
-		res += "(" + this.getVersionValue() + ") ";
+		res += " (" + this.getVersionValue() + ")";
 	}
 	if (withDetails && this.parentProject.getExtraNote()) {
-		res += "(" + this.parentProject.getExtraNote() + ") ";
+		res += " (" + this.parentProject.getExtraNote() + ")";
 	} else if (withDetails && this.parentProject.isOfficial()) {
-		res += "(" + _('txtDescOfficial')  + ") ";
+		res += " (" + _('txtDescOfficial')  + ")";
 	}
 
 	if (withYear && this.getYear()) {
-		res += "(" + this.getYear() + ") ";
+		res += " (" + this.getYear() + ")";
 	}
 	return res.trim();
 }
