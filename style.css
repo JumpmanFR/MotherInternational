@@ -13,6 +13,16 @@
 @keyframes spriteanim { from { background-position: top; } to { background-position: bottom; } }
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
+@media (min-width: 60rem) {
+	body {
+		min-width: 60rem;
+	}
+
+	#output-area.hidden, #arrow-between-areas.hidden {
+		width: 0;
+	}
+}
+
 @media (max-width: 60rem) {
 	.area, #arrow-between-areas {
 		display: block !important;
@@ -20,14 +30,17 @@
 	.area {
 		height: 20rem !important;
 	}
+	#output-area, #arrow-between-areas {
+		transition: opacity 1s ease-out !important;
+	}
 	#arrow-between-areas:after {
 		content: '▾' !important;
 		padding-right: 0 !important;
 		line-height: 0.45em !important;
 	}
 	#output-area.hidden, #arrow-between-areas.hidden {
+		transition-duration: 0s !important;
 		height: 0 !important; /* allows the credits button to be directly below */
-		padding: 0;
 		z-index: -99; /* prevents overlapping the credits button */
 	}
 	#arrow-between-areas.hidden:after {
@@ -150,20 +163,23 @@ a:not([href='#']):not([href='']):visited {
 #output-area {
 	border-color: transparent;
 	border-style: solid;
-	transition: opacity 1s ease-out;
+	transition: width .2s ease-in-out, opacity 1s ease-out;
 	background-color: #FFFFFF28;
 }
 
 #arrow-between-areas {
 	display: inline-block;
 	vertical-align: middle;
-	transition: opacity 1s ease-out;
+	transition: width .2s ease-in-out, opacity 1s ease-out;
 	margin: 0.5rem;
 	text-shadow: 3px 2px 4px #00000030;
 }
 
 #output-area.hidden, #arrow-between-areas.hidden {
 	opacity: 0;
+	padding: 0;
+	margin: 0;
+	border-width: 0;
 	transition-duration: 0s;
 	pointer-events: none;
 }
@@ -388,7 +404,7 @@ a:not([href='#']):not([href='']):visited {
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-size: min(1em,4vw);
+	font-size: min(0.9em,4vw);
 }
 
 .info-loading > span:not(:last-child):after {
