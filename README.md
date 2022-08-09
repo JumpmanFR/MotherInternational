@@ -69,7 +69,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* French v1.0 by MotherVF ***(new!)***
 	* German v1.0 by domflo
 	* Italian v1.0 by SilverM ***(new!)***
-	* Korean v1.1 by 아루미 & pjs
+	* Korean v190929 by 아루미 & pjs
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v0.5.1 by Z3R0 ***(new!)***
 * MOTHER 3
@@ -80,7 +80,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* German v1.0-v1.1 by Madokami
 	* Italian v1.0-v1.1.1 by Lorenzooone
 	* Italian v1.0 by Snifit
-	* Korean v1.0 by pjs
+	* Korean v190301 by pjs
 	* Polish v1.0 by Voxar ***(new!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v1.0 by Jimmytrius
