@@ -167,15 +167,25 @@ PatchVersion.prototype.isWorthShowing = function() {
 }
 
 PatchVersion.prototype.getExportName = function() {
-	var res = this.parentProject.getLangName() + ' ';
-	if (this.getVersionValue()) {
-		if (this.getAuthorFallback()) {
-			res += this.getAuthorFallback().charAt(0);
+	var res = '';
+	
+	if (this.parentProject.isOfficial()) {
+		res += _('txtUnpatched').replace('%', this.parentProject.getLangName(true));
+	} else {
+		res += _('txtPatched').replace('%', this.parentProject.getLangName(true));
+		res += ' ';
+		if (this.getVersionValue()) {
+			if (this.getAuthorFallback()) {
+				res += this.getAuthorFallback().charAt(0);
+			}
+			res += this.getVersionValue();
+		} else {
+			if (this.getAuthorFallback()) {
+				res += this.getAuthorFallback();
+			}
 		}
-		res += this.getVersionValue();
-	} else if (this.parentProject.isOfficial()) {
-		res += _('txtDescOfficial');
 	}
+
 	return res;
 }
 

@@ -3,7 +3,7 @@ JumpmanFR 2021-2022
 Contains elements from Rom Patcher JS by Marc Robledo */
 
 const PATH_PATCH_FOLDER = "patches/";
-const PATH_ASSETS_FOLDER = "assets/";
+const PATH_SFX = "assets/okdesuka.mp3";
 const PATCH_BOXARTS = "assets/boxarts/";
 const PATH_LIBS = "./js/libs/";
 
@@ -67,7 +67,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
-	el(ELT_SOUND_FX).src = PATH_ASSETS_FOLDER + 'okdesuka.mp3';
+	el(ELT_SOUND_FX).src = PATH_SFX;
 
 	var urlParams = new URLSearchParams(window.parent.location.search);
 	var customLang = urlParams.get("lang");
@@ -551,7 +551,7 @@ function onParsedInputRom(data) {
     if (gInputRomId) {
 		setMessage(_('txtRomIdentified'), MSG_TYPE_OK);
 		updatePatchInfo(FOR_INPUT);
-		el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameShortName()) : '';
+		el(ELT_PATCH_SELECT_LABEL).title = el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameFullName()) : '';
 		el(ELT_SHOW_ALL_OPTION).checked = false;
 		updatePatchSelect(true);
 		setTimeout(function() {
@@ -783,7 +783,7 @@ function endProcessWithError(errorMsg) {
 }
 
 function deliverFinalRom(finalRomFile, finalPatch) {
-	var fileNameAppend = ` (patch ${finalPatch.getExportName()})`;
+	var fileNameAppend = ` (${finalPatch.getExportName()})`;
 	finalRomFile.fileName = gInputRom.fileName.replace(/\.([^\.]*?)$/, fileNameAppend + '.$1');
 	finalRomFile.save();
 	setMessage(_('txtEndMsg'), MSG_TYPE_OK);

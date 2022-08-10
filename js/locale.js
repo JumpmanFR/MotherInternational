@@ -29,6 +29,8 @@ const LOCALIZATION = {
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'by',
+		'txtPatched':				'% patch', /* % is the adjective for the language */
+		'txtUnpatched':				'%, unpatched',
 		'txtDescOfficial':			'official',
 		'txtDescUpdate':			'(update)',
 		'txtDescIncompatible':		'(incompatible)',
@@ -114,6 +116,8 @@ const LOCALIZATION = {
 
 		'txtDescVersion':			'v',
 		'txtDescBy':				'par',
+		'txtPatched':				'patch %',
+		'txtUnpatched':				'%, dépatché',
 		'txtDescOfficial':			'officiel',
 		'txtDescUpdate':			'(mise à jour)',
 		'txtDescIncompatible':		'(incompatible)',
@@ -125,7 +129,7 @@ const LOCALIZATION = {
 		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
 		'txtNbUsesUnknown':			'inconnu',
 
-		'txtReadmeFile':			'lisezmoi',
+		'txtReadmeFile':			'lisez-moi',
 
 		'error_no_rom':				'Aucune ROM spécifiée',
 		'error_no_rom_info':		'Cette ROM n’a pas été analysée',

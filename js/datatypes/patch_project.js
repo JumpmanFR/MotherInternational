@@ -13,10 +13,8 @@ function PatchProject(json, game, lang) {
 	this.getGameLocalName = function() {
 		if (lang && lang.useJapName) {
 			return game.japName;
-		} else if (json.isOfficial) {
-			return game.shortName;
 		} else {
-			return game.fullName;
+			return game.shortName;
 		}
 	}
 	this.getLangId = function() {
@@ -41,7 +39,8 @@ function PatchProject(json, game, lang) {
 		return !!json.isOfficial;
 	}
 	this.getDescForSort = function() {
-		return game.year + " " + Utils.getLangName(this.getLangId(), true) + " " + this.getAuthor();
+		var lastVersionYear = this.getLatestVersionYear() || "0";
+		return game.year + " " + this.getLangName(true) + " " + lastVersionYear + " " + this.getAuthor();
 	}
 	this.addVersion = function(patchVersion) { // argument is PatchVersion object
 		this.versions.push(patchVersion);
@@ -59,8 +58,12 @@ function PatchProject(json, game, lang) {
 	}
 }
 
-PatchProject.prototype.getLangName = function() {
-	return Utils.getLangName(this.getLangId());
+PatchProject.prototype.getLangName = function(brief) {
+	var langId = this.getLangId();
+	if (brief) {
+		langId = langId.substr(0,2);
+	}
+	return Utils.getLangName(langId);
 }
 
 PatchProject.prototype.getVersions = function() {
@@ -73,19 +76,18 @@ PatchProject.prototype.thisIsAltLatestVersion = function(patchVersion) {
 	return (this.thisIsLatestVersion(patchVersion)) || (this.altLatestVersions && this.altLatestVersions.includes(patchVersion));
 }
 PatchProject.prototype.getLatestVersionAuthor = function() {
-	return this.latestVersion.getAuthor();
+	return this.latestVersion ? this.latestVersion.getAuthor() : "";
 }
 
+PatchProject.prototype.getLatestVersionYear = function() {
+	return this.latestVersion ? this.latestVersion.getYear() : "";
+}
 PatchProject.prototype.getAuthorFallback = function() {
 	return this.getAuthor() || this.getLatestVersionAuthor();
 }
 
 PatchProject.prototype.getWebsiteFallback = function() {
-	return this.getWebsite() || (this.latestVersion ? this.latestVersion.getWebsite() : undefined);
-}
-
-PatchProject.prototype.getExtraNoteFallback = function() {
-	return this.getExtraNote() || (this.latestVersion ? this.latestVersion.getExtraNote() : undefined);
+	return this.getWebsite() || (this.latestVersion ? this.latestVersion.getWebsite() : "");
 }
 
 PatchProject.prototype.getDesc = function(withGameTitle) {
