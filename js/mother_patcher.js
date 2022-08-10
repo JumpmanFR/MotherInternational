@@ -495,6 +495,8 @@ function reset() {
 	gInputRomId = null;
     updatePatchInfo(FOR_INPUT);
 	el(ELT_ROM_LABEL).innerText = _('txtNoRom');
+	el(ELT_AREA_INPUT).classList.add(CLASS_DROP_FIRST);
+	el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN_FIRST);
 	setMessage(_('txtSpecifyRom'));
 	// Output
 	clearPatchSelect();

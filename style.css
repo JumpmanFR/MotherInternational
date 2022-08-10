@@ -230,6 +230,14 @@ a:not([href='#']):not([href='']):visited {
 	white-space: nowrap;
 	height: 1.5em;
 }
+#input-area.drop-first-time #msg-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 1rem;
+}
+
+
 #msg.error {
 	color: darkred;
 }
