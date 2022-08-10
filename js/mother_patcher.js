@@ -38,7 +38,7 @@ var gWorkerApply = new Worker(PATH_LIBS + 'worker_apply.js');
 // Shortcuts
 function addEvent(e,ev,f) {e.addEventListener(ev,f,false)}
 function el(e) {return document.getElementById(e)}
-function _(str) {return gLocalTexts[str] || gDefaultTexts[str] || str}
+function _(str) {return gLocalTexts[str] != undefined ? gLocalTexts[str] : (gDefaultTexts[str] != undefined ? gDefaultTexts[str] : str)}
 function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 
 

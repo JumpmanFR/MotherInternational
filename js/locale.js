@@ -5,9 +5,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
 		'txtBrowse':				'Browse…',
-		'txtNoRom':					'No ROM specified',
+		'txtNoRom':					'',
 
-		'txtSpecifyRom':			'Please specify the ROM to patch',
+		'txtSpecifyRom':			'Please drop any ROM from a MOTHER game',
 		'txtApplyPatch':			'Apply patch',
 		'txtUpdate':				'Update',
 
@@ -91,9 +91,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
 
 		'txtBrowse':				'Parcourir…',
-		'txtNoRom':					'Aucune ROM spécifiée',
+		'txtNoRom':					'',
 
-		'txtSpecifyRom':			'Spécifiez votre ROM à patcher',
+		'txtSpecifyRom':			'Déposez n’importe quelle ROM d’un jeu MOTHER',
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
 

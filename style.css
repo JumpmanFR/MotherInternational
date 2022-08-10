@@ -13,9 +13,9 @@
 @keyframes spriteanim { from { background-position: top; } to { background-position: bottom; } }
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
-@media (min-width: 60rem) {
+@media not all and (max-width: 58rem) {
 	body {
-		min-width: 60rem;
+		min-width: calc(58rem - 0.8rem - 0.8rem); /* body padding left right */
 	}
 
 	#output-area.hidden.hidden-first-time, #arrow-between-areas.hidden.hidden-first-time {
@@ -23,7 +23,7 @@
 	}
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 58rem) {
 	.area, #arrow-between-areas {
 		display: block !important;
 	}
@@ -64,7 +64,7 @@
 	}
 	.info-references {
 		margin-inline-start: 0.6em !important;
-		max-width: calc(100% - 5rem - 0.6em - 0.5em) !important;
+		max-width: calc(100% - 5rem - 0.6em - 0.5em) !important; /* boxart width, margin left, extra margin right */
 	}
 }
 
@@ -216,6 +216,9 @@ a:not([href='#']):not([href='']):visited {
 	vertical-align: middle;
 	margin: 0 0.31em;
 }
+#rom-label:empty {
+	display: none;
+}
 #input-area.drop-first-time #rom-label {
 	cursor: auto;
 	pointer-events: none;
@@ -354,7 +357,7 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-references {
 	margin-inline-start: 1rem;
-	max-width: calc(100% - 5rem - 1rem - 0.5em);
+	max-width: calc(100% - 5rem - 1rem - 0.5em); /* boxart width, margin left, extra margin right */
 	text-align: start;
 	display: inline-block;
 	vertical-align: middle;
