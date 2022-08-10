@@ -57,11 +57,11 @@ Represents the language the game has been translated to. Should be written as a 
 Many language+country code pairings are already stored as constants (LANG_JAPANESE, LANG_ENGLISH, LANG_FRENCH, etc.) so it’s better to use these identifiers. Please refer to js/consts.js. If the language you’re looking for is not listed there, please refer to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and [ISO_3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) to specify the right constant value and add it to consts.js.
 
 #### latest *(strongly recommended)*
-The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. The value here should match the `version` field for one entry of the Versions Table, so please make sure you wrote the exact same value in both tables.\
-Optionally, this field may also be an array of strings, if you think two or more versions are worth appearing in the UI by default. In that case, the real latest version must be the first item in the array.
+The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. The value here should match the `version` field for one entry of the Versions Table, so please make sure you wrote the exact same value in both tables. Patch versions that aren’t the latest are hidden in the UI by default.\
+Optionally, this field may also be an array of strings, if you think two or more versions are worth appearing in the UI systematically. In that case, the real latest version must be the first item in the array.
 
 #### author *(mandatory\*)*
-The name of the translation team, or alternatively, the project leader. Apart from the names themselves, please avoid putting English words in this field: the UI of Mother International is localized. Maybe just put a "&" for "and", or use the language of the associated translation. For the original games, we just specify that the author is "Nintendo".\
+The name of the translation team, or alternatively, the project leader. Apart from the names themselves, please avoid putting English words in this field because the UI of Mother International is localized. Maybe just put a "&" for "and", or use the language of the associated translation. For the original games, we just specify that the author is "Nintendo".\
 *\* In the Versions Table, there is also an `author` field that’s intended to override this one in the main UI if both of them are filled in. You have to fill in at least one of these two.*
 
 #### website *(optional)*
@@ -110,7 +110,7 @@ This time, it must be a boolean, and the field will be interpreted as false if o
 The version number for this patch, as specified by the translation team. Yeah, as a translator you can’t always get it perfectly right on the first try, so this table includes all versions and patches as opposed to the Projects Table which lists the translation projects in general. The `version` field can be set to any string, like "1.0.2", "1.3+fix", or even the release date. It generally follows a 1.2 / 1.2.3 format, and it is used for sorting when the `year` field is identical or empty. Also make sure it matches the `latest` field in the corresponding Project Table, for one of the entries.\
 You may omit this field if a translation only has one version, but I’d suggest just giving it a good old "1.0" number for future-proofness.
 
-### year *(optional)*
+#### year *(optional)*
 The year when this patch version was released. This being a string field, it allows a few liberties such as "2015-2016". That said, it is used for sorting, so at least make sure to start with a 4-digit year value.
 
 #### author *(optional\*)*
