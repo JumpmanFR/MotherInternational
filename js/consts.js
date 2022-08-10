@@ -31,8 +31,9 @@ const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
 const CLASS_HIDDEN = "hidden"
+const CLASS_HIDDEN_FIRST = "hidden-first-time"
 const CLASS_OPTION_UNAVAILABLE = "unavailable";
-const CLASS_FIRST_DROP = "first-drop";
+const CLASS_DROP_FIRST = "drop-first-time";
 
 const CLASS_MESSAGE = "message";
 const CLASS_MESSAGE_OK = "ok";

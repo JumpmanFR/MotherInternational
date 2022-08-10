@@ -18,7 +18,7 @@
 		min-width: 60rem;
 	}
 
-	#output-area.hidden, #arrow-between-areas.hidden {
+	#output-area.hidden.hidden-first-time, #arrow-between-areas.hidden.hidden-first-time {
 		width: 0;
 	}
 }
@@ -138,14 +138,14 @@ a:not([href='#']):not([href='']):visited {
 	border-style: dashed;
 	background-color: #FFFFFF40;
 }
-#input-area.first-drop {
+#input-area.drop-first-time {
 	cursor: pointer;
 }
 #input-area.drag {
 	background-color: #FFFFFF80;
 	-webkit-user-select: none;
 }
-#input-area.first-drop, #input-area.drag {
+#input-area.drop-first-time, #input-area.drag {
 	background-image: url("assets/drop-icon.png");
 	background-size: 30%;
 	background-repeat: no-repeat;
@@ -175,11 +175,13 @@ a:not([href='#']):not([href='']):visited {
 	text-shadow: 3px 2px 4px #00000030;
 }
 
-#output-area.hidden, #arrow-between-areas.hidden {
-	opacity: 0;
+#output-area.hidden.hidden-first-time, #arrow-between-areas.hidden.hidden-first-time {
 	padding: 0;
 	margin: 0;
 	border-width: 0;
+}
+#output-area.hidden, #arrow-between-areas.hidden {
+	opacity: 0;
 	transition-duration: 0s;
 	pointer-events: none;
 }
@@ -214,7 +216,7 @@ a:not([href='#']):not([href='']):visited {
 	vertical-align: middle;
 	margin: 0 0.31em;
 }
-#input-area.first-drop #rom-label {
+#input-area.drop-first-time #rom-label {
 	cursor: auto;
 	pointer-events: none;
 }

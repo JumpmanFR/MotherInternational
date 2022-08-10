@@ -58,7 +58,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
 	addEvent(el(ELT_ROM_FILE), 'click', function(e) {e.stopPropagation();});
 	addEvent(el(ELT_ROM_BTN), 'click', function(e) {el(ELT_ROM_FILE).click();e.stopPropagation();});
-	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_FIRST_DROP)) el(ELT_ROM_FILE).click()});
+	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_DROP_FIRST)) el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', function() {updatePatchSelect()});
@@ -208,7 +208,7 @@ function refreshUIState() {
 		el(ELT_APPLY).disabled = true;
 		el(ELT_AREA_INPUT).classList.add(CLASS_DISABLED);
 		el(ELT_AREA_OUTPUT).classList.add(CLASS_DISABLED);
-		el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
+		el(ELT_AREA_INPUT).classList.remove(CLASS_DROP_FIRST);
 	} else {
 		el(ELT_ROM_FILE).disabled = false;
 		el(ELT_ROM_BTN).disabled = false;
@@ -218,14 +218,16 @@ function refreshUIState() {
 		el(ELT_AREA_INPUT).classList.remove(CLASS_DISABLED);
 		el(ELT_AREA_OUTPUT).classList.remove(CLASS_DISABLED);
 		if (gInputRomId) {
-			el(ELT_AREA_INPUT).classList.remove(CLASS_FIRST_DROP);
+			el(ELT_AREA_INPUT).classList.remove(CLASS_DROP_FIRST);
 		} else {
-			el(ELT_AREA_INPUT).classList.add(CLASS_FIRST_DROP);
+			el(ELT_AREA_INPUT).classList.add(CLASS_DROP_FIRST);
 		}
 	}
 
 	if (gIsInputDone) {
+		el(ELT_AREA_OUTPUT).classList.remove(CLASS_HIDDEN_FIRST);
 		el(ELT_AREA_OUTPUT).classList.remove(CLASS_HIDDEN);
+		el(ELT_ARROW).classList.remove(CLASS_HIDDEN_FIRST);
 		el(ELT_ARROW).classList.remove(CLASS_HIDDEN);
 	} else {
 		el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN);
