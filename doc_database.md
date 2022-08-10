@@ -57,15 +57,15 @@ Represents the language the game has been translated to. Should be written as a 
 Many language+country code pairings are already stored as constants (LANG_JAPANESE, LANG_ENGLISH, LANG_FRENCH, etc.) so it’s better to use these identifiers. Please refer to js/consts.js. If the language you’re looking for is not listed there, please refer to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and [ISO_3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) to specify the right constant value and add it to consts.js.
 
 #### latest *(strongly recommended)*
-The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. Can be any type of version number, like "1.0.2", "1.3+fix", or even the release date. Of course, you’ll have to respect the naming used by the translation team. If there’s only one version of this patch, you may omit to fill in this field, but it may lead to issues when a new version of this translation is released and added to Mother International. Also, please note the version number you put here allows the program to know which version to show first, so it also needs to be present for the relevant version in the Versions Table. Please make sure you wrote the exact same value in both tables.\
+The version name or number (as a string) used by the translation team for the most recent version you’re including to Mother International. The value here should match the `version` field for one entry of the Versions Table, so please make sure you wrote the exact same value in both tables.\
 Optionally, this field may also be an array of strings, if you think two or more versions are worth appearing in the UI by default. In that case, the real latest version must be the first item in the array.
 
 #### author *(mandatory\*)*
 The name of the translation team, or alternatively, the project leader. Apart from the names themselves, please avoid putting English words in this field: the UI of Mother International is localized. Maybe just put a "&" for "and", or use the language of the associated translation. For the original games, we just specify that the author is "Nintendo".\
-*\* In the Versions Table, there is also an author field that’s intended to override this one in the main UI if both of them are filled in. You have to fill in at least one of these two.*
+*\* In the Versions Table, there is also an `author` field that’s intended to override this one in the main UI if both of them are filled in. You have to fill in at least one of these two.*
 
 #### website *(optional)*
-The website URL for this translation project; the one that showcases it the best. Can be a page on romhacking.net or a forum post if nothing else was found. Must be entered as a full, absolute URL. If not filled in, the program will check the website field in the Versions Table as well.
+The website URL for this translation project; the one that showcases it the best. Can be a page on romhacking.net or a forum post if nothing else was found. Must be entered as a full, absolute URL. If not filled in, the program will check the `website` field in the Versions Table as well.
 
 #### extraNote *(optional)*
 A short note you may want to add in case this translation is unconventional and has something specific about it. It may have a special flair to it, or be created with a specific intention. Or, it may be incomplete. But this field here has to apply to all versions of the translation. So in most cases, it may be preferable to fill in the corresponding field in the Versions Table instead.\
@@ -81,7 +81,7 @@ Please don’t remove the old versions that appear in this table. The program wi
 All fields are strings unless otherwise stated.
 
 #### crc *(mandatory)*
-The [CRC-32](https://emn178.github.io/online-tools/crc32_checksum.html) checksum for the translated/associated ROM (not the patch!). The program needs this field to identify the ROM in case it has been input by the user, and, in the other way around, to check the ROM integrity after the patching process. So, please be sure you wrote it right. You’ll have to write it as a hexadecimal string that starts with "0x" (that’s a zero!).
+The [CRC-32](https://emn178.github.io/online-tools/crc32_checksum.html) checksum for the translated/associated ROM (not the patch!). The program needs this field to identify the ROM in case it has been input by the user, and, in the other way around, to check the ROM integrity after the patching process. So, please make sure you wrote it right. You’ll have to write it as a hexadecimal string that starts with `0x` (that’s a zero!).
 
 #### projectId *(mandatory)*
 You already know this one. If not, please read the first section.\
@@ -93,25 +93,28 @@ You should know this one as well, please refer to the first section. As already 
 
 #### patchExt *(mandatory\*)*
 The extension to the patch file. It allows the program to fetch the right patch file, by appending this extension to the patchId. The dot must be included. The program supports multiple patch formats and also zip files, but the patch format is automatically detected and it doesn’t rely on the extension to identify it.\
-*\* You don’t need to specify a patchExt field for the original, unpatched game because obviously there is no corresponding patch file on the server. But please consider that in our current database, the Japanese versions of MOTHER 1 and MOTHER 2 are treated technically as patched versions of the English games, because it allows the user to input any ROM, either English or Japanese (or other), and apply any patch to it. So don’t be surprised the Japanese versions still have a "patchExt".*
+*\* You don’t need to specify a `patchExt` field for the original, unpatched game because obviously there is no corresponding patch file on the server. But please consider that in our current database, the Japanese versions of MOTHER 1 and MOTHER 2 are treated technically as patched versions of the English games, because it allows the user to input any ROM, either English or Japanese (or other), and apply any patch to it. So don’t be surprised the Japanese versions still have a `patchExt` field.*
 
 #### baseRom *(mandatory\*)*
 The ROM for which the patch file is made. Patch files are intended to work with a specific ROM, that’s the one. But you won’t write any filename here. Instead, just specify the patchId that corresponds to that original, untranslated ROM, in this same table.\
 *\* Of course, if you didn’t specify a patchExt, you won’t have to specify a baseRom either; please see above.*
 
 #### isOneWayOnly *(mandatory\*)*
-This program takes advantage of a special feature the UPS format has: the ability to apply patches in reverse, or, in other words, to "unpatch". That’s what allows the user to input just any ROM, already translated or not, that the program will then unpatch and re-patch into another language. If the patch file you’re including is not an UPS patch (and, as far as I know, only UPS patches can do that), then you’ll have to specify your patch is incompatible with the "unpatch" feature by setting this boolean field to true. Otherwise, you can set it to false.\
+This program takes advantage of a special feature the UPS format has: the ability to apply patches in reverse, or, in other words, to "unpatch". That’s what allows the user to input just any ROM, already translated or not, that the program will then unpatch and re-patch into another language. If the patch file you’re including is not a UPS patch (and, as far as I know, only the UPS format can do that), then you’ll have to specify that your patch is incompatible with the "unpatch" feature by setting this boolean field to true. Otherwise, you can set it to false.\
 *\* Treated as false if omitted, so it’s not exactly mandatory but just make sure it’s false!*
 
 #### hasDoc *(optional)*
-This time, it must be a boolean, and the field will be interpreted as false if omitted. It specifies if this version of the translation includes a readme file. If included, the readme file must be a text file with the ".txt" extension, and it must be present in the "patches" folder. Its name must match the "patchId" field.
+This time, it must be a boolean, and the field will be interpreted as false if omitted. It specifies if this version of the translation includes a readme file. If included, the readme file must be a text file with the ".txt" extension, and it must be present in the "patches" folder. Its name must match the `patchId` field.
 
 #### version *(strongly recommended)*
-The version of the patch made by the translation team. Yeah, as a translator you can’t always get it perfectly right on the first try, so this table includes all versions and patches as opposed to the Projects Table which lists the translation projects in general. The version field can be any string, but generally follows a 1.2 / 1.2.3 format.\
+The version number for this patch, as specified by the translation team. Yeah, as a translator you can’t always get it perfectly right on the first try, so this table includes all versions and patches as opposed to the Projects Table which lists the translation projects in general. The `version` field can be set to any string, like "1.0.2", "1.3+fix", or even the release date. It generally follows a 1.2 / 1.2.3 format, and it is used for sorting when the `year` field is identical or empty. Also make sure it matches the `latest` field in the corresponding Project Table, for one of the entries.\
 You may omit this field if a translation only has one version, but I’d suggest just giving it a good old "1.0" number for future-proofness.
 
+### year *(optional)*
+The year when this patch version was released. This being a string field, it allows a few liberties such as "2015-2016". That said, it is used for sorting, so at least make sure to start with a 4-digit year value.
+
 #### author *(optional\*)*
-It happens that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the author field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the auhtor field in the Projects Table section above.\
+It happens that the author is different between two versions of a translation. That’s the purpose of this field. It overrides the `author` field in the Projects Table when this specific version is shown in the UI, and it acts as a fallback in other cases. Please refer to the indications about English and how to fill in the `author` field in the Projects Table section above.\
 *\* In case you didn’t specify an author for the project, you must specify an author here in the version table.*
 
 #### website *(optional)*
@@ -119,7 +122,7 @@ In case there is a specific website for this version of the translation, that’
 
 #### extraNote *(optional)*
 A short note you may want to add for this version of the translation, in case there is something special to know about it. Typically, that’s where you can indicate that a MOTHER 1+2 translation only includes the MOTHER 1 part. If you specified a website for this version, just above, then the extraNote will act as the text for the link in the UI.\
-Ideally, this field should be in the same language as the corresponding translation, because the UI of Mother International is localized as well and we can’t afford to add an extra note for every possible language.
+Ideally, this field should use the same language as the corresponding translation, because the UI of Mother International is localized as well and we can’t afford to add an extra note for every possible language.
 
 #### isSpecialHidden *(optional)*
-Covers a very specific case. We included the support for ROMs that we wanted the program to recognize without displaying them in the list. That way, the user can use these ROMs as an input in order to patch them. For example, there are at least two known ROMs for the the EarthBound game: with headers, and without headers. The system has to support both of them. So for one of these two, this boolean field is set to true in order to hide it, just like older versions of translations but without the UI suggesting to update it.
+Covers a very specific case. We included the support for ROMs that we wanted the program to recognize without displaying them in the list. That way, the user can use these ROMs as an input in order to patch them. For example, there are at least two known ROMs for the the EarthBound game: with headers, and without headers. The system has to support both of them. So for one of these two, this boolean field is set to true in order to hide it, similarly to older versions of translations but without the UI suggesting you to update your ROM.
