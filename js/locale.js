@@ -7,7 +7,7 @@ const LOCALIZATION = {
 		'txtBrowse':				'Browse…',
 		'txtNoRom':					'',
 
-		'txtSpecifyRom':			'Please drop any ROM from a MOTHER game',
+		'txtSpecifyRom':			'Please drop any ROM from a MOTHER game',
 		'txtApplyPatch':			'Apply patch',
 		'txtUpdate':				'Update',
 
@@ -93,7 +93,7 @@ const LOCALIZATION = {
 		'txtBrowse':				'Parcourir…',
 		'txtNoRom':					'',
 
-		'txtSpecifyRom':			'Déposez n’importe quelle ROM d’un jeu MOTHER',
+		'txtSpecifyRom':			'Déposez n’importe quelle ROM d’un jeu MOTHER',
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
 
