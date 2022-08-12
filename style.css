@@ -235,7 +235,7 @@ a:not([href='#']):not([href='']):visited {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 2rem;
+	bottom: 2.4rem;
 	white-space: normal;
 	height: initial;
 }
