@@ -19,13 +19,13 @@ var GAMES_LIST = {
 // Table for all supported translation projects, without detailing the individual versions and patches released by these teams
 var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m1-ja',	game:ID_MOTHER_1,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
-	{projectId:'m1-de',	game:ID_MOTHER_1,	lang:LANG_GERMAN,	latest:'1.0a1',	author:'G-TRANS'},
+	{projectId:'m1-de',	game:ID_MOTHER_1,	lang:LANG_GERMAN,	latest:'1.0a1',	author:'G‑TRANS'},
 	{projectId:'m1-en',	game:ID_MOTHER_1,	lang:LANG_ENGLISH,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m1-esA',game:ID_MOTHER_1,	lang:LANG_SP_ARGENT,latest:'2.2',	author:'OAD',				website:'https://www.romhacking.net/translations/1721/'},
 	{projectId:'m1-esB',game:ID_MOTHER_1,	lang:LANG_SP_SPAIN,	latest:'0.99',	author:'Jackic', 			website:'https://www.romhacking.net/translations/5647/'},
 	{projectId:'m1-fr',	game:ID_MOTHER_1,	lang:LANG_FRENCH,	latest:'1.0',	author:'Terminus Traduction',website:'https://traf.romhack.org/?p=patchs&pid=490'},
 	{projectId:'m1-pl',	game:ID_MOTHER_1,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar', 			website:'https://www.romhacking.net/translations/5152/'},
-	{projectId:'m1-ru',	game:ID_MOTHER_1,	lang:LANG_RUSSIAN,	latest:'0.9',	author:'CHIEF-NET',			website:'http://chief-net.ru/index.php?option=com_content&task=view&id=37'},
+	{projectId:'m1-ru',	game:ID_MOTHER_1,	lang:LANG_RUSSIAN,	latest:'0.9',	author:'CHIEF‑NET',			website:'http://chief-net.ru/index.php?option=com_content&task=view&id=37'},
 
 	{projectId:'m2-ja',	game:ID_MOTHER_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m2-de',	game:ID_MOTHER_2,	lang:LANG_GERMAN,	latest:'1.2.3',	author:'GlostU/Mexos',		website:'https://github.com/GlostU/EarthBound-deutsche-uebersetzung'},

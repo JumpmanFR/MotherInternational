@@ -163,12 +163,12 @@ PatchVersion.prototype.isAltLatestVersion = function() {
 	}
 }
 PatchVersion.prototype.isWorthShowing = function() {
-	return this.isAltLatestVersion() && !this.isSpecialHidden();
+	return this.isAltLatestVersion() && !this.parentProject.isOfficial() && !this.isSpecialHidden();
 }
 
 PatchVersion.prototype.getExportName = function() {
 	var res = '';
-	
+
 	if (this.parentProject.isOfficial()) {
 		res += _('txtUnpatched').replace('%', this.parentProject.getLangName(true));
 	} else {

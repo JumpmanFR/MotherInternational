@@ -233,6 +233,7 @@ a:not([href='#']):not([href='']):visited {
 
 #input-area.drop-first-time #msg-container {
 	position: absolute;
+	color: #FFFFFF80;
 	left: 0;
 	right: 0;
 	bottom: 2.4rem;
