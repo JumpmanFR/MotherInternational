@@ -17,9 +17,9 @@ Utils.getLangName = function (id/*, longVersion*/) {
 }
 
 Utils.getFlagEmoji = function (id) {
-	if (!this.areFlagEmojiSupported()) {
+	/*if (!this.areFlagEmojiSupported()) {
 		return '';
-	}
+	}*/
 	var split = id.toUpperCase().split(/-|_/);
     var lang = split[0];
     var code = split.pop();
