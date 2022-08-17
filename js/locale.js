@@ -76,7 +76,7 @@ const LOCALIZATION = {
 		'txtAboutSourceGitHub':		'distributed',
 		'txtAboutSourceLicense':	'MIT license',
 		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
-		'txtAboutAllTranslations':	'All supported languages:',
+		'txtAboutAllTranslations':	'All supported translations:',
 		'txtAboutAllTransLabel':	'– Select to access webpage –',
 		'txtAboutAllTransNoSite':	'No registered webpage for %.',
 		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?',
