@@ -1,6 +1,7 @@
 const LOCALIZATION = {
 	'en':
 	{
+		'txtHtmlTitle':				'Mother International',
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
@@ -87,6 +88,7 @@ const LOCALIZATION = {
 	},
 	'fr':
 	{
+		'txtHtmlTitle':				'Mother International',
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
 
