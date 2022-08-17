@@ -90,9 +90,11 @@ PatchProject.prototype.getWebsiteFallback = function() {
 	return this.getWebsite() || (this.latestVersion ? this.latestVersion.getWebsite() : "");
 }
 
-PatchProject.prototype.getDesc = function(withGameTitle) {
+PatchProject.prototype.getDesc = function(withGameTitle, withFlag) {
 	var res = "";
-	res += this.getLangFlag();
+	if (withFlag) {
+		res += this.getLangFlag();
+	}
 	if (withGameTitle) {
 		res += " " + this.getGameLocalName();
 		res += " – " + this.getLangName();
