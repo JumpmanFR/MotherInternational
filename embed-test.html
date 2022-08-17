@@ -1,0 +1,977 @@
+<html><head>
+<meta charset="UTF-8">
+<meta property="og:title" content="Mother International">
+<meta property="og:description" content="<p>What is it? Mother International is a built-in patching program that can translate any game in the MOTHER series. With this program, anyone can easily patch their MOTHER game into their preferred language. MOTHER and EarthBound Beginnings Support: French Polish Russian Spanish MOTHER 2 and EarthBound Support: French German Italian Polish Portuguese Spanish MOTHER 1+2 […]</p>
+">
+<meta property="og:image" content="">
+<meta property="og:url" content="https://mother4ever.net/mother-international/">
+<meta property="twitter:title" content="Mother Forever - Mother International">
+<meta property="twitter:description" content="<p>What is it? Mother International is a built-in patching program that can translate any game in the MOTHER series. With this program, anyone can easily patch their MOTHER game into their preferred language. MOTHER and EarthBound Beginnings Support: French Polish Russian Spanish MOTHER 2 and EarthBound Support: French German Italian Polish Portuguese Spanish MOTHER 1+2 […]</p>
+">
+<meta property="twitter:image" content="">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="description" content="<p>What is it? Mother International is a built-in patching program that can translate any game in the MOTHER series. With this program, anyone can easily patch their MOTHER game into their preferred language. MOTHER and EarthBound Beginnings Support: French Polish Russian Spanish MOTHER 2 and EarthBound Support: French German Italian Polish Portuguese Spanish MOTHER 1+2 […]</p>
+">
+<!-- <link rel="stylesheet" href="https://mother4ever.net/wp-content/themes/motherforeverthree/styles.css?bs=1659547175"> -->
+<link rel="stylesheet" type="text/css" href="//mother4ever.net/wp-content/cache/wpfc-minified/g1g1r80k/8be36.css" media="all">
+<title>Mother International</title>
+<link rel="icon" href="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/favicon.ico">
+<style type="text/css"></style></head>
+<body>
+<div id="image-preview">
+<div id="full-screen-image-caption-combo">
+<img id="full-screen-image-view">
+<div id="full-screen-caption-area">
+<p id="full-screen-caption"></p>
+</div>
+<script>
+"use strict";
+function addLoadEvent(element, func) {
+var oldonload = element.onload;
+if (typeof element.onload != 'function') {
+element.onload = func;
+} else {
+element.onload = function() {
+if (oldonload) {
+oldonload();
+}
+func();
+}
+}
+}
+function hookImages() {
+var blockImages = document.getElementsByClassName("wp-block-image");
+var imageElement;
+var imageURL;
+var caption;
+for (var element of blockImages) {
+if (element.tagName == "DIV") {
+for (var child of element.children) {
+if (child.tagName == "FIGURE") {
+caption = null;
+for (var image of child.children) {
+if (image.tagName == "IMG") {
+imageElement = image;
+imageURL = image.src;
+} else if (image.tagName == "FIGCAPTION") {
+caption = image.innerHTML;
+}
+}
+hookURLToImageView(imageElement, imageURL, caption);
+break;
+}
+}
+}
+}
+}
+function hookContentBoxImages() {
+var contentBoxImages = document.getElementsByClassName("content-box-image");
+for (var image of contentBoxImages) {
+image.style.cursor = "pointer";
+hookURLToImageView(image, image.src, null);
+}
+}
+function hookGalleryImages() {
+var galleryImages = document.getElementsByClassName("gallery-image");
+for (var image of galleryImages) {
+image.style.cursor = "pointer";
+var caption = null;
+if (image.nextSibling != null && image.nextSibling.tagName == "P") {
+caption = image.nextSibling.innerHTML;
+}
+hookURLToImageView(image, image.src, caption);
+}
+}
+function hookURLToImageView(imageView, url, caption) {
+imageView.type = "button";
+imageView.addEventListener('click', function() { onClickImageURL(url, caption); });
+}
+function onClickImageURL(imageUrl, caption) {
+var imageView = document.getElementById("full-screen-image-view");
+imageView.src = imageUrl;
+document.getElementById("image-preview").style.visibility = "visible";
+if (caption != null) {
+var captionContainer = document.getElementById("full-screen-caption-area");
+captionContainer.style.visibility = "visible";
+document.getElementById("full-screen-caption").innerHTML = caption;
+} else {
+document.getElementById("full-screen-caption-area").style.visibility = "hidden";
+document.getElementById("full-screen-caption").innerHTML = "";
+}
+}
+function closeImage() {
+document.getElementById("image-preview").style.visibility = "hidden";
+document.getElementById("full-screen-image-view").src = "#";
+document.getElementById("full-screen-caption-area").style.visibility = "hidden";
+document.getElementById("full-screen-caption").innerHTML = "";
+}
+addLoadEvent(document.getElementsByTagName("BODY")[0], hookImages);
+//addLoadEvent(document.getElementsByTagName("BODY")[0], hookContentBoxImages);
+addLoadEvent(document.getElementsByTagName("BODY")[0], hookGalleryImages);
+document.getElementById("image-preview").onclick = closeImage;
+</script>
+</div>
+</div><div id="mobile-header">
+<div id="mobile-navigation-bar">
+<div id="mobile-navigation-menu-button">
+<p id="mobile-hamburger-text" onclick="toggleNavigationMenu()">☰</p>
+</div>
+<a href="https://mother4ever.net" id="header_home_link">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/logomobile.png" id="mobile_header_logo">
+</a>
+<div id="mobile-theme-container" style="visibility: visible;">
+<div id="mobile-theme-selector">
+<div id="mobile-theme-switch-button">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/sun.png" id="mobile-theme-switch-button-image">
+</div>
+</div>
+</div>
+</div>
+<div id="mobile-navigation-menu" class="mobile-navigation-menu-collapsed" style="display:none;">
+<div class="mobile-navigation-level-1-item mobile-navigation-item" onclick="toggleGames()">
+<p class="mobile-navigation-level-1-item-label">Games</p>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother1" style="display:none;" onclick="toggleGame('mother1')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother1-expanded" style="display:none;" onclick="toggleGame('mother1')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER</p><div class="mobile-section" id="mobile-mother1-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-mother/" onclick="onLinkClicked(event)">About MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earthbound-beginnings-virtual-console-release/" onclick="onLinkClicked(event)">EarthBound Beginnings Virtual Console Release</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-characters/" onclick="onLinkClicked(event)">MOTHER Characters</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/where-to-play-mother/" onclick="onLinkClicked(event)">Where Can I Play MOTHER?</a></div><div class="mobile-section" id="mobile-mother1-media"><p class="mobile-section-header styled-foreground fg-dark">Media</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/encyclopedia-mother/" onclick="onLinkClicked(event)">Encyclopedia MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/famicom-4koma-manga/" onclick="onLinkClicked(event)">Famicom 4koma Manga</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-novels/" onclick="onLinkClicked(event)">MOTHER Novelizations</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-publications/" onclick="onLinkClicked(event)">MOTHER Publications</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-videos/" onclick="onLinkClicked(event)">MOTHER Videos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/music-mother/" onclick="onLinkClicked(event)">Music of MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/official-artwork-of-mother/" onclick="onLinkClicked(event)">Official Artwork of MOTHER</a></div><div class="mobile-section" id="mobile-mother1-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/differences-between-mother-earthbound-beginnings/" onclick="onLinkClicked(event)">Differences Between MOTHER and EarthBound Beginnings</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earth-bound-prototypes/" onclick="onLinkClicked(event)">Earth Bound NES Prototype Guide</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earthbound-beginnings-localization-history/" onclick="onLinkClicked(event)">EarthBound Beginnings Localization History</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother/" onclick="onLinkClicked(event)">Interviews About MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/technical-side-of-mother/" onclick="onLinkClicked(event)">Technical Side of MOTHER</a></div><div class="mobile-section" id="mobile-mother1-projects"><p class="mobile-section-header styled-foreground fg-dark">Fan Projects</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earthbound-beginnings-randomizer/" onclick="onLinkClicked(event)">EarthBound Beginnings Randomizer</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earthbound-easy-patch/" onclick="onLinkClicked(event)">EarthBound Easy Patch</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-25th-anniversary/" onclick="onLinkClicked(event)">MOTHER 25th Anniversary</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-to-earth/" onclick="onLinkClicked(event)">Mother To Earth Documentary</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother2" style="display:none;" onclick="toggleGame('mother2')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 2</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother2-expanded" style="display:none;" onclick="toggleGame('mother2')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 2</p><div class="mobile-section" id="mobile-mother2-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-mother-2/" onclick="onLinkClicked(event)">About MOTHER 2</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-2-characters/" onclick="onLinkClicked(event)">MOTHER 2 Characters</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/where-to-play-mother2/" onclick="onLinkClicked(event)">Where Can I Play MOTHER 2?</a></div><div class="mobile-section" id="mobile-mother2-guides"><p class="mobile-section-header styled-foreground fg-dark">Guides</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/ebg/" onclick="onLinkClicked(event)">EarthBound Online Walkthrough</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/players-guide/" onclick="onLinkClicked(event)">EarthBound Player’s Guide</a></div><div class="mobile-section" id="mobile-mother2-media"><p class="mobile-section-header styled-foreground fg-dark">Media</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother2-novel/" onclick="onLinkClicked(event)">MOTHER 2 Novelization</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-2-videos/" onclick="onLinkClicked(event)">MOTHER 2 Videos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/official-artwork-of-mother-2/" onclick="onLinkClicked(event)">Official Artwork of MOTHER 2</a></div><div class="mobile-section" id="mobile-mother2-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother-2/" onclick="onLinkClicked(event)">Interviews About MOTHER 2</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-2-localization/" onclick="onLinkClicked(event)">MOTHER 2 Localization History</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother-2/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER 2</a></div><div class="mobile-section" id="mobile-mother2-projects"><p class="mobile-section-header styled-foreground fg-dark">Fan Projects</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/earthbound-randomizer/" onclick="onLinkClicked(event)">EarthBound Randomizer</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother2dx/" onclick="onLinkClicked(event)">MOTHER 2 Deluxe</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother64" style="display:none;" onclick="toggleGame('mother64')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 64</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother64-expanded" style="display:none;" onclick="toggleGame('mother64')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 64</p><div class="mobile-section" id="mobile-mother64-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-mother-64/" onclick="onLinkClicked(event)">About MOTHER 64</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/controls-and-features/" onclick="onLinkClicked(event)">Controls and Features</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/history-of-mother-64/" onclick="onLinkClicked(event)">History of MOTHER 64</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/misinformation-and-rumors/" onclick="onLinkClicked(event)">Misinformation and Rumors</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-characters/" onclick="onLinkClicked(event)">MOTHER 64 Characters</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-enemies/" onclick="onLinkClicked(event)">MOTHER 64 Enemies</a></div><div class="mobile-section" id="mobile-mother64-media"><p class="mobile-section-header styled-foreground fg-dark">Media</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-merchandise/" onclick="onLinkClicked(event)">MOTHER 64 Merchandise</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-screenshots/" onclick="onLinkClicked(event)">MOTHER 64 Screenshots</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-videos/" onclick="onLinkClicked(event)">MOTHER 64 Videos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-music/" onclick="onLinkClicked(event)">Music of MOTHER 64</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/promotional-images-and-concept-art/" onclick="onLinkClicked(event)">Promotional Images and Concept Art</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/spaceworld-1999-photos/" onclick="onLinkClicked(event)">Spaceworld Demo Photos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/the-mother-3-times/" onclick="onLinkClicked(event)">The MOTHER 3 Times</a></div><div class="mobile-section" id="mobile-mother64-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/cancellation/" onclick="onLinkClicked(event)">Cancellation</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother-64/" onclick="onLinkClicked(event)">Interviews about MOTHER 64</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-dialogue/" onclick="onLinkClicked(event)">MOTHER 64 Dialogue</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother-64/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER 64</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/nintendo-64dd/" onclick="onLinkClicked(event)">Nintendo 64DD</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/showcases-at-public-exhibitions/" onclick="onLinkClicked(event)">Showcases at Public Exhibitions</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/spaceworld-1999-demo-and-reviews/" onclick="onLinkClicked(event)">Spaceworld Demo Information</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/reports-on-the-spaceworld-demo/" onclick="onLinkClicked(event)">Spaceworld Reports</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/the-blue-disk-saga/" onclick="onLinkClicked(event)">The Blue Disk Saga</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother12" style="display:none;" onclick="toggleGame('mother12')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 1 + 2</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother12-expanded" style="display:none;" onclick="toggleGame('mother12')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 1 + 2</p><div class="mobile-section" id="mobile-mother12-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/about-mother/" onclick="onLinkClicked(event)">About MOTHER</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-mother-1-2/" onclick="onLinkClicked(event)">About MOTHER 1+2</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/about-mother-2/" onclick="onLinkClicked(event)">About MOTHER 2</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/earthbound-beginnings-virtual-console-release/" onclick="onLinkClicked(event)">EarthBound Beginnings Virtual Console Release</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-2-characters/" onclick="onLinkClicked(event)">MOTHER 2 Characters</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-characters/" onclick="onLinkClicked(event)">MOTHER Characters</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/where-to-play-mother2/" onclick="onLinkClicked(event)">Where Can I Play MOTHER 2?</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/where-to-play-mother/" onclick="onLinkClicked(event)">Where Can I Play MOTHER?</a></div><div class="mobile-section" id="mobile-mother12-guides"><p class="mobile-section-header styled-foreground fg-dark">Guides</p><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/ebg/" onclick="onLinkClicked(event)">EarthBound Online Walkthrough</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/players-guide/" onclick="onLinkClicked(event)">EarthBound Player’s Guide</a></div><div class="mobile-section" id="mobile-mother12-media"><p class="mobile-section-header styled-foreground fg-dark">Media</p><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/encyclopedia-mother/" onclick="onLinkClicked(event)">Encyclopedia MOTHER</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/famicom-4koma-manga/" onclick="onLinkClicked(event)">Famicom 4koma Manga</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother2-novel/" onclick="onLinkClicked(event)">MOTHER 2 Novelization</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-2-videos/" onclick="onLinkClicked(event)">MOTHER 2 Videos</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-novels/" onclick="onLinkClicked(event)">MOTHER Novelizations</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-publications/" onclick="onLinkClicked(event)">MOTHER Publications</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-videos/" onclick="onLinkClicked(event)">MOTHER Videos</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/music-mother/" onclick="onLinkClicked(event)">Music of MOTHER</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/official-artwork-of-mother/" onclick="onLinkClicked(event)">Official Artwork of MOTHER</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/official-artwork-of-mother-2/" onclick="onLinkClicked(event)">Official Artwork of MOTHER 2</a></div><div class="mobile-section" id="mobile-mother12-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/differences-between-mother-earthbound-beginnings/" onclick="onLinkClicked(event)">Differences Between MOTHER and EarthBound Beginnings</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/earth-bound-prototypes/" onclick="onLinkClicked(event)">Earth Bound NES Prototype Guide</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/earthbound-beginnings-localization-history/" onclick="onLinkClicked(event)">EarthBound Beginnings Localization History</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother/" onclick="onLinkClicked(event)">Interviews About MOTHER</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother-2/" onclick="onLinkClicked(event)">Interviews About MOTHER 2</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-12-sound-quality-info/" onclick="onLinkClicked(event)">MOTHER 1+2 Sound Quality Info</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/mother-2-localization/" onclick="onLinkClicked(event)">MOTHER 2 Localization History</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother-2/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER 2</a><a class="mobile-section-item styled-foreground link-dark" href="https://mother4ever.net/technical-side-of-mother/" onclick="onLinkClicked(event)">Technical Side of MOTHER</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother3" style="display:none;" onclick="toggleGame('mother3')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 3</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother3-expanded" style="display:none;" onclick="toggleGame('mother3')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 3</p><div class="mobile-section" id="mobile-mother3-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-mother-3/" onclick="onLinkClicked(event)">About MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/history-of-mother-3/" onclick="onLinkClicked(event)">History of MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-3-characters/" onclick="onLinkClicked(event)">MOTHER 3 Characters</a></div><div class="mobile-section" id="mobile-mother3-media"><p class="mobile-section-header styled-foreground fg-dark">Media</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-3-publications/" onclick="onLinkClicked(event)">MOTHER 3 Publications</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-3-videos/" onclick="onLinkClicked(event)">MOTHER 3 Videos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/music-mother-3/" onclick="onLinkClicked(event)">Music &amp; Sounds of MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/official-artwork-of-mother-3/" onclick="onLinkClicked(event)">Official Artwork of MOTHER 3</a></div><div class="mobile-section" id="mobile-mother3-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/interviews-about-mother-3/" onclick="onLinkClicked(event)">Interviews about MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-3-memo-screen/" onclick="onLinkClicked(event)">MOTHER 3 Memo Screen</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-64-vs-mother-3/" onclick="onLinkClicked(event)">MOTHER 64 vs. MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/musicians-and-artists-of-mother-3/" onclick="onLinkClicked(event)">Musicians and Artists of MOTHER 3</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/the-notebook-and-mother-3/" onclick="onLinkClicked(event)">The Notebook and MOTHER 3</a></div><div class="mobile-section" id="mobile-mother3-projects"><p class="mobile-section-header styled-foreground fg-dark">Fan Projects</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother3-hq/" onclick="onLinkClicked(event)">MOTHER 3 HQ Sound Mixing Hack</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-3-opposing-force/" onclick="onLinkClicked(event)">MOTHER 3: OPPOSING FORCE</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/the-mother-3-fan-translation/" onclick="onLinkClicked(event)">The MOTHER 3 Fan Translation</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-mother4" style="display:none;" onclick="toggleGame('mother4')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 4</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-mother4-expanded" style="display:none;" onclick="toggleGame('mother4')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER 4</p><div class="mobile-section" id="mobile-mother4-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/itois-thoughts-and-mother-4/" onclick="onLinkClicked(event)">About MOTHER 4</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-cognitive-dissonance/" onclick="onLinkClicked(event)">MOTHER: Cognitive Dissonance</a></div><div class="mobile-section" id="mobile-mother4-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/mother-4-timeline/" onclick="onLinkClicked(event)">MOTHER 4 Timeline</a></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-smash" style="display:none;" onclick="toggleGame('smash')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Super Smash Bros.</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-smash-expanded" style="display:none;" onclick="toggleGame('smash')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Super Smash Bros.</p><div class="drop-down-empty-view" id="smash-empty-view"><img class="drop-down-empty-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/saturn.gif"><p class="drop-down-empty-label styled-foreground fg-dark">Coming soon!</p></div></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item bg-dark" id="mobile-nav-fishing" style="display:none;" onclick="toggleGame('fishing')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Itoi &amp; Hobonichi</p></div><div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-game-nav-item mobile-expanded bg-dark" id="mobile-nav-fishing-expanded" style="display:none;" onclick="toggleGame('fishing')"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Itoi &amp; Hobonichi</p><div class="mobile-section" id="mobile-fishing-info"><p class="mobile-section-header styled-foreground fg-dark">Information</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-shigesato-itoi/" onclick="onLinkClicked(event)">About Shigesato Itoi</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-hobonichi/" onclick="onLinkClicked(event)">Hobonichi</a></div><div class="mobile-section" id="mobile-fishing-merch"><p class="mobile-section-header styled-foreground fg-dark">Merchandise</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/pollyanna-books/" onclick="onLinkClicked(event)">Pollyanna Comic Books</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/techo-haramaki/" onclick="onLinkClicked(event)">Techo &amp; Haramaki</a></div><div class="mobile-section" id="mobile-fishing-works"><p class="mobile-section-header styled-foreground fg-dark">Projects</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/cabbage-itois-other-n64-project/" onclick="onLinkClicked(event)">Cabbage</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/hobonichi-interviews/" onclick="onLinkClicked(event)">Hobonichi Interviews</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/hobonichi-videos/" onclick="onLinkClicked(event)">Itoi Videos</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/lets-meet-in-a-dream/" onclick="onLinkClicked(event)">Let’s Meet in a Dream</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/movies/" onclick="onLinkClicked(event)">Movies Featuring Itoi</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/penguin-gohan/" onclick="onLinkClicked(event)">Penguin Gohan</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/penguinism-album/" onclick="onLinkClicked(event)">Penguinism Album</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/the-hobonichi-health-handbook/" onclick="onLinkClicked(event)">The Hobonichi Health Handbook</a></div><div class="mobile-section" id="mobile-fishing-other"><p class="mobile-section-header styled-foreground fg-dark">Other</p><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/about-shigesato-itois-no-1-bass-fishing/" onclick="onLinkClicked(event)">About Shigesato Itoi’s No. 1 Bass Fishing</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/itois-bass-fishing-tournaments/" onclick="onLinkClicked(event)">No. 1 Bass Fishing Tournaments</a><a class="mobile-section-item styled-link styled-foreground link-dark" href="https://mother4ever.net/tsurikon64/" onclick="onLinkClicked(event)">Tsurikon 64</a></div></div>        <div class="mobile-navigation-level-1-item mobile-navigation-item" onclick="toggleMobileNews()">
+<p class="mobile-navigation-level-1-item-label">News</p>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-news-nav-item bg-dark" id="mobile-nav-articles" style="display:none;">
+<a href="https://mother4ever.net/archive2020" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">2020</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-news-nav-item bg-dark" id="mobile-nav-articles" style="display:none;">
+<a href="https://mother4ever.net/archive2021" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">2021</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-news-nav-item bg-dark" id="mobile-nav-articles" style="display:none;">
+<a href="https://mother4ever.net/archive2022" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">2022</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-news-nav-item bg-dark" id="mobile-nav-articles" style="display:none;">
+<a href="https://www.youtube.com/playlist?list=PLq31o5Kw4Gn7N1PO2V8irkjOEFv8YCm62" target="_blank" rel="noopener" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Videos</p></a>
+</div>
+<div class="mobile-navigation-level-1-item mobile-navigation-item">
+<a href="https://mother4ever.net/interviews" class="mobile-navigation-level-1-item-link"><p class="mobile-navigation-level-1-item-label">Interviews</p></a>
+</div>
+<div class="mobile-navigation-level-1-item mobile-navigation-item">
+<a href="https://mother4ever.net/mother-direct" class="mobile-navigation-level-1-item-link"><p class="mobile-navigation-level-1-item-label">Mother Direct</p></a>
+</div>
+<div class="mobile-navigation-level-1-item mobile-navigation-item">
+<a href="https://mother4ever.net/mother-international" class="mobile-navigation-level-1-item-link"><p class="mobile-navigation-level-1-item-label">Translations</p></a>
+</div>
+<div class="mobile-navigation-level-1-item mobile-navigation-item">
+<a href="https://forms.gle/gH7iXetTWZnANaq7A" class="mobile-navigation-level-1-item-link" target="_blank" rel="noopener"><p class="mobile-navigation-level-1-item-label">Survey</p></a>
+</div>
+<div class="mobile-navigation-level-1-item mobile-navigation-item" onclick="toggleMobileInfo()">
+<p class="mobile-navigation-level-1-item-label">About</p>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-info-nav-item bg-dark" id="mobile-nav-staff" style="display:none;">
+<a href="https://mother4ever.net/staff-page" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Website Staff</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-info-nav-item bg-dark" id="mobile-nav-sources" style="display:none;">
+<a href="https://mother4ever.net/citations-and-sources" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">Sources</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-info-nav-item bg-dark" id="mobile-nav-info" style="display:none;">
+<a href="https://mother4ever.net/about-the-mother-series" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER Series</p></a>
+</div>
+<div class="mobile-navigation-level-2-item mobile-navigation-item styled-background mobile-info-nav-item bg-dark" id="mobile-nav-creators" style="display:none;">
+<a href="https://mother4ever.net/series-creators" class="mobile-navigation-level-2-item-link"><p class="mobile-navigation-level-2-item-label styled-foreground fg-dark">MOTHER Creators</p></a>
+</div>
+</div>
+</div>
+<script>
+"use strict";
+var navExpanded = false;
+function toggleNavigationMenu() {
+if (navExpanded) {
+navExpanded = false;
+collapseNav();
+} else {
+navExpanded = true;
+expandNav();
+}
+}
+function expandNav() {
+var header = document.getElementById("mobile-header");
+var menu = document.getElementById("mobile-navigation-menu");
+menu.style.display = "flex";
+header.style.height = "100%";
+menu.classList.add("expand-mobile-navigation-menu");
+}
+function collapseNav() {
+var menu = document.getElementById("mobile-navigation-menu");
+menu.classList.add("collapse-mobile-navigation-menu");
+}
+function onMobileNavAnimationEnd() {
+var menu = document.getElementById("mobile-navigation-menu");
+menu.classList.remove("expand-mobile-navigation-menu");
+menu.classList.remove("collapse-mobile-navigation-menu");
+menu.classList.remove("mobile-navigation-menu-collapsed");
+menu.classList.remove("mobile-navigation-menu-expanded");
+if (navExpanded) {
+menu.classList.add("mobile-navigation-menu-expanded");
+} else {
+menu.classList.add("mobile-navigation-menu-collapsed");
+menu.style.display = "none";
+var header = document.getElementById("mobile-header");
+header.style.height = "auto";
+}
+}
+document.getElementById("mobile-navigation-menu").addEventListener("webkitAnimationEnd", onMobileNavAnimationEnd);
+document.getElementById("mobile-navigation-menu").addEventListener("animationend", onMobileNavAnimationEnd);
+var gamesExpanded = false;
+var gameIsExpanded = new Map([
+['mother1', false],
+['mother2', false],
+['mother64', false],
+['mother12', false],
+['mother3', false],
+['mother4', false],
+['smash', false],
+['fishing', false]
+]);
+function toggleGames() {
+if (gamesExpanded) {
+gamesExpanded = false;
+collapseGames();
+} else {
+gamesExpanded = true;
+expandGames();
+}
+}
+function expandGames() {
+var gameNavs = document.getElementsByClassName("mobile-game-nav-item");
+for (var i = 0; i < gameNavs.length; i++) {
+if (gameNavs[i].classList.contains("mobile-expanded")) { continue; }
+gameNavs[i].style.display = "block";
+}
+}
+function collapseGames() {
+var gameNavs = document.getElementsByClassName("mobile-game-nav-item");
+for (var i = 0; i < gameNavs.length; i++) {
+gameNavs[i].style.display = "none";
+}
+gameIsExpanded = new Map([
+['mother1', false],
+['mother2', false],
+['mother64', false],
+['mother12', false],
+['mother3', false],
+['mother4', false],
+['smash', false],
+['fishing', false]
+]);
+}
+function toggleGame(game) {
+var collapsedItem = document.getElementById("mobile-nav-" + game);
+var expandedItem = document.getElementById("mobile-nav-" + game + "-expanded");
+if (gameIsExpanded[game]) {
+gameIsExpanded[game] = false;
+collapsedItem.style.display = "block";
+expandedItem.style.display = "none";
+} else {
+gameIsExpanded[game] = true;
+collapsedItem.style.display = "none";
+expandedItem.style.display = "block";
+}
+}
+function onLinkClicked(event) {
+event.stopPropagation();
+}
+document.getElementById("mobile-theme-switch-button").onclick = toggleTheme;
+function setDarkTheme(animated) {
+if (currentTheme === 'dark') { return; }
+var button = document.getElementById("theme-switch-button");
+var image = document.getElementById("theme-switch-button-image");
+var themeLabel = document.getElementById("theme-label");
+currentTheme = 'dark';
+button.classList.remove("theme-to-light");
+button.classList.remove("theme-light");
+button.classList.add(animated ? "theme-to-dark" : "theme-dark");
+themeLabel.innerHTML = "Dark Mode";
+image.src = "https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/moon.png";
+var contentBGs = document.getElementsByClassName("styled-background");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg-to-light");
+contentBGs[i].classList.remove("bg-light");
+contentBGs[i].classList.add(animated ? "bg-to-dark" : "bg-dark");
+}
+contentBGs = document.getElementsByClassName("styled-background2");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg2-to-light");
+contentBGs[i].classList.remove("bg2-light");
+contentBGs[i].classList.add(animated ? "bg2-to-dark" : "bg2-dark");
+}
+var borders = document.getElementsByClassName("styled-border");
+for (var i = 0; i < borders.length; i++) {
+borders[i].classList.remove("border-to-light");
+borders[i].classList.remove("border-light");
+borders[i].classList.add(animated ? "border-to-dark" : "border-dark");
+}
+var textElements = document.getElementsByClassName("styled-foreground");
+for (var i = 0; i < textElements.length; i++) {
+if (textElements[i].tagName === "A") {
+textElements[i].classList.remove("link-to-light");
+textElements[i].classList.remove("link-light");
+textElements[i].classList.add(animated ? "link-to-dark" : "link-dark");
+} else {
+textElements[i].classList.remove("fg-to-light");
+textElements[i].classList.remove("fg-light");
+textElements[i].classList.add(animated ? "fg-to-dark" : "fg-dark");
+var wrappedText = textElements[i].getElementsByTagName("p");
+for (var j = 0; j < wrappedText.length; j++) {
+wrappedText[j].classList.remove("fg-to-light");
+wrappedText[j].classList.remove("fg-light");
+wrappedText[j].classList.add(animated ? "fg-to-dark" : "fg-dark");
+}
+var wrappedLinks = textElements[i].getElementsByTagName("a");
+for (var j = 0; j < wrappedLinks.length; j++) {
+wrappedLinks[j].classList.remove("link-to-light");
+wrappedLinks[j].classList.remove("link-light");
+wrappedLinks[j].classList.add(animated ? "link-to-dark" : "link-dark");
+}
+}
+}
+writeCookieValue("theme", 'dark', 365);
+}
+function setLightTheme(animated) {
+if (currentTheme === 'light') { return; }
+var button = document.getElementById("theme-switch-button");
+var image = document.getElementById("theme-switch-button-image");
+var themeLabel = document.getElementById("theme-label");
+currentTheme = 'light';
+button.classList.remove("theme-to-dark");
+button.classList.remove("theme-dark");
+button.classList.add(animated ? "theme-to-light" : "theme-light");
+themeLabel.innerHTML = "Light Mode";
+image.src = "https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/sun.png";
+var contentBGs = document.getElementsByClassName("styled-background");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg-to-dark");
+contentBGs[i].classList.remove("bg-dark");
+contentBGs[i].classList.add(animated ? "bg-to-light" : "bg-light");
+}
+contentBGs = document.getElementsByClassName("styled-background2");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg2-to-dark");
+contentBGs[i].classList.remove("bg2-dark");
+contentBGs[i].classList.add(animated ? "bg2-to-light" : "bg2-light");
+}
+var borders = document.getElementsByClassName("styled-border");
+for (var i = 0; i < borders.length; i++) {
+borders[i].classList.remove("border-to-dark");
+borders[i].classList.remove("border-dark");
+borders[i].classList.add(animated ? "border-to-light" : "border-light");
+}
+var textElements = document.getElementsByClassName("styled-foreground");
+for (var i = 0; i < textElements.length; i++) {
+if (textElements[i].tagName === "A") {
+textElements[i].classList.remove("link-to-dark");
+textElements[i].classList.remove("link-dark");
+textElements[i].classList.add(animated ? "link-to-light" : "link-light");
+} else {
+textElements[i].classList.remove("fg-to-dark");
+textElements[i].classList.remove("fg-dark");
+textElements[i].classList.add(animated ? "fg-to-light" : "fg-light");
+var wrappedText = textElements[i].getElementsByTagName("p");
+for (var j = 0; j < wrappedText.length; j++) {
+wrappedText[j].classList.remove("fg-to-dark");
+wrappedText[j].classList.remove("fg-dark");
+wrappedText[j].classList.add(animated ? "fg-to-light" : "fg-light");
+}
+var wrappedLinks = textElements[i].getElementsByTagName("a");
+for (var j = 0; j < wrappedLinks.length; j++) {
+wrappedLinks[j].classList.remove("link-to-dark");
+wrappedLinks[j].classList.remove("link-dark");
+wrappedLinks[j].classList.add(animated ? "link-to-light" : "link-light");
+}
+}
+}
+writeCookieValue("theme", 'light', 365);
+}
+function toggleTheme() {
+if (currentTheme === 'light') {
+setDarkTheme(true);
+} else {
+setLightTheme(true);
+}
+}
+var newsExpanded = false;
+function toggleMobileNews() {
+if (newsExpanded) {
+newsExpanded = false;
+collapseNews();
+} else {
+newsExpanded = true;
+expandNews();
+}
+}
+function expandNews() {
+var newsNavs = document.getElementsByClassName("mobile-news-nav-item");
+for (var i = 0; i < newsNavs.length; i++) {
+newsNavs[i].style.display = "block";
+}
+}
+function collapseNews() {
+var newsNavs = document.getElementsByClassName("mobile-news-nav-item");
+for (var i = 0; i < newsNavs.length; i++) {
+newsNavs[i].style.display = "none";
+}
+}
+var infoExpanded = false;
+function toggleMobileInfo() {
+if (infoExpanded) {
+infoExpanded = false;
+collapseInfo();
+} else {
+infoExpanded = true;
+expandInfo();
+}
+}
+function expandInfo() {
+var infoNavs = document.getElementsByClassName("mobile-info-nav-item");
+for (var i = 0; i < infoNavs.length; i++) {
+infoNavs[i].style.display = "block";
+}
+}
+function collapseInfo() {
+var infoNavs = document.getElementsByClassName("mobile-info-nav-item");
+for (var i = 0; i < infoNavs.length; i++) {
+infoNavs[i].style.display = "none";
+}
+}
+</script><div id="header">
+<div id="logo_container">
+<a href="https://mother4ever.net" id="header_home_link">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/logo.png" id="header_logo">
+</a>
+</div>
+<div id="tab_container">
+<div id="navigation-container">
+<div id="top-level-nav-container">
+<p class="top-level-nav-label" id="top-level-nav-news">NEWS</p>
+<a class="top-level-nav-link" href="https://mother4ever.net/interviews"><p class="top-level-nav-label" id="top-level-nav-interviews">INTERVIEWS</p></a>
+<a class="top-level-nav-link" href="https://mother4ever.net/mother-direct"><p class="top-level-nav-label" id="top-level-nav-forums">MOTHER DIRECT</p></a>
+<a class="top-level-nav-link" href="https://mother4ever.net/mother-international"><p class="top-level-nav-label" id="top-level-nav-series">TRANSLATIONS</p></a>
+<a class="top-level-nav-link" href="https://forms.gle/gH7iXetTWZnANaq7A" target="_blank" rel="noopener"><p class="top-level-nav-label" id="top-level-nav-community">SURVEY</p></a>
+<p class="top-level-nav-label" id="top-level-nav-info">ABOUT</p>
+</div>
+<div class="white-divider"></div>
+<div id="game-nav-container">
+<div class="game-nav-item" id="game-nav-mother-1">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother1-tab.png">
+<p class="game-nav-label">MOTHER</p>
+</div>
+<div class="game-nav-item" id="game-nav-mother-2">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother2-tab.png">
+<p class="game-nav-label">MOTHER 2</p>
+</div>
+<div class="game-nav-item" id="game-nav-mother-64">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother64-tab.png">
+<p class="game-nav-label">MOTHER 64</p>
+</div>
+<div class="game-nav-item" id="game-nav-mother-1-2">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother1-2-tab.png">
+<p class="game-nav-label">MOTHER 1+2</p>
+</div>
+<div class="game-nav-item" id="game-nav-mother-3">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother3-tab.png">
+<p class="game-nav-label">MOTHER 3</p>
+</div>
+<div class="game-nav-item" id="game-nav-mother-4">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/mother4-tab.png">
+<p class="game-nav-label">MOTHER 4</p>
+</div>
+<div class="game-nav-item" id="game-nav-smash">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/smash-tab.png">
+<p class="game-nav-label">SMASH BROS</p>
+</div>
+<div class="game-nav-item" id="game-nav-hobonichi">
+<img class="game-nav-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/hobonichi-tab.png">
+<p class="game-nav-label">ITOI &amp; HOBONICHI</p>
+</div>
+</div>
+</div>
+<div id="search-social-container">
+<div id="search-container">
+<input id="search-field" type="text" placeholder="Show me the wisdom of the world..." name="search">
+<div id="search-button">
+<p id="search-button-label">Zoom!</p>
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/search-saturn.png" id="search-button-image">
+</div>
+</div>
+<div id="social-container">
+<a href="https://twitter.com/MotherForever_" class="social-link"><div class="social-button" id="social-twitter-button">
+<img class="social-button-image" id="social-button-image-twitter" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/twitter.png">
+</div></a>
+<a href="https://www.youtube.com/c/MotherForever" class="social-link"><div class="social-button" id="social-youtube-button">
+<img class="social-button-image" id="social-button-image-youtube" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/youtube.png">
+</div></a>
+<a href="https://discord.gg/cmT6kGrZsm" class="social-link"><div class="social-button" id="social-discord-button">
+<img class="social-button-image" id="social-button-image-discord" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/discord.png">
+</div></a>
+</div>
+<div id="theme-container" style="visibility: visible;">
+<p id="theme-label">Dark Mode</p>
+<div id="theme-selector">
+<div id="theme-switch-button" class="theme-dark">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/moon.png" id="theme-switch-button-image">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="nav-drop-down"><div class="nav-drop-down-content" id="nav-drop-down-news"><a href="https://mother4ever.net/archive2020" class="drop-down-link">2020</a><a href="https://mother4ever.net/archive2021" class="drop-down-link">2021</a><a href="https://mother4ever.net/archive2022" class="drop-down-link">2022</a><a href="https://www.youtube.com/playlist?list=PLq31o5Kw4Gn7N1PO2V8irkjOEFv8YCm62" target="_blank" rel="noopener" class="drop-down-link">Videos</a></div></div>
+<div class="drop-down" id="drop-down">
+</div>
+</div>
+<script>
+"use strict";
+var newsHTML = '<div class="nav-drop-down-content" id="nav-drop-down-news"><a href="https://mother4ever.net/archive2020" class="drop-down-link">2020</a><a href="https://mother4ever.net/archive2021" class="drop-down-link">2021</a><a href="https://mother4ever.net/archive2022" class="drop-down-link">2022</a><a href="https://www.youtube.com/playlist?list=PLq31o5Kw4Gn7N1PO2V8irkjOEFv8YCm62" target="_blank" rel="noopener" class="drop-down-link">Videos</a></div>';
+var infoHTML = '<div class="nav-drop-down-content" id="nav-drop-down-info"><a href="https://mother4ever.net/staff-page/" class="drop-down-link">Website Staff</a><a href="https://mother4ever.net/citations-and-sources/" class="drop-down-link">Sources</a><a href="https://mother4ever.net/about-the-mother-series/" class="drop-down-link">MOTHER Series</a><a href="https://mother4ever.net/series-creators/" class="drop-down-link">MOTHER Creators</a></div>';
+var current = 'news';
+var dropdown = document.getElementById("nav-drop-down");
+dropdown.innerHTML = newsHTML;
+function toggleNews() {
+var dropdown = document.getElementById("nav-drop-down");
+var navButton = document.getElementById("top-level-nav-news");
+if (dropdown.style.visibility === "visible") {
+if (current === 'news') {
+closeNavDropDown();
+return;
+} else {
+resetNavHighlight();
+}
+} else {
+dropdown.style.visibility = "visible";
+}
+current = 'news';
+navButton.style.backgroundColor = "#EAB749";
+dropdown.innerHTML = newsHTML;
+dropdown.style.backgroundColor = "#8F2A2B";
+dropdown.style.left = '' + (navButton.getBoundingClientRect().left + document.body.scrollLeft) + 'px';
+dropdown.style.top = '' + (navButton.getBoundingClientRect().bottom + document.body.scrollTop) + 'px';
+closeDropDown();
+}
+function toggleInfo() {
+var dropdown = document.getElementById("nav-drop-down");
+var navButton = document.getElementById("top-level-nav-info");
+if (dropdown.style.visibility === "visible") {
+if (current === 'info') {
+closeNavDropDown();
+return;
+} else {
+resetNavHighlight();
+}
+} else {
+dropdown.style.visibility = "visible";
+}
+current = 'info';
+navButton.style.backgroundColor = "#EAB749";
+dropdown.innerHTML = infoHTML;
+dropdown.style.backgroundColor = "#8F2A2B";
+dropdown.style.left = '' + (navButton.getBoundingClientRect().left + document.body.scrollLeft) + 'px';
+dropdown.style.top = '' + (navButton.getBoundingClientRect().bottom + document.body.scrollTop) + 'px';
+closeDropDown();
+}
+function resetNavHighlight() {
+var navButtons = document.getElementsByClassName("top-level-nav-label");
+for (var i = 0; i < navButtons.length; i++) {
+navButtons[i].style.backgroundColor = "";
+}
+}
+function closeNavDropDown() {
+document.getElementById("nav-drop-down").style.visibility = "hidden";
+current = null;
+resetNavHighlight();
+}
+document.getElementById("top-level-nav-news").onclick = toggleNews;
+document.getElementById("top-level-nav-info").onclick = toggleInfo;
+var mother1HTML = '<div class="drop-down-hax" id="mother1-hax"></div><div class="drop-down-section" id="mother1-info" style="width: 23%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/about-mother/">About MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/earthbound-beginnings-virtual-console-release/">EarthBound Beginnings Virtual Console Release</a><a class="drop-down-item" href="https://mother4ever.net/mother-characters/">MOTHER Characters</a><a class="drop-down-item" href="https://mother4ever.net/where-to-play-mother/">Where Can I Play MOTHER?</a></div><div class="drop-down-section" id="mother1-media" style="width: 23%"><p class="drop-down-section-header">◆ Media</p><a class="drop-down-item" href="https://mother4ever.net/encyclopedia-mother/">Encyclopedia MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/famicom-4koma-manga/">Famicom 4koma Manga</a><a class="drop-down-item" href="https://mother4ever.net/mother-novels/">MOTHER Novelizations</a><a class="drop-down-item" href="https://mother4ever.net/mother-publications/">MOTHER Publications</a><a class="drop-down-item" href="https://mother4ever.net/mother-videos/">MOTHER Videos</a><a class="drop-down-item" href="https://mother4ever.net/music-mother/">Music of MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/official-artwork-of-mother/">Official Artwork of MOTHER</a></div><div class="drop-down-section" id="mother1-other" style="width: 23%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/differences-between-mother-earthbound-beginnings/">Differences Between MOTHER and EarthBound Beginnings</a><a class="drop-down-item" href="https://mother4ever.net/earth-bound-prototypes/">Earth Bound NES Prototype Guide</a><a class="drop-down-item" href="https://mother4ever.net/earthbound-beginnings-localization-history/">EarthBound Beginnings Localization History</a><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother/">Interviews About MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother/">Musicians and Artists of MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/technical-side-of-mother/">Technical Side of MOTHER</a></div><div class="drop-down-section" id="mother1-projects" style="width: 23%"><p class="drop-down-section-header">◆ Fan Projects</p><a class="drop-down-item" href="https://mother4ever.net/earthbound-beginnings-randomizer/">EarthBound Beginnings Randomizer</a><a class="drop-down-item" href="https://mother4ever.net/earthbound-easy-patch/">EarthBound Easy Patch</a><a class="drop-down-item" href="https://mother4ever.net/mother-25th-anniversary/">MOTHER 25th Anniversary</a><a class="drop-down-item" href="https://mother4ever.net/mother-to-earth/">Mother To Earth Documentary</a></div>';
+var mother2HTML = '<div class="drop-down-hax" id="mother2-hax"></div><div class="drop-down-section" id="mother2-info" style="width: 18%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/about-mother-2/">About MOTHER 2</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-characters/">MOTHER 2 Characters</a><a class="drop-down-item" href="https://mother4ever.net/where-to-play-mother2/">Where Can I Play MOTHER 2?</a></div><div class="drop-down-section" id="mother2-guides" style="width: 18%"><p class="drop-down-section-header">◆ Guides</p><a class="drop-down-item" href="https://mother4ever.net/ebg/">EarthBound Online Walkthrough</a><a class="drop-down-item" href="https://mother4ever.net/players-guide/">EarthBound Player&#8217;s Guide</a></div><div class="drop-down-section" id="mother2-media" style="width: 18%"><p class="drop-down-section-header">◆ Media</p><a class="drop-down-item" href="https://mother4ever.net/mother2-novel/">MOTHER 2 Novelization</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-videos/">MOTHER 2 Videos</a><a class="drop-down-item" href="https://mother4ever.net/official-artwork-of-mother-2/">Official Artwork of MOTHER 2</a></div><div class="drop-down-section" id="mother2-other" style="width: 18%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother-2/">Interviews About MOTHER 2</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-localization/">MOTHER 2 Localization History</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother-2/">Musicians and Artists of MOTHER 2</a></div><div class="drop-down-section" id="mother2-projects" style="width: 18%"><p class="drop-down-section-header">◆ Fan Projects</p><a class="drop-down-item" href="https://mother4ever.net/earthbound-randomizer/">EarthBound Randomizer</a><a class="drop-down-item" href="https://mother4ever.net/mother2dx/">MOTHER 2 Deluxe</a></div>';
+var mother64HTML = '<div class="drop-down-hax" id="mother64-hax"></div><div class="drop-down-section" id="mother64-info" style="width: 31%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/about-mother-64/">About MOTHER 64</a><a class="drop-down-item" href="https://mother4ever.net/controls-and-features/">Controls and Features</a><a class="drop-down-item" href="https://mother4ever.net/history-of-mother-64/">History of MOTHER 64</a><a class="drop-down-item" href="https://mother4ever.net/misinformation-and-rumors/">Misinformation and Rumors</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-characters/">MOTHER 64 Characters</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-enemies/">MOTHER 64 Enemies</a></div><div class="drop-down-section" id="mother64-media" style="width: 31%"><p class="drop-down-section-header">◆ Media</p><a class="drop-down-item" href="https://mother4ever.net/mother-64-merchandise/">MOTHER 64 Merchandise</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-screenshots/">MOTHER 64 Screenshots</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-videos/">MOTHER 64 Videos</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-music/">Music of MOTHER 64</a><a class="drop-down-item" href="https://mother4ever.net/promotional-images-and-concept-art/">Promotional Images and Concept Art</a><a class="drop-down-item" href="https://mother4ever.net/spaceworld-1999-photos/">Spaceworld Demo Photos</a><a class="drop-down-item" href="https://mother4ever.net/the-mother-3-times/">The MOTHER 3 Times</a></div><div class="drop-down-section" id="mother64-other" style="width: 31%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/cancellation/">Cancellation</a><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother-64/">Interviews about MOTHER 64</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-dialogue/">MOTHER 64 Dialogue</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother-64/">Musicians and Artists of MOTHER 64</a><a class="drop-down-item" href="https://mother4ever.net/nintendo-64dd/">Nintendo 64DD</a><a class="drop-down-item" href="https://mother4ever.net/showcases-at-public-exhibitions/">Showcases at Public Exhibitions</a><a class="drop-down-item" href="https://mother4ever.net/spaceworld-1999-demo-and-reviews/">Spaceworld Demo Information</a><a class="drop-down-item" href="https://mother4ever.net/reports-on-the-spaceworld-demo/">Spaceworld Reports</a><a class="drop-down-item" href="https://mother4ever.net/the-blue-disk-saga/">The Blue Disk Saga</a></div>';
+var mother12HTML = '<div class="drop-down-hax" id="mother12-hax"></div><div class="drop-down-section" id="mother12-info" style="width: 23%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/about-mother/">About MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/about-mother-1-2/">About MOTHER 1+2</a><a class="drop-down-item" href="https://mother4ever.net/about-mother-2/">About MOTHER 2</a><a class="drop-down-item" href="https://mother4ever.net/earthbound-beginnings-virtual-console-release/">EarthBound Beginnings Virtual Console Release</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-characters/">MOTHER 2 Characters</a><a class="drop-down-item" href="https://mother4ever.net/mother-characters/">MOTHER Characters</a><a class="drop-down-item" href="https://mother4ever.net/where-to-play-mother2/">Where Can I Play MOTHER 2?</a><a class="drop-down-item" href="https://mother4ever.net/where-to-play-mother/">Where Can I Play MOTHER?</a></div><div class="drop-down-section" id="mother12-guides" style="width: 23%"><p class="drop-down-section-header">◆ Guides</p><a class="drop-down-item" href="https://mother4ever.net/ebg/">EarthBound Online Walkthrough</a><a class="drop-down-item" href="https://mother4ever.net/players-guide/">EarthBound Player&#8217;s Guide</a></div><div class="drop-down-section" id="mother12-media" style="width: 23%"><p class="drop-down-section-header">◆ Media</p><a class="drop-down-item" href="https://mother4ever.net/encyclopedia-mother/">Encyclopedia MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/famicom-4koma-manga/">Famicom 4koma Manga</a><a class="drop-down-item" href="https://mother4ever.net/mother2-novel/">MOTHER 2 Novelization</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-videos/">MOTHER 2 Videos</a><a class="drop-down-item" href="https://mother4ever.net/mother-novels/">MOTHER Novelizations</a><a class="drop-down-item" href="https://mother4ever.net/mother-publications/">MOTHER Publications</a><a class="drop-down-item" href="https://mother4ever.net/mother-videos/">MOTHER Videos</a><a class="drop-down-item" href="https://mother4ever.net/music-mother/">Music of MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/official-artwork-of-mother/">Official Artwork of MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/official-artwork-of-mother-2/">Official Artwork of MOTHER 2</a></div><div class="drop-down-section" id="mother12-other" style="width: 23%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/differences-between-mother-earthbound-beginnings/">Differences Between MOTHER and EarthBound Beginnings</a><a class="drop-down-item" href="https://mother4ever.net/earth-bound-prototypes/">Earth Bound NES Prototype Guide</a><a class="drop-down-item" href="https://mother4ever.net/earthbound-beginnings-localization-history/">EarthBound Beginnings Localization History</a><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother/">Interviews About MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother-2/">Interviews About MOTHER 2</a><a class="drop-down-item" href="https://mother4ever.net/mother-12-sound-quality-info/">MOTHER 1+2 Sound Quality Info</a><a class="drop-down-item" href="https://mother4ever.net/mother-2-localization/">MOTHER 2 Localization History</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother/">Musicians and Artists of MOTHER</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother-2/">Musicians and Artists of MOTHER 2</a><a class="drop-down-item" href="https://mother4ever.net/technical-side-of-mother/">Technical Side of MOTHER</a></div>';
+var mother3HTML = '<div class="drop-down-hax" id="mother3-hax"></div><div class="drop-down-section" id="mother3-info" style="width: 23%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/about-mother-3/">About MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/history-of-mother-3/">History of MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/mother-3-characters/">MOTHER 3 Characters</a></div><div class="drop-down-section" id="mother3-media" style="width: 23%"><p class="drop-down-section-header">◆ Media</p><a class="drop-down-item" href="https://mother4ever.net/mother-3-publications/">MOTHER 3 Publications</a><a class="drop-down-item" href="https://mother4ever.net/mother-3-videos/">MOTHER 3 Videos</a><a class="drop-down-item" href="https://mother4ever.net/music-mother-3/">Music &#038; Sounds of MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/official-artwork-of-mother-3/">Official Artwork of MOTHER 3</a></div><div class="drop-down-section" id="mother3-other" style="width: 23%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/interviews-about-mother-3/">Interviews about MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/mother-3-memo-screen/">MOTHER 3 Memo Screen</a><a class="drop-down-item" href="https://mother4ever.net/mother-64-vs-mother-3/">MOTHER 64 vs. MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/musicians-and-artists-of-mother-3/">Musicians and Artists of MOTHER 3</a><a class="drop-down-item" href="https://mother4ever.net/the-notebook-and-mother-3/">The Notebook and MOTHER 3</a></div><div class="drop-down-section" id="mother3-projects" style="width: 23%"><p class="drop-down-section-header">◆ Fan Projects</p><a class="drop-down-item" href="https://mother4ever.net/mother3-hq/">MOTHER 3 HQ Sound Mixing Hack</a><a class="drop-down-item" href="https://mother4ever.net/mother-3-opposing-force/">MOTHER 3: OPPOSING FORCE</a><a class="drop-down-item" href="https://mother4ever.net/the-mother-3-fan-translation/">The MOTHER 3 Fan Translation</a></div>';
+var mother4HTML = '<div class="drop-down-hax" id="mother4-hax"></div><div class="drop-down-section" id="mother4-info" style="width: 48%"><p class="drop-down-section-header">◆ Game Information</p><a class="drop-down-item" href="https://mother4ever.net/itois-thoughts-and-mother-4/">About MOTHER 4</a><a class="drop-down-item" href="https://mother4ever.net/mother-cognitive-dissonance/">MOTHER: Cognitive Dissonance</a></div><div class="drop-down-section" id="mother4-other" style="width: 48%"><p class="drop-down-section-header">◆ Other Information</p><a class="drop-down-item" href="https://mother4ever.net/mother-4-timeline/">MOTHER 4 Timeline</a></div>';
+var smashHTML = '<div class="drop-down-hax" id="smash-hax"></div><div class="drop-down-empty-view" id="smash-empty-view"><img class="drop-down-empty-image" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/saturn.gif"><p class="drop-down-empty-label">Coming soon!</p></div>';
+var hobonichiHTML = '<div class="drop-down-hax" id="hobonichi-hax"></div><div class="drop-down-section" id="hobonichi-info" style="width: 18%"><p class="drop-down-section-header">◆ Information</p><a class="drop-down-item" href="https://mother4ever.net/about-shigesato-itoi/">About Shigesato Itoi</a><a class="drop-down-item" href="https://mother4ever.net/about-hobonichi/">Hobonichi</a></div><div class="drop-down-section" id="hobonichi-merch" style="width: 18%"><p class="drop-down-section-header">◆ Merchandise</p><a class="drop-down-item" href="https://mother4ever.net/pollyanna-books/">Pollyanna Comic Books</a><a class="drop-down-item" href="https://mother4ever.net/techo-haramaki/">Techo &#038; Haramaki</a></div><div class="drop-down-section" id="hobonichi-works" style="width: 18%"><p class="drop-down-section-header">◆ Itoi\'s Projects</p><a class="drop-down-item" href="https://mother4ever.net/cabbage-itois-other-n64-project/">Cabbage</a><a class="drop-down-item" href="https://mother4ever.net/hobonichi-videos/">Itoi Videos</a><a class="drop-down-item" href="https://mother4ever.net/lets-meet-in-a-dream/">Let&#8217;s Meet in a Dream</a><a class="drop-down-item" href="https://mother4ever.net/movies/">Movies Featuring Itoi</a><a class="drop-down-item" href="https://mother4ever.net/penguin-gohan/">Penguin Gohan</a><a class="drop-down-item" href="https://mother4ever.net/penguinism-album/">Penguinism Album</a></div><div class="drop-down-section" id="hobonichi-other" style="width: 18%"><p class="drop-down-section-header">◆ Hobonichi\'s Projects</p><a class="drop-down-item" href="https://mother4ever.net/hobonichi-interviews/">Hobonichi Interviews</a><a class="drop-down-item" href="https://mother4ever.net/the-hobonichi-health-handbook/">The Hobonichi Health Handbook</a></div><div class="drop-down-section" id="hobonichi-bassFishing" style="width: 18%"><p class="drop-down-section-header">◆ Bass Fishing?</p><a class="drop-down-item" href="https://mother4ever.net/about-shigesato-itois-no-1-bass-fishing/">About Shigesato Itoi&#8217;s No. 1 Bass Fishing</a><a class="drop-down-item" href="https://mother4ever.net/itois-bass-fishing-tournaments/">No. 1 Bass Fishing Tournaments</a><a class="drop-down-item" href="https://mother4ever.net/tsurikon64/">Tsurikon 64</a></div>';
+var currentGame = 'mother1';
+function closeDropDown() {
+document.getElementById("drop-down").style.visibility = "hidden";
+currentGame = null;
+resetGameHighlight();
+}
+function resetGameHighlight() {
+var navButtons = document.getElementsByClassName("game-nav-item");
+for (var i = 0; i < navButtons.length; i++) {
+navButtons[i].style.backgroundColor = "";
+navButtons[i].style.backgroundImage = "";
+}
+}
+function positionGameDropdown() {
+var dropdown = document.getElementById("drop-down");
+var tabContainer = document.getElementById("tab_container");
+dropdown.style.left = '' + (tabContainer.getBoundingClientRect().left + document.body.scrollLeft) + 'px';
+dropdown.style.top = '' + (tabContainer.getBoundingClientRect().bottom + document.body.scrollTop) + 'px';
+}
+function toggle(dropDown, tabButton, game, html) {
+if (dropDown.style.visibility === "visible") {
+if (currentGame === game) {
+closeDropDown();
+return;
+} else {
+resetGameHighlight();
+}
+} else {
+dropDown.style.visibility = "visible";
+}
+currentGame = game;
+dropDown.innerHTML = html;
+dropDown.style.backgroundColor = "#8F2A2B";
+tabButton.style.backgroundColor = "#EAB749";
+positionGameDropdown();
+closeNavDropDown();
+}
+function toggleMother1() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-1"),
+'mother1', mother1HTML);
+}
+function toggleMother2() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-2"),
+'mother2', mother2HTML);
+}
+function toggleMother64() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-64"),
+'mother64', mother64HTML);
+}
+function toggleMother1And2() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-1-2"),
+'mother12', mother12HTML);
+}
+function toggleMother3() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-3"),
+'mother3', mother3HTML);
+}
+function toggleMother4() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-mother-4"),
+'mother4', mother4HTML);
+}
+function toggleSmash() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-smash"),
+'smash', smashHTML);
+}
+function toggleHobonichi() {
+toggle(document.getElementById("drop-down"),
+document.getElementById("game-nav-hobonichi"),
+'hobonichi', hobonichiHTML);
+}
+document.getElementById("game-nav-mother-1").onclick = toggleMother1;
+document.getElementById("game-nav-mother-2").onclick = toggleMother2;
+document.getElementById("game-nav-mother-64").onclick = toggleMother64;
+document.getElementById("game-nav-mother-1-2").onclick = toggleMother1And2;
+document.getElementById("game-nav-mother-3").onclick = toggleMother3;
+document.getElementById("game-nav-mother-4").onclick = toggleMother4;
+document.getElementById("game-nav-smash").onclick = toggleSmash;
+document.getElementById("game-nav-hobonichi").onclick = toggleHobonichi;
+function onSearch() {
+var searchTerm = document.getElementById("search-field").value;
+if (searchTerm == null || searchTerm.length == 0) { return; }
+window.location.href = "https://mother4ever.net?s=" + searchTerm;
+}
+document.getElementById("search-button").onclick = onSearch;
+document.getElementById("search-field").addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+event.preventDefault();
+onSearch();
+}
+});
+function readCookieValue(key) {
+var name = key + "=";
+var keyValueArray = document.cookie.split(';');
+for(var i = 0; i < keyValueArray.length; i++) {
+var currentKeyValue = keyValueArray[i];
+while (currentKeyValue.charAt(0) == ' ') {
+currentKeyValue = currentKeyValue.substring(1);
+}
+if (currentKeyValue.indexOf(name) == 0) {
+return currentKeyValue.substring(name.length, currentKeyValue.length);
+}
+}
+return null;
+}
+function writeCookieValue(key, value, expirationDays) {
+var date = new Date();
+date.setTime(date.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+var expires = "expires=" + date.toUTCString();
+document.cookie = key + "=" + value + ";domain=.mother4ever.net;path=/;" + expires + ";";
+}
+function addLoadEvent(element, func) {
+var oldonload = element.onload;
+if (typeof element.onload != 'function') {
+element.onload = func;
+} else {
+element.onload = function() {
+if (oldonload) {
+oldonload();
+}
+func();
+}
+}
+}
+var currentTheme = null;
+addLoadEvent(document.getElementsByTagName("BODY")[0], loadSavedTheme);
+function updateWidgets() {
+var contentBoxes = document.getElementsByClassName("content-box");
+for (var i = 0; i < contentBoxes.length; i++) {
+contentBoxes[i].classList.add("styled-background2");
+}
+var blockColumns = document.getElementsByClassName("wp-block-column");
+for (var i = 0; i < blockColumns.length; i++) {
+blockColumns[i].classList.add("styled-background2");
+}
+var tableItems = document.getElementsByTagName("td");
+for (var i = 0; i < tableItems.length; i++) {
+tableItems[i].classList.add("styled-foreground");
+}
+}
+function loadSavedTheme() {
+updateWidgets();
+if (readCookieValue("theme") === 'dark') {
+setDarkTheme(false);
+} else {
+setLightTheme(false);
+}
+var content = document.getElementById("content");
+var themeContainer = document.getElementById("theme-container");
+content.style.visibility = "visible";
+themeContainer.style.visibility = "visible";
+var mobileThemeContainer = document.getElementById("mobile-theme-container");
+mobileThemeContainer.style.visibility = "visible";
+}
+document.getElementById("theme-switch-button").onclick = toggleTheme;
+function setDarkTheme(animated) {
+if (currentTheme === 'dark') { return; }
+var button = document.getElementById("theme-switch-button");
+var image = document.getElementById("theme-switch-button-image");
+var themeLabel = document.getElementById("theme-label");
+currentTheme = 'dark';
+button.classList.remove("theme-to-light");
+button.classList.remove("theme-light");
+button.classList.add(animated ? "theme-to-dark" : "theme-dark");
+themeLabel.innerHTML = "Dark Mode";
+image.src = "https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/moon.png";
+var contentBGs = document.getElementsByClassName("styled-background");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg-to-light");
+contentBGs[i].classList.remove("bg-light");
+contentBGs[i].classList.add(animated ? "bg-to-dark" : "bg-dark");
+}
+contentBGs = document.getElementsByClassName("styled-background2");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg2-to-light");
+contentBGs[i].classList.remove("bg2-light");
+contentBGs[i].classList.add(animated ? "bg2-to-dark" : "bg2-dark");
+}
+var borders = document.getElementsByClassName("styled-border");
+for (var i = 0; i < borders.length; i++) {
+borders[i].classList.remove("border-to-light");
+borders[i].classList.remove("border-light");
+borders[i].classList.add(animated ? "border-to-dark" : "border-dark");
+}
+var textElements = document.getElementsByClassName("styled-foreground");
+for (var i = 0; i < textElements.length; i++) {
+if (textElements[i].tagName === "A") {
+textElements[i].classList.remove("link-to-light");
+textElements[i].classList.remove("link-light");
+textElements[i].classList.add(animated ? "link-to-dark" : "link-dark");
+} else {
+textElements[i].classList.remove("fg-to-light");
+textElements[i].classList.remove("fg-light");
+textElements[i].classList.add(animated ? "fg-to-dark" : "fg-dark");
+var wrappedText = textElements[i].getElementsByTagName("p");
+for (var j = 0; j < wrappedText.length; j++) {
+wrappedText[j].classList.remove("fg-to-light");
+wrappedText[j].classList.remove("fg-light");
+wrappedText[j].classList.add(animated ? "fg-to-dark" : "fg-dark");
+}
+var wrappedLinks = textElements[i].getElementsByTagName("a");
+for (var j = 0; j < wrappedLinks.length; j++) {
+wrappedLinks[j].classList.remove("link-to-light");
+wrappedLinks[j].classList.remove("link-light");
+wrappedLinks[j].classList.add(animated ? "link-to-dark" : "link-dark");
+}
+}
+}
+writeCookieValue("theme", 'dark', 365);
+}
+function setLightTheme(animated) {
+if (currentTheme === 'light') { return; }
+var button = document.getElementById("theme-switch-button");
+var image = document.getElementById("theme-switch-button-image");
+var themeLabel = document.getElementById("theme-label");
+currentTheme = 'light';
+button.classList.remove("theme-to-dark");
+button.classList.remove("theme-dark");
+button.classList.add(animated ? "theme-to-light" : "theme-light");
+themeLabel.innerHTML = "Light Mode";
+image.src = "https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/sun.png";
+var contentBGs = document.getElementsByClassName("styled-background");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg-to-dark");
+contentBGs[i].classList.remove("bg-dark");
+contentBGs[i].classList.add(animated ? "bg-to-light" : "bg-light");
+}
+contentBGs = document.getElementsByClassName("styled-background2");
+for (var i = 0; i < contentBGs.length; i++) {
+contentBGs[i].classList.remove("bg2-to-dark");
+contentBGs[i].classList.remove("bg2-dark");
+contentBGs[i].classList.add(animated ? "bg2-to-light" : "bg2-light");
+}
+var borders = document.getElementsByClassName("styled-border");
+for (var i = 0; i < borders.length; i++) {
+borders[i].classList.remove("border-to-dark");
+borders[i].classList.remove("border-dark");
+borders[i].classList.add(animated ? "border-to-light" : "border-light");
+}
+var textElements = document.getElementsByClassName("styled-foreground");
+for (var i = 0; i < textElements.length; i++) {
+if (textElements[i].tagName === "A") {
+textElements[i].classList.remove("link-to-dark");
+textElements[i].classList.remove("link-dark");
+textElements[i].classList.add(animated ? "link-to-light" : "link-light");
+} else {
+textElements[i].classList.remove("fg-to-dark");
+textElements[i].classList.remove("fg-dark");
+textElements[i].classList.add(animated ? "fg-to-light" : "fg-light");
+var wrappedText = textElements[i].getElementsByTagName("p");
+for (var j = 0; j < wrappedText.length; j++) {
+wrappedText[j].classList.remove("fg-to-dark");
+wrappedText[j].classList.remove("fg-dark");
+wrappedText[j].classList.add(animated ? "fg-to-light" : "fg-light");
+}
+var wrappedLinks = textElements[i].getElementsByTagName("a");
+for (var j = 0; j < wrappedLinks.length; j++) {
+wrappedLinks[j].classList.remove("link-to-dark");
+wrappedLinks[j].classList.remove("link-dark");
+wrappedLinks[j].classList.add(animated ? "link-to-light" : "link-light");
+}
+}
+}
+writeCookieValue("theme", 'light', 365);
+}
+function toggleTheme() {
+if (currentTheme === 'light') {
+setDarkTheme(true);
+} else {
+setLightTheme(true);
+}
+}
+</script><script>
+"use strict";
+function addLoadEvent(element, func) {
+var oldonload = element.onload;
+if (typeof element.onload != 'function') {
+element.onload = func;
+} else {
+element.onload = function() {
+if (oldonload) {
+oldonload();
+}
+func();
+}
+}
+}
+function hoverButtonOnHover(event) {
+var element = event.currentTarget;
+if (element.className === "hover-button") {
+element.getElementsByClassName("hover-button-normal")[0].style.display = "none";
+element.getElementsByClassName("hover-button-hover")[0].style.display = "inline";
+}
+}
+function hoverButtonOnExit(event) {
+var element = event.currentTarget;
+if (element.className === "hover-button") {
+element.getElementsByClassName("hover-button-normal")[0].style.display = "inline";
+element.getElementsByClassName("hover-button-hover")[0].style.display = "none";
+}
+}
+function fadeInOnHover(event) {
+var element = event.currentTarget;
+element.style.opacity = "100%";
+}
+function fadeOutOnExit(event) {
+var element = event.currentTarget;
+element.style.opacity = "80%";
+}
+function fadeOutOnExit30(event) {
+var element = event.currentTarget;
+element.style.opacity = "30%";
+}
+function hookHoverButtons() {
+var hoverButtons = document.getElementsByClassName("hover-button");
+for (var button of hoverButtons) {
+button.addEventListener("mouseover", hoverButtonOnHover);
+button.addEventListener("mouseout", hoverButtonOnExit);
+}
+}
+function hookHoverFadeIn() {
+var hoverButtons = document.getElementsByClassName("fade-in-on-hover");
+for (var button of hoverButtons) {
+button.addEventListener("mouseover", fadeInOnHover);
+if (button.classList.contains("fade-out-30")) {
+button.addEventListener("mouseout", fadeOutOnExit30);
+button.style.opacity = "30%";
+} else {
+button.addEventListener("mouseout", fadeOutOnExit);
+button.style.opacity = "80%";
+}
+}
+}
+addLoadEvent(document.getElementsByTagName("BODY")[0], hookHoverButtons);
+addLoadEvent(document.getElementsByTagName("BODY")[0], hookHoverFadeIn);
+</script>
+<div id="content" class="styled-background bg-dark" style="visibility: visible;">
+<div id="main-content-container">
+<div id="main-content">
+<div class="article">
+<div class="article_header">
+<div class="article_header_avatar"><img class="avatar_image_view styled-border border-dark" src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/avatars/Nokolo.png"></div>
+<div class="article_text_header_container">
+<div class="article_header_text">
+<p class="article_title_label styled-foreground fg-dark">Mother International</p>
+<p class="article_by_line styled-foreground fg-dark">by: Kody NOKOLO on 8/11/2020</p>
+</div>
+<div class="red-divider"></div>
+</div>
+</div>
+<div class="article_body styled-foreground fg-dark">
+<!---->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+<iframe src="./index.html" scrolling="no"></iframe>
+
+
+<p class="fg-dark"> </p>
+</div>
+</div>
+<div id="content-footer">
+<a rel="noreferrer noopener" href="https://www.youtube.com/watch?v=1OGSXeko-iY" target="_blank">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/doorknob.png" id="footer-saturn-image">
+</a>
+<p id="footer-text" class="styled-foreground fg-dark">Mother Forever and Website Content © 2022 <a rel="noreferrer noopener" href="https://www.nokogodo.com" target="_blank" class="link-dark">NOKOGODO</a></p>
+<p id="footer-text" class="styled-foreground fg-dark">MOTHER and All Respective Names © SHIGESATO ITOI / Nintendo</p>
+<div id="content-footer-link-container">
+<a href="https://mother4ever.net/privacy-policy" class="content-footer-link styled-foreground link-dark"><p>Privacy Policy</p></a>
+</div>
+<a href="https://mother4ever.net?redirect_to=random"><div class="footer-pizza-button fade-in-on-hover fade-out-30" style="opacity: 30%;">
+<img src="https://mother4ever.net/wp-content/themes/motherforeverthree/assets/images/redesign/footer-saturn.png" id="footer-pizza-image">
+</div></a>
+</div>		</div>
+</div>
+</div>
+
+<div id="accel-snackbar" style="left: 50%; transform: translate(-50%, 0px); top: 50px;"></div></body></html>

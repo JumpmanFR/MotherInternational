@@ -69,6 +69,10 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	el(ELT_SOUND_FX).src = PATH_SFX;
 
+	if (!Utils.areFlagEmojiSupported()) {
+		document.body.classList.add(CLASS_NO_FLAG_EMOJIS);
+	}
+
 	var urlParams = new URLSearchParams(window.parent.location.search);
 	var customLang = urlParams.get("lang");
 	var isForcedLang = !!urlParams.get("forcelang")

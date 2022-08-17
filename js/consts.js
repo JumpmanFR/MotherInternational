@@ -27,6 +27,7 @@ const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
 const ELT_ABOUT_VERSION = "about-version";
 
+const CLASS_NO_FLAG_EMOJIS = "no-flag-emojis";
 const CLASS_CLOSED_CREDITS = "closed-credits";
 const CLASS_DISABLED = "disabled";
 const CLASS_DRAG = "drag";
