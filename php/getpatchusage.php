@@ -1,8 +1,6 @@
 <?php
 // Quick and dirty PHP script to respond to the XHR request for the number of uses for a specific patch
 
-$servername = "localhost";
-$database = "mother_international";
 include('passwords.php');
 
 // Create connection
@@ -17,7 +15,7 @@ $param = $_GET['patchId'];
 
 $param = preg_replace("/[^A-Za-z0-9\- ]/", '', $param);
 
-$sql = "SELECT uses FROM patch_stats WHERE patch_id='".$param."'";
+$sql = "SELECT uses FROM $table WHERE patch_id='$param'";
 
 $result = $conn->query($sql);
 
