@@ -1,6 +1,12 @@
 <?php
 // Quick and dirty PHP script to respond to the XHR request to increment the number of uses for a specific patch
 
+const PATCH_DONE_PREFIX = 'patch_done_';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 include('passwords.php');
 
 // Create connection
@@ -19,6 +25,11 @@ if (!$param) {
     die();
 }
 
+if ($_SESSION[PATCH_DONE_PREFIX . $param]) {
+    echo(0);
+    die();
+}
+
 $sql_up = "INSERT INTO $table VALUES ('$param', 1) ON DUPLICATE KEY UPDATE uses = uses + 1";
 
 $result_up = $conn->query($sql_up);
@@ -26,6 +37,8 @@ $result_up = $conn->query($sql_up);
 if (!$result_up) {
     die();
 }
+
+$_SESSION[PATCH_DONE_PREFIX . $param] = true;
 
 $sql = "SELECT uses FROM $table WHERE patch_id='$param'";
 

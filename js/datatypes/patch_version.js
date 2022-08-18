@@ -74,6 +74,7 @@ function PatchVersion(json) {
 		var _this = this;
 		return new Promise((successCallback, failureCallback) => {
 			var preSuccess = function(result) {
+				result = parseInt(result);
 				if (result) {
 					_this.usage = result;
 					_this.usageIncremented = true;
@@ -106,7 +107,7 @@ function PatchVersion(json) {
 					if (_this.usage) {
 						fakeValue = parseInt(_this.usage) + 1;
 					} else {
-						fakeValue = Math.floor(Math.random() * 1000);
+						fakeValue = Math.floor(Math.random() * 1000) + 1;
 					}
 					console.log(`FAKE server response: incremented to ${fakeValue} uses for patch ${json.patchId}`);
 					preSuccess(fakeValue + "🤥");
