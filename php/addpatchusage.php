@@ -19,19 +19,11 @@ if (!$param) {
     die();
 }
 
-$sqlIns = "INSERT IGNORE INTO $table values ('$param',0)";
+$sql_up = "INSERT INTO $table VALUES ('$param', 1) ON DUPLICATE KEY UPDATE uses = uses + 1";
 
-$resultIns = $conn->query($sqlIns);
+$result_up = $conn->query($sql_up);
 
-if (!$resultIns) {
-    die();
-}
-
-$sqlUp = "UPDATE $table SET uses = uses + 1 WHERE patch_id='$param'";
-
-$resultUp = $conn->query($sqlUp);
-
-if (!$resultUp) {
+if (!$result_up) {
     die();
 }
 
