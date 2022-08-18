@@ -84,8 +84,8 @@ const LANG_DEFAULT = LANG_ENGLISH;
 
 const STATS_FAKE = false;                        // Change it use the real patch usage data!
 const STATS_PHP_FOLDER = "php/"
-const STATS_VALUE_URL = STATS_VALUE_URL + "getpatchusage.php";
-const STATS_INCREMENT_URL = STATS_VALUE_URL + "addpatchusage.php";
+const STATS_VALUE_URL = STATS_PHP_FOLDER + "getpatchusage.php";
+const STATS_INCREMENT_URL = STATS_PHP_FOLDER + "addpatchusage.php";
 const STATS_VALUE_PARAM = "patchId";
 const STATS_INCREMENT_PARAM = "patchId";
 
