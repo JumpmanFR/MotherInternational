@@ -104,6 +104,8 @@ function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkText
 		if (index != -1) {
 			curPos += curWildcard.length;
 			var linkElt = document.createElement("a");
+			linkElt.setAttribute("target", "_blank");
+			linkElt.setAttribute("rel", "noopener");
 			linkElt.href = linkUrls[index];
 			linkElt.textContent = linkTexts[index];
 			parentNode.appendChild(linkElt);

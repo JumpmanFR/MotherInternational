@@ -92,13 +92,16 @@ a:not([href='#']):not([href='']):visited {
 	color: #EBEBEB;
 	line-height: 1.09em;
 }
-#subtitle {
+.subtitle {
 	text-align: end;
 	margin-top: 0;
 	margin-left: 0.2em;
 	margin-right: 0.03em;
 	font-family: titlefont, titlefont-fallback;
 	color: #EBEBEB;
+}
+.subtitle:not(:last-child) {
+	margin-bottom: 0;
 }
 
 .area {

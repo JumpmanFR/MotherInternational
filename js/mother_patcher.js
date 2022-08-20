@@ -449,6 +449,7 @@ function addLinkToFrame(frameElt, text, url, className) {
 	var websiteLink = document.createElement("a");
 	websiteLink.href = url;
 	websiteLink.setAttribute("target", "_blank");
+	websiteLink.setAttribute("rel", "noopener");
 	websiteLink.title = websiteLink.textContent = text;
 	var websiteDetails = document.createElement("span");
 	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace("%", Utils.getHostname(url));
