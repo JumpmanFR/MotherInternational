@@ -506,6 +506,7 @@ input[type=button], button {
 	margin: 0 1.25rem;
 }
 #credits-logo {
+	content: url('assets/site-title-light.png');
 	margin-top: 0.625rem;
 	width: 12.5rem;
 }
