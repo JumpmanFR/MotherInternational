@@ -64,6 +64,8 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', function() {updatePatchSelect()});
 	addEvent(el(ELT_APPLY), 'click',  function() {startApply(gInputRom, gInputRomId, patchSelectVal())});
 
+	initAudio();
+
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
 
@@ -72,13 +74,16 @@ addEvent(document, 'DOMContentLoaded', function() {
 	}
 
 	var urlParams = new URLSearchParams(window.parent.location.search);
+
 	var customLang = urlParams.get("lang");
-	var isForcedLang = !!urlParams.get("forcelang")
+	var isForcedLang = !!urlParams.get("force_lang")
 	setLanguage(customLang || navigator.language, isForcedLang);
 
-	setUIState(false, false);
+	if (!!urlParams.get("orig_design") && document.getElementById("style-m4e")) {
+		document.getElementById("style-m4e").remove();
+	}
 
-	initAudio();
+	setUIState(false, false);
 })
 
 
