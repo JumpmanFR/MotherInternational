@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'calamity';
+	src: url("assets/fonts/calamity-regular-webfont.woff");
+}
+@font-face {
+	font-family: 'calamity';
+	src: url("assets/fonts/calamity-bold-webfont.woff");
+	font-weight: bold;
+}
+
+body {
+    font-family: calamity;
+}
+
+#credits-logo {
+	content: url('assets/site-title-dark.png');
+}
+
+#input-area.drop-first-time, #input-area.drag {
+	background-image: url("assets/drop-icon-white.png");
+}

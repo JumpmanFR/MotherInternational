@@ -89,7 +89,7 @@ const STATS_VALUE_PARAM = "patchId";
 const STATS_INCREMENT_PARAM = "patchId";
 
 const SFX_PATH = "assets/okdesuka.mp3";
-const SFX_VOLUME = .3;
+const SFX_VOLUME = .2;
 
 const MAIL_ADDRESS = 'contact@mother4ever.net';
 const MAIL_SUBJECT = 'Translator feedback for Mother International';

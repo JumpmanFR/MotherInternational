@@ -124,7 +124,7 @@ a:not([href='#']):not([href='']):visited {
 	-webkit-user-select: none;
 }
 #input-area.drop-first-time, #input-area.drag {
-	background-image: url("assets/drop-icon.png");
+	background-image: url("assets/drop-icon-alpha.png");
 	background-size: 30%;
 	background-repeat: no-repeat;
 	background-position: center;
