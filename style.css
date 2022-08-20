@@ -23,67 +23,6 @@
 @keyframes spriteanim { from { background-position: top; } to { background-position: bottom; } }
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
-@media not all and (max-width: 58rem) {
-	body {
-		min-width: calc(58rem - 0.8rem - 0.8rem); /* body padding left right */
-	}
-
-	#output-area.hidden.hidden-first-time, #arrow-between-areas.hidden.hidden-first-time {
-		width: 0;
-	}
-}
-
-@media (max-width: 58rem) {
-	.area, #arrow-between-areas {
-		display: block !important;
-	}
-	.area {
-		height: 20rem !important;
-	}
-	#output-area, #arrow-between-areas {
-		transition: opacity 1s ease-out !important;
-	}
-	#arrow-between-areas:after {
-		content: '▾' !important;
-		padding-right: 0 !important;
-		line-height: 0.45em !important;
-	}
-	#output-area.hidden, #arrow-between-areas.hidden {
-		transition-duration: 0s !important;
-		height: 0 !important; /* allows the credits button to be directly below */
-		z-index: -99; /* prevents overlapping the credits button */
-	}
-	#arrow-between-areas.hidden:after {
-		content: '' !important; /* prevents overlapping the credits button */
-	}
-}
-
-@media (max-width: 48rem) {
-	#credits-staff {
-		min-width: unset !important;
-	}
-}
-
-@media (max-width: 38rem) {
-	#title-container {
-		font-size: 2.9vw;
-		margin-bottom: 5vw !important;
-	}
-	.area {
-		max-width: 80vw;
-	}
-	#output-area {
-		height: 21.25rem !important;
-	}
-	.info-frame {
-		overflow-x: hidden;
-	}
-	.info-references {
-		margin-inline-start: 0.6em !important;
-		max-width: calc(100% - 5rem - 0.6em - 0.5em) !important; /* boxart width, margin left, extra margin right */
-	}
-}
-
 body {
 	background-color: rgb(206,60,60);
 	margin: auto;
@@ -619,4 +558,65 @@ input[type=button], button {
 	animation-name: creditsanim;
 	animation-duration: 1s;
 	animation-timing-function: steps(1);
+}
+
+@media not all and (max-width: 58rem) {
+	body {
+		min-width: calc(58rem - 0.8rem - 0.8rem); /* body padding left right */
+	}
+
+	#output-area.hidden.hidden-first-time, #arrow-between-areas.hidden.hidden-first-time {
+		width: 0;
+	}
+}
+
+@media (max-width: 58rem) {
+	.area, #arrow-between-areas {
+		display: block;
+	}
+	.area {
+		height: 20rem;
+	}
+	#output-area, #arrow-between-areas {
+		transition: opacity 1s ease-out;
+	}
+	#arrow-between-areas:after {
+		content: '▾';
+		padding-right: 0;
+		line-height: 0.45em;
+	}
+	#output-area.hidden, #arrow-between-areas.hidden {
+		transition-duration: 0s;
+		height: 0; /* allows the credits button to be directly below */
+		z-index: -99; /* prevents overlapping the credits button */
+	}
+	#arrow-between-areas.hidden:after {
+		content: ''; /* prevents overlapping the credits button */
+	}
+}
+
+@media (max-width: 48rem) {
+	#credits-staff {
+		min-width: unset;
+	}
+}
+
+@media (max-width: 38rem) {
+	#title-container {
+		font-size: 2.9vw;
+		margin-bottom: 5vw;
+	}
+	.area {
+		max-width: 80vw;
+	}
+	#output-area {
+		height: 21.25rem;
+	}
+	.info-frame {
+		overflow-x: hidden;
+	}
+	.info-references {
+		margin-inline-start: 0.6em;
+		max-width: calc(100% - 5rem - 0.6em - 0.5em); /* boxart width, margin left, extra margin right */
+	}
 }
