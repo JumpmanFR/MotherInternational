@@ -50,6 +50,7 @@ a:not([href='#']):not([href='']):visited {
 	left: 0;
 	height: 1.8em;
 	font-size: 2rem;
+	cursor: pointer;
 }
 #site-logo {
 	vertical-align: middle;
@@ -63,6 +64,9 @@ a:not([href='#']):not([href='']):visited {
 	content: '◂';
 	font-family: arrows;
 	color: white;
+}
+#back-to-site:hover #back-to-site-arrow:before {
+	color: rgb(234, 183, 73);
 }
 
 #title-container {

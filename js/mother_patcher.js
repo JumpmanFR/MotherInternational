@@ -79,7 +79,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	var isForcedLang = !!urlParams.get("force_lang")
 	setLanguage(customLang || navigator.language, isForcedLang);
 
-	if (!!urlParams.get("orig_design") && document.getElementById("style-m4e")) {
+	if (!!urlParams.get("orig_theme") && document.getElementById("style-m4e")) {
 		document.getElementById("style-m4e").remove();
 	}
 
