@@ -16,7 +16,6 @@ const ELT_SHOW_ALL_OPTION = "show-all-option";
 const ELT_INFO_INPUT = "input-rom-info";
 const ELT_INFO_OUTPUT = "output-rom-info";
 const ELT_APPLY = "apply-btn";
-const ELT_SOUND_FX = "sound-fx";
 
 const ELT_ABOUT_BTN = "about-btn";
 const ELT_ABOUT_CLOSE_BTN = "about-close-btn";
@@ -88,6 +87,9 @@ const STATS_VALUE_URL = STATS_PHP_FOLDER + "getpatchusage.php";
 const STATS_INCREMENT_URL = STATS_PHP_FOLDER + "addpatchusage.php";
 const STATS_VALUE_PARAM = "patchId";
 const STATS_INCREMENT_PARAM = "patchId";
+
+const SFX_PATH = "assets/okdesuka.mp3";
+const SFX_VOLUME = .3;
 
 const MAIL_ADDRESS = 'contact@mother4ever.net';
 const MAIL_SUBJECT = 'Translator feedback for Mother International';

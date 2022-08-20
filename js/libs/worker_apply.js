@@ -59,6 +59,7 @@ self.onmessage = event => { // listen for messages from the main thread
 				romFileU8Array:event.data.romFileU8Array,
 				patchFileU8Array:event.data.patchFileU8Array,
 				patchedRomU8Array:patchedRom._u8array,
+				crc32:crc32(patchedRom, 0),
 				errorMessage:errorMessage
 			},
 			[

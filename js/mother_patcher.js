@@ -3,7 +3,6 @@ JumpmanFR 2021-2022
 Contains elements from Rom Patcher JS by Marc Robledo */
 
 const PATH_PATCH_FOLDER = "patches/";
-const PATH_SFX = "assets/okdesuka.mp3";
 const PATCH_BOXARTS = "assets/boxarts/";
 const PATH_LIBS = "./js/libs/";
 
@@ -29,6 +28,8 @@ var gUserPrefLangId;
 
 var gIsBusy, gIsInputDone;
 
+var gAudioContext, gAudioBuffer;
+
 var gInputRom, gInputRomId;
 
 // Init from external files
@@ -48,7 +49,6 @@ function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 
 addEvent(document, 'DOMContentLoaded', function() {
 	document.body.onresize = onResize;
-	addEvent(window, 'load', resizeParent);
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
 	addEvent(el(ELT_AREA_INPUT), 'dragenter', function(e) {onDrag(true, e)});
@@ -57,7 +57,7 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {onDrag(false, e);});
 	addEvent(el(ELT_ROM_FILE), 'change', function() {onInputFile(this);});
 	addEvent(el(ELT_ROM_FILE), 'click', function(e) {e.stopPropagation();});
-	addEvent(el(ELT_ROM_BTN), 'click', function(e) {el(ELT_ROM_FILE).click();e.stopPropagation();});
+	addEvent(el(ELT_ROM_BTN), 'click', function(e) {el(ELT_ROM_FILE).click(); e.stopPropagation();});
 	addEvent(el(ELT_AREA_INPUT), 'click', function(e) {if (this.classList.contains(CLASS_DROP_FIRST)) el(ELT_ROM_FILE).click()});
  	addEvent(el(ELT_AREA_INPUT), 'drop', function(e) {if (!this.classList.contains(CLASS_DISABLED)) onInputFile(e.dataTransfer);});
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
@@ -66,8 +66,6 @@ addEvent(document, 'DOMContentLoaded', function() {
 
 	zip.useWebWorkers = true;
 	zip.workerScriptsPath = PATH_LIBS + 'zip.js/';
-
-	el(ELT_SOUND_FX).src = PATH_SFX;
 
 	if (!Utils.areFlagEmojiSupported()) {
 		document.body.classList.add(CLASS_NO_FLAG_EMOJIS);
@@ -79,6 +77,8 @@ addEvent(document, 'DOMContentLoaded', function() {
 	setLanguage(customLang || navigator.language, isForcedLang);
 
 	setUIState(false, false);
+
+	initAudio();
 })
 
 
@@ -134,30 +134,20 @@ function onResize() {
 	if (aboutWin.clientHeight >= aboutWin.scrollHeight) {
 		aboutWin.scrollTop = 0; // because Safari fails to reset scroll position
 	}
-	resizeParent();
 }
 
 //==========================================
 // UI METHODS
 //==========================================
 
-// To set the height of the parent iframe if appropriate
-// The iframe must have its width set to 100% and its scrolling attribute set to no
-function resizeParent() {
-	var iframe = window.frameElement;
-	if (iframe) {
-		var zoom = iframe.clientWidth / (document.body.clientWidth);
-		if (zoom < IFRAME_ZOOM_THRESHOLD) {
-			zoom = 1;
-		}
-		document.body.style.transform = zoom > 1 ? `scale(${zoom})` : 'none';
-		document.querySelector("meta[name=viewport]").setAttribute("content", `width=${iframe.clientWidth / zoom}, shrink-to-fit=no`);
-		setTimeout(function() {
-			var height = document.body.clientHeight;
-			iframe.style.height = height * zoom;
-			iframe.style.width = "100%";
-		}, 0);
-	}
+function initAudio() {
+	gAudioContext = new AudioContext();
+	window.fetch(SFX_PATH)
+		.then(response => response.arrayBuffer())
+	    .then(arrayBuffer => gAudioContext.decodeAudioData(arrayBuffer))
+	    .then(audioBuffer => {
+	      gAudioBuffer = audioBuffer;
+	    });
 }
 
 function setLanguage(langId, isForced) {
@@ -197,7 +187,6 @@ function setUIState(busy, inputDone) {
 	gIsBusy = busy;
 	if (inputDone !== undefined) {
 		gIsInputDone = inputDone;
-		resizeParent();
 	}
 	refreshUIState();
 }
@@ -486,9 +475,13 @@ function addEltsToFrame(frameElt, eltsToAdd, className) {
 }
 
 function playGoSound() {
-	var lect = el(ELT_SOUND_FX);
-	lect.currentTime = 0;
-	lect.play();
+	const source = gAudioContext.createBufferSource();
+	source.buffer = gAudioBuffer;
+	var gainNode = gAudioContext.createGain();
+	gainNode.gain.value = SFX_VOLUME;
+	gainNode.connect(gAudioContext.destination);
+	source.connect(gainNode);
+	source.start();
 }
 
 function reset() {
@@ -762,6 +755,7 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 				failureCallback(event.data.errorMessage);
 			} else {
 				var patchedRom = new MarcFile(event.data.patchedRomU8Array.buffer);
+				patchedRom.crc32 = event.data.crc32;
 				if (crc32(patchedRom) == expectedChecksum) {
 					successCallback(patchedRom);
 				} else {
