@@ -8,8 +8,8 @@ const LOCALIZATION = {
 		'txtBrowse':				'Browse…',
 		'txtNoRom':					'',
 
-		'txtSpecifyRom':			'Please drop any ROM from a MOTHER game',
-		'txtApplyPatch':			'Apply patch',
+		'txtSpecifyRom':			'Please drop any MOTHER game ROM',
+		'txtApplyPatch':			'Apply Translation',
 		'txtUpdate':				'Update',
 
 		'txtAnalyzingFile':			'Analyzing file…',
@@ -61,13 +61,13 @@ const LOCALIZATION = {
 		'warning_too_big':			'Too big files',
 		'Not Found':				'A patch file was not found',
 
-		'txtAbout':					'About',
+		'txtAbout':					'Credits & About',
 
 		'txtCredits':				'Credits',
 		'txtCreditsDesign':			'Design',
 		'txtCreditsProgramming':	'Programming',
 		'txtCreditsAnimations':		'Animations',
-		'txtCreditsLegacy':			'Legacy app',
+		'txtCreditsLegacy':			'Legacy App',
 		'txtCreditsPlayer':			'Player',
 		'txtCreditsPlayerYou':		'You!',
 
