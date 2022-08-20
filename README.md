@@ -16,10 +16,10 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 
 ### New features
 * Includes 32 translation projects, or 65 translation patches if you count all included patch versions.
-* Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game for any language to any other (no need to input the base Japanese ROM specifically).
+* Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
-* Identifies your patched ROMs (language, patch version, extra patches, etc.)
+* Identifies your patched ROMs and gives more info about them: language, patch version, extra patches, translators’ website, etc.
 * Automatically invites you to translate into your language based on your Web browser settings, or to update your current ROM into a more recent translation from the same team.
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
@@ -30,7 +30,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 ### Other specificities in this version
 * Hosted on a webpage, so that people don’t have to download a full executable package that includes all the translations for a minimal use.
 * Does everything (unzipping, patching) client-side, just downloads the patch and applies it. That way, no ROM has to be transfered from and to the server.
-* *(For operators)* Scalable, can support more and more translations over time by simply adding a patch file and 1 or 2 lines in the database.
+* *(For operators)* Scalable, can support more and more translations over time by simply adding patch files and a few lines in the database.
 * Open source project available [on GitHub](https://github.com/JumpmanFR/MotherInternational).
 
 ## How to translate the UI into more languages
