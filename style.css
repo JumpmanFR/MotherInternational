@@ -58,6 +58,12 @@
 	}
 }
 
+@media (max-width: 48rem) {
+	#credits-staff {
+		min-width: unset !important;
+	}
+}
+
 @media (max-width: 38rem) {
 	#title-container {
 		font-size: 2.9vw;
@@ -568,6 +574,7 @@ input[type=button], button {
 	float: left; /* if inline-start not supported */
 	float: inline-start !important;
 	width: fit-content;
+	min-width: 20rem;
 }
 #credits-staff h2 {
 	margin: 0.7rem 0;
