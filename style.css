@@ -552,7 +552,7 @@ input[type=button], button {
 #about-side {
 	display: block;
 	overflow: hidden;
-	min-width: 18rem;
+	min-width: 14rem;
 	padding-top: 1em;
 	margin-bottom: 1.9rem;
 }
@@ -631,9 +631,6 @@ input[type=button], button {
 @media (max-width: 48rem) {
 	#credits-staff {
 		min-width: unset;
-	}
-	#about-side {
-		min-width: 12rem;
 	}
 }
 
