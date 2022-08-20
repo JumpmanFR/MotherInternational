@@ -527,7 +527,7 @@ input[type=button], button {
 #about-side {
 	display: block;
 	overflow: hidden;
-	min-width: 12rem;
+	min-width: 18rem;
 	padding-top: 1em;
 	margin-bottom: 1.9rem;
 }
@@ -599,6 +599,9 @@ input[type=button], button {
 	#credits-staff {
 		min-width: unset;
 	}
+	#about-side {
+		min-width: 12rem;
+	}
 }
 
 @media (max-width: 38rem) {
@@ -608,6 +611,7 @@ input[type=button], button {
 	}
 	.area {
 		max-width: 80vw;
+		min-width: 9.5rem;
 	}
 	#output-area {
 		height: 21.25rem;
