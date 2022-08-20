@@ -4,7 +4,7 @@
 const PATCH_DONE_PREFIX = 'patch_done_';
 
 if (!isset($_SESSION)) {
-    session_start();
+    session_start(['cookie_samesite' => 'Strict']);
 }
 
 include('passwords.php');
