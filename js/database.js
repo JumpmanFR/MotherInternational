@@ -45,7 +45,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-es',game:ID_MOTHER_1_2,	lang:LANG_SP_SPAIN,	latest:'0.5.1',	author:'Z3R0',				website:'https://z3r0web.wordpress.com/mother-1/'},
 	{projectId:'m12-fr',game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	latest:'1.0',	author:'MotherVF',			website:'http://mother1vf.free.fr'},
 	{projectId:'m12-itA',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/Mother-1-2-Italian-Patch-100-complete'},
-	{projectId:'m12-itB',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.1',	author:'Team MODRE',		website:'https://discord.gg/FXGZ8a5'},
+	{projectId:'m12-itB',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.1',	author:'Team MODRE',		website:'https://discord.gg/FXGZ8a5'},
 	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
