@@ -59,6 +59,7 @@ a:not([href='#']):not([href='']):visited {
 #back-to-site-arrow {
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: 0.2em;
 }
 #back-to-site-arrow:before {
 	content: '◂';
