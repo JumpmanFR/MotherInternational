@@ -49,6 +49,7 @@ a:not([href='#']):not([href='']):visited {
 	margin: 1rem;
 	left: 0;
 	height: 1.8em;
+	font-family: arrows;
 	font-size: 2rem;
 	cursor: pointer;
 }
@@ -63,7 +64,6 @@ a:not([href='#']):not([href='']):visited {
 }
 #back-to-site-arrow:before {
 	content: '◂';
-	font-family: arrows;
 	color: white;
 }
 #back-to-site:hover #back-to-site-arrow:before {
