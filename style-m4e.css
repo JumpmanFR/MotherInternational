@@ -26,7 +26,7 @@ a:not([href='#']):not([href='']):visited {
 #title-o {
 	filter: drop-shadow(2px 2px 0px black);
 }
-#subtitle {
+.subtitle {
 	text-shadow: 1px 1px 0px black;
 }
 
