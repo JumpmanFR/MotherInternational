@@ -44,7 +44,8 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-en',game:ID_MOTHER_1_2,	lang:LANG_ENGLISH,	latest:'1.0.1',	author:'Tomato',			website:'http://mother12.earthboundcentral.com/'},
 	{projectId:'m12-es',game:ID_MOTHER_1_2,	lang:LANG_SP_SPAIN,	latest:'0.5.1',	author:'Z3R0',				website:'https://z3r0web.wordpress.com/mother-1/'},
 	{projectId:'m12-fr',game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	latest:'1.0',	author:'MotherVF',			website:'http://mother1vf.free.fr'},
-	{projectId:'m12-it',game:ID_MOTHER_1_2,	lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/Mother-1-2-Italian-Patch-100-complete'},
+	{projectId:'m12-itA',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/Mother-1-2-Italian-Patch-100-complete'},
+	{projectId:'m12-itB',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.1',	author:'Team MODRE',		website:'https://discord.gg/FXGZ8a5'},
 	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
@@ -108,7 +109,9 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x555d34dc',	projectId:'m12-es',	patchId:'m12-es050',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2020',version:'0.5.0',extraNote:'Solo MOTHER 1'},
 	{crc:'0x892e26bc',	projectId:'m12-es',	patchId:'m12-es051',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2021',version:'0.5.1',extraNote:'Solo MOTHER 1'},
 	{crc:'0x4f5af1e5',	projectId:'m12-fr',	patchId:'m12-fr10', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2022',version:'1.0', 	extraNote:'MOTHER 1 uniquement'},
-	{crc:'0x1e7ab616',	projectId:'m12-it',	patchId:'m12-it10', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2012',version:'1.0',	extraNote:'Solo MOTHER 1'},
+	{crc:'0x1e7ab616',	projectId:'m12-itA',patchId:'m12-itA10',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2012',version:'1.0',	extraNote:'Solo MOTHER 1'},
+	{crc:'0xbf4f97af',	projectId:'m12-itB',patchId:'m12-itB10',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:false,	year:'2020',version:'1.0',	extraNote:'Solo MOTHER 1'},
+	{crc:'0x22282cf0',	projectId:'m12-itB',patchId:'m12-itB11',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:false,	year:'2020',version:'1.1',	extraNote:'Solo MOTHER 1'},
 	{crc:'0x3be388bf',	projectId:'m12-pt',	patchId:'m12-pt10', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2011',version:'1.0',	extraNote:'Somente MOTHER 1'},
 
 	{crc:'0x42ac9cb9',	projectId:'m3-ja',	patchId:'m3-ja',	year:'2006'},
