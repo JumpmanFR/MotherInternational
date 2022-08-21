@@ -28,7 +28,7 @@ body {
 	margin: auto;
 	width: fit-content;
 	text-align: center;
-	padding: 0.1rem 0.8rem; /* adjustment inside iframe */
+	padding: 2px 0.8rem; /* keep integer px vertically to avoid animation waggle */
 	transform-origin: top center;
 }
 [lang|="ar"], [lang|="az"], [lang|="dv"], [lang|="fa"], [lang|="he"], [lang|="ku"], [lang|="ur"] {
