@@ -67,7 +67,7 @@ const LOCALIZATION = {
 		'txtCreditsDesign':			'Design',
 		'txtCreditsProgramming':	'Programming',
 		'txtCreditsAnimations':		'Animations',
-		'txtCreditsLegacy':			'Legacy App',
+		'txtCreditsLegacy':			'Legacy App', /* to give credits for the older versions of the program, v1.0 and v2.0 */
 		'txtCreditsPlayer':			'Player',
 		'txtCreditsPlayerYou':		'You!',
 
