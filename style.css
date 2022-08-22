@@ -67,7 +67,7 @@ a:not([href='#']):not([href='']):visited {
 	color: white;
 }
 #back-to-site:hover #back-to-site-arrow:before {
-	color: rgb(234, 183, 73);
+	color: #EAB749;
 }
 
 #title-container {
@@ -444,7 +444,7 @@ input[type=button], button {
 
 #animation-container {
 	width: 17.5rem;
-	max-width: 100vw;
+	max-width: 90vw;
 	height: 4.25rem;
 	overflow: hidden;
 	margin: auto;
@@ -487,7 +487,7 @@ input[type=button], button {
 	line-height: 1.875rem;
 }
 #about-close-btn:hover {
-	color: rgb(234, 183, 73);
+	color: #EAB749;
 }
 
 #about-window-overlay {
@@ -531,7 +531,7 @@ input[type=button], button {
 	pointer-events: none;
 }
 #about-window a {
-	color: rgb(234, 183, 73);
+	color: #EAB749;
 }
 #credits-staff, #about-side {
 	margin: 0 1.25rem;
