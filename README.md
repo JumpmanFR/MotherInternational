@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Supports UPS and IPS patch formats.
 
 ### New features
-* Includes 32 translation projects, or 65 translation patches if you count all included patch versions.
+* Includes 33 translation projects, or 67 translation patches if you count all included patch versions.
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -69,6 +69,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* French v1.0 by MotherVF ***(new!)***
 	* German v1.0 by domflo
 	* Italian v1.0 by SilverM ***(new!)***
+	* Italian v1.1 by Team MODRE ***(new!)***
 	* Korean v190929 by 아루미 & pjs
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v0.5.1 by Z3R0 ***(new!)***
