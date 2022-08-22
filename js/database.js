@@ -56,7 +56,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-es',	game:ID_MOTHER_3,	lang:LANG_SP_SPAIN,	latest:'1.0',	author:'Jimmytrius',		website:'http://mother3spanish.blogspot.com/'},
 	{projectId:'m3-fr',	game:ID_MOTHER_3,	lang:LANG_FRENCH,	latest:'1.9',	author:'MotherVF',			website:'http://mother3vf.free.fr/'},
 	{projectId:'m3-itA',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.1.1',	author:'Lorenzooone',		website:'https://www.romhacking.net/translations/2473/'},
-	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'http://snifit.altervista.org/'},
+	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'https://www.romhacking.net/translations/2403/'},
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://www.romhacking.net/translations/5722/'},
 	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
 	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
