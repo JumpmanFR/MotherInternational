@@ -444,8 +444,9 @@ input[type=button], button {
 
 #animation-container {
 	width: 17.5rem;
-	max-width: 90vw;
-	height: 4.25rem;
+	height: 4.25rem; /* keep 280:68 ratio */
+	max-width: 80vw;
+	max-height: 19.4vw; /* keep 280:68 ratio */
 	overflow: hidden;
 	margin: auto;
 	display: flex;
@@ -459,7 +460,6 @@ input[type=button], button {
 #animation {
 	margin: auto;
 	width: 100%;
-	min-width: 17.5rem;
 	height: 100%;
 	image-rendering: pixelated;
 	background-repeat: no-repeat;
@@ -648,7 +648,7 @@ input[type=button], button {
 		margin-bottom: 5vw;
 	}
 	.area {
-		max-width: 80vw;
+		max-width: 85vw;
 		min-width: 9.5rem;
 	}
 	#output-area {
