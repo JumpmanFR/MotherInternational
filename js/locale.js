@@ -1,8 +1,8 @@
 const LOCALIZATION = {
 	'en':
 	{
-		'txtHtmlTitle':				'Mother International', /* 'Mother' should stay 'Mother', but 'International' can be translated */
-		'txtTitleBottom':			'International', /* same here, but this one is for the logo */
+		'txtHtmlTitle':				'Mother International', /* I encourage 'International' to be translated into all the languages! */
+		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
 		'txtBrowse':				'Browse…', /* a classic button to let the user browse their files */
@@ -260,5 +260,92 @@ const LOCALIZATION = {
 		'txtAboutTranslator1':		'Se sei un traduttore, sentiti libero di %!',
 		'txtAboutTranslator2':		'contattarci',
 		'txtAboutVersion':			'Versione %',
+	},
+	'nl':
+	{
+		'txtHtmlTitle':				'Mother Internationaal', /* 'Mother' should stay 'Mother', but 'International' can be translated */
+		'txtTitleBottom':			'Internationaal', /* same here, but this one is for the logo */
+		'txtSubtitle':				'Alles-in-een MOTHER Vertalingspatcher',
+
+		'txtBrowse':				'Zoeken…', /* a classic button to let the user browse their files */
+		'txtNoRom':					'', /* we decided to write nothing here, after all */
+
+		'txtSpecifyRom':			'Plaats alsjeblieft een MOTHER-game ROM',
+		'txtApplyPatch':			'Vertaling toepassen', /* could be 'Apply Patch' as well */
+		'txtUpdate':				'Updaten', /* the button changes to 'Update' instead of 'Apply Patch' when it’s a more recent translation */
+
+		'txtAnalyzingFile':			'Bestand analyseren…',
+		'txtAnalyzingRom':			'ROM analyseren…',
+		'txtRomIdentified':			'ROM geïdentificeerd!',
+		'txtDownloading':			'Patch aan het downloaden%…', /* % is a progress indicator, like (1/2) or (50%); can also be an empty string (extra space not needed) */
+		'txtUnzipping':				'Uitpakken…',
+		'txtApplyingPatch':			'Patch toepassen%…', /* % is a progress indicator, like (1/2) or (50%); can also be an empty string (extra space not needed) */
+		'txtZipping':				'Zipbestand creëren…',
+		'txtFinalizing':			'Finaliseren…',
+		'txtEndMsg':				'Je gepatchde ROM is klaar!',
+
+		'txtChecksum':				'CRC-32 checksum: %', /* if this text is long, % should preferably not be at the very end */
+
+		'txtAllTranslations':		'Beschikbare opties voor %:', /* % is the name of a game */
+		'txtNoTranslation':			'Geen vertaling beschikbaar', /* in the select menu if empty */
+		'txtShowAllVersions':		'Toon alle versies', /* this is a checkbox */
+
+		'txtDescVersion':			'v', /* just before a version number */
+		'txtDescBy':				'door', /* just before the name of a translation team or individual */
+		'txtPatched':				'% patch', /* % is the adjective for the language; this string will appear of a file name */
+		'txtUnpatched':				'%, niet gepatched', /* % is the adjective for the language; this string will appear of a file name */
+		'txtDescOfficial':			'officieel', /* extra indications in the select menu for certain translation choices */
+		'txtDescUpdate':			'(update)', /* extra indications in the select menu for certain translation choices */
+		'txtDescIncompatible':		'(onverenigbaar)', /* extra indications in the select menu for certain translation choices */
+		'txtVisitSite':				'%’s webpagina', /* % is the name of a translation team or individual */
+		'txtVisitSiteAt':			'op %', /* % is the base name of a URL */
+		'txtUpdateInfo':			'Versie-info', /* the text of a link to get more info on a specific version */
+		'txtReadDoc':				'Readme-bestand', /* the text of a link to download a readme file */
+
+		'txtNbUses':				'Patch % keer gebruikt', /* if this text is long, % should preferably not be at the very end */
+		'txtNbUsesUnknown':			'onbekend', /* replaces the % if the server did not return the number of uses */
+
+		'txtReadmeFile':			'readme', /* will appear in a file name */
+
+		'error_no_rom':				'Geen ROM gespecificeerd',
+		'error_no_rom_info':		'Deze ROM is niet geanalyseerd',
+		'error_already_patched':	'Deze ROM is al gepatched',
+		'error_unknown_rom':		'Onbekende ROM',
+		'error_no_rom_in_zip':		'Geen ROM gevonden in dit zipbestand',
+		'error_crc_output':			'Verkeerde output ROM',
+		'error_crc_input':			'Verkeerde input ROM',
+		'error_patching':			'Patching error',
+		'error_no_patch_route':		'Kon je gepatchde ROM niet ontpatchen',
+		'error_downloading':		'Download error',
+		'error_unzipping':			'Error met uitpakken',
+		'error_invalid_patch':		'Ongeïdentificeerd patchbestand',
+		'error_crc_patch':			'Verkeerd patchbestand',
+		'warning_too_big':			'Bestanden zijn te groot',
+		'Not Found':				'Een patchbestand is niet gevonden',
+
+		'txtAbout':					'Credits & Over', /* text for the credits button; could be just 'Credits' or 'About' as well */
+
+		'txtCredits':				'Credits',
+		'txtCreditsDesign':			'Ontwerp',
+		'txtCreditsProgramming':	'Programmering',
+		'txtCreditsAnimations':		'Animaties',
+		'txtCreditsLegacy':			'Legacy App',
+		'txtCreditsPlayer':			'Speler',
+		'txtCreditsPlayerYou':		'Jij!',
+
+		'txtAboutIntro':			'Mother Internationaal is een online patchingsapplicatie die enige game in de MOTHER reeks kan vertalen.',
+		'txtAboutFreeProg1':		'Mother Internationaal is een gratis te gebruiken programma.',
+		'txtAboutFreeProg2':		'Dit programma is niet bedoeld voor verkoop.',
+		'txtAboutSource':			'De broncode van Mother Internationaal is % onder de ‰.', /* % and ‰ are two clickable links */
+		'txtAboutSourceGitHub':		'uitgegeven', /* the text for the first clickable link I’ve just talked about */
+		'txtAboutSourceLicense':	'MIT licentie', /* the second one */
+		'txtAboutTeams':			'Alle rechten voorbehouden aan de teams die elke vertalingspatch hebben ontwikkeld verpakt in dit programma. Speciale dank aan hen! POTENTIEEL!',
+		'txtAboutAllTranslations':	'Alle ondersteunde vertalingen:',
+		'txtAboutAllTransLabel':	'– Kies om webpagina te bezoeken –', /* the top entry in a list of translations */
+		'txtAboutAllTransNoSite':	'Geen registreerde webpagina voor %.', /* the text in an alert window */
+		'txtAboutAllTransSiteAsk':	'Wil je %’s webpagina bezoeken op ‰?', /* the text in an alert window */
+		'txtAboutTranslator1':		'Als je een vertaler bent, neem dan %!', /* % is the text 'contact us' as a clickable link */
+		'txtAboutTranslator2':		'contact met ons op', /* this is what I was just referring to */
+		'txtAboutVersion':			'Versie %', /* % is a version number */
 	},
 };
