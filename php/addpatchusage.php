@@ -6,12 +6,13 @@ if (!isset($_SESSION)) {
     session_start(['cookie_samesite' => 'Strict']);
 }
 
-define( 'SHORTINIT', true );
-require( $_SERVER['DOCUMENT_ROOT'].'/wp-load.php' );
-global $wpdb;
+include('functions/functions.php');
 
-$table = $wpdb->prefix . 'mother_inter_stats';
 $param = $_POST['patchId'];
+
+if (!$param) {
+    $param = $_GET['patchId'];
+}
 
 $param = preg_replace("/[^A-Za-z0-9\- ]/", '', $param);
 
@@ -24,10 +25,7 @@ if ($_SESSION[PATCH_DONE_PREFIX . $param]) {
     die();
 }
 
-$sql_up = "INSERT INTO $table VALUES ('%s', 1) ON DUPLICATE KEY UPDATE uses = uses + 1";
-$safe_sql_up = $wpdb->prepare($sql_up, $param);
-
-$result_up = $wpdb->query($safe_sql_up);
+$result_up = db_query("INSERT INTO $table VALUES ('%s', 1) ON DUPLICATE KEY UPDATE uses = uses + 1", $param);
 
 if (!$result_up) {
     die();
@@ -35,9 +33,8 @@ if (!$result_up) {
 
 $_SESSION[PATCH_DONE_PREFIX . $param] = true;
 
-$sql = "SELECT uses FROM $table WHERE patch_id='%s'";
-$safe_sql = $wpdb->prepare($sql, $param);
+echo db_get_var("SELECT uses FROM $table WHERE patch_id='%s'", $param);
 
-echo $wpdb->get_var($safe_sql);
+db_close();
 
 ?>

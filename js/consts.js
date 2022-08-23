@@ -82,10 +82,7 @@ const LANG_KOREAN	 = 'ko';
 const LANG_DEFAULT = LANG_ENGLISH;
 
 const STATS_FAKE = false;                        // Change it use the real patch usage data!
-const STATS_USE_WP = true;
-const STATS_PHP_FOLDER_WP = "php/";
-const STATS_PHP_FOLDER_NO_WP = "php/no_wordpress/";
-const STATS_PHP_FOLDER = (STATS_USE_WP ? STATS_PHP_FOLDER_WP : STATS_PHP_FOLDER_NO_WP);
+const STATS_PHP_FOLDER = "php/";
 const STATS_VALUE_URL = STATS_PHP_FOLDER + "getpatchusage.php";
 const STATS_INCREMENT_URL = STATS_PHP_FOLDER + "addpatchusage.php";
 const STATS_VALUE_PARAM = "patchId";
