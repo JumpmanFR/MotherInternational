@@ -29,7 +29,7 @@ html {
 	--arrow-backwards: '◂';
 }
 
-html[lang|="ar"], html[lang|="az"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ku"], html[lang|="ur"] {
+html[lang|="ar"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ur"]/*, html[lang|="az"], html[lang|="ku"]*/ {
 	direction: rtl;
 	--arrow-forwards: '◂';
 	--arrow-backwards: '▸';

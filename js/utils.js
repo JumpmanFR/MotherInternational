@@ -9,11 +9,11 @@ Utils.capitalizeFirstLetter = function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-Utils.getLangName = function (id/*, longVersion*/) {
+Utils.getLangName = function (id) {
 	var pageLang = document.documentElement.getAttribute("lang");
-	//var localLangNames = new Intl.DisplayNames([pageLang], { type: 'language', style: longVersion ? 'long' : 'narrow', languageDisplay: longVersion ? 'standard' : 'dialect' });
-	var localLangNames = new Intl.DisplayNames([pageLang], { type: 'language', style: 'narrow', languageDisplay: 'dialect' });
-	return localLangNames.of(id);//.replace(/ \(....+\)/g, '');
+	var defaultLang = LANG_DEFAULT.substr(0,2);
+	var localLangNames = new Intl.DisplayNames([pageLang, defaultLang], { type: 'language', style: 'narrow', languageDisplay: 'dialect' });
+	return localLangNames.of(id);;
 }
 
 Utils.getFlagEmoji = function (id) {
