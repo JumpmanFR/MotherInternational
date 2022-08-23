@@ -412,19 +412,19 @@ function updatePatchInfo(target) {
 
 		// Patch usage
 		if (target == FOR_OUTPUT || !patchObj.parentProject.isOfficial()) {
-			var nbUsesElts = _('txtNbUses').split("%");
+			var nbUsesElts = _('txtUsage').split("%");
 			var nbUsesP = addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
 			nbUsesP.classList.add(CLASS_INFO_LOADING);
 
 			patchObj.requestPatchUsage()
 				.then(function(nbUses) {
 					if (nbUsesP && nbUsesP.isConnected) { // to check if the view hasn’t been reloaded with another id since then
-						addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+						addEltsToFrame(infoFrame, [_('txtUsage').replace("%", _('txtUsageXTimes')).replace('%', nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 					}
 				})
 				.catch(function() {
 					if (nbUsesP && nbUsesP.isConnected) {
-						addEltsToFrame(infoFrame, [_('txtNbUses').replace("%", _('txtNbUsesUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+						addEltsToFrame(infoFrame, [_('txtUsage').replace("%", _('txtUsageUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 					}
 				});
 		}

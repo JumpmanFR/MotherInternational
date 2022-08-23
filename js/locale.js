@@ -40,8 +40,9 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Version info', /* the text of a link to get more info on a specific version */
 		'txtReadDoc':				'Readme file', /* the text of a link to download a readme file */
 
-		'txtNbUses':				'Number of uses for this patch: %', /* '%' can be 'unknown'; if this text is long, % should preferably not be at the very end */
-		'txtNbUsesUnknown':			'unknown', /* replaces the % if the server did not return the number of uses */
+		'txtUsage':					'Usage: %', /* % will be replace with either 'x times' or 'unknown' */
+		'txtUsageXTimes':			'% times', /* % is a number */
+		'txtUsageUnknown':			'unknown',
 
 		'txtReadmeFile':			'readme', /* will appear in a file name */
 
@@ -128,8 +129,9 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Infos sur la version',
 		'txtReadDoc':				'Fichier lisez-moi',
 
-		'txtNbUses':				'Nombre d’utilisations pour ce patch : %',
-		'txtNbUsesUnknown':			'inconnu',
+		'txtUsage':					'Nombre d’utilisations: %',
+		'txtUsageXTimes':			'%',
+		'txtUsageUnknown':			'inconnu',
 
 		'txtReadmeFile':			'lisez-moi',
 
@@ -215,8 +217,9 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Info versione',
 		'txtReadDoc':				'Leggimi',
 
-		'txtNbUses':				'Numero di usi per questa patch: %',
-		'txtNbUsesUnknown':			'sconosciuto',
+		'txtUsage':					'Numero di usi: %',
+		'txtUsageXTimes':			'%',
+		'txtUsageUnknown':			'sconosciuto',
 
 		'txtReadmeFile':			'leggimi',
 
@@ -302,8 +305,9 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Versie-info',
 		'txtReadDoc':				'Readme-bestand',
 
-		'txtNbUses':				'Patch % keer gebruikt',
-		'txtNbUsesUnknown':			'onbekend',
+		'txtUsage':					'Gerbruikt: %',
+		'txtUsageXTimes':			'% keer',
+		'txtUsageUnknown':			'onbekend',
 
 		'txtReadmeFile':			'readme',
 

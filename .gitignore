@@ -5,4 +5,5 @@
 .smbdelete*
 .DS_Store
 wip
-php/passwords.php
+passwords.php
+configure.php
