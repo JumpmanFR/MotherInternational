@@ -8,13 +8,13 @@ if ($conn->connect_error) {
   die();
 }
 
-function db_query($sql, $param) {
+function db_query($sql, $param = null) {
     global $conn;
     $sql = sprintf($sql, $param);
     return $conn->query($sql);
 }
 
-function db_get_var($sql, $param) {
+function db_get_var($sql, $param = null) {
     global $conn;
     $sql = sprintf($sql, $param);
     $result = $conn->query($sql);
@@ -22,8 +22,8 @@ function db_get_var($sql, $param) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_row();
         return $row[0];
-    } else {
-        return "0";
+    } else if ($result->num_rows === 0) {
+        return 0;
     }
 }
 

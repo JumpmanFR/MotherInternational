@@ -7,7 +7,7 @@ global $wpdb;
 $charset = $wpdb->get_charset_collate();
 $table = $wpdb->prefix . 'mother_inter_stats';
 
-function db_query($sql, $param) {
+function db_query($sql, $param = null) {
     global $wpdb;
     if ($param) {
         $sql = $wpdb->prepare($sql, $param);
@@ -15,16 +15,17 @@ function db_query($sql, $param) {
     return $wpdb->query($sql);
 }
 
-function db_get_var($sql, $param) {
+function db_get_var($sql, $param = null) {
     global $wpdb;
     if ($param) {
         $sql = $wpdb->prepare($sql, $param);
     }
-    return $wpdb->get_var($sql);
+    $result = $wpdb->get_var($sql);
+    return $result ? $result : 0;
 }
 
 function db_close() {
-
+    // do nothing
 }
 
 ?>
