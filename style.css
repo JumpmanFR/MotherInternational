@@ -430,7 +430,7 @@ a:not([href='#']):not([href='']):visited {
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-size: min(0.9em,4vw);
+	font-size: min(0.9em,4vw) !important;
 }
 
 .info-loading > span:not(:last-child):after {
