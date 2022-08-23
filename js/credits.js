@@ -69,7 +69,7 @@ function initCreditsSelect() {
 			}
 			var opt = document.createElement("option");
 			opt.value = cur;
-			opt.text = curProj.getDesc(false, true);
+			opt.text = curProj.getDesc(false);
 			opt.title = curProj.getWebsiteFallback() || '';
 			curGroup.appendChild(opt);
 			curGroupName = curProj.getGameFullName();
@@ -85,7 +85,7 @@ function initCreditsSelect() {
 				}
 			}
 		} else {
-			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true, false)));
+			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true)));
 		}
 		el(ELT_ABOUT_ALL_TRANSLATIONS).value = '';
 	}

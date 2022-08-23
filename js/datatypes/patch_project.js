@@ -90,15 +90,13 @@ PatchProject.prototype.getWebsiteFallback = function() {
 	return this.getWebsite() || (this.latestVersion ? this.latestVersion.getWebsite() : "");
 }
 
-PatchProject.prototype.getDesc = function(withGameTitle, withFlag) {
+PatchProject.prototype.getDesc = function(withGameTitle) {
 	var res = "";
-	if (withFlag) {
-		res += this.getLangFlag();
-	}
 	if (withGameTitle) {
 		res += " " + this.getGameLocalName();
 		res += " – " + this.getLangName();
 	} else {
+		res += this.getLangFlag();
 		res += " " + Utils.capitalizeFirstLetter(this.getLangName());
 	}
 	if (this.getAuthorFallback()) {

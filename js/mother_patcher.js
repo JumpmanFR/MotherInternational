@@ -281,7 +281,7 @@ function updatePatchSelect(showAllIfEmpty) {
 				&& (showAllVersions || curObj.isWorthShowing())) {
 				var opt = document.createElement("option");
 				opt.value = cur;
-				opt.text = PATCH_VERSIONS[cur].getDesc(false, true, false);
+				opt.text = PATCH_VERSIONS[cur].getDesc(false, true);
 				opt.title = curObj.getExtraNote() || '';
 				el(ELT_PATCH_SELECT).add(opt);
 
@@ -362,7 +362,11 @@ function updatePatchInfo(target) {
 	if (id) {
 		var patchObj = PATCH_VERSIONS[id];
 
-		addEltsToFrame(infoFrame, [patchObj.getDesc(true, false, true)], CLASS_INFO_TITLE);
+		addEltsToFrame(infoFrame, [
+			patchObj.parentProject.getLangFlag() + ' ',
+			patchObj.getDesc(true, false),
+			' (' + patchObj.getYear() + ')'
+		], CLASS_INFO_TITLE);
 
 		// Box art
 		var img = document.createElement("img");

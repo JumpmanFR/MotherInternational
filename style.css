@@ -28,7 +28,12 @@ html {
 	--arrow-backwards: '◂';
 }
 
-html[lang|="ar"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ur"]/*, html[lang|="az"], html[lang|="ku"]*/, :dir(rtl) {
+:dir(rtl) { /* not supported by many browsers... */
+	--arrow-forwards: '◂';
+	--arrow-backwards: '▸';
+}
+
+html[lang|="ar"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ur"]/*, html[lang|="az"], html[lang|="ku"]*/ { /* ... so let’s do it manually */
 	direction: rtl;
 	--arrow-forwards: '◂';
 	--arrow-backwards: '▸';
@@ -357,6 +362,9 @@ a:not([href='#']):not([href='']):visited {
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
 	overflow: hidden;
+}
+.info-title span {
+	unicode-bidi: isolate;
 }
 .no-flag-emojis .info-title {
 	font-family: serif, flags;

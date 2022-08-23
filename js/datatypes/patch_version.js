@@ -190,13 +190,13 @@ PatchVersion.prototype.getExportName = function() {
 	return res;
 }
 
-PatchVersion.prototype.getDesc = function(withGameTitle, withDetails, withYear) {
+PatchVersion.prototype.getDesc = function(withGameTitle, withDetails) {
 	var res = "";
-	res += this.parentProject.getLangFlag();
 	if (withGameTitle) {
 		res += " " + this.getGameLocalName();
 		res += " – " + this.parentProject.getLangName()
 	} else {
+		res += this.parentProject.getLangFlag();
 		res += " " + Utils.capitalizeFirstLetter(this.parentProject.getLangName());
 	}
 	if (this.getVersionValue() && !this.isSpecialHidden()) {
@@ -214,9 +214,6 @@ PatchVersion.prototype.getDesc = function(withGameTitle, withDetails, withYear) 
 		res += " (" + _('txtDescOfficial')  + ")";
 	}
 
-	if (withYear && this.getYear()) {
-		res += " (" + this.getYear() + ")";
-	}
 	return res.trim();
 }
 
