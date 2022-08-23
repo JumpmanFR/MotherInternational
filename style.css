@@ -335,7 +335,7 @@ a:not([href='#']):not([href='']):visited {
 	margin: 0.5em 0;
 	padding: 0 0.5em;
 	position: absolute;
-    width: calc(100% - 2.25em);
+    width: calc(100% - 0.5em - 0.5em - 0.625em - 0.625em); /* margin, parent padding */
     top: 4.63rem;
 	white-space: nowrap;
 	box-shadow: 2px 2px 4px #00000010;
@@ -449,7 +449,7 @@ input[type=button], button {
 #apply-btn {
 	font-weight: bold;
 	width: 16em;
-	max-width: 100%;
+	max-width: 90%;
 	height: 2em;
 	position: absolute;
 	left: 0;
@@ -665,12 +665,14 @@ input[type=button], button {
 	.area {
 		max-width: 85vw;
 		min-width: 9.5rem;
+		padding: 0.94em 0.4em;
 	}
 	#output-area {
 		height: 21.25rem;
 	}
 	.info-frame {
 		overflow-x: hidden;
+		width: calc(100% - 0.5em - 0.5em - 0.4em - 0.4em); /* margin, parent padding */
 	}
 	.info-references {
 		margin-inline-start: 0.6em;
