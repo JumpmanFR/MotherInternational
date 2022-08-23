@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English and French. *(For operators)* Other languages can be easily added; supports right-to-left writing.
+* Features a multilingual UI, currently in English, French, Italian and Dutch. *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible the first three new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
 ### Other specificities in this version
@@ -34,10 +34,10 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Open source project available [on GitHub](https://github.com/JumpmanFR/MotherInternational).
 
 ## How to translate the UI into more languages
-The file is `js/locale.js`. It currently includes two main entries, `'en'` for English and `'fr'` for French. All localized texts are listed there, for every supported language.
+The file is `js/locale.js`. It currently includes four main entries, one for each supported language: `'en'`, `'fr'`, `'it'` and `'nl'`. All localized texts are listed there.
 
 To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is used automatically based on their browser settings.\
-Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for English and French. If a field is omitted, the program will fallback to English for this field.
+Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for already supported languages. If a field is omitted, the program will fallback to English for that field.
 
 To test your changes, you can force the program to load in the language of your choice. To that end, complete the URL in the address bar with `?lang=` followed by your 2-letter language code.
 
