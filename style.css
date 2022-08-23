@@ -24,12 +24,11 @@
 @keyframes creditsanim { 0% { background-position-y: 0% } 50% { background-position-y: 100% } 100% { background-position-y: 0% } }
 
 html {
-	direction: ltr;
 	--arrow-forwards: '▸';
 	--arrow-backwards: '◂';
 }
 
-html[lang|="ar"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ur"]/*, html[lang|="az"], html[lang|="ku"]*/ {
+html[lang|="ar"], html[lang|="dv"], html[lang|="fa"], html[lang|="he"], html[lang|="ur"]/*, html[lang|="az"], html[lang|="ku"]*/, :dir(rtl) {
 	direction: rtl;
 	--arrow-forwards: '◂';
 	--arrow-backwards: '▸';
