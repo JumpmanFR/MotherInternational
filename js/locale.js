@@ -78,7 +78,8 @@ const LOCALIZATION = {
 		'txtAboutSource':			'The source code of Mother International is % under the ‰.', /* % and ‰ are two clickable links */
 		'txtAboutSourceGitHub':		'distributed', /* the text for the first clickable link I’ve just talked about */
 		'txtAboutSourceLicense':	'MIT license', /* the second one */
-		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them! POTENTIAL!',
+		'txtAboutTeams':			'All rights reserved to the teams who created each translation patch packaged into this program. Special thanks to them!',
+		'txtAboutSaturn':			'POTENTIAL!', /* followed by a Mr. Saturn sprite ("POTENTIAL" is one of their famous quotes) */
 		'txtAboutAllTranslations':	'All supported translations:',
 		'txtAboutAllTransLabel':	'– Select to access webpage –', /* the top entry in a list of translations */
 		'txtAboutAllTransNoSite':	'No registered webpage for %.', /* the text in an alert window */
@@ -167,7 +168,8 @@ const LOCALIZATION = {
 		'txtAboutSource':			'Le code source de Mother International est % sous la ‰.',
 		'txtAboutSourceGitHub':		'distribué',
 		'txtAboutSourceLicense':	'licence MIT',
-		'txtAboutTeams':			'Tous droits réservés aux équipes qui ont créé les patchs de traduction inclus dans ce programme. Merci à elles ! POTENTIEL !',
+		'txtAboutTeams':			'Tous droits réservés aux équipes qui ont créé les patchs de traduction inclus dans ce programme. Merci à elles !',
+		'txtAboutSaturn':			'POTENTIEL !',
 		'txtAboutAllTranslations':	'Toutes les traductions prises en charge :',
 		'txtAboutAllTransLabel':	'– Sélectionnez pour accéder au site web –',
 		'txtAboutAllTransNoSite':	'Pas de page web connue pour %.',
@@ -255,7 +257,8 @@ const LOCALIZATION = {
 		'txtAboutSource':			'Il codice sorgente di Mother Internazionale è % sotto la ‰.',
 		'txtAboutSourceGitHub':		'distribuito',
 		'txtAboutSourceLicense':	'licenza MIT',
-		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro! POTENZIALE!',
+		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro!',
+		'txtAboutSaturn':			'POTENZIALE!',
 		'txtAboutAllTranslations':	'Traduzioni supportate:',
 		'txtAboutAllTransLabel':	'– Seleziona per accedere alla pagina –',
 		'txtAboutAllTransNoSite':	'Nessuna pagina registrata per %.',
@@ -343,7 +346,8 @@ const LOCALIZATION = {
 		'txtAboutSource':			'De broncode van Mother Internationaal is % onder de ‰.',
 		'txtAboutSourceGitHub':		'uitgegeven',
 		'txtAboutSourceLicense':	'MIT licentie',
-		'txtAboutTeams':			'Alle rechten voorbehouden aan de teams die elke vertalingspatch hebben ontwikkeld verpakt in dit programma. Speciale dank aan hen! POTENTIEEL!',
+		'txtAboutTeams':			'Alle rechten voorbehouden aan de teams die elke vertalingspatch hebben ontwikkeld verpakt in dit programma. Speciale dank aan hen!',
+		'txtAboutSaturn':			'POTENTIEEL!',
 		'txtAboutAllTranslations':	'Alle ondersteunde vertalingen:',
 		'txtAboutAllTransLabel':	'– Kies om webpagina te bezoeken –',
 		'txtAboutAllTransNoSite':	'Geen registreerde webpagina voor %.',

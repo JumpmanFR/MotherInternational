@@ -75,11 +75,11 @@ a:not([href='#']):not([href='']):visited {
 	display: inline-block;
 	vertical-align: middle;
 }
-#back-to-site-arrow:before {
+#back-to-site-arrow::before {
 	content: var(--arrow-backwards);
 	color: white;
 }
-#back-to-site:hover #back-to-site-arrow:before {
+#back-to-site:hover #back-to-site-arrow::before {
 	color: #EAB749;
 }
 
@@ -185,7 +185,7 @@ a:not([href='#']):not([href='']):visited {
 	pointer-events: none;
 }
 
-#arrow-between-areas:after {
+#arrow-between-areas::after {
 	font-family: arrows;
 	font-size: 5rem;
 	color: #FFFFFFA0;
@@ -244,13 +244,13 @@ a:not([href='#']):not([href='']):visited {
 #msg.error {
 	color: darkred;
 }
-#msg.error:before {
+#msg.error::before {
 	content: '✗ ';
 }
-#msg.warning:before {
+#msg.warning::before {
 	content: '⚠ ';
 }
-#msg.ok:before {
+#msg.ok::before {
 	content: '✓ ';
 }
 #msg.loading span {
@@ -264,7 +264,7 @@ a:not([href='#']):not([href='']):visited {
 	animation: spin 1s ease-in-out infinite;
 	vertical-align: middle;
 }
-.loading-spin:before {
+.loading-spin::before {
 	width: 0.375em;
 	height: 0.375em;
 	background-color: #FFFFFFB0;
@@ -406,10 +406,10 @@ a:not([href='#']):not([href='']):visited {
 .info-references > p:last-child {
 	margin-bottom: 0;
 }
-.info-version-label *:first-child:before {
+.info-version-label *:first-child::before {
 	content: '💡 ';
 }
-.info-website a:before {
+.info-website a::before {
 	content: '🌐 ';
 }
 .info-link-host {
@@ -418,10 +418,10 @@ a:not([href='#']):not([href='']):visited {
 	text-align: center;
 	margin: -0.125rem 0;
 }
-.info-doc a:before {
+.info-doc a::before {
 	content: '📄 ';
 }
-.info-version-label *:first-child:before, .info-website a:before, .info-doc a:before {
+.info-version-label *:first-child::before, .info-website a::before, .info-doc a::before {
 	display: inline-block;
 	font-size: 0.9em; /* to avoid cutting the top/bottom of the emoji */
 }
@@ -433,7 +433,7 @@ a:not([href='#']):not([href='']):visited {
 	font-size: min(0.9em,4vw) !important;
 }
 
-.info-loading > span:not(:last-child):after {
+.info-loading > span:not(:last-child)::after {
 	display: inline-block;
 	animation: dotty steps(1,end) 1s infinite;
 	content: '';
@@ -595,7 +595,11 @@ input[type=button], button {
 	box-sizing: border-box;
 	text-align: end;
 }
-#credits-animation {
+#about-saturn {
+	white-space: nowrap;
+}
+#about-saturn::after {
+	content: '';
 	margin: -0.2em 0.36em;
 	width: 1em;
 	height: 1.3125em; /*ratio 16:21*/
@@ -638,7 +642,7 @@ input[type=button], button {
 	#output-area, #arrow-between-areas {
 		transition: opacity 1s ease-out;
 	}
-	#arrow-between-areas:after {
+	#arrow-between-areas::after {
 		content: '▾';
 		line-height: 0.45em;
 	}
@@ -647,7 +651,7 @@ input[type=button], button {
 		height: 0; /* allows the credits button to be directly below */
 		z-index: -99; /* prevents overlapping the credits button */
 	}
-	#arrow-between-areas.hidden:after {
+	#arrow-between-areas.hidden::after {
 		content: ''; /* prevents overlapping the credits button */
 	}
 }
