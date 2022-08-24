@@ -45,10 +45,12 @@ function initCredits() {
 
 	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
 
-	initCreditsSelect();
+	initListAllTranslations();
+	
+	initListCreditsTexts();
 }
 
-function initCreditsSelect() {
+function initListAllTranslations() {
 	var defaultOpt = document.createElement("option");
 	defaultOpt.value = '';
 	defaultOpt.text = _('txtAboutAllTransLabel');
@@ -89,6 +91,15 @@ function initCreditsSelect() {
 		}
 		el(ELT_ABOUT_ALL_TRANSLATIONS).value = '';
 	}
+}
+
+function initListCreditsTexts() {
+	var listCreditsTexts = el(ELT_ABOUT_CREDITS_TEXTS).querySelectorAll('option');
+	for(var i = 0; i < listCreditsTexts.length; i++) {
+		var langId = listCreditsTexts[i].value;
+		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
+	}
+	el(ELT_ABOUT_CREDITS_TEXTS).value = document.documentElement.getAttribute("lang");
 }
 
 function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkTexts) {

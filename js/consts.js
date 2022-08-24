@@ -21,6 +21,7 @@ const ELT_ABOUT_BTN = "about-btn";
 const ELT_ABOUT_CLOSE_BTN = "about-close-btn";
 const ELT_ABOUT_WINDOW = "about-window";
 const ELT_ABOUT_OVERLAY = "about-window-overlay";
+const ELT_ABOUT_CREDITS_TEXTS = "credits-texts";
 const ELT_ABOUT_TRANSLATOR_CONTACT = "about-translator-contact";
 const ELT_ABOUT_SOURCE = "about-source";
 const ELT_ABOUT_ALL_TRANSLATIONS = "about-all-translations";
