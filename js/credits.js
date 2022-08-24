@@ -101,7 +101,7 @@ function initListCreditsTexts() {
 		selectElt.value = docLang;
 	}
 	var listCreditsTexts = selectElt.querySelectorAll('option');
-	for(var i in listCreditsTexts) {
+	for(var i = 0; i < listCreditsTexts.length; i++) {
 		var langId = listCreditsTexts[i].value;
 		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
 		if (docLang != langId) {
