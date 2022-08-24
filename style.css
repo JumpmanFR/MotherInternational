@@ -488,7 +488,8 @@ input[type=button], button {
 
 #about-btn-container {
 	display: block;
-	margin: 2.5rem;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
 }
 #about-close-btn {
 	top: 0;

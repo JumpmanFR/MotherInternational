@@ -1,7 +1,7 @@
 const LOCALIZATION = {
 	'en':
 	{
-		'txtHtmlTitle':				'Mother International', /* I encourage 'International' to be translated into all the languages! */
+		'txtHtmlTitle':				'Mother International', /* I encourage to translate the word 'International' into all the languages! */
 		'txtTitleBottom':			'International',
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
@@ -10,7 +10,7 @@ const LOCALIZATION = {
 
 		'txtSpecifyRom':			'Please drop any MOTHER game ROM',
 		'txtApplyPatch':			'Apply Translation', /* could be 'Apply Patch' as well */
-		'txtUpdate':				'Update', /* the button changes to 'Update' instead of 'Apply Patch' when it’s a more recent translation */
+		'txtUpdate':				'Update', /* the button changes to 'Update' (verb) instead of 'Apply Patch' when it’s a more recent translation */
 
 		'txtAnalyzingFile':			'Analyzing file…',
 		'txtAnalyzingRom':			'Analyzing ROM…',
@@ -32,9 +32,9 @@ const LOCALIZATION = {
 		'txtDescBy':				'by', /* just before the name of a translation team or individual */
 		'txtPatched':				'% patch', /* % is the adjective for the language; this string will appear of a file name */
 		'txtUnpatched':				'%, unpatched', /* % is the adjective for the language; this string will appear of a file name */
-		'txtDescOfficial':			'official', /* extra indications in the select menu for certain translation choices */
-		'txtDescUpdate':			'(update)', /* extra indications in the select menu for certain translation choices */
-		'txtDescIncompatible':		'(incompatible)', /* extra indications in the select menu for certain translation choices */
+		'txtDescOfficial':			'official', /* extra indication in the select menu for certain translation choices */
+		'txtDescUpdate':			'(update)', /* extra indication (noun) in the select menu for certain translation choices */
+		'txtDescIncompatible':		'(incompatible)', /* extra indication in the select menu for certain translation choices */
 		'txtVisitSite':				'%’s webpage', /* % is the name of a translation team or individual */
 		'txtVisitSiteAt':			'at %', /* % is the base name of a URL */
 		'txtUpdateInfo':			'Version info', /* the text of a link to get more info on a specific version */
@@ -178,9 +178,9 @@ const LOCALIZATION = {
 	},
 	'it':
 	{
-		'txtHtmlTitle':				'Mother International',
-		'txtTitleBottom':			'International',
-		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
+		'txtHtmlTitle':				'Mother Internazionale',
+		'txtTitleBottom':			'Internazionale',
+		'txtSubtitle':				'Il tutto-in-uno delle patch di traduzione MOTHER',
 
 		'txtBrowse':				'Sfoglia…',
 		'txtNoRom':					'',
@@ -245,14 +245,14 @@ const LOCALIZATION = {
 		'txtCreditsDesign':			'Design',
 		'txtCreditsProgramming':	'Programmazione',
 		'txtCreditsAnimations':		'Animazioni',
-		'txtCreditsLegacy':			'Legacy App',
-		'txtCreditsPlayer':			'Player',
+		'txtCreditsLegacy':			'App precedente',
+		'txtCreditsPlayer':			'Giocatore',
 		'txtCreditsPlayerYou':		'Tu!',
 
-		'txtAboutIntro':			'Mother International è un’applicazione online che applica qualsiasi patch di traduzione della serie MOTHER.',
-		'txtAboutFreeProg1':		'L’utilizzo di Mother International è gratuito.',
+		'txtAboutIntro':			'Mother Internazionale è un’applicazione online che applica qualsiasi patch di traduzione della serie MOTHER.',
+		'txtAboutFreeProg1':		'L’utilizzo di Mother Internazionale è gratuito.',
 		'txtAboutFreeProg2':		'Questo programma non è in vendita.',
-		'txtAboutSource':			'Il codice sorgente di Mother International è % sotto la ‰.',
+		'txtAboutSource':			'Il codice sorgente di Mother Internazionale è % sotto la ‰.',
 		'txtAboutSourceGitHub':		'distribuito',
 		'txtAboutSourceLicense':	'licenza MIT',
 		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro! POTENTIAL!',
