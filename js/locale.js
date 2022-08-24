@@ -255,7 +255,7 @@ const LOCALIZATION = {
 		'txtAboutSource':			'Il codice sorgente di Mother Internazionale è % sotto la ‰.',
 		'txtAboutSourceGitHub':		'distribuito',
 		'txtAboutSourceLicense':	'licenza MIT',
-		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro! POTENTIAL!',
+		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro! POTENZIALE!',
 		'txtAboutAllTranslations':	'Traduzioni supportate:',
 		'txtAboutAllTransLabel':	'– Seleziona per accedere alla pagina –',
 		'txtAboutAllTransNoSite':	'Nessuna pagina registrata per %.',

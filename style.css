@@ -596,7 +596,7 @@ input[type=button], button {
 	text-align: end;
 }
 #credits-animation {
-	margin: -0.25em 0.36em;
+	margin: -0.2em 0.36em;
 	width: 1em;
 	height: 1.3125em; /*ratio 16:21*/
 	display: inline-block;
