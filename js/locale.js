@@ -73,8 +73,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayerYou':		'You!',
 
 		'txtAboutIntro':			'Mother International is an online patching application that can translate any game in the MOTHER series.',
-		'txtAboutFreeProg1':		'Mother International is a free to use program.',
-		'txtAboutFreeProg2':		'This program is not for sale.',
+		'txtAboutFreeProg':			'Mother International is a free to use program.\r\nThis program is not for sale.', /* Don’t put the new line (\r\n) if your language tends to take up a lot of space */
 		'txtAboutSource':			'The source code of Mother International is % under the ‰.', /* % and ‰ are two clickable links */
 		'txtAboutSourceGitHub':		'distributed', /* the text for the first clickable link I’ve just talked about */
 		'txtAboutSourceLicense':	'MIT license', /* the second one */
@@ -163,8 +162,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayerYou':		'Vous !',
 
 		'txtAboutIntro':			'Mother International est une application Web permettant de traduire n’importe quel jeu de la série MOTHER.',
-		'txtAboutFreeProg1':		'Mother International est un programme libre d’utilisation.',
-		'txtAboutFreeProg2':		'Il n’est pas destiné à la vente.',
+		'txtAboutFreeProg':			'Mother International est un programme libre d’utilisation. Il n’est pas destiné à la vente.',
 		'txtAboutSource':			'Le code source de Mother International est % sous la ‰.',
 		'txtAboutSourceGitHub':		'distribué',
 		'txtAboutSourceLicense':	'licence MIT',
@@ -252,8 +250,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayerYou':		'Tu!',
 
 		'txtAboutIntro':			'Mother Internazionale è un’applicazione online che applica qualsiasi patch di traduzione della serie MOTHER.',
-		'txtAboutFreeProg1':		'L’utilizzo di Mother Internazionale è gratuito.',
-		'txtAboutFreeProg2':		'Questo programma non è in vendita.',
+		'txtAboutFreeProg':			'L’utilizzo di Mother Internazionale è gratuito.\r\nQuesto programma non è in vendita.',
 		'txtAboutSource':			'Il codice sorgente di Mother Internazionale è % sotto la ‰.',
 		'txtAboutSourceGitHub':		'distribuito',
 		'txtAboutSourceLicense':	'licenza MIT',
@@ -341,8 +338,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayerYou':		'Jij!',
 
 		'txtAboutIntro':			'Mother Internationaal is een online patchingsapplicatie die enige game in de MOTHER reeks kan vertalen.',
-		'txtAboutFreeProg1':		'Mother Internationaal is een gratis te gebruiken programma.',
-		'txtAboutFreeProg2':		'Dit programma is niet bedoeld voor verkoop.',
+		'txtAboutFreeProg':			'Mother Internationaal is een gratis te gebruiken programma. Dit programma is niet bedoeld voor verkoop.',
 		'txtAboutSource':			'De broncode van Mother Internationaal is % onder de ‰.',
 		'txtAboutSourceGitHub':		'uitgegeven',
 		'txtAboutSourceLicense':	'MIT licentie',

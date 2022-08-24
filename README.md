@@ -99,6 +99,11 @@ Many thanks and congrats to all the people involved!
 * Programming
 	* [JumpmanFR](https://twitter.com/JumpmanFR)
 	* Patching lib taken from [Marc Robledo](https://twitter.com/marc_robledo)’s [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/)
+* UI texts
+	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO), [JumpmanFR](https://twitter.com/JumpmanFR) (English)
+	* [JumpmanFR](https://twitter.com/JumpmanFR) (French)
+	* [Snifit](https://www.romhacking.net/community/3612/) (Italian)
+	* [PrismaticAngel](https://www.romhacking.net/community/6327/) (Dutch)
 * Animations
 	* [Sam the Salmon](https://twitter.com/Sam_the_SaImon)
 * Legacy Java program

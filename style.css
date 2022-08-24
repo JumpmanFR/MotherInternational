@@ -584,6 +584,9 @@ input[type=button], button {
 #about-side * {
 	vertical-align: top;
 }
+#about-side span {
+	white-space: pre-line;
+}
 #about-side select {
 	width: 100%;
 }
