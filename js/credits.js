@@ -46,7 +46,7 @@ function initCredits() {
 	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
 
 	initListAllTranslations();
-	
+
 	initListCreditsTexts();
 }
 
@@ -101,9 +101,12 @@ function initListCreditsTexts() {
 		selectElt.value = docLang;
 	}
 	var listCreditsTexts = selectElt.querySelectorAll('option');
-	for(var i = 0; i < listCreditsTexts.length; i++) {
+	for(var i in listCreditsTexts) {
 		var langId = listCreditsTexts[i].value;
 		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
+		if (docLang != langId) {
+			listCreditsTexts[i].disabled = true;
+		}
 	}
 }
 
