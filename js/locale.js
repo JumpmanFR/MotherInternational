@@ -6,9 +6,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'All-in-one MOTHER Translation Patcher',
 
 		'txtBrowse':				'Browse…', /* a classic button to let the user browse their files */
-		'txtNoRom':					'', /* we decided to write nothing here, after all */
+		'txtNoRom':					'Please select a MOTHER game ROM',
 
-		'txtSpecifyRom':			'Please drop any MOTHER game ROM',
+		'txtDropRom':				'Please drop any MOTHER game ROM',
 		'txtApplyPatch':			'Apply Translation', /* could be 'Apply Patch' as well */
 		'txtUpdate':				'Update', /* the button changes to 'Update' (verb) instead of 'Apply Patch' when it’s a more recent translation */
 
@@ -95,9 +95,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'Le tout-en-un des patchs de traduction MOTHER',
 
 		'txtBrowse':				'Parcourir…',
-		'txtNoRom':					'',
+		'txtNoRom':					'Veuillez spécifier une ROM de jeu MOTHER',
 
-		'txtSpecifyRom':			'Déposez n’importe quelle ROM d’un jeu MOTHER',
+		'txtDropRom':				'Déposez n’importe quelle ROM d’un jeu MOTHER',
 		'txtApplyPatch':			'Appliquer le patch',
 		'txtUpdate':				'Mettre à jour',
 
@@ -185,9 +185,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'Il tutto-in-uno delle patch di traduzione MOTHER',
 
 		'txtBrowse':				'Sfoglia…',
-		'txtNoRom':					'',
+		'txtNoRom':					'Seleziona una ROM di MOTHER',
 
-		'txtSpecifyRom':			'Trascina qui una ROM di MOTHER',
+		'txtDropRom':				'Trascina qui una ROM di MOTHER',
 		'txtApplyPatch':			'Applica Patch',
 		'txtUpdate':				'Aggiorna',
 
@@ -274,9 +274,9 @@ const LOCALIZATION = {
 		'txtSubtitle':				'Alles-in-een MOTHER Vertalingspatcher',
 
 		'txtBrowse':				'Zoeken…',
-		'txtNoRom':					'',
+		'txtNoRom':					'Selecteer alsjeblieft een MOTHER-game ROM',
 
-		'txtSpecifyRom':			'Plaats alsjeblieft een MOTHER-game ROM',
+		'txtDropRom':				'Plaats alsjeblieft een MOTHER-game ROM',
 		'txtApplyPatch':			'Vertaling toepassen',
 		'txtUpdate':				'Updaten',
 

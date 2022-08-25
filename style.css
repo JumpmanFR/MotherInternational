@@ -208,12 +208,10 @@ a:not([href='#']):not([href='']):visited {
 	vertical-align: middle;
 	margin: 0 0.31em;
 }
-#rom-label:empty {
-	display: none;
-}
 #input-area.drop-first-time #rom-label {
 	cursor: auto;
 	pointer-events: none;
+	display: none;
 }
 
 #msg-container {
@@ -293,6 +291,7 @@ a:not([href='#']):not([href='']):visited {
 	margin-bottom: 0.94rem;
 }
 #patch-select-label {
+	display: block;
 	margin: 0;
 	white-space: nowrap;
 	overflow-x: hidden;

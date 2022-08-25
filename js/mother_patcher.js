@@ -504,7 +504,7 @@ function reset() {
 	el(ELT_ROM_LABEL).innerText = _('txtNoRom');
 	el(ELT_AREA_INPUT).classList.add(CLASS_DROP_FIRST);
 	el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN_FIRST);
-	setMessage(_('txtSpecifyRom'));
+	setMessage(_('txtDropRom'));
 	// Output
 	clearPatchSelect();
 }
@@ -562,7 +562,7 @@ function onParsedInputRom(data) {
     if (gInputRomId) {
 		setMessage(_('txtRomIdentified'), MSG_TYPE_OK);
 		updatePatchInfo(FOR_INPUT);
-		el(ELT_PATCH_SELECT_LABEL).title = el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameFullName()) : '';
+		el(ELT_PATCH_SELECT_LABEL).title = el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameFullName()) : _('txtNoTranslation');
 		el(ELT_SHOW_ALL_OPTION).checked = false;
 		updatePatchSelect(true);
 		setTimeout(function() {
