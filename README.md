@@ -103,10 +103,11 @@ Many thanks and congrats to all the people involved!
 	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO), [JumpmanFR](https://twitter.com/JumpmanFR) (English)
 	* [PrismaticAngel](https://www.romhacking.net/community/6327/) (Dutch)
 	* [JumpmanFR](https://twitter.com/JumpmanFR) (French)
+	<!--* [Madokami](https://twitter.com/_madokami) (German)  -->
 	* [Snifit](https://www.romhacking.net/community/3612/), [Benz](https://twitter.com/benzuccio) (Italian)
 	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
-<!--	* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
-<!--	* [TragicManner](https://twitter.com/TragicManner) (Portuguese)  -->
+	<!--* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
+	<!--* [TragicManner](https://twitter.com/TragicManner) (Portuguese)  -->
 * Animations
 	* [Sam the Salmon](https://twitter.com/SamThe_Salmon)
 * Legacy Java program
