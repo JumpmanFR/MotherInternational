@@ -163,7 +163,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayer':			'Joueur',
 		'txtCreditsPlayerYou':		'Vous !',
 
-		'txtAboutIntro':			'Mother International est une application Web permettant de traduire n’importe quel jeu de la série MOTHER.',
+		'txtAboutIntro':			'Mother International est une application permettant d’appliquer des patchs de traduction sur tous les jeux MOTHER.',
 		'txtAboutFreeProg':			'Mother International est un programme libre d’utilisation. Il n’est pas destiné à la vente.',
 		'txtAboutSource':			'Le code source de Mother International est % sous la ‰.',
 		'txtAboutSourceGitHub':		'distribué',

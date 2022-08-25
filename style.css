@@ -601,8 +601,8 @@ select#credits-texts {
 	box-sizing: border-box;
 	text-align: end;
 }
-#about-saturn {
-	white-space: nowrap;
+#about-side span#about-saturn {
+	white-space: nowrap; /* make sure it’s not overridden by #about-side span */
 }
 #about-saturn::after {
 	content: '';
