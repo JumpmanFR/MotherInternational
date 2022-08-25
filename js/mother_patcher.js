@@ -48,6 +48,10 @@ function patchSelectVal() {return el(ELT_PATCH_SELECT).value}
 //==========================================
 
 addEvent(document, 'DOMContentLoaded', function() {
+	if (window.frameElement) {
+		window.parent.location.href = window.location.href;
+	}
+
 	document.body.onresize = onResize;
 	addEvent(document, 'dragover', (e) => e.preventDefault())
 	addEvent(document, 'drop', (e) => e.preventDefault())
@@ -63,7 +67,7 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', function() {updatePatchSelect()});
 	addEvent(el(ELT_APPLY), 'click',  function() {startApply(gInputRom, gInputRomId, patchSelectVal())});
-
+	
 	initAudio();
 
 	zip.useWebWorkers = true;
