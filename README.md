@@ -86,16 +86,16 @@ To find out about the detailed procedure, please read this document: [How to add
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v1.0 by Jimmytrius
 
-Thanks to these 26 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 12 different languages : Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
-Nine of these languages allow their speakers to play the entire MOTHER series from beginnings to end : English, French, German, Italian, Japanese, Korean, Polish, Portuguese and Spanish.\
+Thanks to these 26 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 12 different languages: Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
+Nine of these languages allow their speakers to play the entire MOTHER series from beginnings to end: English, French, German, Italian, Japanese, Korean, Polish, Portuguese and Spanish.\
 Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
 
 Many thanks and congrats to all the people involved!
 
 ## Credits
 * Design
-	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO)
 	* [JumpmanFR](https://twitter.com/JumpmanFR)
+	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO)
 * Programming
 	* [JumpmanFR](https://twitter.com/JumpmanFR)
 	* Patching lib taken from [Marc Robledo](https://twitter.com/marc_robledo)’s [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/)
@@ -104,11 +104,12 @@ Many thanks and congrats to all the people involved!
 	* [JumpmanFR](https://twitter.com/JumpmanFR) (French)
 	* [Snifit](https://www.romhacking.net/community/3612/) (Italian)
 	* [PrismaticAngel](https://www.romhacking.net/community/6327/) (Dutch)
+<!--	* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
 * Animations
-	* [Sam the Salmon](https://twitter.com/Sam_the_SaImon)
+	* [Sam the Salmon](https://twitter.com/SamThe_Salmon)
 * Legacy Java program
 	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO)
-	* [OtakuReborn](https://twitter.com/otakureborn)
+	* [Shen Lu](https://twitter.com/otakureborn)
 	* [thequickslash](https://twitter.com/thequickslash)
 * Player
 	* You!
