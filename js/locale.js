@@ -180,9 +180,9 @@ const LOCALIZATION = {
 	},
 	'it':
 	{
-		'txtHtmlTitle':				'Mother Internazionale',
-		'txtTitleBottom':			'Internazionale',
-		'txtSubtitle':				'Il tutto-in-uno delle patch di traduzione MOTHER',
+		'txtHtmlTitle':				'Mother International',
+		'txtTitleBottom':			'International',
+		'txtSubtitle':				'Il patcher tutto in uno per tradurre la serie di MOTHER',
 
 		'txtBrowse':				'Sfoglia…',
 		'txtNoRom':					'Seleziona una ROM di MOTHER',
@@ -244,7 +244,7 @@ const LOCALIZATION = {
 		'txtAbout':					'Crediti',
 
 		'txtCredits':				'Crediti',
-		'txtCreditsDesign':			'Design',
+		'txtCreditsDesign':			'Progettazione',
 		'txtCreditsProgramming':	'Programmazione',
 		'txtCreditsTexts':			'Testo',
 		'txtCreditsAnimations':		'Animazioni',
@@ -252,12 +252,12 @@ const LOCALIZATION = {
 		'txtCreditsPlayer':			'Giocatore',
 		'txtCreditsPlayerYou':		'Tu!',
 
-		'txtAboutIntro':			'Mother Internazionale è un’applicazione online che applica qualsiasi patch di traduzione della serie MOTHER.',
-		'txtAboutFreeProg':			'L’utilizzo di Mother Internazionale è gratuito.\r\nQuesto programma non è in vendita.',
-		'txtAboutSource':			'Il codice sorgente di Mother Internazionale è % sotto la ‰.',
+		'txtAboutIntro':			'Mother International è un’applicazione online che applica qualsiasi patch di traduzione della serie MOTHER.',
+		'txtAboutFreeProg':			'L’utilizzo di Mother International è gratuito.\r\nQuesto programma non è in vendita.',
+		'txtAboutSource':			'Il codice sorgente di Mother International è % sotto la ‰.',
 		'txtAboutSourceGitHub':		'distribuito',
 		'txtAboutSourceLicense':	'licenza MIT',
-		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Ringraziamenti speciali a loro!',
+		'txtAboutTeams':			'Tutti i diritti riservati al team che ha creato ciascuna patch di traduzione inclusa in questo programma. Grazie di cuore a tutti loro!',
 		'txtAboutSaturn':			'POTENZIALE!',
 		'txtAboutAllTranslations':	'Traduzioni supportate:',
 		'txtAboutAllTransLabel':	'– Seleziona per accedere alla pagina –',
