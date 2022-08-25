@@ -85,8 +85,7 @@ a:not([href='#']):not([href='']):visited {
 	margin-top: 3rem;
 	width: fit-content;
 	text-align: start;
-	font-family: titlefont, Arial, sans-serif;
-	font-weight: bold;
+	font-family: titlefont, Arial Black, sans-serif;
 	color: #EBEBEB;
 }
 #title-o {
@@ -96,6 +95,7 @@ a:not([href='#']):not([href='']):visited {
 	filter: drop-shadow(3px 3px 1px #00000040);
 }
 #title {
+	font-weight: normal; /* bold is too large with certain mobile browsers & languages, the bold variant doesn’t exist anyway */
 	font-size: 3.375em;
 	text-transform: uppercase;
 	text-align: start;
