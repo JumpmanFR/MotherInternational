@@ -28,7 +28,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m1-ru',	game:ID_MOTHER_1,	lang:LANG_RUSSIAN,	latest:'0.9',	author:'CHIEF‑NET',			website:'http://chief-net.ru/index.php?option=com_content&task=view&id=37'},
 
 	{projectId:'m2-ja',	game:ID_MOTHER_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
-	{projectId:'m2-de',	game:ID_MOTHER_2,	lang:LANG_GERMAN,	latest:'1.2.3',	author:'GlostU/Mexos',		website:'https://github.com/GlostU/EarthBound-deutsche-uebersetzung'},
+	{projectId:'m2-de',	game:ID_MOTHER_2,	lang:LANG_GERMAN,	latest:'1.2.3',	author:'GlostU',			website:'https://github.com/GlostU/EarthBound-deutsche-uebersetzung'},
 	{projectId:'m2-en',	game:ID_MOTHER_2,	lang:LANG_ENGLISH,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m2-esA',game:ID_MOTHER_2,	lang:LANG_SP_MEXICO,latest:'4.0',	author:'ShadowOne333',		website:'https://www.romhacking.net/translations/2538/'},
 	{projectId:'m2-esB',game:ID_MOTHER_2,	lang:LANG_SP_SPAIN,	latest:'1.0a',	author:'josete2k',			website:'https://www.romhacking.net/translations/2638/'},

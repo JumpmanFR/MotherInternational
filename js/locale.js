@@ -8,7 +8,7 @@ const LOCALIZATION = {
 		'txtBrowse':				'Browse…', /* a classic button to let the user browse their files */
 		'txtNoRom':					'Please select a MOTHER game ROM',
 
-		'txtDropRom':				'Please drop any MOTHER game ROM',
+		'txtDropRom':				'Please drop any MOTHER game ROM',
 		'txtApplyPatch':			'Apply Translation', /* could be 'Apply Patch' as well */
 		'txtUpdate':				'Update', /* the button changes to 'Update' (verb) instead of 'Apply Patch' when it’s a more recent translation */
 
@@ -73,7 +73,7 @@ const LOCALIZATION = {
 		'txtCreditsPlayer':			'Player',
 		'txtCreditsPlayerYou':		'You!',
 
-		'txtAboutIntro':			'Mother International is an online patching application that can translate any game in the MOTHER series.',
+		'txtAboutIntro':			'Mother International is an online patching application that can translate any game in the MOTHER series.', /* or: web application */
 		'txtAboutFreeProg':			'Mother International is a free to use program.\r\nThis program is not for sale.', /* Don’t put the new line (\r\n) if your language tends to take up a lot of space */
 		'txtAboutSource':			'The source code of Mother International is % under the ‰.', /* % and ‰ are two clickable links */
 		'txtAboutSourceGitHub':		'distributed', /* the text for the first clickable link I’ve just talked about */
@@ -83,7 +83,7 @@ const LOCALIZATION = {
 		'txtAboutAllTranslations':	'All supported translations:',
 		'txtAboutAllTransLabel':	'– Select to access webpage –', /* the top entry in a list of translations */
 		'txtAboutAllTransNoSite':	'No registered webpage for %.', /* the text in an alert window */
-		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?', /* the text in an alert window */
+		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?', /* the text in an alert window; % and ‰ are the author and base url */
 		'txtAboutTranslator1':		'If you’re a translator, feel free to %!', /* % is the text 'contact us' as a clickable link */
 		'txtAboutTranslator2':		'contact us', /* this is what I was just referring to */
 		'txtAboutVersion':			'Version %', /* % is a version number */
@@ -444,6 +444,95 @@ const LOCALIZATION = {
 		'txtAboutTranslator1':		'Si eres un traductor, no dudes en %!',
 		'txtAboutTranslator2':		'contactarnos',
 		'txtAboutVersion':			'Versión %',
+	},
+ 	'de':
+	{
+		'txtHtmlTitle':				'Mother International',
+		'txtTitleBottom':			'International',
+		'txtSubtitle':				'Universaler Patcher für MOTHER-Übersetzungen',
+
+		'txtBrowse':				'Durchsuchen …',
+		'txtNoRom':					'Bitte wähle eine MOTHER-ROM aus',
+
+		'txtDropRom':				'Bitte ziehe eine MOTHER‑ROM in dieses Fenster',
+		'txtApplyPatch':			'Übersetzung anwenden',
+		'txtUpdate':				'Aktualisieren',
+
+		'txtAnalyzingFile':			'Analysiere Datei …',
+		'txtAnalyzingRom':			'Analysiere ROM …',
+		'txtRomIdentified':			'ROM identifiziert!',
+		'txtDownloading':			'Patch wird heruntergeladen% …',
+		'txtUnzipping':				'Entpacke …',
+		'txtApplyingPatch':			'Wende Patch an% …',
+		'txtZipping':				'Erzeuge Zip-Datei …',
+		'txtFinalizing':			'Vorgang wird beendet …',
+		'txtEndMsg':				'Deine ROM wurde erfolgreich gepatched!',
+
+		'txtChecksum':				'CRC-32 Prüfsumme: %',
+
+		'txtAllTranslations':		'Verfügbare Optionen für %:',
+		'txtNoTranslation':			'Keine Übersetzungen verfügbar',
+		'txtShowAllVersions':		'Zeige alle Versionen',
+
+		'txtDescVersion':			'v',
+		'txtDescBy':				'von',
+		'txtPatched':				'% Patch',
+		'txtUnpatched':				'%, kein Patch',
+		'txtDescOfficial':			'offiziell',
+		'txtDescUpdate':			'(Update)',
+		'txtDescIncompatible':		'(inkompatibel)',
+		'txtVisitSite':				'Website von %',
+		'txtVisitSiteAt':			'unter %',
+		'txtUpdateInfo':			'Infos zur Version',
+		'txtReadDoc':				'Readme-Datei',
+
+		'txtUsage':					'Anzahl Nutzungen: %',
+		'txtUsageXTimes':			'%',
+		'txtUsageUnknown':			'unbekannt',
+
+		'txtReadmeFile':			'Readme',
+
+		'error_no_rom':				'Keine ROM ausgewählt',
+		'error_no_rom_info':		'Die ROM konnte nicht analysiert werden',
+		'error_already_patched':	'Die ROM wurde bereits gepatched',
+		'error_unknown_rom':		'Unbekannte ROM',
+        'error_no_rom_in_zip':      'Keine ROM im Archiv gefunden',
+		'error_crc_output':			'Falsche Ausgabe-ROM',
+		'error_crc_input':			'Falsche Eingabe-ROM',
+		'error_patching':			'Fehler beim Patchen',
+		'error_no_patch_route':		'Entfernen des Patches nicht möglich',
+		'error_downloading':		'Fehler beim Herunterladen',
+		'error_unzipping':			'Fehler beim Entpacken',
+		'error_invalid_patch':		'Unbekannte Patch-Datei',
+		'error_crc_patch':			'Falsche Patch-Datei',
+		'warning_too_big':			'Datei zu groß',
+		'Not Found':				'Keine Patch-Datei gefunden',
+
+		'txtAbout':					'Credits & Über',
+
+		'txtCredits':				'Credits',
+		'txtCreditsDesign':			'Design',
+		'txtCreditsProgramming':	'Programmierung',
+		'txtCreditsTexts':			'Texte',
+		'txtCreditsAnimations':		'Animationen',
+		'txtCreditsLegacy':			'Alte App',
+		'txtCreditsPlayer':			'Spieler',
+		'txtCreditsPlayerYou':		'Dich!',
+
+		'txtAboutIntro':			'Mother International ist eine Web-Applikation, welches jedes Spiel in der MOTHER-Serie übersetzen kann.',
+		'txtAboutFreeProg':			'Mother International ist eine freie Anwendung.\r\nSie steht nicht zum Verkauf.',
+		'txtAboutSource':			'Der Quellcode von Mother International ist unter der ‰ %.',
+		'txtAboutSourceGitHub':		'veröffentlicht',
+		'txtAboutSourceLicense':	'MIT-Lizenz', 
+		'txtAboutTeams':			'Alle Rechte liegen bei den Teams, die jede Übersetzung hier erstellt haben. Ihnen gilt ein besonderer Dank!',
+		'txtAboutSaturn':			'POTENZIAL!',
+		'txtAboutAllTranslations':	'Alle unterstützten Übersetzungen:',
+		'txtAboutAllTransLabel':	'– Auswählen, um auf Projekt-Website zu kommen –',
+		'txtAboutAllTransNoSite':	'Für % gibt es keine registrierte Website.',
+		'txtAboutAllTransSiteAsk':	'Möchtest du die Website von % unter ‰ aufrufen?',
+		'txtAboutTranslator1':		'Wenn du ein Übersetzer bist, dann % gerne!',
+		'txtAboutTranslator2':		'kontaktiere uns',
+		'txtAboutVersion':			'Version %',
 	},
 }
 

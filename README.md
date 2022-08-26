@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, Italian and Spanish. *(For operators)* Other languages can be easily added; supports right-to-left writing.
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian<!--, Polish, Portuguese--> and Spanish. *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible the first three new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
 ### Other specificities in this version
@@ -57,7 +57,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* European Spanish v0.99 by Jackic ***(new!)***
 * MOTHER 2 / EarthBound
 	* French v1.1 by Team MAMBO
-	* German v1.0-v1.2.3 by GlostU/Mexos ***(updated!)***
+	* German v1.0-v1.2.3 by GlostU ***(updated!)***
 	* Italian v1.0-v1.1 by CRefice
 	* Italian v1.0-v1.47 by Vecna ***(new!)***
 	* Polish v1.0.0-v1.0.2 by Voxar ***(updated!)***
@@ -103,11 +103,11 @@ Many thanks and congrats to all the people involved!
 	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO), [JumpmanFR](https://twitter.com/JumpmanFR) (English)
 	* [PrismaticAngel](https://www.romhacking.net/community/6327/) (Dutch)
 	* [JumpmanFR](https://twitter.com/JumpmanFR) (French)
-	<!--* [Madokami](https://twitter.com/_madokami) (German)  -->
+	* [GlostU](https://twitter.com/Glost_U), [Madokami](https://twitter.com/_madokami) (German)
 	* [Snifit](https://www.romhacking.net/community/3612/), [Benz](https://twitter.com/benzuccio) (Italian)
 	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
 	<!--* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
-	<!--* [TragicManner](https://twitter.com/TragicManner) (Portuguese)  -->
+	<!--* [TragicManner](https://twitter.com/TragicManner), [Foffano](https://twitter.com/Foffano) (Portuguese)  -->
 * Graphic elements
 	* [Benz](https://twitter.com/benzuccio) (SVG logo)
 	* [Sam the Salmon](https://twitter.com/SamThe_Salmon) (animations)
