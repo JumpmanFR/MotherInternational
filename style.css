@@ -86,7 +86,7 @@ a:not([href='#']):not([href='']):visited {
 	width: fit-content;
 	text-align: start;
 	font-family: titlefont, Arial Black, sans-serif;
-	color: #F7F7F7;
+	color: #EBEBEB;
 }
 #title-o {
 	height: 1.06em;
@@ -99,8 +99,8 @@ a:not([href='#']):not([href='']):visited {
 	font-size: 3.375em;
 	text-transform: uppercase;
 	text-align: start;
-	margin: -0.04em 0 -0.11em 0;
-	line-height: 1.09em;
+	margin: -0.06em 0 0em 0;
+	line-height: 0.88em;
 }
 #title span {
 	vertical-align: middle;
