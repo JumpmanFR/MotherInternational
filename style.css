@@ -90,7 +90,7 @@ a:not([href='#']):not([href='']):visited {
 }
 #title-o {
 	height: 1.06em;
-	vertical-align: bottom;
+	vertical-align: middle;
 	margin-left: 0.02em; /* rtl-proofed */
 	filter: drop-shadow(3px 3px 1px #00000040);
 }
@@ -101,6 +101,9 @@ a:not([href='#']):not([href='']):visited {
 	text-align: start;
 	margin: -0.04em 0 -0.11em 0;
 	line-height: 1.09em;
+}
+#title span {
+	vertical-align: middle;
 }
 .subtitle {
 	text-align: end;
@@ -139,7 +142,7 @@ a:not([href='#']):not([href='']):visited {
 	-webkit-user-select: none;
 }
 #input-area.drop-first-time, #input-area.drag {
-	background-image: url("assets/drop-icon-alpha.png");
+	background-image: url("assets/drop-icon-alpha.svg");
 	background-size: 30%;
 	background-repeat: no-repeat;
 	background-position: center;

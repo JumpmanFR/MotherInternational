@@ -44,7 +44,7 @@ a:not([href='#']):not([href='']):visited {
 	background-color: white;
 }
 #input-area.drop-first-time, #input-area.drag {
-	background-image: url("assets/drop-icon-white.png");
+	background-image: url("assets/drop-icon-white.svg");
 }
 #input-area.drag .info-frame {
 	opacity: 0.2;
