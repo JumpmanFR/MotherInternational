@@ -11,7 +11,7 @@ function PatchProject(json, game, lang) {
 		return game.shortName;
 	}
 	this.getGameLocalName = function() {
-		if (lang && lang.useJapName) {
+		if (lang && lang.isJapan) {
 			return game.japName;
 		} else {
 			return game.shortName;
@@ -24,7 +24,7 @@ function PatchProject(json, game, lang) {
 		return Utils.getFlagEmoji(lang ? lang.flagId || json.lang : json.lang);
 	}
 	this.getBoxart = function() {
-		return json.game + (lang ? lang.boxartId || "" : "") + ".jpg";
+		return lang && lang.isJapan ? game.japBoxart || game.boxart : game.boxart || game.japBoxart;
 	}
 	this.getAuthor = function() {
 		return json.author;

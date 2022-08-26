@@ -1,6 +1,6 @@
 // Language table for a few specific cases
 var LANG_LIST = {
-	[LANG_JAPANESE]:	{flagId:'JP', boxartId:'j', useJapName:true},
+	[LANG_JAPANESE]:	{flagId:'JP', isJapan:true},
 	[LANG_ENGLISH]:		{flagId:'GB', nameId: 'en'},
 	[LANG_SP_MEXICO]:	{nameId:'es-419'}, // same "Latin American Spanish" label
 	[LANG_SP_ARGENT]:	{nameId:'es-419'}, // same "Latin American Spanish" label
@@ -10,10 +10,10 @@ var LANG_LIST = {
 
 // Data table for the 4 supported games
 var GAMES_LIST = {
-	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'EarthBound Beginnings',	year:1989,	included:[ID_MOTHER_1]},
-	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'EarthBound',				year:1994,	included:[ID_MOTHER_2]},
-	[ID_MOTHER_1_2]:{japName:'MOTHER 1+2',	fullName:'MOTHER 1+2',						shortName:'MOTHER 1+2',				year:2003,	included:[ID_MOTHER_1, ID_MOTHER_2]},
-	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',				year:2006,	included:[ID_MOTHER_3]},
+	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'EarthBound Beginnings',	year:1989,	boxart:'m1.jpg', 	japBoxart:'m1j.jpg', included:[ID_MOTHER_1],},
+	[ID_MOTHER_2]:	{japName:'MOTHER 2',	fullName:'MOTHER 2 / EarthBound',			shortName:'EarthBound',				year:1994,	boxart:'m2.jpg', 	japBoxart:'m2j.jpg', included:[ID_MOTHER_2]},
+	[ID_MOTHER_1_2]:{japName:'MOTHER 1+2',	fullName:'MOTHER 1+2',						shortName:'MOTHER 1+2',				year:2003,	boxart:'m12.jpg',	included:[ID_MOTHER_1, ID_MOTHER_2]},
+	[ID_MOTHER_3]:	{japName:'MOTHER 3', 	fullName:'MOTHER 3',						shortName:'MOTHER 3',				year:2006,	boxart:'m3.jpg',	included:[ID_MOTHER_3]},
 }
 
 // Table for all supported translation projects, without detailing the individual versions and patches released by these teams
