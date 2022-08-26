@@ -19,7 +19,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
-* Identifies your patched ROMs and gives more info about them: language, patch version, extra patches, translators’ website, etc.
+* Identifies your patched ROMs and gives more info about them: language, patch version, extra patches included, translators’ website, etc.
 * Automatically invites you to translate into your language based on your Web browser settings, or to update your current ROM into a more recent translation from the same team.
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
@@ -108,8 +108,9 @@ Many thanks and congrats to all the people involved!
 	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
 	<!--* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
 	<!--* [TragicManner](https://twitter.com/TragicManner) (Portuguese)  -->
-* Animations
-	* [Sam the Salmon](https://twitter.com/SamThe_Salmon)
+* Graphic elements
+	* [Benz](https://twitter.com/benzuccio) (SVG logo)
+	* [Sam the Salmon](https://twitter.com/SamThe_Salmon) (animations)
 * Legacy Java program
 	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO)
 	* [Shen Lu](https://twitter.com/otakureborn)
