@@ -50,7 +50,8 @@
 				<span id="rom-container">
 					<input type="file" id="rom-file" accept=".zip,.nes,.fds,.sfc,.srm,.gba,.agb,.bin,application/zip,application/x-nes-rom,application/x-fds-rom,application/vnd.nintendo.snes.rom,application/x-gba-rom,application/octet-stream"/>
 					<input type="button" id="rom-btn" data-localize="txtBrowse"/>
-					<label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
+                    <label for="rom-file" id="rom-filename"></label>
+                    <label for="rom-btn" id="rom-label" data-localize="txtNoRom"></label>
 				</span>
 				<div id="msg-container">
 					<span id="msg" class="message" data-localize="txtDropRom"></span>
@@ -91,12 +92,12 @@
     					<dt><label for="credits-texts" data-localize="txtCreditsTexts"></label></dt>
     					<dd>
 							<select id="credits-texts">
-								<option value='en'>Kody NOKOLO, JumpmanFR (%)</option>
-								<option value='fr'>JumpmanFR (%)</option>
-                                <option value='de'>GlostU, Madokami (%)</option>
-                                <option value='nl'>PrismaticAngel (%)</option>
-								<option value='es'>ShadowOne333 (%)</option>
-                                <option value='it'>Snifit, Benz (%)</option>
+								<option data-localize='Kody NOKOLO, JumpmanFR (%)' value='en'></option>
+								<option data-localize='JumpmanFR (%)' value='fr'></option>
+                                <option data-localize='GlostU, Madokami (%)' value='de'></option>
+                                <option data-localize='PrismaticAngel (%)' value='nl'></option>
+								<option data-localize='ShadowOne333 (%)' value='es'></option>
+                                <option data-localize='Snifit, Benz (%)' value='it'></option>
                                 <!--option value='pt'>TragicManner, Foffano (%)</option-->
 								<!--option value='pl'>Voxar (%)</option-->
 							</select>

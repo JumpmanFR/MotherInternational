@@ -206,15 +206,17 @@ a:not([href='#']):not([href='']):visited {
 	max-height: 1.9em;
 	vertical-align: middle;
 }
-#rom-label {
+#rom-filename {
 	cursor: pointer;
 	vertical-align: middle;
 	margin: 0 0.31em;
 }
-#input-area.drop-first-time #rom-label {
+#rom-filename:empty, #rom-label {
+	display: none;
+}
+#input-area.drop-first-time #rom-filename {
 	cursor: auto;
 	pointer-events: none;
-	display: none;
 }
 
 #msg-container {
@@ -270,6 +272,9 @@ a:not([href='#']):not([href='']):visited {
 	top: 0;
 	margin: 0 -0.625em;
 }
+.loading-text::before {
+	content: ' ';
+}
 
 #input-rom-checksum {
 	position: absolute;
@@ -281,7 +286,7 @@ a:not([href='#']):not([href='']):visited {
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	font-size: smaller;
+	font-size: 82%;
 	opacity: 0.8;
 }
 
@@ -687,5 +692,10 @@ select#credits-texts {
 	}
 	select#credits-texts {
 		width: 100%;
+	}
+}
+@media (max-width: 24rem) {
+	#msg {
+		font-size: 4.1vw;
 	}
 }

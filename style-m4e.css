@@ -129,3 +129,13 @@ a:not([href='#']):not([href='']):visited {
 #credits-logo {
 	content: url('assets/site-title-dark.png');
 }
+@media (max-width: 28rem) {
+	#msg {
+		font-size: 3.5vw;
+	}
+}
+@media (max-width: 22rem) {
+	#input-rom-checksum {
+		font-size: 3.8vw;
+	}
+}

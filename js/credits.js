@@ -43,7 +43,7 @@ function initCredits() {
 			["https://github.com/JumpmanFR/MotherInternational", "https://opensource.org/licenses/mit-license.php"], [_("txtAboutSourceGitHub"), _("txtAboutSourceLicense")]);
 	}
 
-	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace("%", VERSION);
+	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace('%', VERSION);
 
 	initListAllTranslations();
 
@@ -51,6 +51,7 @@ function initCredits() {
 }
 
 function initListAllTranslations() {
+	el(ELT_ABOUT_ALL_TRANSLATIONS).textContent = '';
 	var defaultOpt = document.createElement("option");
 	defaultOpt.value = '';
 	defaultOpt.text = _('txtAboutAllTransLabel');
@@ -87,7 +88,7 @@ function initListAllTranslations() {
 				}
 			}
 		} else {
-			window.alert(_('txtAboutAllTransNoSite').replace("%",selected.getDesc(true)));
+			window.alert(_('txtAboutAllTransNoSite').replace('%',selected.getDesc(true)));
 		}
 		el(ELT_ABOUT_ALL_TRANSLATIONS).value = '';
 	}
@@ -98,15 +99,15 @@ function initListCreditsTexts() {
 	var docLang = document.documentElement.getAttribute("lang");
 	selectElt.value = docLang;
 	selectElt.onchange = function(e) {
-		selectElt.value = docLang;
+		setLanguage(selectElt.value);
+		initCredits();
+		updatePatchInfo(FOR_INPUT);
+		updatePatchSelect();
 	}
 	var listCreditsTexts = selectElt.querySelectorAll('option');
 	for(var i = 0; i < listCreditsTexts.length; i++) {
 		var langId = listCreditsTexts[i].value;
 		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
-		if (docLang != langId) {
-			listCreditsTexts[i].disabled = true;
-		}
 	}
 }
 
@@ -115,6 +116,7 @@ function appendTextWithLinks(parentNode, mainText, wildcards, linkUrls, linkText
 	var mainTextParts = mainText.split(re);
 	var nodes = [];
 	var curPos = 0;
+	parentNode.textContent = '';
 	for (var i in mainTextParts) {
 		parentNode.appendChild(document.createTextNode(mainTextParts[i]));
 		curPos += mainTextParts[i].length; // let’s look at the wildcard character that should be at the end of this part

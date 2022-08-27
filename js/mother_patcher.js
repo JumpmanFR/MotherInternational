@@ -28,9 +28,9 @@ var gUserPrefLangId;
 
 var gIsBusy, gIsInputDone;
 
-var gAudioContext, gAudioBuffer;
-
 var gInputRom, gInputRomId;
+
+var gAudioContext, gAudioBuffer;
 
 // Init from external files
 var gWorkerChecksum = new Worker(PATH_LIBS + 'worker_crc.js');
@@ -67,7 +67,7 @@ addEvent(document, 'DOMContentLoaded', function() {
  	addEvent(el(ELT_PATCH_SELECT),'change', function() {onSelectPatch(this.value)});
  	addEvent(el(ELT_SHOW_ALL_OPTION),'change', function() {updatePatchSelect()});
 	addEvent(el(ELT_APPLY), 'click',  function() {startApply(gInputRom, gInputRomId, patchSelectVal())});
-	
+
 	initAudio();
 
 	zip.useWebWorkers = true;
@@ -118,17 +118,18 @@ function onInputFile(data) {
 	}
 	gInputRomId = null;
 	data = data.files[0];
-	el(ELT_ROM_LABEL).innerText = data ? data.name : '';
+	el(ELT_ROM_FILENAME).textContent = data ? data.name : '';
 	clearPatchSelect();
 	setGameAnim(); // stop any ongoing animation
+	setDynamicLocalText(el(ELT_CHECKSUM), '');
 	updatePatchInfo(FOR_INPUT);
 	setUIState(true, false);
 	try {
 		var inputRom = new MarcFile(data, parseInputRom);
 		gInputRom = inputRom;
-		setMessage(_('txtAnalyzingFile'), MSG_TYPE_LOADING);
+		setMessage('txtAnalyzingFile', MSG_TYPE_LOADING);
 	} catch(error) {
-		setMessage(_('error_unknown_rom'), MSG_TYPE_ERROR);
+		setMessage('error_unknown_rom', MSG_TYPE_ERROR);
 		setUIState(false);
 	}
 }
@@ -178,18 +179,37 @@ function setLanguage(langId, isForced) {
 
 	var translatableElements = document.querySelectorAll('*[data-localize]');
 	for(var i = 0; i < translatableElements.length; i++) {
+		var str = _(translatableElements[i].dataset.localize);
+		if (translatableElements[i].dataset.param) {
+			str = str.replace('%', _(translatableElements[i].dataset.param));
+		}
 		if (translatableElements[i].tagName == "INPUT") {
-			translatableElements[i].setAttribute("value", _(translatableElements[i].dataset.localize));
+			translatableElements[i].setAttribute("value", str);
 		} else if (translatableElements[i].tagName == "IMG") {
-			translatableElements[i].alt = _(translatableElements[i].dataset.localize);
+			translatableElements[i].alt = str;
 		} else {
 			if (translatableElements[i].dataset.htmlcontent) {
-				translatableElements[i].innerHTML = _(translatableElements[i].dataset.localize);
+				translatableElements[i].innerHTML = str;
 			} else {
-				translatableElements[i].textContent = _(translatableElements[i].dataset.localize);
+				translatableElements[i].textContent = str;
 			}
 		}
 	}
+}
+
+function setDynamicLocalText(elt, strId, param) {
+	if (strId) {
+		elt.dataset.localize = strId;
+		elt.dataset.param = param;
+	} else {
+		delete elt.dataset.localize;
+		delete elt.dataset.param;
+	}
+	str = _(strId);
+	if (param) {
+		str = str.replace('%', param);
+	}
+	elt.textContent = elt.title = str;
 }
 
 function setUIState(busy, inputDone) {
@@ -238,17 +258,16 @@ function refreshUIState() {
 }
 
 
-function setMessage(msg, type) {
+function setMessage(msgId, type, param) {
 	var messageBox = el(ELT_MSG);
-	messageBox.title = msg || '';
-	if (msg) {
+	if (msgId) {
 		if (type === MSG_TYPE_LOADING) {
 			var spinSpan, textSpan;
 			if (messageBox.classList.contains(MSG_CLASS[type])) { // reuse the spinner instead of recreating it
 				spinSpan = messageBox.querySelector('.' + CLASS_MESSAGE_LOADING_SPIN);
 				textSpan = messageBox.querySelector('.' + CLASS_MESSAGE_LOADING_TEXT);
 			} else {
-				messageBox.textContent = '';
+				setDynamicLocalText(messageBox, '');
 				spinSpan = document.createElement("span");
 				textSpan = document.createElement("span");
 				spinSpan.className = CLASS_MESSAGE_LOADING_SPIN;
@@ -256,13 +275,14 @@ function setMessage(msg, type) {
 				messageBox.appendChild(spinSpan);
 				messageBox.appendChild(textSpan);
 			}
-			textSpan.textContent = ` ${msg}`;
+			setDynamicLocalText(textSpan, msgId, param);
 		} else {
-			messageBox.textContent = msg;
+			setDynamicLocalText(messageBox, msgId, param);
 		}
 		messageBox.className = CLASS_MESSAGE + " " + MSG_CLASS[type];
 	} else {
-		messageBox.textContent = '';
+		setDynamicLocalText(messageBox, '');
+		messageBox.className = CLASS_MESSAGE;
 	}
 }
 
@@ -410,32 +430,30 @@ function updatePatchInfo(target) {
 		// Website
 		if (patchObj.parentProject.getWebsiteFallback()) {
 			var urlStr = patchObj.parentProject.getWebsiteFallback();
-			var text = _('txtVisitSite').replace("%", patchObj.parentProject.getAuthorFallback());
+			var text = _('txtVisitSite').replace('%', patchObj.parentProject.getAuthorFallback());
 			addLinkToFrame(detailsDiv, text, urlStr, CLASS_INFO_WEBSITE);
 		}
 
 		// Patch usage
 		if (target == FOR_OUTPUT || !patchObj.parentProject.isOfficial()) {
-			var nbUsesElts = _('txtUsage').split("%");
+			var nbUsesElts = _('txtUsage').split('%');
 			var nbUsesP = addEltsToFrame(infoFrame, nbUsesElts, CLASS_INFO_NB_USES);
 			nbUsesP.classList.add(CLASS_INFO_LOADING);
 
 			patchObj.requestPatchUsage()
 				.then(function(nbUses) {
 					if (nbUsesP && nbUsesP.isConnected) { // to check if the view hasn’t been reloaded with another id since then
-						addEltsToFrame(infoFrame, [_('txtUsage').replace("%", _('txtUsageXTimes')).replace('%', nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+						addEltsToFrame(infoFrame, [_('txtUsage').replace('%', _('txtUsageXTimes')).replace('%', nbUses)], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 					}
 				})
 				.catch(function() {
 					if (nbUsesP && nbUsesP.isConnected) {
-						addEltsToFrame(infoFrame, [_('txtUsage').replace("%", _('txtUsageUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
+						addEltsToFrame(infoFrame, [_('txtUsage').replace('%', _('txtUsageUnknown'))], CLASS_INFO_NB_USES).classList.remove(CLASS_INFO_LOADING);
 					}
 				});
 		}
 
-		if (target == FOR_INPUT) {
-			el(ELT_CHECKSUM).title = el(ELT_CHECKSUM).textContent = _('txtChecksum').replace('%', Utils.toHex(PATCH_VERSIONS[gInputRomId].getCrc()));
-		} else if (target == FOR_OUTPUT) { // output-specific stuff, like button text
+		if (target == FOR_OUTPUT) { // output-specific stuff, like button text
 			if (!findRoute(gInputRomId, id)) {
 				el(ELT_APPLY).value = '⚠ ' + _('txtApplyPatch');
 			} else if (patchObj.isUpdateOf(PATCH_VERSIONS[gInputRomId])) {
@@ -445,9 +463,7 @@ function updatePatchInfo(target) {
 			}
 		}
 	} else {
-		if (target == FOR_INPUT) {
-			el(ELT_CHECKSUM).title = el(ELT_CHECKSUM).textContent = '';
-		} else if (target == FOR_OUTPUT) {
+		if (target == FOR_OUTPUT) {
 			el(ELT_APPLY).value = _('txtApplyPatch');
 		}
 	}
@@ -460,7 +476,7 @@ function addLinkToFrame(frameElt, text, url, className) {
 	websiteLink.setAttribute("rel", "noopener");
 	websiteLink.title = websiteLink.textContent = text;
 	var websiteDetails = document.createElement("span");
-	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace("%", Utils.getHostname(url));
+	websiteDetails.title = websiteDetails.textContent = _('txtVisitSiteAt').replace('%', Utils.getHostname(url));
 	websiteDetails.className = CLASS_INFO_LINK_HOST;
 	addEltsToFrame(frameElt, [websiteLink, websiteDetails], className);
 }
@@ -505,10 +521,11 @@ function reset() {
 	gInputRom = null;
 	gInputRomId = null;
     updatePatchInfo(FOR_INPUT);
-	el(ELT_ROM_LABEL).innerText = _('txtNoRom');
+	setDynamicLocalText(el(ELT_CHECKSUM), '');
+	el(ELT_ROM_FILENAME).textContent = '';
 	el(ELT_AREA_INPUT).classList.add(CLASS_DROP_FIRST);
 	el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN_FIRST);
-	setMessage(_('txtDropRom'));
+	setMessage('txtDropRom');
 	// Output
 	clearPatchSelect();
 }
@@ -523,29 +540,29 @@ function parseInputRom() {
 		onParsedInputRom(event.data);
 	};
 	gWorkerChecksum.onerror = event => {
-		setMessage(_(event.message.replace('Error: ','')), MSG_TYPE_ERROR);
+		setMessage(event.message.replace('Error: ',''), MSG_TYPE_ERROR);
 		setUIState(false);
 	};
 
 	if (gInputRom.readString(4).startsWith(ZIP_MAGIC)) {
-		setMessage(_('txtUnzipping'), MSG_TYPE_LOADING)
+		setMessage('txtUnzipping', MSG_TYPE_LOADING)
         parseZIPFile(gInputRom, ROMS_IN_ZIP)
         	.then(unzippedFile => {
         		if (unzippedFile) {
-					setMessage(_('txtAnalyzingRom'), MSG_TYPE_LOADING);
+					setMessage('txtAnalyzingRom', MSG_TYPE_LOADING);
 					gInputRom = unzippedFile;
 					gWorkerChecksum.postMessage({u8array:unzippedFile._u8array, startOffset:0}, [unzippedFile._u8array.buffer]);
 				} else {
-					setMessage(_('error_no_rom_in_zip'), MSG_TYPE_ERROR);
+					setMessage('error_no_rom_in_zip', MSG_TYPE_ERROR);
 					setUIState(false);
 				}
         	})
         	.catch(function() {
-				setMessage(_('error_unzipping'), MSG_TYPE_ERROR);
+				setMessage('error_unzipping', MSG_TYPE_ERROR);
 				setUIState(false);
        	});
 	} else {
-		setMessage(_('txtAnalyzingRom'), MSG_TYPE_LOADING)
+		setMessage('txtAnalyzingRom', MSG_TYPE_LOADING)
 		gWorkerChecksum.postMessage({u8array:gInputRom._u8array, startOffset:0}, [gInputRom._u8array.buffer]);
 	}
 }
@@ -564,9 +581,10 @@ function onParsedInputRom(data) {
     }
 
     if (gInputRomId) {
-		setMessage(_('txtRomIdentified'), MSG_TYPE_OK);
+		setMessage('txtRomIdentified', MSG_TYPE_OK);
 		updatePatchInfo(FOR_INPUT);
-		el(ELT_PATCH_SELECT_LABEL).title = el(ELT_PATCH_SELECT_LABEL).textContent = gInputRomId ? _('txtAllTranslations').replace('%', PATCH_VERSIONS[gInputRomId].getGameFullName()) : _('txtNoTranslation');
+		setDynamicLocalText(el(ELT_CHECKSUM), 'txtChecksum', Utils.toHex(PATCH_VERSIONS[gInputRomId].getCrc()));
+		setDynamicLocalText(el(ELT_PATCH_SELECT_LABEL), gInputRomId ? 'txtAllTranslations' : 'txtNoTranslation', PATCH_VERSIONS[gInputRomId].getGameFullName());
 		el(ELT_SHOW_ALL_OPTION).checked = false;
 		updatePatchSelect(true);
 		setTimeout(function() {
@@ -574,8 +592,8 @@ function onParsedInputRom(data) {
 			setUIState(false, true);
 		}, 600);
 	} else {
-        setMessage(_("error_unknown_rom"), MSG_TYPE_ERROR);
-		el(ELT_CHECKSUM).title = el(ELT_CHECKSUM).textContent = _('txtChecksum').replace('%', Utils.toHex(data.crc32));
+        setMessage("error_unknown_rom", MSG_TYPE_ERROR);
+		setDynamicLocalText(el(ELT_CHECKSUM), 'txtChecksum', Utils.toHex(data.crc32));
 		updatePatchSelect();
 		setUIState(false);
     }
@@ -649,11 +667,11 @@ function processListOfPatches(rom, route, step) {
 			progressStr += ` ${step + 1}/${route.length - 1}`;
 		}
 
-		setMessage(_("txtDownloading").replace("%", progressStr), MSG_TYPE_LOADING);
+		setMessage("txtDownloading", MSG_TYPE_LOADING, progressStr);
 		var patchFileName = PATCH_VERSIONS[patchId].getPatchFileName();
 		downloadPatch(patchFileName, rom)
 			.then(function(patchFile) {
-				setMessage(_("txtApplyingPatch").replace("%", progressStr), MSG_TYPE_LOADING);;
+				setMessage("txtApplyingPatch", MSG_TYPE_LOADING, progressStr);
 				return applyPatch(rom, patchFile, PATCH_VERSIONS[destId].getCrc());
 			})
 			.then(function(outputRom) {
@@ -663,7 +681,7 @@ function processListOfPatches(rom, route, step) {
 				endProcessWithError(_(errorMsg || "error_patching"));
 			});
 	} else { // our process is finished now!
-		setMessage(_("txtFinalizing"))
+		setMessage("txtFinalizing")
 		var finalPatch = PATCH_VERSIONS[route[step]];
 		finalPatch.incrementPatchUsage()
 			.then(function(nbUses) {
@@ -802,6 +820,6 @@ function deliverFinalRom(finalRomFile, finalPatch) {
 	var fileNameAppend = ` (${finalPatch.getExportName()})`;
 	finalRomFile.fileName = gInputRom.fileName.replace(/\.([^\.]*?)$/, fileNameAppend + '.$1');
 	finalRomFile.save();
-	setMessage(_('txtEndMsg'), MSG_TYPE_OK);
+	setMessage('txtEndMsg', MSG_TYPE_OK);
 	setUIState(false);
 }
