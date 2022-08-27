@@ -426,12 +426,12 @@ const LOCALIZATION = {
 		'txtCreditsProgramming':	'Programación',
 		'txtCreditsTexts':			'Textos',
 		'txtCreditsAnimations':		'Animaciones',
-		'txtCreditsLegacy':			'Applicación "Legacy"',
+		'txtCreditsLegacy':			'Aplicación anterior',
 		'txtCreditsPlayer':			'Jugador',
 		'txtCreditsPlayerYou':		'¡Tú!',
 
 		'txtAboutIntro':			'Mother Internacional es una aplicación en línea de parcheo que puede traducir cualquier juego de la serie de MOTHER.',
-		'txtAboutFreeProg':			'Mother Internacional es un programa de libre uso.\r\nEste programa no está a la venta.',
+		'txtAboutFreeProg':			'Mother Internacional es un programa de libre uso. No está a la venta.',
 		'txtAboutSource':			'El código fuente de Mother Internacional es % bajo la ‰.',
 		'txtAboutSourceGitHub':		'distribuido',
 		'txtAboutSourceLicense':	'licencia MIT',
@@ -517,13 +517,13 @@ const LOCALIZATION = {
 		'txtCreditsAnimations':		'Animationen',
 		'txtCreditsLegacy':			'Alte App',
 		'txtCreditsPlayer':			'Spieler',
-		'txtCreditsPlayerYou':		'Dich!',
+		'txtCreditsPlayerYou':		'Du!',
 
 		'txtAboutIntro':			'Mother International ist eine Web-Applikation, welches jedes Spiel in der MOTHER-Serie übersetzen kann.',
 		'txtAboutFreeProg':			'Mother International ist eine freie Anwendung.\r\nSie steht nicht zum Verkauf.',
 		'txtAboutSource':			'Der Quellcode von Mother International ist unter der ‰ %.',
 		'txtAboutSourceGitHub':		'veröffentlicht',
-		'txtAboutSourceLicense':	'MIT-Lizenz', 
+		'txtAboutSourceLicense':	'MIT-Lizenz',
 		'txtAboutTeams':			'Alle Rechte liegen bei den Teams, die jede Übersetzung hier erstellt haben. Ihnen gilt ein besonderer Dank!',
 		'txtAboutSaturn':			'POTENZIAL!',
 		'txtAboutAllTranslations':	'Alle unterstützten Übersetzungen:',
@@ -535,4 +535,3 @@ const LOCALIZATION = {
 		'txtAboutVersion':			'Version %',
 	},
 }
-
