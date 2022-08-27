@@ -366,6 +366,7 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-title span {
 	unicode-bidi: isolate;
+	word-break: keep-all;
 }
 .no-flag-emojis .info-title {
 	font-family: serif, flags;

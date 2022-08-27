@@ -39,7 +39,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m12-ja',game:ID_MOTHER_1_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
-	{projectId:'m12-ko',game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	latest:'190929',	author:'아루미 & pjs',			website:'https://blog.naver.com/pjs0493/220591359815'},
+	{projectId:'m12-ko',game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	latest:'190929',	author:'아루미 & pjs',			website:'https://blog.naver.com/pjs0493/220591359815'},
 	{projectId:'m12-de',game:ID_MOTHER_1_2,	lang:LANG_GERMAN,	latest:'1.0',	author:'domflo', 			website:'https://earthboundcentral.com/2011/05/german-mother-12-translation/'},
 	{projectId:'m12-en',game:ID_MOTHER_1_2,	lang:LANG_ENGLISH,	latest:'1.0.1',	author:'Tomato',			website:'http://mother12.earthboundcentral.com/'},
 	{projectId:'m12-es',game:ID_MOTHER_1_2,	lang:LANG_SP_SPAIN,	latest:'0.5.1',	author:'Z3R0',				website:'https://z3r0web.wordpress.com/mother-1/'},

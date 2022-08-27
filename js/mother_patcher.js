@@ -389,7 +389,7 @@ function updatePatchInfo(target) {
 		addEltsToFrame(infoFrame, [
 			patchObj.parentProject.getLangFlag() + ' ',
 			patchObj.getDesc(true, false),
-			' (' + patchObj.getYear() + ')'
+			' (' + patchObj.getYear() + ')'
 		], CLASS_INFO_TITLE);
 
 		// Box art
