@@ -130,7 +130,7 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Infos sur la version',
 		'txtReadDoc':				'Fichier lisez-moi',
 
-		'txtUsage':					'Nombre d’utilisations: %',
+		'txtUsage':					'Nombre d’utilisations : %',
 		'txtUsageXTimes':			'%',
 		'txtUsageUnknown':			'inconnu',
 
@@ -363,21 +363,21 @@ const LOCALIZATION = {
 		'txtSubtitle':				'Parcheador todo-en-uno para traducciones de MOTHER',
 
 		'txtBrowse':				'Buscar…',
-		'txtNoRom':					'Por favor selecciona un ROM del juego MOTHER',
+		'txtNoRom':					'Por favor selecciona una ROM de MOTHER',
 
-		'txtDropRom':				'Arrastra cualquier ROM del juego MOTHER',
+		'txtDropRom':				'Arrastra cualquier ROM de MOTHER',
 		'txtApplyPatch':			'Aplicar traducción',
 		'txtUpdate':				'Actualizar',
 
 		'txtAnalyzingFile':			'Analizando archivo…',
 		'txtAnalyzingRom':			'Analizando ROM…',
-		'txtRomIdentified':			'¡ROM identificado!',
+		'txtRomIdentified':			'¡ROM identificada!',
 		'txtDownloading':			'Descargando parche%…',
 		'txtUnzipping':				'Descomprimiendo…',
 		'txtApplyingPatch':			'Aplicando parche%…',
 		'txtZipping':				'Creando archivo zip…',
 		'txtFinalizing':			'Finalizando…',
-		'txtEndMsg':				'¡Tu parche está listo!',
+		'txtEndMsg':				'¡Tu ROM parcheada está lista!',
 
 		'txtChecksum':				'Checksum CRC-32: %',
 
@@ -388,7 +388,7 @@ const LOCALIZATION = {
 		'txtDescVersion':			'v',
 		'txtDescBy':				'por',
 		'txtPatched':				'parche %',
-		'txtUnpatched':				'sin parchar %',
+		'txtUnpatched':				'%, sin parche',
 		'txtDescOfficial':			'oficial',
 		'txtDescUpdate':			'(actualización)',
 		'txtDescIncompatible':		'(incompatible)',
@@ -403,15 +403,15 @@ const LOCALIZATION = {
 
 		'txtReadmeFile':			'léeme',
 
-		'error_no_rom':				'No existe ROM especificado',
-		'error_no_rom_info':		'Este ROM no ha sido analizado',
-		'error_already_patched':	'Este ROM ya ha sido parchado',
-		'error_unknown_rom':		'ROM desconocido',
-		'error_no_rom_in_zip':		'No se encontró ningún ROM en este archivo zip',
-		'error_crc_output':			'ROM de salida erróneo',
-		'error_crc_input':			'ROM de entrada erróneo',
+		'error_no_rom':				'No existe ROM especificada',
+		'error_no_rom_info':		'Esta ROM no ha sido analizada',
+		'error_already_patched':	'Esta ROM ya ha sido parcheada',
+		'error_unknown_rom':		'ROM desconocida',
+		'error_no_rom_in_zip':		'No se encontró ningúna ROM en este archivo zip',
+		'error_crc_output':			'ROM de salida errónea',
+		'error_crc_input':			'ROM de entrada errónea',
 		'error_patching':			'Error de parcheo',
-		'error_no_patch_route':		'No se pudo remover el parche de tu ROM parchado',
+		'error_no_patch_route':		'No se pudo desparchear tu ROM parcheada',
 		'error_downloading':		'Error de descarga',
 		'error_unzipping':			'Error de descompresión',
 		'error_invalid_patch':		'Archivo de parche no identificado',
