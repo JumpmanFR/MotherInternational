@@ -10,10 +10,6 @@ include('functions/functions.php');
 
 $param = $_POST['patchId'];
 
-if (!$param) {
-    $param = $_GET['patchId'];
-}
-
 $param = preg_replace("/[^A-Za-z0-9\- ]/", '', $param);
 
 if (!$param) {

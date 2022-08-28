@@ -10,12 +10,14 @@ if ($conn->connect_error) {
 
 function db_query($sql, $param = null) {
     global $conn;
+    $param = $conn->real_escape_string($param);
     $sql = sprintf($sql, $param);
     return $conn->query($sql);
 }
 
 function db_get_var($sql, $param = null) {
     global $conn;
+    $param = $conn->real_escape_string($param);
     $sql = sprintf($sql, $param);
     $result = $conn->query($sql);
 
