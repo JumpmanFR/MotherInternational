@@ -706,9 +706,6 @@ select#credits-texts {
 	}
 	.info-references > p {
 		letter-spacing: -0.03em;
-		font-size: max(4vw,0.7em);
-	}
-	.info-frame p.info-nb-uses {
-		font-size: max(0.7em,4.5vw) !important;
+		font-size: max(4.5vw,0.7em);
 	}
 }

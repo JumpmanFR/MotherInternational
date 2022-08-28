@@ -134,6 +134,14 @@ a:not([href='#']):not([href='']):visited {
 		font-size: 3.5vw;
 	}
 }
+@media (max-width: 24rem) {
+	.info-references > p {
+		font-size: max(4vw,0.7em);
+	}
+	.info-frame p.info-nb-uses {
+		font-size: max(0.7em,4.5vw) !important;
+	}
+}
 @media (max-width: 22rem) {
 	#input-rom-checksum {
 		font-size: 3.8vw;
