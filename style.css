@@ -393,7 +393,6 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-references > p {
 	max-width: fit-content;
-	font-size: min(1em,4vw);
 }
 .info-references > p > * {
 	display: block;
@@ -432,7 +431,7 @@ a:not([href='#']):not([href='']):visited {
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-size: min(0.9em,4vw) !important;
+	font-size: 0.9em !important;
 }
 
 .info-loading > span:not(:last-child)::after {
@@ -680,16 +679,9 @@ select#credits-texts {
 		min-width: 9.5rem;
 		padding: 0.94em 0.4em;
 	}
-	#output-area {
-		height: 21.25rem;
-	}
 	.info-frame {
 		overflow-x: hidden;
 		width: calc(100% - 0.5em - 0.5em - 0.4em - 0.4em); /* margin, parent padding */
-	}
-	.info-references {
-		margin-inline-start: 0.6em;
-		max-width: calc(100% - 5rem - 0.6em - 0.5em); /* boxart width, margin start, extra margin end */
 	}
 	select#credits-texts {
 		width: 100%;
@@ -698,5 +690,25 @@ select#credits-texts {
 @media (max-width: 24rem) {
 	#msg {
 		font-size: 4.1vw;
+	}
+	#patch-select-label {
+		letter-spacing: -0.03em;
+	}
+	.info-title {
+		letter-spacing: -0.03em;
+	}
+	.info-boxart {
+		width: 20vw;
+	}
+	.info-references {
+		max-width: calc(100% - 20vw - 0.6em - 0em); /* boxart width, margin start, extra margin end */
+		margin-inline-start: 0.6em;
+	}
+	.info-references > p {
+		letter-spacing: -0.03em;
+		font-size: max(4vw,0.7em);
+	}
+	.info-frame p.info-nb-uses {
+		font-size: max(0.7em,4.5vw) !important;
 	}
 }
