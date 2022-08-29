@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, German, Italian<!--, Polish, Portuguese--> and Spanish. *(For operators)* Other languages can be easily added; supports right-to-left writing.
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Polish<!--, Portuguese--> and Spanish. *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible the first three new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
 ### Other specificities in this version
@@ -106,7 +106,7 @@ Many thanks and congrats to all the people involved!
 	* [GlostU](https://twitter.com/Glost_U), [Madokami](https://twitter.com/_madokami) (German)
 	* [Snifit](https://www.romhacking.net/community/3612/), [Benz](https://twitter.com/benzuccio) (Italian)
 	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
-	<!--* [Voxar](https://twitter.com/VoxarPL) (Polish)  -->
+	* [Voxar](https://twitter.com/VoxarPL) (Polish)
 	<!--* [TragicManner](https://twitter.com/TragicManner), [Foffano](https://twitter.com/Foffano) (Portuguese)  -->
 * Graphic elements
 	* [Benz](https://twitter.com/benzuccio) (SVG logo)

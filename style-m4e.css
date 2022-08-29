@@ -1,15 +1,16 @@
 @font-face {
 	font-family: 'calamity';
-	src: url("assets/fonts/calamity-regular-webfont.woff");
+	src: url("assets/fonts/calamity-ext-regular.otf");
 }
 @font-face {
 	font-family: 'calamity';
-	src: url("assets/fonts/calamity-bold-webfont.woff");
+	src: url("assets/fonts/calamity-ext-bold.otf");
 	font-weight: bold;
 }
 
 body {
-    font-family: calamity;
+    font-family: calamity, sans-serif;
+	font-weight: lighter;
 }
 
 a {
