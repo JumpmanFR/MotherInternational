@@ -120,6 +120,18 @@ a:not([href='#']):not([href='']):visited {
 	border-color: #EAB749;
 }
 
+.scroll-shadow {
+	background:
+		linear-gradient(#000000 33%, rgba(0,0,0, 0)),
+		linear-gradient(rgba(0,0,0, 0), #000000 66%) 0 100%,
+		radial-gradient(farthest-side at 50% 0, #FFFFFF80, rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, #FFFFFF80, rgba(0,0,0,0)) 0 100%;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-attachment: local, local, scroll, scroll;
+	background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+}
+
 #about-window {
 	background-color: black;
 	border-radius: 0;

@@ -51,6 +51,18 @@ a:not([href='#']):not([href='']):visited {
 	color: #405ba3;
 }
 
+.scroll-shadow {
+	background:
+	  linear-gradient(#000000 33%, rgba(0,0,0, 0)),
+	  linear-gradient(rgba(0,0,0, 0), #000000 66%) 0 100%,
+	  radial-gradient(farthest-side at 50% 0, rgba(255,255,255, 0.5), rgba(0,0,0,0)),
+	  radial-gradient(farthest-side at 50% 100%, rgba(255,255,255, 0.5), rgba(0,0,0,0)) 0 100%;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-attachment: local, local, scroll, scroll;
+	background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+}
+
 #back-to-site {
 	text-align: start;
 	position: absolute;
@@ -506,6 +518,18 @@ input[type=button], button {
 }
 #about-close-btn:hover {
 	color: #EAB749;
+}
+
+.scroll-shadow {
+	background:
+		linear-gradient(#8f2a2b 33%, rgba(143,42,43, 0)),
+		linear-gradient(rgba(143,42,43, 0), #8f2a2b 66%) 0 100%,
+		radial-gradient(farthest-side at 50% 0, rgba(255,255,255, 0.5), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, rgba(255,255,255, 0.5), rgba(0,0,0,0)) 0 100%;
+	background-color: #8f2a2b;
+	background-repeat: no-repeat;
+	background-attachment: local, local, scroll, scroll;
+	background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
 }
 
 #about-window-overlay {
