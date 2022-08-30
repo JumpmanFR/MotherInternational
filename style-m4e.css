@@ -143,14 +143,14 @@ a:not([href='#']):not([href='']):visited {
 	content: url('assets/site-title-dark.png');
 }
 @media (max-width: 28rem) {
-	#msg {
+	#input-area:not(.drop-first-time) #msg {
 		font-size: 3.5vw;
-	}
-	#input-area.drop-first-time #msg {
-		font-size: initial;
 	}
 }
 @media (max-width: 24rem) {
+	#input-area.drop-first-time #msg {
+		font-size: 95%;
+	}
 	.info-references > p {
 		font-size: max(4vw,0.7em);
 	}

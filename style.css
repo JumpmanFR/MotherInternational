@@ -713,15 +713,12 @@ select#credits-texts {
 	}
 }
 @media (max-width: 24rem) {
-	#msg {
+	#input-area:not(.drop-first-time) #msg {
 		font-size: 4.1vw;
-	}
-	#input-area.drop-first-time #msg {
-		font-size: initial;
 	}
 	#patch-select-label {
 		letter-spacing: -0.02em;
-		font-size: 95%;
+		font-size: initial;
 	}
 	.info-title {
 		letter-spacing: -0.03em;

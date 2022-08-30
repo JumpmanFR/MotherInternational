@@ -108,7 +108,7 @@ const LOCALIZATION = {
 		'txtDownloading':			'Téléchargement du patch%…',
 		'txtUnzipping':				'Décompression…',
 		'txtApplyingPatch':			'Application du patch%…',
-		'txtZipping':				'Création de l’archive',
+		'txtZipping':				'Création de l’archive zip…',
 		'txtFinalizing':			'Finalisation…',
 		'txtEndMsg':				'Votre ROM patchée est prête !',
 
@@ -215,7 +215,7 @@ const LOCALIZATION = {
 		'txtDescUpdate':			'(aggiornamento)',
 		'txtDescIncompatible':		'(incompatibile)',
 		'txtVisitSite':				'Pagina web di %',
-		'txtVisitSiteAt':			'a %',
+		'txtVisitSiteAt':			'su %',
 		'txtUpdateInfo':			'Info versione',
 		'txtReadDoc':				'Leggimi',
 
@@ -262,7 +262,7 @@ const LOCALIZATION = {
 		'txtAboutAllTranslations':	'Traduzioni supportate:',
 		'txtAboutAllTransLabel':	'– Seleziona per accedere alla pagina –',
 		'txtAboutAllTransNoSite':	'Nessuna pagina registrata per %.',
-		'txtAboutAllTransSiteAsk':	'Vuoi accedere alla pagina di %?',
+		'txtAboutAllTransSiteAsk':	'Vuoi accedere alla pagina di % su ‰?',
 		'txtAboutTranslator1':		'Se sei un traduttore, sentiti libero di %!',
 		'txtAboutTranslator2':		'contattarci',
 		'txtAboutVersion':			'Versione %',
