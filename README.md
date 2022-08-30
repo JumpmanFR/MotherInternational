@@ -1,7 +1,7 @@
 # Mother International
-A proposition for a Web version of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.
+A web-based version and complete overheal of Mother International, the MOTHER-series focused multipatcher program from Mother Forever.
 
-Although this new version is hosted on a webpage, it does everything client-side, like unzipping and patching, so no ROM needs to be transfered from and to the server.
+Although this new version is hosted on a web server, it does everything client-side, like unzipping and patching, so no ROM needs to be transfered from and to the server.
 
 It’s been developped by JumpmanFR under the supervision of Kody NOKOLO from Mother Forever. The source code is available here under the [MIT license](https://opensource.org/licenses/MIT).\
 The patching mechanism relies on a modified version of Marc Robledo’s [Rom Patcher JS](https://github.com/marcrobledo/RomPatcher.js/).
@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Supports UPS and IPS patch formats.
 
 ### New features
-* Includes 33 translation projects, or 67 translation patches if you count all included patch versions.
+* Includes 33 translation projects, or 67 translation patches if you count all included patch versions (as of August 30th, 2022).
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -24,19 +24,20 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Polish, Portuguese and Spanish. *(For operators)* Other languages can be easily added; supports right-to-left writing.
-* *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible the first three new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Polish, Portuguese and Spanish (as of August 30th, 2022).\
+*(For operators)* Other languages can be easily added; supports right-to-left writing.
+* *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible three of the biggest new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
 ### Other specificities in this version
-* Hosted on a webpage, so that people don’t have to download a full executable package that includes all the translations for a minimal use.
+* Hosted on a website, so that people don’t have to download a full executable package that includes all the translations for a minimal use.
 * Does everything (unzipping, patching) client-side, just downloads the patch and applies it. That way, no ROM has to be transfered from and to the server.
 * *(For operators)* Scalable, can support more and more translations over time by simply adding patch files and a few lines in the database.
 * Open source project available [on GitHub](https://github.com/JumpmanFR/MotherInternational).
 
 ## How to translate the UI into more languages
-The file is `js/locale.js`. It currently includes four main entries, one for each supported language: `'en'`, `'fr'`, `'it'` and `'nl'`. All localized texts are listed there.
+The file is `js/locale.js`. It currently includes eight top-level entries, one for each supported language: `'en'`, `'fr'`, `'it'`, `'nl'`, `'es'`, `'de'`, `'pl'`, `'pt'`. All localized texts are listed there.
 
-To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is used automatically based on their browser settings.\
+To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is selected automatically based on their browser settings.\
 Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for already supported languages. If a field is omitted, the program will fallback to English for that field.
 
 To test your changes, you can force the program to load in the language of your choice. To that end, complete the URL in the address bar with `?lang=` followed by your 2-letter language code.
