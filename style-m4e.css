@@ -146,6 +146,9 @@ a:not([href='#']):not([href='']):visited {
 	#msg {
 		font-size: 3.5vw;
 	}
+	#input-area.drop-first-time #msg {
+		font-size: initial;
+	}
 }
 @media (max-width: 24rem) {
 	.info-references > p {

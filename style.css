@@ -503,6 +503,7 @@ input[type=button], button {
 	display: block;
 	margin-top: 3rem;
 	margin-bottom: 2rem;
+	white-space: nowrap;
 }
 #about-close-btn {
 	top: 0;
@@ -715,8 +716,12 @@ select#credits-texts {
 	#msg {
 		font-size: 4.1vw;
 	}
+	#input-area.drop-first-time #msg {
+		font-size: initial;
+	}
 	#patch-select-label {
-		letter-spacing: -0.03em;
+		letter-spacing: -0.02em;
+		font-size: 95%;
 	}
 	.info-title {
 		letter-spacing: -0.03em;
