@@ -51,18 +51,6 @@ a:not([href='#']):not([href='']):visited {
 	color: #405ba3;
 }
 
-.scroll-shadow {
-	background:
-	  linear-gradient(#000000 33%, rgba(0,0,0, 0)),
-	  linear-gradient(rgba(0,0,0, 0), #000000 66%) 0 100%,
-	  radial-gradient(farthest-side at 50% 0, rgba(255,255,255, 0.5), rgba(0,0,0,0)),
-	  radial-gradient(farthest-side at 50% 100%, rgba(255,255,255, 0.5), rgba(0,0,0,0)) 0 100%;
-	background-color: #000000;
-	background-repeat: no-repeat;
-	background-attachment: local, local, scroll, scroll;
-	background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
-}
-
 #back-to-site {
 	text-align: start;
 	position: absolute;
@@ -523,14 +511,14 @@ input[type=button], button {
 
 .scroll-shadow {
 	background:
-		linear-gradient(#8f2a2b 33%, rgba(143,42,43, 0)),
-		linear-gradient(rgba(143,42,43, 0), #8f2a2b 66%) 0 100%,
-		radial-gradient(farthest-side at 50% 0, rgba(255,255,255, 0.5), rgba(0,0,0,0)),
-		radial-gradient(farthest-side at 50% 100%, rgba(255,255,255, 0.5), rgba(0,0,0,0)) 0 100%;
-	background-color: #8f2a2b;
+		linear-gradient(#8F2A2B 33%, #8F2A2B00),
+		linear-gradient(#8F2A2B00, #8F2A2B 66%) 0 100%,
+		linear-gradient(#00000080, #00000000),
+		linear-gradient(#00000000, #00000080) 0 100%;
+	background-color: #8F2A2B;
 	background-repeat: no-repeat;
 	background-attachment: local, local, scroll, scroll;
-	background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+	background-size: 100% 4.5em, 100% 4.5em, 100% 1.5rem, 100% 1.5rem;
 }
 
 #about-window-overlay {
@@ -559,7 +547,7 @@ input[type=button], button {
 	overflow-y: auto;
 	margin: auto;
 	padding: 0.5em 0;
-	box-shadow: 0 0 1em #BBBBBB;
+	box-shadow: 0 0 1em #FFFFFFA0;
 	border-radius: 0.63rem;
 	border: 0.25rem solid white;
 	transition: opacity .2s ease-out;
@@ -607,11 +595,14 @@ select#credits-texts {
 	display: block;
 	overflow: hidden;
 	min-width: 14rem;
-	padding-top: 1em;
+	margin-top: 1.3rem;
 	margin-bottom: 1.9rem;
 }
 #about-side * {
 	vertical-align: top;
+}
+#about-side > p:first-child {
+	margin-top: 0.7rem;
 }
 #about-side span {
 	white-space: pre-line;
