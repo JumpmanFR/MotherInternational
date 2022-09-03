@@ -67,7 +67,7 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x282a5caa',	projectId:'m1-ja',	patchId:'m1-ja', 	patchExt:'.zip', baseRom:'m1-en',	hasDoc:false,	year:'1989'},
 	{crc:'0x8abea229',	projectId:'m1-de',	patchId:'m1-de10a', patchExt:'.zip', baseRom:'m1-en',	hasDoc:false,	year:'1998',version:'1.0a1'},
 	{crc:'0xf5ef5002',	projectId:'m1-en',	patchId:'m1-en',	year:'1998/2015'},
-	{crc:'0x7b1be8c2',	projectId:'m1-en',	patchId:'m1-en0p',	patchExt:'.zip', baseRom:'m1-en',					year:'1998',version:'proto',	isSpecialHidden:true},
+	{crc:'0x7b1be8c2',	projectId:'m1-en',	patchId:'m1-en0p',	patchExt:'.zip', baseRom:'m1-en',					year:'1998',version:'alt',		isSpecialHidden:true},
 	{crc:'0xe4aa8122',	projectId:'m1-en',	patchId:'m1-en0z',	patchExt:'.zip', baseRom:'m1-en',					year:'1998',version:'Zero',		isSpecialHidden:true},
 	{crc:'0xd80e3217',	projectId:'m1-esA',	patchId:'m1-esA22', patchExt:'.zip', baseRom:'m1-en',	hasDoc:true,	year:'2007',version:'2.2'},
 	{crc:'0x16e1e273',	projectId:'m1-esB',	patchId:'m1-esB09', patchExt:'.zip', baseRom:'m1-en',	hasDoc:true,	year:'2020',version:'0.99'},

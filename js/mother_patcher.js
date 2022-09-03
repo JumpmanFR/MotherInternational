@@ -206,7 +206,7 @@ function setDynamicLocalText(elt, strId, param) {
 		delete elt.dataset.param;
 	}
 	str = _(strId);
-	if (param) {
+	if (param !== undefined) {
 		str = str.replace('%', param);
 	}
 	elt.textContent = elt.title = str;
@@ -545,7 +545,7 @@ function parseInputRom() {
 	};
 
 	if (gInputRom.readString(4).startsWith(ZIP_MAGIC)) {
-		setMessage('txtUnzipping', MSG_TYPE_LOADING)
+		setMessage('txtUnzipping', MSG_TYPE_LOADING);
         parseZIPFile(gInputRom, ROMS_IN_ZIP)
         	.then(unzippedFile => {
         		if (unzippedFile) {
@@ -681,7 +681,7 @@ function processListOfPatches(rom, route, step) {
 				endProcessWithError(_(errorMsg || "error_patching"));
 			});
 	} else { // our process is finished now!
-		setMessage("txtFinalizing")
+		setMessage("txtFinalizing", MSG_TYPE_LOADING);
 		var finalPatch = PATCH_VERSIONS[route[step]];
 		finalPatch.incrementPatchUsage()
 			.then(function(nbUses) {
