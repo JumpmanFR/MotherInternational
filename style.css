@@ -623,7 +623,7 @@ select#credits-texts {
 }
 #about-saturn::after {
 	content: '';
-	margin: -0.2em 0.36em;
+	margin: -10px 0.36em -2px 0.36em;
 	width: 1em;
 	height: 1.3125em; /*ratio 16:21*/
 	display: inline-block;

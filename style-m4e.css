@@ -64,6 +64,10 @@ a:not([href='#']):not([href='']):visited {
 	background-color: #8F2A2B;
 }
 
+.no-flag-emojis .info-title {
+	font-family: calamity, flags;
+}
+
 #arrow-between-areas {
 	text-shadow: none;
 }

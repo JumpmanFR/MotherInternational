@@ -492,14 +492,18 @@ function addEltsToFrame(frameElt, eltsToAdd, className) {
 		paragraph.className = className;
 		frameElt.appendChild(paragraph);
 	}
+	var attrTitle = '';
 	for (var i = 0; i < eltsToAdd.length; i++) {
 		if (typeof(eltsToAdd[i]) == "string") {
 			var textElt = document.createElement("span");
 			textElt.textContent = eltsToAdd[i];
-			textElt.title = eltsToAdd[i];
+			attrTitle += eltsToAdd[i];
 			eltsToAdd[i] = textElt;
 		}
 		paragraph.appendChild(eltsToAdd[i]);
+	}
+	if (attrTitle) {
+		paragraph.title = attrTitle;
 	}
 	return paragraph;
 }
