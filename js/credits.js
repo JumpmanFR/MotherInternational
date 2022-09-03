@@ -97,17 +97,17 @@ function initListAllTranslations() {
 function initListCreditsTexts() {
 	var selectElt = el(ELT_ABOUT_CREDITS_TEXTS);
 	var docLang = document.documentElement.getAttribute("lang");
+	var listCreditsTexts = selectElt.querySelectorAll('option');
+	for(var i = 0; i < listCreditsTexts.length; i++) {
+		var langId = listCreditsTexts[i].value;
+		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
+	}
 	selectElt.value = docLang;
 	selectElt.onchange = function(e) {
 		setLanguage(selectElt.value);
 		initCredits();
 		updatePatchInfo(FOR_INPUT);
 		updatePatchSelect();
-	}
-	var listCreditsTexts = selectElt.querySelectorAll('option');
-	for(var i = 0; i < listCreditsTexts.length; i++) {
-		var langId = listCreditsTexts[i].value;
-		listCreditsTexts[i].textContent = listCreditsTexts[i].textContent.replace('%', Utils.getLangName(langId));
 	}
 }
 
