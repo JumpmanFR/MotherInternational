@@ -8,7 +8,8 @@ const ELT_ARROW = "arrow-between-areas";
 const ELT_ROM_FILE = "rom-file";
 const ELT_ROM_BTN = "rom-btn";
 const ELT_ROM_FILENAME = "rom-filename";
-const ELT_MSG = "msg";
+const ELT_MSG_INPUT = "msg-input";
+const ELT_MSG_OUTPUT = "msg-output";
 const ELT_CHECKSUM = "input-rom-checksum";
 const ELT_PATCH_SELECT_LABEL = "patch-select-label";
 const ELT_PATCH_SELECT = "patch-select";
@@ -35,6 +36,7 @@ const CLASS_HIDDEN = "hidden"
 const CLASS_HIDDEN_FIRST = "hidden-first-time"
 const CLASS_OPTION_UNAVAILABLE = "unavailable";
 const CLASS_DROP_FIRST = "drop-first-time";
+const CLASS_WITH_MSG = "with-msg";
 
 const CLASS_MESSAGE = "message";
 const CLASS_MESSAGE_OK = "ok";

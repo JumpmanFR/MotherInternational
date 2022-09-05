@@ -196,7 +196,6 @@ a:not([href='#']):not([href='']):visited {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	margin-bottom: 0.125em;
 }
 #rom-file {
 	display: none;
@@ -219,14 +218,14 @@ a:not([href='#']):not([href='']):visited {
 	pointer-events: none;
 }
 
-#msg-container {
+.msg-container {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	height: 1.5em;
 }
 
-#input-area.drop-first-time #msg-container {
+#input-area.drop-first-time .msg-container {
 	position: absolute;
 	color: #FFFFFF80;
 	left: 0;
@@ -237,20 +236,31 @@ a:not([href='#']):not([href='']):visited {
 	height: initial;
 }
 
+#output-area .msg-container {
+	position: absolute;
+	bottom: 4rem;
+	left: 0;
+	right: 0;
+	display: none;
+}
 
-#msg.error {
+#output-area.with-msg .msg-container {
+	display: initial;
+}
+
+.message.error {
 	color: darkred;
 }
-#msg.error::before {
+.message.error::before {
 	content: '✗ ';
 }
-#msg.warning::before {
+.message.warning::before {
 	content: '⚠ ';
 }
-#msg.ok::before {
+.message.ok::before {
 	content: '✓ ';
 }
-#msg.loading span {
+.message.loading span {
 	vertical-align: middle;
 }
 
@@ -432,6 +442,9 @@ a:not([href='#']):not([href='']):visited {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-size: 0.9em !important;
+}
+#output-area.with-msg .info-frame p.info-nb-uses {
+	display: none;
 }
 
 .info-loading > span:not(:last-child)::after {
@@ -704,7 +717,10 @@ select#credits-texts {
 	}
 }
 @media (max-width: 24rem) {
-	#input-area:not(.drop-first-time) #msg {
+	#input-area:not(.drop-first-time) .message, #output-area .message {
+		font-size: 4.7vw;
+	}
+	#input-area:not(.drop-first-time) .message.error, #output-area .message.error {
 		font-size: 4.1vw;
 	}
 	#patch-select-label {

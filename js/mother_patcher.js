@@ -127,9 +127,9 @@ function onInputFile(data) {
 	try {
 		var inputRom = new MarcFile(data, parseInputRom);
 		gInputRom = inputRom;
-		setMessage('txtAnalyzingFile', MSG_TYPE_LOADING);
+		setMessageForInput('txtAnalyzingFile', MSG_TYPE_LOADING);
 	} catch(error) {
-		setMessage('error_unknown_rom', MSG_TYPE_ERROR);
+		setMessageForInput('error_unknown_rom', MSG_TYPE_ERROR);
 		setUIState(false);
 	}
 }
@@ -252,14 +252,13 @@ function refreshUIState() {
 		el(ELT_ARROW).classList.remove(CLASS_HIDDEN_FIRST);
 		el(ELT_ARROW).classList.remove(CLASS_HIDDEN);
 	} else {
+		el(ELT_AREA_OUTPUT).classList.remove(CLASS_WITH_MSG);
 		el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN);
 		el(ELT_ARROW).classList.add(CLASS_HIDDEN);
 	}
 }
 
-
-function setMessage(msgId, type, param) {
-	var messageBox = el(ELT_MSG);
+function setMessage(msgId, type, param, messageBox) {
 	if (msgId) {
 		if (type === MSG_TYPE_LOADING) {
 			var spinSpan, textSpan;
@@ -284,6 +283,19 @@ function setMessage(msgId, type, param) {
 		setDynamicLocalText(messageBox, '');
 		messageBox.className = CLASS_MESSAGE;
 	}
+}
+
+function setMessageForInput(msgId, type, param) {
+	setMessage(msgId, type, param, el(ELT_MSG_INPUT));
+}
+
+function setMessageForOutput(msgId, type, param) {
+	if (msgId) {
+		el(ELT_AREA_OUTPUT).classList.add(CLASS_WITH_MSG);
+	} else {
+		el(ELT_AREA_OUTPUT).classList.remove(CLASS_WITH_MSG);
+	}
+	setMessage(msgId, type, param, el(ELT_MSG_OUTPUT));
 }
 
 // Builds the content in the scroll list and selects a default item
@@ -529,7 +541,7 @@ function reset() {
 	el(ELT_ROM_FILENAME).textContent = '';
 	el(ELT_AREA_INPUT).classList.add(CLASS_DROP_FIRST);
 	el(ELT_AREA_OUTPUT).classList.add(CLASS_HIDDEN_FIRST);
-	setMessage('txtDropRom');
+	setMessageForInput('txtDropRom');
 	// Output
 	clearPatchSelect();
 }
@@ -544,29 +556,29 @@ function parseInputRom() {
 		onParsedInputRom(event.data);
 	};
 	gWorkerChecksum.onerror = event => {
-		setMessage(event.message.replace('Error: ',''), MSG_TYPE_ERROR);
+		setMessageForInput(event.message.replace('Error: ',''), MSG_TYPE_ERROR);
 		setUIState(false);
 	};
 
 	if (gInputRom.readString(4).startsWith(ZIP_MAGIC)) {
-		setMessage('txtUnzipping', MSG_TYPE_LOADING);
+		setMessageForInput('txtUnzipping', MSG_TYPE_LOADING);
         parseZIPFile(gInputRom, ROMS_IN_ZIP)
         	.then(unzippedFile => {
         		if (unzippedFile) {
-					setMessage('txtAnalyzingRom', MSG_TYPE_LOADING);
+					setMessageForInput('txtAnalyzingRom', MSG_TYPE_LOADING);
 					gInputRom = unzippedFile;
 					gWorkerChecksum.postMessage({u8array:unzippedFile._u8array, startOffset:0}, [unzippedFile._u8array.buffer]);
 				} else {
-					setMessage('error_no_rom_in_zip', MSG_TYPE_ERROR);
+					setMessageForInput('error_no_rom_in_zip', MSG_TYPE_ERROR);
 					setUIState(false);
 				}
         	})
         	.catch(function() {
-				setMessage('error_unzipping', MSG_TYPE_ERROR);
+				setMessageForInput('error_unzipping', MSG_TYPE_ERROR);
 				setUIState(false);
        	});
 	} else {
-		setMessage('txtAnalyzingRom', MSG_TYPE_LOADING)
+		setMessageForInput('txtAnalyzingRom', MSG_TYPE_LOADING)
 		gWorkerChecksum.postMessage({u8array:gInputRom._u8array, startOffset:0}, [gInputRom._u8array.buffer]);
 	}
 }
@@ -585,7 +597,7 @@ function onParsedInputRom(data) {
     }
 
     if (gInputRomId) {
-		setMessage('txtRomIdentified', MSG_TYPE_OK);
+		setMessageForInput('txtRomIdentified', MSG_TYPE_OK);
 		updatePatchInfo(FOR_INPUT);
 		setDynamicLocalText(el(ELT_CHECKSUM), 'txtChecksum', Utils.toHex(PATCH_VERSIONS[gInputRomId].getCrc()));
 		setDynamicLocalText(el(ELT_PATCH_SELECT_LABEL), gInputRomId ? 'txtAllTranslations' : 'txtNoTranslation', PATCH_VERSIONS[gInputRomId].getGameFullName());
@@ -596,7 +608,7 @@ function onParsedInputRom(data) {
 			setUIState(false, true);
 		}, 600);
 	} else {
-        setMessage("error_unknown_rom", MSG_TYPE_ERROR);
+        setMessageForInput("error_unknown_rom", MSG_TYPE_ERROR);
 		setDynamicLocalText(el(ELT_CHECKSUM), 'txtChecksum', Utils.toHex(data.crc32));
 		updatePatchSelect();
 		setUIState(false);
@@ -605,7 +617,7 @@ function onParsedInputRom(data) {
 
 function startApply(rom, romId, destination) {
 	if (!romId) {
-		endProcessWithError(_("error_no_rom_info"));
+		endProcessWithError("error_no_rom_info");
 		return;
 	}
 	var route = findRoute(romId, destination);
@@ -613,7 +625,7 @@ function startApply(rom, romId, destination) {
 		processListOfPatches(rom, route, 0);
 		playGoSound();
 	} else {
-		endProcessWithError(_("error_no_patch_route"));
+		endProcessWithError("error_no_patch_route");
 	}
 }
 
@@ -654,7 +666,7 @@ function processListOfPatches(rom, route, step) {
 	setUIState(true);
 
 	if (!rom) {
-		endProcessWithError(_("error_no_rom"));
+		endProcessWithError("error_no_rom");
 		return;
 	}
 
@@ -671,21 +683,21 @@ function processListOfPatches(rom, route, step) {
 			progressStr += ` ${step + 1}/${route.length - 1}`;
 		}
 
-		setMessage("txtDownloading", MSG_TYPE_LOADING, progressStr);
+		setMessageForOutput("txtDownloading", MSG_TYPE_LOADING, progressStr);
 		var patchFileName = PATCH_VERSIONS[patchId].getPatchFileName();
 		downloadPatch(patchFileName, rom)
 			.then(function(patchFile) {
-				setMessage("txtApplyingPatch", MSG_TYPE_LOADING, progressStr);
+				setMessageForOutput("txtApplyingPatch", MSG_TYPE_LOADING, progressStr);
 				return applyPatch(rom, patchFile, PATCH_VERSIONS[destId].getCrc());
 			})
 			.then(function(outputRom) {
 				processListOfPatches(outputRom, route, step + 1);
 			})
 			.catch(function(errorMsg) {
-				endProcessWithError(_(errorMsg || "error_patching"));
+				endProcessWithError(errorMsg || "error_patching");
 			});
 	} else { // our process is finished now!
-		setMessage("txtFinalizing", MSG_TYPE_LOADING);
+		setMessageForOutput("txtFinalizing", MSG_TYPE_LOADING);
 		var finalPatch = PATCH_VERSIONS[route[step]];
 		finalPatch.incrementPatchUsage()
 			.then(function(nbUses) {
@@ -816,7 +828,7 @@ function applyPatch(romFile, patchFile, expectedChecksum) {
 }
 
 function endProcessWithError(errorMsg) {
-	setMessage(errorMsg, MSG_TYPE_ERROR);
+	setMessageForOutput(errorMsg, MSG_TYPE_ERROR);
 	setUIState(false);
 }
 
@@ -824,6 +836,6 @@ function deliverFinalRom(finalRomFile, finalPatch) {
 	var fileNameAppend = ` (${finalPatch.getExportName()})`;
 	finalRomFile.fileName = gInputRom.fileName.replace(/\.([^\.]*?)$/, fileNameAppend + '.$1');
 	finalRomFile.save();
-	setMessage('txtEndMsg', MSG_TYPE_OK);
+	setMessageForOutput('txtEndMsg', MSG_TYPE_OK);
 	setUIState(false);
 }
