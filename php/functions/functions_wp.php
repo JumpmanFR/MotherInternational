@@ -15,6 +15,14 @@ function db_query($sql, $param = null) {
     return $wpdb->query($sql);
 }
 
+function db_get_results($sql, $param = null) {
+    global $wpdb;
+    if ($param) {
+        $sql = $wpdb->prepare($sql, $param);
+    }
+	$result = $wpdb->get_results($sql, ARRAY_A);
+}
+
 function db_get_var($sql, $param = null) {
     global $wpdb;
     if ($param) {

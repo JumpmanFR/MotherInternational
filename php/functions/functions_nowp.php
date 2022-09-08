@@ -10,21 +10,26 @@ if ($conn->connect_error) {
 
 function db_query($sql, $param = null) {
     global $conn;
-    $param = $conn->real_escape_string($param);
+    if ($param) {
+        $param = $conn->real_escape_string($param);
+    }
     $sql = sprintf($sql, $param);
     return $conn->query($sql);
 }
 
-function db_get_var($sql, $param = null) {
-    global $conn;
-    $param = $conn->real_escape_string($param);
-    $sql = sprintf($sql, $param);
-    $result = $conn->query($sql);
+function db_get_results($sql, $param = null) {
+    $query = db_query($sql, $param);
+	return $query->fetch_all(MYSQLI_ASSOC);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_row();
+}
+
+function db_get_var($sql, $param = null) {
+    $query = db_query($sql, $param);
+
+    if ($query->num_rows > 0) {
+        $row = $query->fetch_row();
         return $row[0];
-    } else if ($result->num_rows === 0) {
+    } else if ($query->num_rows === 0) {
         return 0;
     }
 }
