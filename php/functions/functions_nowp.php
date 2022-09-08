@@ -20,7 +20,6 @@ function db_query($sql, $param = null) {
 function db_get_results($sql, $param = null) {
     $query = db_query($sql, $param);
 	return $query->fetch_all(MYSQLI_ASSOC);
-
 }
 
 function db_get_var($sql, $param = null) {

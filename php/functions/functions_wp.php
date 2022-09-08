@@ -20,7 +20,7 @@ function db_get_results($sql, $param = null) {
     if ($param) {
         $sql = $wpdb->prepare($sql, $param);
     }
-	$result = $wpdb->get_results($sql, ARRAY_A);
+	return $result = $wpdb->get_results($sql, ARRAY_A);
 }
 
 function db_get_var($sql, $param = null) {
