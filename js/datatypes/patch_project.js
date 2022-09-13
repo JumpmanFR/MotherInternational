@@ -106,7 +106,7 @@ PatchProject.prototype.getDesc = function(withGameTitle) {
 		res += " (" + this.getExtraNote() + ")";
 	}
 	if (this.isOfficial()) {
-		res += " " + _("txtDescOfficial");
+		res += " (" + _("txtDescOfficial") + ")";
 	}
 	return res.trim();
 }
@@ -120,7 +120,7 @@ PatchProject.prototype.sort = function(otherProject) {
 }
 
 PatchProject.createFromJson = function(fullJson, games, langs) {
-	var res = [];
+	var res = {};
 	for (var i in fullJson) {
 		res[fullJson[i].projectId] = new PatchProject(fullJson[i], games[fullJson[i].game], langs[fullJson[i].lang]);
 	}
