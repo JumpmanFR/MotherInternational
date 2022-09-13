@@ -237,15 +237,12 @@ a:not([href='#']):not([href='']):visited {
 }
 
 #output-area .msg-container {
-	position: absolute;
-	bottom: 4rem;
-	left: 0;
-	right: 0;
 	display: none;
 }
 
 #output-area.with-msg .msg-container {
-	display: initial;
+	display: block;
+	margin-top: -0.3em;
 }
 
 .message.error {
@@ -443,7 +440,7 @@ a:not([href='#']):not([href='']):visited {
 	text-overflow: ellipsis;
 	font-size: 0.9em !important;
 }
-#output-area.with-msg .info-frame p.info-nb-uses {
+#output-area.with-msg #patch-select-label {
 	display: none;
 }
 
