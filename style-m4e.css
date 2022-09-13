@@ -104,6 +104,10 @@ a:not([href='#']):not([href='']):visited {
 	filter: drop-shadow(2px 2px 0 black);
 }
 
+#output-area .msg-container {
+	margin-top: -0.3em;
+}
+
 #apply-btn {
 	cursor: pointer;
 }

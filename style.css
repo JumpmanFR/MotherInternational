@@ -238,11 +238,11 @@ a:not([href='#']):not([href='']):visited {
 
 #output-area .msg-container {
 	display: none;
+	margin-top: -0.4em;
 }
 
 #output-area.with-msg .msg-container {
 	display: block;
-	margin-top: -0.3em;
 }
 
 .message.error {
