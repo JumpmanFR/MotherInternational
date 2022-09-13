@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Add a translation to the database
+        </title>
+        <style>
+            .type-new-baserom #form-new-version, .type-new-translation #form-new-version {
+                display: none;
+            }
+            .type-new-version #form-new-translation {
+                display: none;
+            }
+            .type-new-baserom #if-is-not-baserom {
+                display: none;
+            }
+            /*.hidden-set {
+                display: none;
+            }*/
+            fieldset:disabled {
+                opacity: .5;
+            }
+            input:disabled {
+                color: #FFFFFF00;
+            }
+            label {
+                display: flex;
+                align-items: center;
+            }
+            label * {
+                white-space: pre;
+            }
+            input, select {
+                margin: .5em;
+            }
+            input:after {
+                content: ' ';
+            }
+            label:after {
+                content: '\a';
+                white-space: pre;
+            }
+            input[type=text], input[type=url], input[type=email], input[type=password], input[type=number], input[type=search] {
+                min-width: 20%;
+            }
+            input.full-width {
+                flex: 1;
+            }
+            label:disabled {
+                color: grey;
+            }
+            :invalid {
+                border-color: red;
+            }
+            fieldset:invalid {
+                border-color: initial;
+            }
+            :invalid:read-write:focus {
+                box-shadow: 0px 0px 0px 2px red;
+            }
+            fieldset:invalid ~ fieldset, fieldset:invalid ~ textarea, fieldset:invalid ~ button {
+                display: none;
+            }
+            button[type=submit] {
+                display: block;
+            }
+            textarea {
+                resize: none;
+                box-sizing: border-box;
+                width: 100%;
+                height: 6em;
+            }
+        </style>
+        <script src="./js/locale.js"></script>
+        <script src="./js/consts.js"></script>
+        <script src="./js/datatypes/patch_project.js"></script>
+        <script src="./js/datatypes/patch_version.js"></script>
+        <script src="./js/utils.js"></script>
+        <script src="./js/database.js"></script>
+    </head>
+    <body>
+        <form id="form" autocomplete="off">
+            <fieldset id="form-type">
+                <legend>What do you want to add?</legend>
+                <label for="type-new-baserom">
+                    <input type="radio" id="type-new-baserom" name="type" required="required">
+                    Base ROM
+                </label>
+                <label for="type-new-translation">
+                    <input type="radio" id="type-new-translation" name="type" required="required">
+                    New translation
+                </label>
+                <label for="type-new-version">
+                    <input type="radio" id="type-new-version" name="type" required="required">
+                    New version of an existing translation
+                </label>
+            </fieldset>
+            <fieldset id="form-new-version">
+                <legend>What’s the translation you want to add a version to?</legend>
+                <select id="existing-translations" required="required">
+                </select>
+                <fieldset id="latest-versions">
+                    <legend>Versions to be considered as “latest”:</legend>
+                    <div id="latest-versions-inputs">
+                    </div>
+                </fieldset>
+            </fieldset>
+            <fieldset id="form-new-translation">
+                <legend>What’s this translation about?</legend>
+                <label for="game">
+                    Game:
+                    <select id="game" required="required">
+                        <option value="" disabled selected>– Please select –</option>
+                        <option value="m1">MOTHER 1 / EarthBound Beginnings</option>
+                        <option value="m2">MOTHER 2 / EarthBound</option>
+                        <option value="m12">MOTHER 1+2</option>
+                        <option value="m3">MOTHER 3</option>
+                    </select>
+                </label>
+                <label for="language">
+                    Language:
+                    <select id="language" required="required">
+                    </select>
+                </label>
+                <label for="author">
+                    Team or translator’s name:
+                    <input type="text" id="author" list="authors"></input>
+                    <datalist id="authors">
+                    </datalist>
+                </label>
+                <label for="website">
+                    Website URL:
+                    <input type="url" id="website" class="full-width recommended"></input>
+                </label>
+                <label for="extra-note">
+                    Something special there is to say about this translation (optional; please say it in the target language):
+                    <input type="text" id="extra-note"></input>
+                </label>
+                <label>
+                    <input type="checkbox" id="official"></input>
+                    Official translation
+                </label>
+            </fieldset>
+            <fieldset id="form-version-details">
+                <legend>What’s to say about this specific version?</legend>
+                <label for="version">
+                    Version number:
+                    <input type="text" id="version" list="versions"></input>
+                    <datalist id="versions">
+                    </datalist>
+                </label>
+                <label id="last-version-set">
+                    <input type="checkbox" id="last-version"></input>
+                    This will be the latest version
+                </label>
+                <label for="year">
+                    Year of publication:
+                    <input type="text" id="year" class="recommended" pattern="(19|20|21)\d\d([-/]\d+)*"></input>
+                </label>
+                <label for="crc">
+                    CRC32 checksum of the ROM in this language: <input type="text" id="crc" required="required" pattern="(0[xX])?[0-9a-fA-F]+"></input>
+                </label>
+                <div id="if-is-not-baserom">
+                    <label for="baserom">
+                        The <em> base </em> ROM this patch needs as an input (generally, it’s the Japanese or English ROM):
+                        <select id="baserom" required="required">
+                        </select>
+                    </label>
+                    <label for="format">
+                        Patch file format:
+                        <select id="format" required="required">
+                            <option value="" disabled selected>– Please select –</option>
+                            <option value="ups">UPS (strongly recommended)</option>
+                            <option value="ips">IPS</option>
+                            <option value="bps">BPS</option>
+                            <option value="xdelta">Xdelta</option>
+                            <option value="vcdiff">VCDIFF</option>
+                        </select>
+                    </label>
+                    <label for="zip">
+                        <input type="checkbox" id="zip"></input>
+                        The patch file will be provided in a zip archive (recommended)
+                    </label>
+                </div>
+                <label for="readme">
+                    <input type="checkbox" id="readme"></input>
+                    A readme file will be provided (recommended)
+                </label>
+                <label for="special-hidden">
+                    <input type="checkbox" id="special-hidden"></input>
+                    This version serves a special purpose and shouldn’t appear in the UI (generally not recommended)
+                </label>
+                <label for="version-extra-note">
+                    Something special there is to say about this version (optional; please say it in the target language):
+                    <input type="text" id="version-extra-note"></input>
+                </label>
+                <label for="version-override">
+                    <input type="checkbox" id="version-override" required="required"></input>
+                    Different author/website for this version
+                </label>
+                <fieldset id="version-override-set" disabled="disabled">
+                    <label for="version-author">
+                        Team or translator’s name, if different in this version:
+                        <input type="text" id="version-author" list="authors"></input>
+                    </label>
+                    <label for="version-website">
+                        Website URL, if different in this version:
+                        <input type="url" id="version-website" list="websites" class="full-width"></input>
+                    </label>
+                </fieldset>
+            </fieldset>
+            <button type="submit" id="apply">Validate</button>
+            <textarea readonly="readonly" id="result"></textarea>
+        </form>
+        <script src="./js/add-translation.js"></script>
+    </body>
+</html>
