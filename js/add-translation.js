@@ -124,14 +124,9 @@ function refreshNewVersion() {
         el("new-version-label").textContent = "This new version" + (version ? " (" + version + ")" : "");
     }
 }
-function onFormTypeChange(event) {
-    el("form-type").dataset.value = event.target.id;
-    refreshFormType();
-}
 function refreshRequiredAuthor() {
     if (el("form-type").dataset.value != TYPE_NEW_VERSION && !el("author").value) {
         el("version-author").required = true;
-        el("version-override").dataset.checked = el("version-override").checked;
         el("version-override").disabled = true;
         el("version-override").checked = true;
     } else {
@@ -140,6 +135,10 @@ function refreshRequiredAuthor() {
         el("version-override").checked = (el("version-override").dataset.checked == "true");
     }
     refreshShowHideOverrides();
+}
+function onFormTypeChange(event) {
+    el("form-type").dataset.value = event.target.id;
+    refreshFormType();
 }
 function onIsLatestChange(event) {
     if (this.checked) {
@@ -157,9 +156,27 @@ function onIsLatestChange(event) {
     refreshNewVersion();
 }
 function onVersionOverrideChange(event) {
-    this.dataset.checked = this.checked;
+    event.target.dataset.checked = event.target.checked;
     refreshShowHideOverrides();
 }
+function onCrcChange(event) {
+    if (/^\d*$/.test(event.target.value) || !event.target.validity.valid) {
+        el("crc-hex").disabled = false;
+        el("crc-hex").checked = (el("crc-hex").dataset.checked == "true");
+    } else {
+        el("crc-hex").checked = true;
+        el("crc-hex").disabled = true;
+    }
+}
+function onCrcHexChange(event) {
+    event.target.dataset.checked = event.target.checked;
+}
+function onClickResults(event) {
+    event.target.select();
+    event.target.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(event.target.value);
+}
+
 function init() {
     sortFillAnyParam("language", LANG_CODES, function() {
         return new Intl.DisplayNames(['en'], { type: 'language', style: 'long', languageDisplay: 'standard' }).of(this);
@@ -176,8 +193,11 @@ function init() {
     el("author").addEventListener("input", refreshRequiredAuthor);
     el("version").addEventListener("input", refreshNewVersion);
     el("last-version").addEventListener("change", onIsLatestChange);
+    el("crc").addEventListener("input", onCrcChange);
+    el("crc-hex").addEventListener("input", onCrcHexChange);
     el("version-override").addEventListener("change", onVersionOverrideChange);
-    //el("apply").addEventListener("click", function(e) {apply(); e.preventDefault()});
+    el("result-project").addEventListener("click", onClickResults);
+    el("result-version").addEventListener("click", onClickResults);
     var allInputs = document.querySelectorAll("input, select");
     for (var i = 0; i < allInputs.length; i++) {
         allInputs[i].addEventListener("change", apply);
@@ -187,16 +207,6 @@ function init() {
 }
 
 function apply() {
-    if (validate()) {
-        result();
-    }
-}
-
-function validate() {
-    return true;
-}
-
-function result() {
     //var pj_id;
     //var pj_game;
     //var pj_lang;
@@ -246,7 +256,10 @@ function result() {
     pjStr = pjStr.replace(/',(\w)/g, "', $1") + ',';
 
     var verJson = {};
-    verJson.crc = el("crc").value;
+
+    var crcValue = parseInt(el("crc").value, el("crc-hex").checked ? 16 : 10);
+    verJson.crc = '0x' + crcValue.toString("16").padStart(8, '0');
+
     verJson.projectId = pjJson.projectId;
     var resVersion = el("version").value;
     verJson.patchId = pjJson.projectId + resVersion.replace(/\./g,"");
@@ -266,13 +279,15 @@ function result() {
         verJson.author = el("version-author").value || undefined
         verJson.website = el("version-website").value || undefined;
     }
+    verJson.isOneWayOnly = (el("format").value != 'ups') || undefined;
 
     var verStr = JSON.stringify(verJson);
     verStr = verStr.replace(/"([^"]+)":"([^"]*)"/g, "$1:'$2'"); // 3 same lines as pjStr
     verStr = verStr.replace(/"([^"]+)":/g, "$1:");
     verStr = verStr.replace(/',(\w)/g, "', $1") + ',';
 
-    el("result").textContent = pjStr + '\n' + verStr;
+    el("result-project").value = pjStr
+    el("result-version").value = verStr;
 }
 
 init();
