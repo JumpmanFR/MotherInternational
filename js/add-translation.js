@@ -6,6 +6,7 @@ const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az',
 
 function _(str) {return LOCALIZATION["en"][str]}
 function el(str) {return document.getElementById(str)}
+function getFormType() {return el("form-type").dataset.value}
 
 function sortFillAnyParam(parentElt, datatable, textFn, valueFn) {
     parentElt.textContent = '';
@@ -30,6 +31,10 @@ function sortFillAnyParam(parentElt, datatable, textFn, valueFn) {
 }
 function fillPatches(parentElt, datatable, gameFilter) {
     var parentElt = el(parentElt);
+	if (gameFilter && gameFilter == parentElt.dataset.filter) {
+		return;
+	}
+	parentElt.dataset.filter = gameFilter;
     parentElt.textContent = '';
     var elt = document.createElement("option");
     elt.value = '';
@@ -75,9 +80,9 @@ function fillVersions(parentElt, project) {
     refreshNewVersion();
 }
 function refreshFormType() {
-    el("form").className = el("form-type").dataset.value;
+    el("form").className = getFormType();
 
-    if (el("form-type").dataset.value == TYPE_NEW_VERSION) {
+    if (getFormType() == TYPE_NEW_VERSION) {
         el("game").required = false;
         el("language").required = false;
         el("existing-translations").required = true;
@@ -87,7 +92,7 @@ function refreshFormType() {
         el("existing-translations").required = false;
     }
 
-    if (el("form-type").dataset.value == TYPE_NEW_BASEROM) {
+    if (getFormType() == TYPE_NEW_BASEROM) {
         el("baserom").required = false;
         el("format").required = false;
     } else {
@@ -98,7 +103,7 @@ function refreshFormType() {
     refreshRequiredAuthor();
 }
 function refreshListBaseroms() {
-    if (el("form-type").dataset.value == TYPE_NEW_VERSION && el('existing-translations').value) {
+    if (getFormType() == TYPE_NEW_VERSION && el('existing-translations').value) {
         fillPatches("baserom", PATCH_VERSIONS, PATCH_PROJECTS[el('existing-translations').value].getGameId());
     } else {
         fillPatches("baserom", PATCH_VERSIONS, el("game").value);
@@ -110,7 +115,7 @@ function refreshListVersions() {
     }
 }
 function refreshShowHideOverrides() {
-    if (el("version-override").checked || (el("form-type").dataset.value != TYPE_NEW_VERSION && !el("author").value)) {
+    if (el("version-override").checked || (getFormType() != TYPE_NEW_VERSION && !el("author").value)) {
         el("version-override-set").disabled = false;
     } else {
         el("version-override-set").disabled = true;
@@ -125,7 +130,7 @@ function refreshNewVersion() {
     }
 }
 function refreshRequiredAuthor() {
-    if (el("form-type").dataset.value != TYPE_NEW_VERSION && !el("author").value) {
+    if (getFormType() != TYPE_NEW_VERSION && !el("author").value) {
         el("version-author").required = true;
         el("version-override").disabled = true;
         el("version-override").checked = true;
@@ -216,7 +221,21 @@ function apply() {
     //var pj_extraNote;
     //var pj_isOfficial;
     var pjJson = {};
-    if (el("form-type").dataset.value != TYPE_NEW_VERSION) {
+    if (getFormType() == TYPE_NEW_VERSION) {
+        pjJson.projectId = el('existing-translations').value;
+        var pjObj = PATCH_PROJECTS[pjJson.projectId];
+        pjJson.game = pjObj.getGameId();
+        pjJson.lang = pjObj.getLangId();
+        /*pjJson.latest = pjObj.latestVersion;
+        if (pjObj.altLatestVersions && pjObj.altLatestVersions.length) {
+            pjJson.latest = [pjJson.latest]
+        }*/
+        pjJson.author = pjObj.getAuthor() || undefined;
+        pjJson.website = pjObj.getWebsite() || undefined;
+        pjJson.extraNote = pjObj.getExtraNote() || undefined;
+        pjJson.isOfficial = pjObj.isOfficial() || undefined;
+		el("result-project-label").textContent = `Go to database.js and replace the line starting with “projectId:'${pjJson.projectId}'” in PATCH_PROJECTS with this: (click to copy)`;
+    } else if (!!getFormType()) {
         var resGame = el("game").value;
         var resLang = el("language").value
         var resPjIdBase = resGame + "-" + resLang.split('-')[0];
@@ -235,27 +254,30 @@ function apply() {
         pjJson.website = el("website").value || undefined;
         pjJson.extraNote = el("extra-note").value || undefined;
         pjJson.isOfficial = el("official").checked || undefined;
+		el("result-project-label").textContent = "Append this to PATCH_PROJECTS in database.js: (click to copy)";
 
-    } else {
-        pjJson.projectId = el('existing-translations').value;
-        var pjObj = PATCH_PROJECTS[pjJson.projectId];
-        pjJson.game = pjObj.getGameId();
-        pjJson.lang = pjObj.getLangId();
-        /*pjJson.latest = pjObj.latestVersion;
-        if (pjObj.altLatestVersions && pjObj.altLatestVersions.length) {
-            pjJson.latest = [pjJson.latest]
-        }*/
-        pjJson.author = pjObj.getAuthor() || undefined;
-        pjJson.website = pjObj.getWebsite() || undefined;
-        pjJson.extraNote = pjObj.getExtraNote() || undefined;
-        pjJson.isOfficial = pjObj.isOfficial() || undefined;
-    }
+    } 
+	
+	for (var i in LANG_LIST) { // to unify language varieties
+		if (LANG_LIST[i].nameId == pjJson.lang) {
+			pjJson.lang = i;
+		}
+	}
+	
     var pjStr = JSON.stringify(pjJson);
     pjStr = pjStr.replace(/"([^"]+)":"([^"]*)"/g, "$1:'$2'");
     pjStr = pjStr.replace(/"([^"]+)":/g, "$1:");
     pjStr = pjStr.replace(/',(\w)/g, "', $1") + ',';
 
-    var verJson = {};
+ 	try { // let’s try to replace the language value with the associated const in const.js
+		var constJs = el("constsjs").contentWindow.document.body.innerHTML;
+		var re = new RegExp(`\\n\\s*const\\s+(LANG_[A-Z_]*)\\s*=\\s*['"]${pjJson.lang}['"];`); 
+		var langConst = constJs.match(re)[1];
+		pjStr = pjStr.replace(/([,\s\t])lang:['"\w-]+([,\s\t\}])/, '$1lang:' + langConst + '$2');
+	} catch (e) {
+	}
+
+	var verJson = {};
 
     var crcValue = parseInt(el("crc").value, el("crc-hex").checked ? 16 : 10);
     verJson.crc = '0x' + crcValue.toString("16").padStart(8, '0');
@@ -263,7 +285,7 @@ function apply() {
     verJson.projectId = pjJson.projectId;
     var resVersion = el("version").value;
     verJson.patchId = pjJson.projectId + resVersion.replace(/\./g,"");
-    if (el("form-type").dataset.value != TYPE_NEW_BASEROM) {
+    if (getFormType() != TYPE_NEW_BASEROM) {
         if (el("zip").checked) {
             verJson.patchExt = ".zip";
         } else {
@@ -288,6 +310,33 @@ function apply() {
 
     el("result-project").value = pjStr
     el("result-version").value = verStr;
+	
+	var instrArray = [];
+	if (getFormType() != TYPE_NEW_BASEROM) {
+		if (el("zip").checked) {
+			instrArray.push(`Create a zip archive that contains only your patch file, name it ${verJson.patchId}.zip and upload it to the patches folder on the server.`);
+		} else {
+			instrArray.push(`Rename your patch file ${verJson.patchId}${verJson.patchExt} and upload it to the patches folder on the server.`);
+		}
+	}
+	if (verJson.hasDoc) {
+		instrArray.push(`Rename the readme file of the translation ${verJson.patchId}.txt and upload it to the patches folder on the server.`);
+	}
+	if (getFormType() == TYPE_NEW_BASEROM) {
+		instrArray.push("Go to Mother International and make sure your new base ROM is working as expected: ROM info display on the UI and patching from this ROM if appropriate.");
+	} else if (verJson.isOneWayOnly) {
+		instrArray.push("Go to Mother International and make sure your new translation is working as expected: readme file, translation info on the UI, credits and patching.");
+	} else {
+		instrArray.push("Go to Mother International and make sure your new translation is working as expected: readme file, translation info on the UI, credits and patching in both directions (by generating the translated ROM *and* using it as in input).");
+	}
+	
+	var instrElt = el("instructions");
+	instrElt.textContent = '';
+	for (var i in instrArray) {
+		var li = document.createElement("li");
+		li.textContent = instrArray[i];
+		instrElt.appendChild(li);
+	}
 }
 
 init();

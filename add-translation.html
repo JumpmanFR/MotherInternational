@@ -69,6 +69,7 @@
         <script src="./js/database.js"></script>
     </head>
     <body>
+		<iframe id="constsjs" src="./js/consts.js" style="display:none;"></iframe>
         <form id="form" autocomplete="off">
             <fieldset id="form-type">
                 <legend>What do you want to add?</legend>
@@ -206,9 +207,14 @@
                 </fieldset>
             </fieldset>
             <fieldset id="result">
-                <legend>Here are the results! Click to copy text.</legend>
+                <legend>Results!</legend>
+				<label for="result-project" id="result-project-label"></label>
                 <input readonly="readonly" id="result-project"></input>
+				<label for="result-version">Append this to PATCH_VERSIONS in database.js: (click to copy)</label>
                 <input readonly="readonly" id="result-version"></input>
+				<p>Then:
+					<ul id="instructions"></ul>
+				</p>
             </div>
         </form>
         <script src="./js/add-translation.js"></script>
