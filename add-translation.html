@@ -6,12 +6,9 @@
             Add a translation to the database
         </title>
         <style>
-            .type-new-baserom #form-new-version, .type-new-translation #form-new-version {
-                display: none;
-            }
-            .type-new-version #form-new-translation {
-                display: none;
-            }
+			#form-new-version:disabled, #form-new-translation:disabled {
+				display: none;
+			}
             .type-new-baserom #if-is-not-baserom {
                 display: none;
             }
@@ -27,14 +24,14 @@
             input, select {
                 margin: .5em;
             }
-            input:after {
+            input::after {
                 content: ' ';
             }
-            label:after {
+            label::after {
                 content: '\a';
                 white-space: pre;
             }
-            #crc-container label:after {
+            #crc-container label::after {
                 content: '';
             }
             input[type=text], input[type=url], input[type=email], input[type=password], input[type=number], input[type=search] {
@@ -43,7 +40,7 @@
             label:disabled {
                 color: grey;
             }
-            :invalid {
+            :invalid, .almost-required:placeholder-shown {
                 border-color: red;
             }
             fieldset:invalid {
@@ -60,6 +57,9 @@
                 width: 100%;
                 cursor: copy;
             }
+			#result ul {
+				margin: 0;
+			}
         </style>
         <script src="./js/locale.js"></script>
         <script src="./js/consts.js"></script>
@@ -115,9 +115,8 @@
                 </label>
                 <label for="author">
                     Team or translator’s name:
-                    <input type="text" id="author" list="authors"></input>
-                    <datalist id="authors">
-                    </datalist>
+                    <input type="text" id="author" list="authors" class="almost-required" placeholder=" " maxlength="24"></input> <!-- for CSS matching :placeholder-shown -->
+                    <datalist id="authors"></datalist>
                 </label>
                 <label for="website">
                     Website URL:
@@ -125,7 +124,7 @@
                 </label>
                 <label for="extra-note">
                     Something special there is to say about this translation (optional; please say it in the target language):
-                    <input type="text" id="extra-note"></input>
+                    <input type="text" id="extra-note" maxlength="30"></input>
                 </label>
                 <label>
                     <input type="checkbox" id="official"></input>
@@ -134,9 +133,18 @@
             </fieldset>
             <fieldset id="form-version-details">
                 <legend>What’s to say about this specific version?</legend>
+				<div id="crc-container">
+                    <label for="crc">
+                        CRC32 checksum of the ROM in this language: <input type="text" id="crc" required="required" pattern="(0[xX])?[0-9a-fA-F]{1,14}"></input>
+                    </label>
+                    <label for="crc-hex">
+                        <input type="checkbox" id="crc-hex"></input>
+                        Hex value
+                    </label>
+                </div>
                 <label for="version">
                     Version number:
-                    <input type="text" id="version" list="versions"></input>
+                    <input type="text" id="version" list="versions" maxlength="16"></input>
                     <datalist id="versions">
                     </datalist>
                 </label>
@@ -146,17 +154,8 @@
                 </label>
                 <label for="year">
                     Year of publication:
-                    <input type="text" id="year" class="recommended" pattern="(19|20|21)\d\d([-/]\d+)*"></input>
+                    <input type="text" id="year" class="recommended" pattern="(19|20|21)\d\d([-/]\d+)*" maxlength="10"></input>
                 </label>
-                    <div id="crc-container">
-                    <label for="crc">
-                        CRC32 checksum of the ROM in this language: <input type="text" id="crc" required="required" pattern="(0[xX])?[0-9a-fA-F]+"></input>
-                    </label>
-                    <label for="crc-hex">
-                        <input type="checkbox" id="crc-hex"></input>
-                        Hex value
-                    </label>
-                </div>
                 <div id="if-is-not-baserom">
                     <label for="baserom">
                         The <em> base </em> ROM this patch needs as an input (generally, it’s the Japanese or English ROM):
@@ -189,7 +188,7 @@
                 </label>
                 <label for="version-extra-note">
                     Something special there is to say about this version (optional; please say it in the target language):
-                    <input type="text" id="version-extra-note"></input>
+                    <input type="text" id="version-extra-note" maxlength="30"></input>
                 </label>
                 <label for="version-override">
                     <input type="checkbox" id="version-override"></input>
@@ -198,7 +197,7 @@
                 <fieldset id="version-override-set" disabled="disabled">
                     <label for="version-author">
                         Team or translator’s name, if different in this version:
-                        <input type="text" id="version-author" list="authors"></input>
+                        <input type="text" id="version-author" list="authors" maxlength="24"></input>
                     </label>
                     <label for="version-website">
                         Website URL, if different in this version:
@@ -212,9 +211,8 @@
                 <input readonly="readonly" id="result-project"></input>
 				<label for="result-version">Append this to PATCH_VERSIONS in database.js: (click to copy)</label>
                 <input readonly="readonly" id="result-version"></input>
-				<p>Then:
-					<ul id="instructions"></ul>
-				</p>
+				Then:
+				<ul id="instructions"></ul>
             </div>
         </form>
         <script src="./js/add-translation.js"></script>

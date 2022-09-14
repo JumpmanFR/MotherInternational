@@ -36,7 +36,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m2-itA',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.1',	author:'CRefice',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/EarthBound-Italian-Translation-COMPLETED'},
 	{projectId:'m2-itB',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.47',	author:'Vecna',				website:'https://romhacking.it/project/view/id/646'},
 	{projectId:'m2-pl',	game:ID_MOTHER_2,	lang:LANG_POLISH,	latest:'1.0.2',	author:'Voxar',				website:'https://www.romhacking.net/translations/5600/'},
-	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m12-ja',game:ID_MOTHER_1_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m12-ko',game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	latest:'190929',	author:'아루미 & pjs',			website:'https://blog.naver.com/pjs0493/220591359815'},
@@ -46,7 +46,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-fr',game:ID_MOTHER_1_2,	lang:LANG_FRENCH,	latest:'1.0',	author:'MotherVF',			website:'http://mother1vf.free.fr'},
 	{projectId:'m12-itA',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.0',	author:'SilverM',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/Mother-1-2-Italian-Patch-100-complete'},
 	{projectId:'m12-itB',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.1',	author:'Team MODRE',		website:'https://discord.gg/FXGZ8a5'},
-	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
 	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',			website:'http://www.manyoteam.com/?p=32'},
@@ -59,7 +59,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'https://www.romhacking.net/translations/2403/'},
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://m3dutch.blogspot.com'},
 	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
-	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'Earthbound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 ], GAMES_LIST, LANG_LIST );
 
 // Table for all supported versions of the translations
