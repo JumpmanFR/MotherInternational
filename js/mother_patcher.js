@@ -161,8 +161,8 @@ function initAudio() {
 }
 
 function setLanguage(langId, isForced) {
-	var langDefaultId = LANG_DEFAULT.substr(0,2);
-	langId = (langId || LANG_DEFAULT).substr(0,2);
+	var langDefaultId = LANG_DEFAULT.split('-')[0];
+	langId = (langId || LANG_DEFAULT).split('-')[0];
 	gDefaultTexts = LOCALIZATION[langDefaultId] || {};
 	if (LOCALIZATION[langId]) {
 		gLocalTexts = LOCALIZATION[langId];

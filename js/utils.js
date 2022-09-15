@@ -11,19 +11,25 @@ Utils.capitalizeFirstLetter = function (str) {
 
 Utils.getLangName = function (id) {
 	var pageLang = document.documentElement.getAttribute("lang");
-	var defaultLang = LANG_DEFAULT.substr(0,2);
+	var defaultLang = LANG_DEFAULT.split('-')[0];
 	var localLangNames = new Intl.DisplayNames([pageLang, defaultLang], { type: 'language', style: 'narrow', languageDisplay: 'dialect' });
 	return localLangNames.of(id);;
 }
 
 Utils.getFlagEmoji = function (id) {
+	id = DEFAULT_FLAGS ? DEFAULT_FLAGS[id] || id : id;
+	
+	if (!id) return "";
+	
 	var split = id.toUpperCase().split(/-|_/);
-    var lang = split[0];
     var code = split.pop();
 
-    const a = String.fromCodePoint(code.codePointAt(0) - 0x41 + 0x1F1E6);
-    const b = String.fromCodePoint(code.codePointAt(1) - 0x41 + 0x1F1E6);
-    return a + b;
+	var res = "";
+	for (var i = 0; i < code.length; i++) {
+		res += String.fromCodePoint(code.codePointAt(i) - 0x41 + 0x1F1E6);
+	}
+	
+    return res;
 }
 
 Utils.areFlagEmojiSupported = function() {

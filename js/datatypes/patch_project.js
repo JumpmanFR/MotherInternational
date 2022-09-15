@@ -1,4 +1,4 @@
-function PatchProject(json, game, lang) {
+function PatchProject(json, game) {
 	this.versions = [];
 
 	this.getGameId = function() {
@@ -11,20 +11,20 @@ function PatchProject(json, game, lang) {
 		return game.shortName;
 	}
 	this.getGameLocalName = function() {
-		if (lang && lang.isJapan) {
+		if (json.lang == LANG_JAPANESE) {
 			return game.japName;
 		} else {
 			return game.shortName;
 		}
 	}
 	this.getLangId = function() {
-		return lang ? lang.nameId || json.lang : json.lang;
+		return LANG_SUBSTIT ? LANG_SUBSTIT[json.lang] || json.lang : json.lang;
 	}
 	this.getLangFlag = function() {
-		return Utils.getFlagEmoji(lang ? lang.flagId || json.lang : json.lang);
+		return Utils.getFlagEmoji(json.lang);
 	}
 	this.getBoxart = function() {
-		return lang && lang.isJapan ? game.japBoxart || game.boxart : game.boxart || game.japBoxart;
+		return (json.lang == LANG_JAPANESE) ? game.japBoxart || game.boxart : game.boxart || game.japBoxart;
 	}
 	this.getAuthor = function() {
 		return json.author;
@@ -61,7 +61,7 @@ function PatchProject(json, game, lang) {
 PatchProject.prototype.getLangName = function(brief) {
 	var langId = this.getLangId();
 	if (brief) {
-		langId = langId.substr(0,2);
+		langId = langId.split('-')[0];
 	}
 	return Utils.getLangName(langId);
 }
@@ -119,10 +119,10 @@ PatchProject.prototype.sort = function(otherProject) {
 	return this.getDescForSort().localeCompare(otherProject.getDescForSort());
 }
 
-PatchProject.createFromJson = function(fullJson, games, langs) {
+PatchProject.createFromJson = function(fullJson, games) {
 	var res = {};
 	for (var i in fullJson) {
-		res[fullJson[i].projectId] = new PatchProject(fullJson[i], games[fullJson[i].game], langs[fullJson[i].lang]);
+		res[fullJson[i].projectId] = new PatchProject(fullJson[i], games[fullJson[i].game]);
 	}
 	return res;
 }

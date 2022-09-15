@@ -1,4 +1,4 @@
-const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az','ba','be','bg','bh','bm','bi','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es-ES','es-AR','es-MX','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt-BR','pt-PT','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sv-SE','sv-FI','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','tw','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zh-CN','zh-HK','zh-TW','zu'];
+const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az','ba','be','bg','bh','bi','bm','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es-ES','es-AR','es-CO','es-MX','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt-BR','pt-PT','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sv-SE','sv-FI','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zh-CN','zh-HK','zh-TW','zu'];
 
 function _(str) {return LOCALIZATION["en"][str]}
 function el(str) {return document.getElementById(str)}
@@ -7,7 +7,7 @@ function isTypeNewBaseRom() {return el("form-type").dataset.value == "type-new-b
 
 document.addEventListener('DOMContentLoaded', function() {
     sortFillAnyParam("language", LANG_CODES, function() {
-        return new Intl.DisplayNames(['en'], { type: 'language', style: 'long', languageDisplay: 'standard' }).of(this);
+        return new Intl.DisplayNames(['en'], { type: 'language', style: 'long', languageDisplay: 'standard' }).of(this) + " " + Utils.getFlagEmoji(this);
     }, function() {return this});
     sortFillAnyParam("authors", PATCH_VERSIONS, PatchVersion.prototype.getAuthorFallback);
     sortFillAnyParam("versions", PATCH_VERSIONS, function() {return this.getVersionValue()});
@@ -257,11 +257,11 @@ function apply() {
 
 		} 
 		
-		for (var i in LANG_LIST) { // to unify language varieties
+		/*for (var i in LANG_LIST) { // to unify language varieties
 			if (LANG_LIST[i].nameId == pjJson.lang) {
 				pjJson.lang = i;
 			}
-		}
+		}*/
 		
 		var pjStr = JSON.stringify(pjJson);
 		pjStr = pjStr.replace(/"([^"]+)":"([^"]*)"/g, "$1:'$2'");

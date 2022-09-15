@@ -1,13 +1,3 @@
-// Language table for a few specific cases
-var LANG_LIST = {
-	[LANG_JAPANESE]:	{flagId:'JP', isJapan:true},
-	[LANG_ENGLISH]:		{flagId:'GB', nameId: 'en'},
-	[LANG_SP_MEXICO]:	{nameId:'es-419'}, // same "Latin American Spanish" label
-	[LANG_SP_ARGENT]:	{nameId:'es-419'}, // same "Latin American Spanish" label
-	[LANG_CHINESE]:		{flagId:'CN'},
-	[LANG_KOREAN]:		{flagId:'KR'},
-}
-
 // Data table for the 4 supported games
 var GAMES_LIST = {
 	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'EarthBound Beginnings',	year:1989,	boxart:'m1.jpg', 	japBoxart:'m1j.jpg', included:[ID_MOTHER_1],},
@@ -60,7 +50,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://m3dutch.blogspot.com'},
 	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
 	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
-], GAMES_LIST, LANG_LIST );
+], GAMES_LIST );
 
 // Table for all supported versions of the translations
 var PATCH_VERSIONS = PatchVersion.createFromJson( [
