@@ -9,18 +9,18 @@ Utils.capitalizeFirstLetter = function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-Utils.getLangName = function (id) {
+Utils.getLangName = function (id, isAlt) {
 	var pageLang = document.documentElement.getAttribute("lang");
 	var defaultLang = LANG_DEFAULT.split('-')[0];
-	var localLangNames = new Intl.DisplayNames([pageLang, defaultLang], { type: 'language', style: 'narrow', languageDisplay: 'dialect' });
+	var localLangNames = new Intl.DisplayNames([pageLang, defaultLang], { type: 'language', style: 'narrow', languageDisplay: isAlt ? 'standard' : 'dialect' });
 	return localLangNames.of(id);;
 }
 
 Utils.getFlagEmoji = function (id) {
 	id = DEFAULT_FLAGS ? DEFAULT_FLAGS[id] || id : id;
-	
+
 	if (!id) return "";
-	
+
 	var split = id.toUpperCase().split(/-|_/);
     var code = split.pop();
 
@@ -28,7 +28,7 @@ Utils.getFlagEmoji = function (id) {
 	for (var i = 0; i < code.length; i++) {
 		res += String.fromCodePoint(code.codePointAt(i) - 0x41 + 0x1F1E6);
 	}
-	
+
     return res;
 }
 

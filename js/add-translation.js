@@ -1,4 +1,4 @@
-const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az','ba','be','bg','bh','bi','bm','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es-ES','es-AR','es-CO','es-MX','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt-BR','pt-PT','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sv-SE','sv-FI','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zh-CN','zh-HK','zh-TW','zu'];
+const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar-EG','ar-DZ','ar-SD','ar-MA','ar-SA','ar-TN','ar-YE','as','av','ay','az','ba','be','bg','bh','bi','bm','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es-ES','es-AR','es-CO','es-MX','es-VE','es-PE','es-CL','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt-BR','pt-PT','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zh-CN','zh-HK','zh-TW','zu'];
 
 function _(str) {return LOCALIZATION["en"][str]}
 function el(str) {return document.getElementById(str)}
@@ -7,8 +7,10 @@ function isTypeNewBaseRom() {return el("form-type").dataset.value == "type-new-b
 
 document.addEventListener('DOMContentLoaded', function() {
     sortFillAnyParam("language", LANG_CODES, function() {
-        return new Intl.DisplayNames(['en'], { type: 'language', style: 'long', languageDisplay: 'standard' }).of(this) + " " + Utils.getFlagEmoji(this);
-    }, function() {return this});
+        return Utils.getFlagEmoji(this) + " " + Utils.getLangName(this, true);
+    }, function() {return this}, function() {
+        return Utils.getLangName(this, true);
+    });
     sortFillAnyParam("authors", PATCH_VERSIONS, PatchVersion.prototype.getAuthorFallback);
     sortFillAnyParam("versions", PATCH_VERSIONS, function() {return this.getVersionValue()});
     fillPatches("existing-translations", PATCH_PROJECTS);
@@ -34,21 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
     refreshListVersions();
 });
 
-function sortFillAnyParam(parentElt, datatable, textFn, valueFn) {
+function sortFillAnyParam(parentElt, datatable, textFn, valueFn, sortFn) {
     parentElt.textContent = '';
     valueFn = valueFn || textFn;
+    sortFn = sortFn || textFn;
     var allValues = {};
     for (var i in datatable) {
-        allValues[textFn.apply(datatable[i], [])] = valueFn.apply(datatable[i], []);
+        allValues[sortFn.apply(datatable[i], [])] = {text:textFn.apply(datatable[i], []), value:valueFn.apply(datatable[i], [])};
     }
     var parentElt = el(parentElt);
     if (parentElt.tagName == "SELECT") {
-        allValues[" – Please select – "] = ""; // keep initial space to make it appear on top
+        allValues[" "] = {text:'– Please select –', value:''};
     }
     Object.keys(allValues).sort().forEach(function(i) {
         var elt = document.createElement("option");
-        elt.textContent = i;
-        elt.value = allValues[i];
+        elt.textContent = allValues[i].text;
+        elt.value = allValues[i].value;
         if (!elt.value) {
             elt.disabled = elt.selected = true;
         }
@@ -124,7 +127,7 @@ function refreshFormType() {
         el("baserom").required = true;
         el("format").required = true;
     }
-	
+
 }
 function refreshListBaseroms() {
     if (isTypeNewVersion() && el('existing-translations').value) {
@@ -159,7 +162,7 @@ function refreshRequiredAuthor() {
 		el("author").classList.remove("almost-required");
 	} else {
 		el("author").classList.add("almost-required");
-	} 
+	}
 }
 function refreshRequiredVerAuthor() {
     if (!isTypeNewVersion() && !el("author").value) {
@@ -255,14 +258,14 @@ function apply() {
 			pjJson.isOfficial = el("official").checked || undefined;
 			el("result-project-label").textContent = "Append this to PATCH_PROJECTS in database.js: (click to copy)";
 
-		} 
-		
+		}
+
 		/*for (var i in LANG_LIST) { // to unify language varieties
 			if (LANG_LIST[i].nameId == pjJson.lang) {
 				pjJson.lang = i;
 			}
 		}*/
-		
+
 		var pjStr = JSON.stringify(pjJson);
 		pjStr = pjStr.replace(/"([^"]+)":"([^"]*)"/g, "$1:'$2'");
 		pjStr = pjStr.replace(/"([^"]+)":/g, "$1:");
@@ -270,7 +273,7 @@ function apply() {
 
 		try { // let’s try to replace the language value with the associated const in const.js
 			var constJs = el("constsjs").contentWindow.document.body.innerHTML;
-			var re = new RegExp(`\\n\\s*const\\s+(LANG_[A-Z_]*)\\s*=\\s*['"]${pjJson.lang}['"];`); 
+			var re = new RegExp(`\\n\\s*const\\s+(LANG_[A-Z_]*)\\s*=\\s*['"]${pjJson.lang}['"];`);
 			var langConst = constJs.match(re)[1];
 			pjStr = pjStr.replace(/([,\s\t])lang:['"\w-]+([,\s\t\}])/, '$1lang:' + langConst + '$2');
 		} catch (e) {
@@ -309,7 +312,7 @@ function apply() {
 
 		el("result-project").value = pjStr
 		el("result-version").value = verStr;
-		
+
 		var instrArray = [];
 		if (!isTypeNewBaseRom()) {
 			if (el("zip").checked) {
@@ -328,7 +331,7 @@ function apply() {
 		} else {
 			instrArray.push("Go to Mother International and make sure your new translation is working as expected: readme file, translation info on the UI, credits and patching in both directions (by generating the translated ROM *and* using it as in input).");
 		}
-		
+
 		var instrElt = el("instructions");
 		instrElt.textContent = '';
 		for (var i in instrArray) {
@@ -339,4 +342,3 @@ function apply() {
 	}
 
 }
-
