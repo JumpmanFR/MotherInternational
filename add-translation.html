@@ -31,9 +31,6 @@
                 content: '\a';
                 white-space: pre;
             }
-            #crc-container label::after {
-                content: '';
-            }
             input[type=text], input[type=url], input[type=email], input[type=password], input[type=number], input[type=search] {
                 min-width: 20%;
             }
@@ -48,6 +45,32 @@
             }
             :invalid:read-write:focus {
                 box-shadow: 0px 0px 0px 2px red;
+            }
+			tbody th {
+				font-weight: normal;
+				text-align: left;
+			}
+			th, td label {
+				padding: 0.1em 1em;
+			}
+			th {
+				background-color: #DDD;
+			}
+			td {
+				background-color: #EEE;
+			}
+			td label {
+				display: block;
+				text-align: center;
+			}
+			#latest-versions-set.empty {
+				display: none;
+			}
+			#new-version-row th {
+				font-weight: bold;
+			}
+            #crc-container label::after {
+                content: '';
             }
             fieldset:invalid ~ fieldset, fieldset:invalid ~ #result {
                 display: none;
@@ -90,10 +113,19 @@
                 <legend>What’s the translation you want to add a version to?</legend>
                 <select id="existing-translations" required="required">
                 </select>
-                <fieldset id="latest-versions">
-                    <legend>Versions to be considered as “latest”:</legend>
-                    <div id="latest-versions-inputs">
-                    </div>
+                <fieldset id="latest-versions-set" class="empty">
+                    <legend>Configure versions</legend>
+                    <table>
+						<thead>
+							<tr>
+								<th>Version</th>
+								<th>Is the latest</th>
+								<th>To highlight in the UI</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
                 </fieldset>
             </fieldset>
             <fieldset id="form-new-translation">
@@ -133,6 +165,14 @@
             </fieldset>
             <fieldset id="form-version-details">
                 <legend>What’s to say about this specific version?</legend>
+                <label for="version">
+                    Version number:
+                    <input type="text" id="version" list="versions" maxlength="16"></input>
+                    <datalist id="versions">
+                    </datalist>
+					<input type="button" id="version-button-latest" value="Make it the latest version" disabled="disabled"></input>
+					<input type="button" id="version-button-reset" value="Reset version settings"></input>
+                </label>
 				<div id="crc-container">
                     <label for="crc">
                         CRC32 checksum of the translated ROM (<a href="https://onlinecodeformatters.com/crc-32-file-hash" target="_blank">check it here</a>): <input type="text" id="crc" required="required" pattern="(0[xX])?[0-9a-fA-F]{1,14}"></input>
@@ -142,16 +182,6 @@
                         Hex value
                     </label>
                 </div>
-                <label for="version">
-                    Version number:
-                    <input type="text" id="version" list="versions" maxlength="16"></input>
-                    <datalist id="versions">
-                    </datalist>
-                </label>
-                <label id="last-version-set">
-                    <input type="checkbox" id="last-version"></input>
-                    This will be the latest version
-                </label>
                 <label for="year">
                     Year of publication:
                     <input type="text" id="year" class="recommended" pattern="(19|20|21)\d\d([-/]\d+)*" maxlength="10"></input>
