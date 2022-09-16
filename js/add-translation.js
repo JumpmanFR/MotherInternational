@@ -114,6 +114,7 @@ function initListVersions() {
 		var textTh = document.createElement("th");
 		textTh.textContent = isNew ? "This new version" : version || "[Unnamed version]";
 		var latestTd = document.createElement("td");
+		latestTd.className = "latest";
 		var radioLabel = document.createElement("label");
 		var radio = document.createElement("input");
 		radio.type = "radio";
@@ -121,6 +122,7 @@ function initListVersions() {
 		radio.value = version;
 		radio.onchange = onLatestVerListItemSelect;
 		var highlightTd = document.createElement("td");
+		highlightTd.className = "highlight";
 		var checkboxLabel = document.createElement("label");
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
@@ -132,8 +134,6 @@ function initListVersions() {
 		tr.appendChild(highlightTd);
 		if (isNew) {
 			tr.id = "new-version-row";
-			//radio.disabled = true;
-			//checkbox.disabled = true;
 		}
 		tr.dataset.version = version;
 		latestTd.appendChild(radioLabel);
@@ -172,11 +172,10 @@ function refreshListVersions() {
 	for (var i = 0; i < versionRows.length; i++) {
 		if (versionRows[i].dataset.version == latestVersions[0]) {
 			versionRows[i].querySelector("input[type=radio]").checked = true;
-			versionRows[i].querySelector("input[type=checkbox]").style.visibility = "hidden";
+			versionRows[i].querySelector("td.highlight").style.display = "none";
 		} else {
-			var checkbox = versionRows[i].querySelector("input[type=checkbox]");
-			checkbox.checked = latestVersions.includes(versionRows[i].dataset.version);
-			checkbox.style.visibility = "visible";
+			versionRows[i].querySelector("input[type=checkbox]").checked = latestVersions.includes(versionRows[i].dataset.version);
+			versionRows[i].querySelector("td.highlight").style.display = "";
 		}
 	}
 }
