@@ -15,9 +15,6 @@
             fieldset:disabled {
                 opacity: .5;
             }
-            input:disabled {
-                color: #FFFFFF00;
-            }
             label {
                 display: inline;
             }
@@ -31,8 +28,11 @@
                 content: '\a';
                 white-space: pre;
             }
-            input[type=text], input[type=url], input[type=email], input[type=password], input[type=number], input[type=search] {
+            input[type=text], input[type=url], input[type=email], input[type=number], input[type=search] {
                 min-width: 20%;
+            }
+            input[type=text]:disabled, input[type=url]:disabled, input[type=email]:disabled, input[type=number]:disabled, input[type=search]:disabled, {
+                color: #FFFFFF00;
             }
             label:disabled {
                 color: grey;
@@ -79,6 +79,9 @@
                 box-sizing: border-box;
                 width: 100%;
                 cursor: copy;
+            }
+            #result input:active {
+                background-color: yellow;
             }
 			#result ul {
 				margin: 0;

@@ -2,8 +2,6 @@ const LANG_CODES = ['aa','ab','ae','af','ak','am','an','ar-EG','ar-DZ','ar-SD','
 
 var applyTimeout;
 
-var latestVersions;
-
 function _(str) {return LOCALIZATION["en"][str]}
 function el(str) {return document.getElementById(str)}
 function isTypeNewVersion() {return el("form-type").dataset.value == "type-new-version"}
@@ -21,8 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     el("form-type").addEventListener("change", onFormTypeChange);
     el("game").addEventListener("change", refreshListBaseroms);
-    el("existing-translations").addEventListener("change", initListVersions);
-    el("existing-translations").addEventListener("change", refreshListBaseroms);
+    el("existing-translations").addEventListener("change", onSelectExistingTranslation);
     el("author").addEventListener("input", refreshRequiredVerAuthor);
     el("version").addEventListener("input", onVersionNameChange);
     el("version-button-latest").addEventListener("click", onVersionsMakeLatest);
@@ -65,50 +62,44 @@ function onClickResults(event) {
 function onFormTypeChange(event) {
     el("form-type").dataset.value = event.target.id;
     refreshFormType();
+    refreshVersionFieldValidity();
 	refreshListBaseroms();
     refreshRequiredVerAuthor();
 }
+function onSelectExistingTranslation() {
+    initListVersions();
+    refreshListBaseroms();
+    refreshVersionFieldValidity();
+}
 function onVersionNameChange(event) {
-    var version = event.target.value;
-    if (el("new-version-row")) {
-		el("new-version-row").dataset.version = version;
-        el("new-version-row").querySelector('input[type=radio]').value = version;
-        el("new-version-row").querySelector('input[type=checkbox]').value = version;
-        el("new-version-row").querySelector('th').textContent = "This new version" + (version ? " (" + version + ")" : "");
-    }
-	el("version-button-latest").disabled = !version;
+    refreshVersionFieldValidity();
+    refreshNewVersionNameInTable();
 }
 function onVersionsMakeLatest(event) {
-	if (window.confirm("Also uncheck previously highlighted versions?")) {
-		latestVersions = [el("version").value];
-	} else {
-		latestVersions.unshift(el("version").value);
-	}
+    var response;
+    var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
+	for (var i = 0; i < versionRows.length; i++) {
+        if (versionRows[i].id != "new-version-row" && versionRows[i].querySelector("input[type=checkbox]").checked) {
+            if (response === undefined) {
+                response = window.confirm("Also uncheck previously highlighted versions?");
+            }
+            if (response) {
+                versionRows[i].querySelector("input[type=checkbox]").checked = false;
+            }
+        }
+    }
+    el("new-version-row").querySelector("input[type=radio]").checked = true;
 	refreshListVersions();
-	
+
 }
 function onLatestVerListItemSelect(event) {
-	latestVersions[0] = event.target.value;
 	refreshListVersions();
-	prepareApply();
-}
-function onHighlightVerListItemSelect(event) {
-	if (event.target.checked) {
-		if (!latestVersions.includes(event.target.value)) {
-			latestVersions.push(event.target.value);
-		}
-	} else {
-		var index = latestVersions.indexOf(event.target.value);
-		if (index > 0) { // not -1 and not 0
-			latestVersions.splice(index, 1);
-		}
-	}
 	prepareApply();
 }
 function initListVersions() {
 	var container = el("latest-versions-set");
 	var tbody = container.querySelector("tbody");
-	tbody.textContent = '';	
+	tbody.textContent = '';
 	var addRow = function(version, isNew) {
 		var tr = document.createElement("tr");
 		var textTh = document.createElement("th");
@@ -127,7 +118,7 @@ function initListVersions() {
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.value = version;
-		checkbox.onchange = onHighlightVerListItemSelect;
+		checkbox.onchange = prepareApply;
 		tbody.appendChild(tr);
 		tr.appendChild(textTh);
 		tr.appendChild(latestTd);
@@ -144,41 +135,75 @@ function initListVersions() {
 	}
 	var projectVersions = PATCH_PROJECTS[el("existing-translations").value].getVersions();
 	for (var i in projectVersions) {
-		addRow(projectVersions[i].getVersionValue());//, projectVersions[i].isLatestVersion(), projectVersions[i].isAltLatestVersion());
+		addRow(projectVersions[i].getVersionValue());
 	}
     if (projectVersions.length) {
 		container.classList.remove("empty");
 	} else {
 		container.classList.add("empty");
 	}
-	var newRow = addRow("", true/*, false, false*/);
+	var newRow = addRow("", true);
 	newRow.id = "new-version-row";
 	initModelVersions();
+    refreshNewVersionNameInTable();
 }
 function initModelVersions() {
-	latestVersions = [];
+	var highlightedVersions = [];
+    var latestVersion;
 	var projectVersions = PATCH_PROJECTS[el("existing-translations").value].getVersions();
 	for (var i in projectVersions) {
 		if (projectVersions[i].isLatestVersion()) {
-			latestVersions.unshift(projectVersions[i].getVersionValue());
-		} else if (projectVersions[i].isAltLatestVersion() && !latestVersions.includes(projectVersions[i].getVersionValue())) {
-			latestVersions.push(projectVersions[i].getVersionValue());
+			latestVersion = projectVersions[i].getVersionValue();
+		} else if (projectVersions[i].isAltLatestVersion()) {
+			highlightedVersions.push(projectVersions[i].getVersionValue());
 		}
 	}
-	refreshListVersions();
+    var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
+	for (var i = 0; i < versionRows.length; i++) {
+		if (versionRows[i].dataset.version == latestVersion) {
+			versionRows[i].querySelector("input[type=radio]").checked = true;
+		}
+        versionRows[i].querySelector("input[type=checkbox]").checked = highlightedVersions.includes(versionRows[i].dataset.version);
+	}
+    refreshListVersions();
 }
 function refreshListVersions() {
 	var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
 	for (var i = 0; i < versionRows.length; i++) {
-		if (versionRows[i].dataset.version == latestVersions[0]) {
-			versionRows[i].querySelector("input[type=radio]").checked = true;
-			versionRows[i].querySelector("td.highlight").style.display = "none";
-		} else {
-			versionRows[i].querySelector("input[type=checkbox]").checked = latestVersions.includes(versionRows[i].dataset.version);
-			versionRows[i].querySelector("td.highlight").style.display = "";
-		}
+        var radio = versionRows[i].querySelector("input[type=radio]");
+        var checkbox = versionRows[i].querySelector("input[type=checkbox]");
+        if (radio.checked && !checkbox.disabled) {
+            checkbox.dataset.checked = checkbox.checked;
+            checkbox.checked = true;
+            checkbox.disabled = true;
+        } else if (!radio.checked && checkbox.disabled) {
+            checkbox.checked = (checkbox.dataset.checked == "true");
+            checkbox.disabled = false;
+        }
 	}
 }
+function refreshNewVersionNameInTable() {
+    var version = el("version").value;
+    if (el("new-version-row")) {
+		el("new-version-row").dataset.version = version;
+        el("new-version-row").querySelector('input[type=radio]').value = version;
+        el("new-version-row").querySelector('input[type=checkbox]').value = version;
+        el("new-version-row").querySelector('th').textContent = "This new version" + (version ? " (" + version + ")" : "");
+    }
+	el("version-button-latest").disabled = !version;
+}
+function refreshVersionFieldValidity() {
+    var version = el("version").value;
+    var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
+    for (var i = 0; i < versionRows.length; i++) {
+        if (versionRows[i].id != "new-version-row" && versionRows[i].dataset.version == version) {
+            el("version").setCustomValidity("This version number already exists");
+            return;
+        }
+    }
+    el("version").setCustomValidity("");
+}
+
 function refreshFormType() {
     if (isTypeNewVersion()) {
 		el("form-new-version").disabled = false;
@@ -290,6 +315,15 @@ function apply() {
 			var pjObj = PATCH_PROJECTS[pjJson.projectId];
 			pjJson.game = pjObj.getGameId();
 			pjJson.lang = pjObj.getLangId();
+            var latestVersions = [];
+            var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
+        	for (var i = 0; i < versionRows.length; i++) {
+                if (versionRows[i].querySelector("input[type=radio]").checked) {
+                    latestVersions.unshift(versionRows[i].dataset.version);
+                } else if (versionRows[i].querySelector("input[type=checkbox]").checked) {
+                    latestVersions.push(versionRows[i].dataset.version);
+                }
+            }
 			if (latestVersions.length > 1) {
 				pjJson.latest = latestVersions;
 			} else {
@@ -321,12 +355,6 @@ function apply() {
 			el("result-project-label").textContent = "Append this to PATCH_PROJECTS in database.js: (click to copy)";
 
 		}
-
-		/*for (var i in LANG_LIST) { // to unify language varieties
-			if (LANG_LIST[i].nameId == pjJson.lang) {
-				pjJson.lang = i;
-			}
-		}*/
 
 		var pjStr = JSON.stringify(pjJson);
 		pjStr = pjStr.replace(/"(\w+)":/g, "$1:"); // remove quotes on keys
