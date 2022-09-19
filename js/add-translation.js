@@ -90,7 +90,6 @@ function onVersionsMakeLatest(event) {
     }
     el("new-version-row").querySelector("input[type=radio]").checked = true;
 	refreshListVersions();
-
 }
 function onLatestVerListItemSelect(event) {
 	refreshListVersions();
@@ -193,14 +192,16 @@ function refreshNewVersionNameInTable() {
 	el("version-button-latest").disabled = !version;
 }
 function refreshVersionFieldValidity() {
-    var version = el("version").value;
-    var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
-    for (var i = 0; i < versionRows.length; i++) {
-        if (versionRows[i].id != "new-version-row" && versionRows[i].dataset.version == version) {
-            el("version").setCustomValidity("This version number already exists");
-            return;
-        }
-    }
+	if (isTypeNewVersion()) {
+		var version = el("version").value;
+		var versionRows = el("latest-versions-set").querySelectorAll("tbody tr");
+		for (var i = 0; i < versionRows.length; i++) {
+			if (versionRows[i].id != "new-version-row" && versionRows[i].dataset.version == version) {
+				el("version").setCustomValidity("This version number already exists");
+				return;
+			}
+		}
+	}
     el("version").setCustomValidity("");
 }
 
@@ -208,9 +209,13 @@ function refreshFormType() {
     if (isTypeNewVersion()) {
 		el("form-new-version").disabled = false;
 		el("form-new-translation").disabled = true;
+		el("version-button-latest").style.display = "inline-block"
+		el("version-button-reset").style.display = "inline-block"
     } else {
  		el("form-new-version").disabled = true;
 		el("form-new-translation").disabled = false;
+		el("version-button-latest").style.display = "none"
+		el("version-button-reset").style.display = "none"
 	}
 
     if (isTypeNewBaseRom()) {
@@ -348,6 +353,7 @@ function apply() {
 			pjJson.projectId = resPjIdBase + suffix;
 			pjJson.game = resGame;
 			pjJson.lang = resLang;
+			pjJson.latest = el("version").value || undefined;
 			pjJson.author = el("author").value || undefined;
 			pjJson.website = el("website").value || undefined;
 			pjJson.extraNote = el("extra-note").value || undefined;
