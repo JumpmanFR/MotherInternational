@@ -61,7 +61,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* German v1.0-v1.2.3 by GlostU ***(updated!)***
 	* Italian v1.0-v1.1 by CRefice
 	* Italian v1.0-v1.47 by Vecna ***(new!)***
-	* Polish v1.0.0-v1.0.2 by Voxar ***(updated!)***
+	* Polish v1.0.0-v1.1 by Voxar ***(updated!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* Latin American Spanish v2.0-v4.0 by ShadowOne333
 	* European Spanish v1.0a by josete2k ***(new!)***
@@ -83,11 +83,12 @@ To find out about the detailed procedure, please read this document: [How to add
 	* Italian v1.0-v1.1.1 by Lorenzooone
 	* Italian v1.0 by Snifit
 	* Korean v190301 by pjs
-	* Polish v1.0 by Voxar ***(new!)***
+	* Polish v1.1 by Voxar ***(new!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
+	* Russian v1.06 by ThatOneMeganium ***(new!)***
 	* European Spanish v1.0 by Jimmytrius
 
-Thanks to these 26 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 12 different languages: Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
+Thanks to these 27 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 12 different languages: Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
 Nine of these languages allow their speakers to play the entire MOTHER series from beginnings to end: English, French, German, Italian, Japanese, Korean, Polish, Portuguese and Spanish.\
 Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
 

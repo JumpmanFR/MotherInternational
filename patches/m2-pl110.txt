@@ -1,0 +1,506 @@
+EarthBound PL
+Wersja 1.1
+________________________________________________________________
+
+Spis treœci:
+
+1. Wstêp
+2. Instalacja spolszczenia
+3. Co przet³umaczono, zmieniono i dodano?
+4. Lista t³umaczeñ
+5. Autorzy
+________________________________________________________________
+
+1. Wstêp
+
+EarthBound (znane w Japonii jako Mother 2) jest drug¹ ods³on¹ serii EarthBound/Mother, która zosta³a wydania na SNES-a w 1994 roku. W grze wcielamy siê w Nessa, ch³opca, który zostaje obudzony przez meteoryt, który spad³ niedaleko jego domu. Postanawia zbadaæ t¹ ca³¹ sprawê, na miejscu dowiaduje siê od przybysza z przysz³oœci, ¿e jest jednym z czterech wybrañców, którzy ocal¹ œwiat przez kosmicznym niszczycielem, Giygasem, który ju¿ wczeœniej próbowa³ zaw³adn¹æ Ziemi¹. W swojej podró¿y spotka wielu przyjació³ i odkryje potencja³ swojej odwagi. Podczas tworzenia spolszczenia, doda³em mo¿liwoœæ biegania pod przyciskiem Y oraz wiele rzeczy ocenzurowanych w amerykañskim wydaniu.
+________________________________________________________________
+
+2. Instalacja spolszczenia
+
+£atka zadzia³a z amerykañsk¹ wersj¹ gry. ROM nie jest zawarty razem z ³atk¹, nale¿y go zdobyæ na w³asn¹ rêkê.
+
+1. WejdŸ na stronê https://www.romhacking.net/patch/
+2. Kliknij pierwszy przycisk (obok "ROM file") i wybierz ROM z gr¹.
+3. Kliknij drugi przycisk (obok "Patch file") i wybierz ³atkê spolszczaj¹c¹ (ebpl.bps).
+4. Suma kontrolna (CRC32) musi wynosiæ "DC9BB451". Jeœli jest inna, zaznacz opcje "Remove header".
+5. Kliknij "Apply patch".
+6. Twój spolszczony ROM zosta³ pobrany.
+________________________________________________________________
+
+3. Co przet³umaczono, zmieniono i dodano?
+
+Przet³umaczono wszystkie dialogi w grze, w tym te¿ nazwy przedmiotów, przeciwników itp. Przywrócono wiele (ale nie wszystkie) rzeczy ocenzurowanych, takich jak czerwone krzy¿e na szpitalach czy ciê¿arówki z logiem przypominaj¹cym Coca Colê. Dodano te¿ kilka usprawnieñ, mo¿liwoœæ biegania za pomoc¹ przycisku Y, rozszerzono wiêkszoœæ okienek dialogowych, dodano 2 dodatkowe punkty teleportacyjne. W Threed po tym jak miasto zostaje uratowane od zombie pojawiaj¹ siê dwaj nowi NPC, którzy w oryginalnej wersji nie wystêpowali ze wzglêdu na b³¹d zaprogramowanej ich flagi zdarzenia. Niektóre dialogi zosta³y równie¿ lekko zmodyfikowane, by narzuca³y mniej cenzury.
+
+Zmiany w wersji 1.1:
+- Drobne poprawki w tekœcie
+- Przywrócono oryginalny sprite Ob³¹kanego Wyznawcy
+- Tymczasowi cz³onkowie dru¿yny otrzymali nowe ukoœne sprite'y
+- Usuniêto komendy "Pogadaj" i "SprawdŸ", od teraz gra nie pyta o dane komendy a menu g³ówne zosta³o przeniesione pod przycisk X
+- Imiona/tytu³y niektórych postaci pojawiaj¹ siê w oknach dialogowych podczas rozmów
+- Ojciec Nessa nie dzwoni ju¿ w losowych momentach
+- Okno "Status", które ukazuje siê po wybraniu komendy "Ekwipunek" zosta³o rozszerzone o Prêdkoœæ, Œmia³oœæ i Szczêœcie
+- Dodano okno "Odpornoœci", które ukazuje siê po wybraniu komendy "Ekwipunek"
+- I wiele wiêcej!
+________________________________________________________________
+
+4. Lista t³umaczeñ
+
+Nazwy przedmiotów:
+
+Franklin badge - Odznaka Franklina
+Teddy bear - Pluszowy Miœ
+Super plush bear - Super Pluszowy Miœ
+Broken machine - Zepsuta Maszyna
+Broken gadget - Zepsute Urz¹dzenie
+Broken air gun - Zepsuta Wiatrówka
+Broken spray can - Zepsuty Spray
+Broken laser - Zepsuty Laser
+Broken iron - Zepsute ¯elazo
+Broken pipe - Zepsuta Rura
+Broken cannon - Zepsuta Armata
+Broken tube - Zepsuta Tuba
+Broken bazooka - Zepsuta Bazuka
+Broken trumpet - Zepsuta Tr¹bka
+Broken harmonica - Zepsuta Harmonijka
+Broken antenna - Zepsuta Antena
+Cracked bat - Pêkniêty Kij
+Tee ball bat - Kij do Tee Balla
+Sand lot bat - Kij do Sand Lota
+Minor league bat - Kij Mniejszej Ligi
+Mr. Baseball bat - Kij Baseballisty
+Big league bat - Kij Wielkiej Ligi
+Hall of fame bat - Kij Hali S³awy
+Magicant bat - Kij Magicant
+Legendary bat - Legendarny Kij
+Gutsy bat - Kij Determinacji
+Casey bat - Kij Casey
+Fry pan - Patelnia
+Thick fry pan - Ciê¿ka Patelnia
+Deluxe fry pan - Luksusowa Patelnia
+Chef's fry pan - Patelnia Szefa Kuchni
+French fry pan - Francuska Patelnia
+Magic fry pan - Magiczna Patelnia
+Holy fry pan - Œwiêta Patelnia
+Sword of kings - Miecz Królów
+Pop gun - Pukawka
+Stun gun - Paralizator
+Toy air gun - Wiatrówka Zabawka
+Magnum air gun - Du¿a Wiatrówka
+Zip gun - Pistolet B³yskawiczny
+Laser gun - Pistolet Laserowy
+Hyper beam - Hiper Promieñ
+Crusher beam - Mia¿d¿¹cy Promieñ
+Spectrum beam - Promieñ Widmo
+Death ray - Promieñ Œmierci
+Baddest beam - Najgorszy Promieñ
+Moon beam gun - Ksiê¿ycowy Pistolet
+Gaia beam - Promieñ Gaia
+Yo-yo - Jo-jo
+Slingshot - Proca
+Bionic slingshot - Bioniczna Proca
+Trick yo-yo - Trikowe Jo-jo
+Combat yo-yo - Bojowe Jo-jo
+Travel charm - Amulet Podró¿ny
+Great charm - Wielki Amulet
+Crystal charm - Krystaliczny Amulet
+Rabbit's foot - Królicza £apa
+Flame pendant - P³omienny Wisiorek
+Rain pendant - Deszczowy Wisiorek
+Night pendant - Nocny Wisiorek
+Sea pendant - Morski Wisiorek
+Star pendant - Gwiezdny Wisiorek
+Cloak of kings - Peleryna Królów
+Cheap bracelet - Tania Bransoleta
+Copper bracelet - Miedziana Bransoleta
+Silver bracelet - Srebrna Bransoleta
+Gold bracelet - Z³ota Bransoleta
+Platinum band - Platynowa Obrêcz
+Diamond band - Diamentowa Obrêcz
+Pixie's bracelet - Bransoleta Pixie
+Cherub's band - Obrêcz Anio³a
+Goddess band - Boska Obrêcz
+Bracer of kings - Naramiennik Królów
+Baseball cap - Czapka Baseballowa
+Holmes hat - Czapka Holmesa
+Mr. Baseball cap - Czapka Baseballisty
+Hard hat - Kask
+Ribbon - Wst¹¿ka
+Red ribbon - Czerwona Wst¹¿ka
+Goddess ribbon - Boska Wst¹¿ka
+Coin of slumber - Moneta Drzemki
+Coin of defense - Moneta Obrony
+Lucky coin - Moneta Szczêœcia
+Talisman coin - Moneta Talizman
+Shiny coin - B³yszcz¹ca Moneta
+Souvenir coin - Pami¹tkowa Moneta
+Diadem of kings - Diadem Królów
+Cookie - Ciastko
+Bag of fries - Zestaw Frytek
+Hamburger - Hamburger
+Boiled egg - Ugotowane Jajko
+Fresh Egg - Œwie¿e Jajko
+Picnic lunch - Piknikowy Lunch
+Pasta di Summers - Makaron Summers
+Pizza - Pizza
+Chef's special - Specjalnoœæ Szefa
+Large pizza - Du¿a Pizza
+PSI caramel - Karmelek PSI
+Magic truffle - Magiczna Trufla
+Brain food lunch - Lunch Mózgowca
+Rock candy - Skalny Cukierek
+Croissant - Rogalik
+Bread roll - Bu³ka
+Pak of bubble gum - Paczka Gum Balonowych
+Jar of Fly Honey - S³oik Muszego Miodu
+Can of fruit juice - Puszka Soku
+Royal iced tea - Królewska Herbata
+Protein drink - Napój Bia³kowy
+Kraken soup - Zupa Krakena
+Bottle of water - Butelka Wody
+Cold remedy - Lek na Przeziêbienie
+Vial of serum - Fiolka z Surowic¹
+IQ capsule - Kapsu³ka Inteligencji
+Guts capsule - Kapsu³ka Œmia³oœci
+Speed capsule - Kapsu³ka Prêdkoœci
+Vital capsule - Kapsu³ka Witalnoœci
+Luck capsule - Kapsu³ka Szczêœcia
+Ketchup packet - Paczka Keczupu
+Sugar packet - Paczka Cukru
+Tin of Cocoa - Puszka Kakao
+Carton of cream - Karton Œmietany
+Sprig of parsley - Ga³¹zka Natki Pietruszki
+Jar of hot sauce - S³oik Gor¹cego Sosu
+Salt packet - Paczka Soli
+Backstage pass - Wejœciówka za Kulisy
+Jar of delisauce - S³oik Delikatesów
+Wet towel - Mokry Rêcznik
+Refreshing herb - Odœwie¿aj¹ce Zio³o
+Secret herb - Sekretne Zio³o
+Horn of life - Róg ¯ycia
+Counter-PSI unit - Przetrzymywacz PSI
+Shield killer - Zabójca Tarcz
+Bazooka - Bazuka
+Heavy bazooka - Ciê¿ka Bazuka
+HP-sucker - Przyssawka HP
+Hungry HP-sucker - G³odna Przyssawka HP
+Xterminator spray - Spray do Têpienia
+Slime generator - Generator Szlamu
+Yogurt dispenser - Dozownik Jogurtu
+Ruler - Linijka
+Snake bag - Torba Wê¿y
+Mummy wrap - Chusta Mumii
+Protractor - K¹tomierz
+Bottle rocket - Butlorakieta
+Big bottle rocket - Du¿a Butlorakieta
+Multi bottle rocket - Multi Butlorakieta
+Bomb - Bomba
+Super bomb - Super Bomba
+Insecticide spray - Spray Owadobójczy
+Rust promoter - Promotor Rdzy
+Rust promoter DX - Promotor Rdzy DX
+Pair of dirty socks - Para Brudnych Skarpet
+Stag beetle - Dzikie Chrz¹szcze
+Toothbrush - Szczoteczka do Zêbów
+Handbag strap - Pasek na Torebkê
+Pharaoh's curse - Kl¹twa Faraona
+Defense shower - Tusz Obronny
+Letter from mom - List od Mamy
+Sudden guts pill - Pigu³ka Nag³ej Œmia³oœci
+Bag of Dragonite - Torba Smokonitu
+Defense spray - Spray Obronny
+Piggy nose - Nos Prosi¹tka
+For Sale sign - Znak "Na Sprzeda¿"
+Shyness book - Ksi¹¿ka na Nieœmia³oœæ
+Picture postcard - Pocztówka ze Zdjêciem
+King banana - Królewski Banan
+Letter from Tony - List od Tony'ego
+Chick - Pisklê
+Chicken - Kurczak
+Key to the shack - Klucz do Chaty
+Key to the cabin - Klucz do Kabiny
+Bad key machine - Maszyna Z³ych Kluczy
+Zombie paper - Lep na Zombie
+Hawk eye - Jastrzêbie Oko
+Bicycle - Rower
+ATM card - Karta Bankomatowa
+Show ticket - Bilet na Wystêp
+Letter from kids - List od Dzieci
+Wad of bills - Walizka Banknotów
+Receiver phone - Odbiornik Telefonu
+Diamond - Diament
+Signed banana - Podpisany Banan
+Pencil eraser - Wymazywacz O³ówków
+Hieroglyph copy - Kopia Hieroglifów
+Meteotite - Meteotyt
+Contact lens - Soczewki Kontaktowe
+Hand-Aid - Pomocna D³oñ
+Trout yogurt - Jogurt Pstr¹gowy
+Banana - Banan
+Calorie stick - Kaloryczny Kij
+Key to the tower - Klucz do Wie¿y
+Meteorite piece - Kawa³ek Meteorytu
+Earth pendant - Ziemski Wisiorek
+Neutralizer - Neutralizator
+Sound Stone - Kamieñ DŸwiêkowy
+Exit mouse - Mysz Wyjœcia
+Gelato de resort - Lody W³oskie
+Snake - W¹¿
+Viper - ¯mija
+Brain stone - Kamieñ Mózgowy
+Town map - Mapa Miast
+Suporma - Suporma
+Key to the locker - Klucz do Szafki
+Insignificant item - Nieistotny Przedmiot
+Magic tart - Magiczna Tarta
+Tiny ruby - Malutki Rubin
+Monkey's love - Mi³oœæ Ma³py
+Eraser eraser - Wymazywacz Gumek
+Tendakraut - Tendapusta
+T-rex's bat - Kij T-rexa
+Ultimate bat - Ostateczny Kij
+Double beam - Podwójny Promieñ
+Defense ribbon - Wst¹¿ka Obrony
+Talisman ribbon - Wst¹¿ka Talizman
+Saturn ribbon - Wst¹¿ka Saturna
+Coin of silence - Moneta Ciszy
+Charm coin - Moneta Wdziêku
+Cup of noodles - Kubek Nudli
+Skip sandwich - Kanapka Przeskoku
+Skip sandwich DX - Kanapka Przeskoku DX
+Lucky sandwich - Kanapka Szczêœcia
+Cup of coffee - Kubek Kawy
+Double burger - Podwójny Burger
+Peanut cheese bar - Baton Seroworzechowy
+Piggy jelly - Galareta Prosi¹tka
+Bowl of rice gruel - Miska Kleiku Ry¿owego
+Bean croquette - Krokiet z Fasoli
+Molokheiya soup - Zupa Molokheiya
+Plain roll - Zwyk³a Rolka
+Kabob - Kabob
+Plain yogurt - Zwyk³y Jogurt
+Beef jerky - Suszona Wo³owina
+Mammoth burger - Mamuci Burger
+Spicy jerky - Pikantna Wo³owina
+Luxury jerky - Luksusowa Wo³owina
+Bottle of DXwater - Butelka Wody DX
+Magic pudding - Magiczny Budyñ
+Non-stick frypan - Idealna Patelnia
+Mr. Saturn coin - Moneta Pana Saturna
+Meteornium - Meteornium
+Popsicle - Lód na Patyku
+Cup of Lifenoodles - Kubek ¯yciowych nudli
+Carrot key - Marchewkowy Klucz
+
+Nazwy PSI:
+
+PSI Rockin - PK Bitka
+PSI Fire - PK Ogieñ
+PSI Freeze - PK Zamro¿enie
+PSI Thunder - PK Piorun
+PSI Flash - PK B³ysk
+PSI Starstorm - PK Gwiezdna Burza
+Lifeup - Uzdrowienie
+Healing - Leczenie
+Shield - Tarcza
+PSI Shield - Tarcza PSI
+Offence up - Wzrost Ataku
+Defence down - Obni¿enie Obrony
+Hypnosis - Hipnoza
+PSI Magnet - Wysysacz PP
+Paralysis - Parali¿
+Brainshock - Wstrz¹s Mózgu
+Teleport - Teleportacja
+
+Nazwy dolegliwoœci:
+
+Diamondized - Diamentyzacja
+Paralyzed - Parali¿
+Nauseous - Md³oœci
+Poisoned - Zatrucie
+Sunstroke - Pora¿enie
+Sniffling - Przeziêbienie
+Mashroomized - Zgrzybienie
+Possessed - Opêtanie
+Homesick - Têsknota
+
+Nazwy przeciwników:
+
+Insane Cultist - Ob³¹kany Wyznawca
+Dept. Store Spook - Zjawa z Domu Towarowego
+Armored Frog - Pancerna ¯aba
+Bad Buffalo - Z³y Bawó³
+Black Antoid - Czarny Mrówkoid
+Red Antoid - Czerwony Mrówkoid
+Ramblin' Evil Mushroom - Wêdruj¹cy Z³y Grzyb
+Struttin' Evil Mushroom - Dumnie Krocz¹cy Z³y Grzyb
+Mobile Sprout - Ruchliwy Pêd
+Tough Mobile Sprout - Mocny Ruchliwy Pêd
+Enraged Fire Plug - Rozwœcieczony Hydrant
+Mystical Record - Mistyczne Nagranie
+Atomic Power Robot - Atomowy Robot Mocy
+Nuclear Reactor Robot - Nuklearny Robot Reaktor
+Guardian Hieroglyph - Hieroglif Obroñcy
+Lethal Asp Hieroglyph - Hieroglif GroŸnej ¯mii
+Electro Swoosh - Elektro-Szum
+Conducting Menace - Przewodz¹cy Rozrabiaka
+Conducting Spirit - Przewodz¹ca Dusza
+Evil Elemental - Z³y ¯ywio³ak
+Ness's Nightmare - Koszmar Nessa
+Annoying Old Party Man - Irytuj¹cy Imprezowicz
+Annoying Reveler - Irytuj¹cy Biesiadnik
+Unassuming Local Guy - Skromny Miejscowy
+New Age Retro Hippie - Retro Hipis Nowej Ery
+Mr. Carpainter - Pan Lakiernik
+Carbon Dog - Wêglowy Pies
+Mighty Bear - Potê¿ny NiedŸwiedŸ
+Mighty Bear Seven - Potê¿ny NiedŸwiedŸ Siedem
+Putrid Moldyman - Zgni³y Cz³owiek Pleœñ
+Thunder Mite - Burzowe Maleñstwo
+Cranky Lady - Nieznoœna Pani
+Extra Cranky Lady - Ekstra Nieznoœna Pani
+Giygas - Giygas
+Wetnosaur - Wetnozaur
+Chomposaur - Czompozaur
+Titanic Ant - Tytaniczna Mrówka
+Gigantic Ant - Gigantyczna Mrówka
+Shrooom! - Chomooor!
+Plague Rat of Doom - Szczur Zaraza Zag³ady
+Mondo Mole - Kret Mondo
+Guardian Digger - Stra¿nik Kopacz
+Scalding Coffee Cup - Kubek Wrz¹cej Kawy
+Loaded Dice - Na³adowana Kostka
+Slimy Little Pile - Œluzowata Ma³a Kupa
+Even Slimier Little Pile - Bardziej Œluzowata Kupa
+Arachnid! - Pajêczak!
+Arachnid!!! - Pajêczak!!!
+Kraken - Kraken
+Bionic Kraken - Bioniczny Kraken
+Spinning Robo - Obrotowy Robot
+Whirling Robo - Wiruj¹cy Robot
+Hyper Spinning Robo - Hiper Obrotowy Robot
+Cop - Gliniarz
+Coil Snake - Zwiniêty W¹¿
+Thirsty Coil Snake - Spragniony Zwiniêty W¹¿
+Mr. Batty - Pan Nietoperzyk
+Elder Batty - Starszy Nietoperzyk
+Violent Roach - Gwa³towny Karaluch
+Filthy Attack Roach - Ohydny Atakuj¹cy Karaluch
+Crazed Sign - Zwariowany Znak
+Wooly Shambler - We³nisty £azik
+Wild 'n Wooly Shambler - Dziki We³nisty £azik
+Skate Punk - Skate Punk
+Skelpion - Skelpion
+Dread Skelpion - Straszny Skelpion
+Starman - Starman
+Starman Super - Starman Super
+Ghost of Starman - Duch Starmana
+Smilin' Sphere - Uœmiechniêta Sfera
+Uncontrollable Sphere - Niekontrolowana Sfera
+Petrified Royal Guard - Skamienia³y Stra¿nik
+Guardian General - Dowódca Stra¿y
+Starman Deluxe - Luksusowy Starman
+Final Starman - Ostateczny Starman
+Urban Zombie - Miejskie Zombie
+Zombie Possessor - Opêtaniec Zombie
+Zombie Dog - Pies Zombie
+Over Zealous Cop - Nadgorliwy Gliniarz
+Territorial Oak - Terytorialny D¹b
+Hostile Elder Oak - Wrogi Starszy D¹b
+Diamond Dog - Diamentowy Pies
+Marauder Octobot - Maruder Oœmiornibot
+Military Octobot - Militarny Oœmiornibot
+Mechanical Octobot - Mechaniczny Oœmiornibot
+Ultimate Octobot - Ostateczny Oœmiornibot
+Mad Duck - Szalona Kaczka
+Dali's Clock - Zegar Dali
+Trillionage Sprout - Trylionletni Pêd
+Musica - Muzykant
+Desert Wolf - Pustynny Wilk
+Master Belch - Mistrz Bek
+Big Pile of Puke - Du¿a Kupa Wymiocin
+Master Barf - Mistrz Rzyg
+Kiss of Death - Poca³unek Œmierci
+French Kiss of Death - Mi³osny Poca³unek Œmierci
+Foppy - Foppy
+Fobby - Fobby
+Zap Eel - Elektryczny Wêgorz
+Tangoo - Tangoo
+Boogey Tent - Boogey Namiot
+Squatter Demon - Dziki Lokator Demon
+Crested Booka - Grzywiasty Booka
+Great Crested Booka - Wielki Grzywiasty Booka
+Lesser Mook - Pomniejszy Mook
+Mook Senior - Senior Mook
+Smelly Ghost - Cuchn¹cy Duch
+Stinky Ghost - Œmierdz¹cy Duch
+Everdred - Everdred
+Attack Slug - Atakuj¹cy Œlimak
+Pit Bull Slug - Piekielny Œlimak
+Rowdy Mouse - Chuligañska Mysz
+Deadly Mouse - Œmiertelna Mysz
+Care Free Bomb - Beztroska Bomba
+Electro Specter - Elektro Widmo
+Handsome Tom - Przystojny Tom
+Smilin' Sam - Uœmiechniêty Sam
+Manly Fish - Mêska Ryba
+Manly Fish's Brother - Brat Mêskiej Ryby
+Runaway Dog - Pies Uciekinier
+Trick or Trick Kid - Dzieciak od Psikusów
+Cave Boy - Jaskiniowiec
+Abstract Art - Abstrakcyjna Sztuka
+Shattered Man - Rozbity Cz³owiek
+Fierce Shattered Man - Okrutny Rozbity Cz³owiek
+Ego Orb - Ego Kula
+Thunder and Storm - Grzmot i Burza
+Yes Man Junior - Junior na Tak
+Frankystein Mark II - Frankystein II Generacji
+Frank - Frank
+Cute Li'l UFO - Urocze Ma³e UFO
+Beautiful UFO - Piêkne UFO
+Pogo Punk - Pogo Punk
+Tough Guy - Twardziel
+Mad Taxi - Szalona Taksówka
+Evil Mani-Mani - Z³y Mani-Mani
+Mr. Molecule - Pan Cz¹steczka
+Worthless Protoplasm - Nic Nie Warta Protoplazma
+Sentry Robot - Robot Stra¿niczy
+Heavily Armed Pokey - Ciê¿ko Uzbrojony Porky
+Psychic Psycho - Psychiczny Psychol
+Major Psychic Psycho - G³ówny Psychiczny Psychol
+Mole Playing Rough - Ostro Graj¹cy Kret
+Gruff Goat - Gburowaty Kozio³
+Clumsy Robot - Niezdarny Robot
+Soul Consuming Flame - Ogieñ Poch³aniaj¹cy Dusze
+Demonic Petunia - Demoniczna Petunia
+Ranboob - Ranboob
+Li'l UFO - Ma³e UFO
+High-class UFO - UFO Wysokiej Klasy
+Noose Man - Cz³owiek Lasso
+Robo-pump - Robo-pompa
+Plain Crocodile - Zwyk³y Krokodyl
+Strong Crocodile - Mocny Krokodyl
+Hard Crocodile - Twardy Krokodyl
+No Good Fly - Niedobra Mucha
+Mostly Bad Fly - Najgorsza Mucha
+Spiteful Crow - Z³oœliwy Kruk
+Starman Junior - Starman Junior
+Farm Zombie - Wiejskie Zombie
+Criminal Caterpillar - Kryminalna G¹sienica
+Evil Eye - Z³e Oko
+Mini Barf - Mini Rzyg
+Master Criminal Worm - Wspania³y Wystêpny Robak
+Captain Strong - Kapitan Silny
+________________________________________________________________
+
+5. Autorzy
+
+T³umaczenie oraz testowanie polonizacji:
+
+- Voxar
+
+U¿yte Programy:
+
+- CoilSnake (g³ówna edycja gry, rozpakowywanie zawartoœci ROM-u oraz ponowne jej spakowanie, edycja napisów na budynkach)
+- Notepad++ (edycja tekstu)
+- GraphicsGale (edycja grafik)

@@ -1,0 +1,504 @@
+Mother 3 PL
+Wersja 1.1
+________________________________________________________________
+
+Spis treúci:
+
+1. WstÍp
+2. Instalacja spolszczenia
+3. Co przet≥umaczono, zmieniono i dodano?
+4. Lista t≥umaczeÒ
+5. Autorzy
+________________________________________________________________
+
+1. WstÍp
+
+Mother 3 jest trzeciπ i ostatniπ ods≥onπ serii EarthBound/Mother, ktÛra zosta≥a wydania na GBA w 2006 roku. Akcja gry rozgrywa siÍ na Wyspach Nigdzie, ktÛre zostajπ zaatakowane przez armiÍ åwiÒskich Masek. G≥Ûwnym bohaterem jest Lucas, ktÛry stara siÍ pokrzyøowaÊ plany tejøe armii i uratowaÊ úwiat przed wielkim niebezpieczeÒstwem. Polonizacja zosta≥a stworzona na podstawie fanowskiego angielskiego t≥umaczenia.
+________________________________________________________________
+
+2. Instalacja spolszczenia
+
+£atka zadzia≥a z japoÒskπ wersjπ gry. ROM nie jest zawarty razem z ≥atkπ, naleøy go zdobyÊ na w≥asnπ rÍkÍ.
+
+1. Wejdü na stronÍ https://www.romhacking.net/patch/
+2. Kliknij pierwszy przycisk (obok "ROM file") i wybierz ROM z grπ.
+3. Kliknij drugi przycisk (obok "Patch file") i wybierz ≥atkÍ spolszczajπcπ (mother3pl.bps).
+4. Kliknij "Apply patch".
+5. TwÛj spolszczony ROM zosta≥ pobrany.
+________________________________________________________________
+
+3. Co przet≥umaczono, zmieniono i dodano?
+
+Przet≥umaczono wszystkie dialogi w grze, w tym teø nazwy przedmiotÛw, przeciwnikÛw itp. Przet≥umaczono rÛwnieø (prawie) wszystkie grafiki.
+
+Zmiany w wersji 1.1:
+- Drobne poprawki w tekúcie
+- Przet≥umaczono brakujπce grafiki
+- Dodano polskie znaki do klawiatury podczas nazywania postaci
+________________________________________________________________
+
+4. Lista t≥umaczeÒ
+
+Nazwy przedmiotÛw:
+
+Lighter's Lumber - Belka Lightera
+Fresh Lumber - åwieøe Drewno
+Stick - Kij
+Better Stick - Lepszy Kij
+Easy-Grip Stick - Wygodny Kij
+Good Stick - Dobry Kij
+Very Good Stick - Bardzo Dobry Kij
+Funny Stick - Zabawny Kij
+Vigor Stick - Kij Wigoru
+Clever Stick - Kij Sprytu
+Master Stick - Mistrzowski Kij
+Mystical Stick - Mistyczny Kij
+Gloves - RÍkawiczki
+Durable Gloves - Wytrzyma≥e RÍkawiczki
+Chic Gloves - Szykowne RÍkawiczki
+Strong Gloves - Silne RÍkawiczki
+Magic Gloves - Magiczne RÍkawiczki
+Sevolg - IkzciwakÍr
+Expensive Gloves - Drogie RÍkawiczki
+Angel Gloves - RÍkawiczki Anio≥a
+Mystical Gloves - Mistyczne RÍkawiczki
+Ordinary Shoes - Zwyk≥e Buty
+Durable Shoes - Wytrzyma≥e Buty
+Sharp Shoes - Ostre Buty
+Ultimate Shoes - Ostateczne Buty
+Mystical Shoes - Mistyczne Buty
+Good Shoes - Dobre Buty
+Rubber Boots - Gumowe Buty
+Barefoot Shoes - Bose Buty
+Non-Slip Shoes - Buty Antypoúlizgowe
+Handy Yo-Yo - PorÍczne Jo-Jo
+Canine Weapon - Psia BroÒ
+DCMC Pamphlet - Broszura DCMC
+Fake Bat - Fa≥szywy Kij
+Fake Frying Pan - Fa≥szywa Patelnia
+Real Bat - Prawdziwy Kij
+Mini-Mini Charm - Czar Mini-Mini
+Flea Charm - Pchli Czar
+Mosquito Charm - Czar Komara
+Fly Charm - Czar Muchy
+Bantam Charm - Koguci Czar
+Feather Charm - Czar PiÛra
+Pumice Charm - Czar Pumeksu
+Heavy Charm - CiÍøki Czar
+Thud Charm - Czar £omotu
+White Collar - Bia≥a Obroøa
+Brown Collar - Brπzowa Obroøa
+Black Collar - Czarna Obroøa
+Striped Collar - Obroøa w Paski
+Red Collar - Czerwona Obroøa
+DCMC Shirt - Koszulka DCMC
+Rubber Cape - Gumowa Peleryna
+Aloha Coat - Koszulka Aloha
+Warm Sweater - Ciep≥y Sweter
+Goddess Bustier - Boski Stanik
+Awesome Cloak - Niesamowity P≥aszcz
+Manly Bandana - MÍska Bandana
+Chick Bandana - Bandana PisklÍcia
+Sparrow Bandana - Bandana WrÛbla
+Rail Bandana - Bandana Chruúcielu
+Swallow Bandana - Bandana JaskÛ≥ki
+Crow Bandana - Bandana Wrony
+Kite Bandana - Bandana Latawca
+Horus Bandana - Bandana Horusu
+Ordinary Hat - Zwyk≥y Kapelusz
+Cow Hat - Krowia Czapka
+Alligator Hat - Czapka Aligatora
+Bear Hat - Czapka Niedüwiedzia
+Otter Hat - Czapka Wydry
+Scarlet Ribbon - Szkar≥atna Wstπøka
+Azure Ribbon - Lazurowa Wstπøka
+Boing Ribbon - Wstπøka Boing
+Fairy Ribbon - Wstπøka WrÛøki
+Angel Ribbon - Wstπøka Anio≥a
+Goddess Ribbon - Boska Wstπøka
+DCMC Hat - Czapka DCMC
+Awesome Crown - Wspania≥a Korona
+Aries Bracelet - Bransoleta Barana
+Aquarius Bracelet - Bransoleta Wodnika
+Pisces Bracelet - Bransoleta Ryb
+Capricorn Bracelet - Bransoleta Kozioroøca
+Taurus Bracelet - Bransoleta Byka
+Gemini Bracelet - Bransoleta Bliüniπt
+Cancer Bracelet - Bransoleta Raka
+Leo Bracelet - Bransoleta Lwa
+Virgo Bracelet - Bransoleta Panny
+Libra Bracelet - Bransoleta Wagi
+Scorpio Bracelet - Bransoleta Skorpiona
+Sagittarius Bracelet - Bransoleta Strzelca
+DCMC Ring - PierúcieÒ DCMC
+Awesome Ring - Wspania≥y PierúcieÒ
+Nut - Orzech
+Nut Bread - Chleb Orzechowy
+Nut Cookie - Ciastko Orzechowe
+Fresh Milk - åwieøe Mleko
+Rotten Milk - Zgni≥e Mleko
+Yogurt - Jogurt
+Edible Mushroom - Jadalny Grzyb
+Innit Tea - Herbata Innit
+Beef Jerky - Suszona Wo≥owina
+Fresh Egg - åwieøe Jajko
+Rotten Eclair - Zgni≥a Eklerka
+Peculiar Cheese - Specyficzny Ser
+Bag of Pork Chips - Chipsy Wieprzowe
+Luxury Banana - Luksusowy Banan
+Bread Roll - Bu≥ka
+Fizzy Soda - Soda Gazowana
+Big City Soda - Miejska Soda
+Big City Cola - Miejska Cola
+Big City Burger - Miejski Burger
+Bag of Big City Fries - Miejskie Frytki
+Doggy Biscuit - Herbatnik dla Psa
+Doggy Jerky - Wo≥owina dla Psa
+White Croissant - Bia≥y Rogalik
+Cup of Pork Noodles - Wieprzowe Nudle
+Pork Stew - Gulasz Wieprzowy
+Sincerity Dumplings - Pierogi Szczeroúci
+Strawberry Tofu - Truskawkowe Tofu
+Lucky Rice - Ryø SzczÍúcia
+Lotto Meal - Posi≥ek Lotto
+Jumbo Shrimp Soup - Zupa z Krewetek Jumbo
+Giant Abalone Steak - Wielki Stek z Abalone
+Double Jerky - PodwÛjna Wo≥owina
+Grilled Chicken - Grillowany Kurczak
+Grilled Fish - Grillowana Ryba
+Pasta with a Past - Makaron Przesz≥oúci
+Favorite Pizza - Ulubiona Pizza
+King Burger - KrÛlewski Burger
+Beefsteak - Stek Wo≥owy
+Rich Kid Stew - Bogaty Gulasz
+Rich Parfait - Bogaty Parfait
+Hot Dog Sushi - Hot Dog Sushi
+Magic Gelatin - Magiczna Øelatyna
+Magic Tart - Magiczna Tarta
+Magic Pudding - Magiczny BudyÒ
+Magic Cake - Magiczne Ciasto
+Antidote - Antidotum
+Anti-Paralysis - Anty-Paraliø
+Alarm Cicada - Alarmujπca Cykada
+Fresh Mint - åwieøa MiÍta
+Paper Fan - Wachlarz
+Recollection Bell - Dzwon WspomnieÒ
+Eye Drops - Krople do Oczu
+Flea Powder - Proszek na Pch≥y
+Secret Herb - Sekretne Zio≥o
+Cup of Lifenoodles - Kubek Øyciowych Nudli
+Hot Spring Egg - Jajko Gorπcego èrÛd≥a
+Thunder Bomb - Bomba B≥yskawiczna
+Running Bomb - Biegajπca Bomba
+Sprinting Bomb - Sprintujπca Bomba
+Pencil Rocket - O≥Ûwkowa Rakieta
+Bomb - Bomba
+Super Bomb - Super Bomba
+New Year's Eve Bomb - Bomba Sylwestrowa
+Honey Shower - Miodowy Prysznic
+Ancient Banana - Staroøytny Banan
+Bug Spray - Spray na Robaki
+Saltwater Gun - Pistolet S≥onowodny
+Offense Spray - Spray Ofensywny
+Defense Spray - Spray Obronny
+Enemy Bufferizer - Wrogi Buforizer
+Enemy Wimperizer - Wrogi Wimperizer
+Attack Attractor - Atakujπcy Atraktor
+Made-You-Look - Rozejrzyj SiÍ
+Dragonfly - Waøka
+Silver Dragonfly - Srebrna Waøka
+Chick - PisklÍ
+Chicken - Kurczak
+Pickled Veggie Plate - Marynowane Warzywa
+Meteotite - Meteotyt
+Friend's Yo-Yo - Jo-Jo Przyjaciela
+Drago Fang - Kie≥ Drago
+Dung - GnÛj
+Dolphin Ossicle - Kosteczka Delfina
+Spiky Weapon - Kolczasta BroÒ
+Knit Sweater - Sweter z Dzianiny
+DCMC Boxers - Bokserki DCMC
+Magic Pendant - Magiczny Wisiorek
+Encouraging Words - S≥owa ZachÍty
+Baked Yam - Pieczony Ziemniak
+Mole Cricket Brother - Brat K. åwierszcza
+Hermit Crab Shell - Skorupa Biernatka
+Flame Pendant - Ognisty Wisiorek
+Ice Pendant - Lodowy Wisiorek
+Thunder Pendant - Wisiorek Pioruna
+Courage Badge - Odznaka Odwagi
+Souvenir Dress - Pamiπtkowa Sukienka
+Pencil Eraser - Wymazywacz O≥ÛwkÛw
+Franklin Badge - Odznaka Franklina
+Kid's Shirt - Koszulka Dzieciaka
+Good Kid's Shirt - Dobra Koszulka
+Kid's Hat - Czapka Dzieciaka
+Jar of Yummy Pickles - S≥oik Pysznych Pikli
+Red Hat - Czerwona Czapka
+White Ribbon - Bia≥a Wstπøka
+Bird - Ptak
+Waters of Time - Wody Czasu
+Stinkbug's Memory - PamiÍÊ Pluskwy
+Phrygia's Notebook - Notatnik Phrygii
+Shield Snatcher - Wy≥apywacz Tarcz
+Trivia Card - Karta Ciekawostek
+Wall Staples - Zszywki åcienne
+Siren Beetle - Syreni Chrzπszcz
+Smoke Bomb - Bomba Dymna
+Hypno-Pendulum - Hipno-Wahad≥o
+Scary Mask - Straszna Maska
+Tickle Stick - £askoczπcy Kij
+Drawbridge Key - Klucz do Mostu
+Noble Spittoon - Szlachetna Spluwaczka
+Pendant - Wisiorek
+Egg of Light - Jajko åwiat≥a
+Scrap of Cloth - Skrawek Ubrania
+Pig Mark Notebook - åwiÒski Notatnik
+Child's Shoe - But Dziecka
+Hand File - Pilnik RÍczny
+Rope Snake - Linowy Wπø
+Rope Snake DX - Linowy Wπø DX
+Transceiver - Nadajnik
+Ticket - Bilet
+Battle Memory - PamiÍtnik Bitew
+Carrier Pigeon - Go≥πb Pocztowy
+Razor and Lipstick - Brzytwa i Szminka
+Ionia's Memento - Memento Ionii
+Doria's Memento - Memento Dorii
+Phrygia's Memento - Memento Phrygii
+Lydia's Memento - Memento Lydii
+Missy's Memento - Memento Missy
+Aeolia's Memento - Memento Aeolii
+Tazmily Map - Mapa Tazmily
+Osohe Sketch - Szkic Osohe
+Underground Map - Mapa Podziemi
+Railway Map - Mapa Linii Kolejowych
+Area Map - Mapa Strefy
+Attic Guide - Plan Poddasza
+Saturn Valley Map - Mapa Doliny Saturn
+Sea Floor Map - Mapa Dna Morza
+Cave Map - Mapa Jaskini
+City Map - Mapa Miasta
+Tower Sketch - Szkic Wieøy
+Chimera Lab Map - Mapa Lab. Chimera
+Cricket Hole Map - Mapa Dziury
+Highway Map - Mapa Autostrady
+Factory Sketch - Szkic Fabryki
+
+Nazwy PSI:
+
+PK Love - PK Mi≥oúÊ
+PK Flash - PK B≥ysk
+PK Starstorm - PK Gwiezdna Burza
+PK Fire - PK OgieÒ
+PK Freeze - PK Zamroøenie
+PK Thunder - PK Piorun
+PK Ground - PK Ziemia
+Lifeup - Uzdrowienie
+Refresh - Odúwieøenie
+Healing - Leczenie
+PSI Magnet - Wysysacz PP
+Shield - Tarcza
+Counter - Kontra
+PSI Shield - Tarcza PSI
+PSI Counter - Kontra PSI
+Offense Up - Wzrost Ataku
+Defense Up - Wzrost Obrony
+Hypnosis - Hipnoza
+Paralysis - Paraliø
+Brainshock - Wstrzπs MÛzgu
+Offense Down - Obniøenie Ataku
+Defense Down - Obniøenie Obrony
+
+Nazwy PrzeciwnikÛw:
+
+Mole Cricket - Kreci åwierszcz
+Mr. Batty - Pan Nietoperzyk
+Yammonster - PochrzynotwÛr
+Firefly - åwietlik
+Flying Mouse - Latajπca Mysz
+Mighty Bitey Snake - Mocny Kπsajπcy Wπø
+Baked Yammonster - Upieczony PochrzynotwÛr
+Mischievous Mole - Psotny Kret
+Reconstructed Caribou - Przebudowany Karibu
+Praying Mantis - Modliszka
+Greedy Mouse - Chciwa Mysz
+Beanling - Fasolka
+Soot Dumpling - Kluska z Sadzy
+Walking Bushie - Chodzπcy Krzaczek
+Spud Bug - Stonoga
+Agitated Boar - WstrzπúniÍty Dzik
+Crag Lizard - Turniowa Jaszczurka
+Titany - Tytania
+Balding Eagle - £ysiejπcy Orze≥
+Tree - Drzewo
+Mecha-Drago - Mecha-Drago
+Zombie Man - Facet Zombie
+Zombie Lady - Kobieta Zombie
+Zombie Dog - Pies Zombie
+Mobile Grave - Ruchliwy GrÛb
+Detached Leech - Nieprzyssana Pijawka
+Spineless Lobster - BezkrÍgowy Homar
+Stinky Ghost - åmierdzπcy Duch
+Arachnid! - PajÍczak!
+Big Bro - Wielki Brat
+Barrel Man - Cz≥owiek Beczka
+Ghost Armor - Zbroja Ducha
+Artsy Ghost - Artystyczny Duch
+Violent Roach - Gwa≥towny Karaluch
+Strawberry Slime - Truskawkowy Szlam
+Carpet Monster - Dywanowy PotwÛr
+Ghost Sword - Miecz Ducha
+Ghost Shield - Tarcza Ducha
+Ghost Knight - Duch Rycerza
+Rockin' Ghost - Rozko≥ysany Duch
+Pseudoor - Pseudodrzwi
+Mr. Passion - Pan Pasja
+Clayman - Gliniany Cz≥ek
+Pigmask - åwiÒska Maska
+Recon Mech - Maszyna Zwiadowcza
+Lingering Spirit - Marudzπca Dusza
+Osohe Cape - Peleryna z Osohe
+Oh-So-Snake - O-Taki-Wπø
+Dung Beetle - Øuk Gnojarz
+Sand Lizard - Piaskowa Jaszczurka
+Sara-Sara-Sahara - Sara-Sara-Sahara
+Great Antlion - Wielki MrÛwkolew
+Cactus Wolf - Kaktusowy Wilk
+HUGE Pillbug - OGROMNA Pluskwa
+Gooey Goo - Glutowaty Glut
+Cheery Skeleton - Weso≥y Szkielet
+Li'l Big Bro - Ma≥y Wielki Brat
+Pork Tank - Wieprzowy Czo≥g
+Ramblin' Mushroom - WÍdrujπcy Grzyb
+Slitherhen - Zaskuroniec
+Really Flying Mouse - Prawdziwie Latajπca Mysz
+Grated Yammonster - Tarty PochrzynotwÛr
+Black Beanling - Czarna Fasolka
+Big Spud Bug - Wielka Stonoga
+Squawking Stick - Skrzeczπcy Kij
+Muttshroom - Kundlomor
+Reconstructed Mole - Przebudowany Kret
+Cattlesnake - WÍøobydlÍ
+Pigtunia - åwiÒska Petunia
+Batangutan - Orangutoperz
+Dogfish - Piesoryba
+Top Dogfish - Topowa Piesoryba
+Ostrelephant - Strusios≥oÒ
+Slimy Slug - åluzowaty ålimak
+Greedier Mouse - Chciwsza Mysz
+Arachnid!!!! - PajÍczak!!!!
+Elder Batty - Starszy Nietoperzyk
+Gently Weeping Guitar - £agodnie Grajπca Gitara
+Beaten Drum - Wyczerpany BÍben
+Jealous Bass - Zazdrosny Bas
+Parental Kangashark - Rodzicielski Kangurekin
+Reconstructed Lion - Przebudowany Lew
+Mecha-Turtle - Mecha-ØÛ≥w
+Wound-Up Road Hog - NakrÍcony Pirat Drogowy
+Fierce Pork Trooper - Okrutny Kawalerzysta
+Scrapped Robot - Z≥omowany Robot
+Road Block - Blokada Drogowa
+Bright Smile - Jasny Uúmiech
+Wobbly Robot - Drgajπcy Robot
+Atomic Power Robot - Atomowy Robot Mocy
+Rhinocerocket - Rakietoroøec
+Forlorn Junk Heap - Beznadziejna Kupa åmieci
+Whatever - Wszystko Jedno
+Minor Robot - Pomniejszy Robot
+Battery Man - Cz≥owiek Bateria
+Screwloose - Luüna årubka
+Surprise Box - Pude≥ko Niespodzianka
+Li'l Miss Marshmallow - Ma≥a Pani Pianka
+Short Circuit Zap! - KrÛtka Obwodowa Iskra!
+Mr. Genetor - Pan Genetor
+Cleocatra - Kleokotra
+Bro Team - ZespÛ≥ Braci
+Lord Passion - Lord Pasja
+Squawking Boomstick - Skrzeczπcy Wybuchowy Kij
+Horsantula - Ogierantula
+Einswine - Einwieprz
+Almost Mecha-Lion - Prawie Mecha-Lew
+Zombidillo - Pancernik Zombie
+Pigmask Captain - Kapitan åwiÒska Maska
+Nice Poser - Niez≥y Pozer
+The Squeekz - Piszczer
+Ten-Yeti - Ten-Yeti
+Chilly Dog - Mroøπcy Pies
+Frosted Bun - Zamroøona Bu≥ka
+Steel Mechorilla - Stalowy Mechagoryl
+Security Robot - Robot BezpieczeÒstwa
+Naughty Mushroom - Niegrzeczny Grzyb
+Filthy Attack Roach - Paskudny Karaluch
+Frightbot - Strachobot
+Pigmask Major - Major åwiÒska Maska
+Sky Titany - NiebiaÒska Tytania
+Mrs. Lava - Pani Lawa
+Pyrefly - Piromucha
+Magman - Magman
+Scamperin' Mushroom - Mknπcy Grzyb
+New Fassad - Nowy Fassad
+Navy SQUEAL - Marynarz KWIK
+Carefree Jellyfish - Beztroska Meduza
+Rooound Fish - Okrπππg≥a Ryba
+Rock Lobster - Rockujπcy Homar
+Fish Roe Man - Cz≥ek z Ikry
+Master Eddy - Mistrz Eddy
+Zombieshroom - Grzyb Zombie
+Eerie Smile - Straszny Uúmiech
+Monkalrus - Morspiszon
+Ancient Dragonfly - Staroøytna Waøka
+Titanian - Tytanian
+Unwelcome Gust - Nieproszony Podmuch
+Barrier Trio - TrÛjca Bariery
+Blue Balding Eagle - Nieb. £ysiejπcy Orze≥
+Tender Loving Tree - Czu≥e Kochajπce Drzewo
+Mystery Metal Monkey - Stalowa Tajemnicza Ma≥pa
+Mecha-Mole! - Mecha-Kret!
+Cuddle Bomb - Tulπca Bomba
+Negative Man - Negatywny Cz≥ek
+Sticky Slug - Lepki ålimak
+Heftyhead - Masywnog≥owy
+Pigmask Colonel - Pu≥kownik åwiÒska Maska
+Masked Man - Zamaskowany
+Metal Attack Roach - Metalowy Karaluch
+Putrid Moldyman - Zgni≥y Cz≥owiek PleúÒ
+Miracle Fassad - Cudowny Fassad
+King Statue - KrÛlewski Posπg
+Hippo Launcher - Hipopotamia Wyrzutnia
+Men's Room Sign - Znak Toalety MÍskiej
+Boa Transistor - Boa Tranzystor
+K9000 - K9000
+Rhinocerocket Mark II - Rakietoroøec II Klasy
+Love Walker - Mi≥osny Spacerowicz
+Mecha-Lion - Mecha-Lew
+Return of Octobot - PowrÛt Oúmiornibota
+Upgraded Robot - Ulepszony Robot
+Nuclear Reactor Robot - Nuklearny Robot Reaktor
+N.K. Cyborg - N.Z. Cyborg
+Minerali - Minerali
+Fenomeno - Fenomeno
+Porky - Porky
+________________________________________________________________
+
+5. Autorzy
+
+T≥umaczenie oraz testowanie polonizacji:
+
+- Voxar
+
+Angielskie t≥umaczenie, dziÍki ktÛremu powsta≥o to spolszczenie:
+
+- Jeffman
+- Tomato
+- Chewy
+- Lorenzooone
+- Karmageddon
+
+Uøyte Programy:
+
+- Mother 3 Translation Tools (zestaw narzÍdzi i plikÛw)
+- Notepad++ (edycja tekstu)
+- TileMolester (edycja grafiki)
+- BatchLZ77 (dekompresja i kompresja grafiki)
+- HxD (edycja niektÛrych plikÛw binarnych)

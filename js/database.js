@@ -25,7 +25,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m2-fr',	game:ID_MOTHER_2,	lang:LANG_FRENCH,	latest:'1.1',	author:'Team MAMBO'},
 	{projectId:'m2-itA',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.1',	author:'CRefice',			website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/EarthBound-Italian-Translation-COMPLETED'},
 	{projectId:'m2-itB',game:ID_MOTHER_2,	lang:LANG_ITALIAN,	latest:'1.47',	author:'Vecna',				website:'https://romhacking.it/project/view/id/646'},
-	{projectId:'m2-pl',	game:ID_MOTHER_2,	lang:LANG_POLISH,	latest:'1.0.2',	author:'Voxar',				website:'https://www.romhacking.net/translations/5600/'},
+	{projectId:'m2-pl',	game:ID_MOTHER_2,	lang:LANG_POLISH,	latest:'1.1',	author:'Voxar',				website:'https://www.romhacking.net/translations/5600/'},
 	{projectId:'m2-pt',	game:ID_MOTHER_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m12-ja',game:ID_MOTHER_1_2,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
@@ -48,8 +48,9 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-itA',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.1.1',	author:'Lorenzooone',		website:'https://www.romhacking.net/translations/2473/'},
 	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.0',	author:'Snifit', 			website:'https://www.romhacking.net/translations/2403/'},
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://m3dutch.blogspot.com'},
-	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.0',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
+	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.1',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
 	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m3-ru',	game:ID_MOTHER_3,	lang:LANG_RUSSIAN,	latest:'1.06', 	author:'ThatOneMeganium',	website:'https://github.com/ThatOneMeganium/Mother3RUS'},
 ], GAMES_LIST );
 
 // Table for all supported versions of the translations
@@ -90,6 +91,7 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x62c04f3f',	projectId:'m2-itB',	patchId:'m2-itB147',patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	year:'2016',version:'1.47'},
 	{crc:'0xf693cf87',	projectId:'m2-pl',	patchId:'m2-pl100', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	year:'2020',version:'1.0.0'},
 	{crc:'0xf31c0606',	projectId:'m2-pl',	patchId:'m2-pl102', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	year:'2021',version:'1.0.2'},
+	{crc:'0x23348471',	projectId:'m2-pl',	patchId:'m2-pl110', patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	year:'2022',version:'1.1'},
 	{crc:'0xa19f1c1c',	projectId:'m2-pt',	patchId:'m2-pt10',	patchExt:'.zip', baseRom:'m2-en',	hasDoc:true,	year:'2015',version:'1.0'},
 
 	{crc:'0x0a44569c',	projectId:'m12-ja',	patchId:'m12-ja',	year:'2003'},
@@ -133,5 +135,13 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x7dfea226',	projectId:'m3-itB',	patchId:'m3-itB10', patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2015',version:'1.0'},
 	{crc:'0x8b74324c',	projectId:'m3-nl',	patchId:'m3-nl10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2020',version:'1.0'},
 	{crc:'0xe5911653',	projectId:'m3-pl',	patchId:'m3-pl10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0'},
+	{crc:'0xb439dc34',	projectId:'m3-pl',	patchId:'m3-pl11',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.1'},
 	{crc:'0x00508b53',	projectId:'m3-pt',	patchId:'m3-pt10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2013',version:'1.0'},
+	{crc:'0x61e9b4bb',	projectId:'m3-ru',	patchId:'m3-ru100',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0'},
+	{crc:'0x70ce4427',	projectId:'m3-ru',	patchId:'m3-ru101',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.01'},
+	{crc:'0x50d87fb3',	projectId:'m3-ru',	patchId:'m3-ru102',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.02'},
+	{crc:'0x00ef272f',	projectId:'m3-ru',	patchId:'m3-ru103',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.03'},
+	{crc:'0x8851c786',	projectId:'m3-ru',	patchId:'m3-ru104',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.04'},
+	{crc:'0x704c26fc',	projectId:'m3-ru',	patchId:'m3-ru105',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.05'},
+	{crc:'0xaf92ca7b',	projectId:'m3-ru',	patchId:'m3-ru106',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.06'},
 ], PATCH_PROJECTS );
