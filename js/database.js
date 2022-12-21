@@ -138,10 +138,8 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0xb439dc34',	projectId:'m3-pl',	patchId:'m3-pl11',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.1'},
 	{crc:'0x00508b53',	projectId:'m3-pt',	patchId:'m3-pt10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2013',version:'1.0'},
 	{crc:'0x61e9b4bb',	projectId:'m3-ru',	patchId:'m3-ru100',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0'},
-	{crc:'0x70ce4427',	projectId:'m3-ru',	patchId:'m3-ru101',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.01'},
 	{crc:'0x50d87fb3',	projectId:'m3-ru',	patchId:'m3-ru102',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.02'},
 	{crc:'0x00ef272f',	projectId:'m3-ru',	patchId:'m3-ru103',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.03'},
-	{crc:'0x8851c786',	projectId:'m3-ru',	patchId:'m3-ru104',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.04'},
 	{crc:'0x704c26fc',	projectId:'m3-ru',	patchId:'m3-ru105',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.05'},
 	{crc:'0xaf92ca7b',	projectId:'m3-ru',	patchId:'m3-ru106',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.06'},
 ], PATCH_PROJECTS );
