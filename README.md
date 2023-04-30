@@ -28,7 +28,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible three of the biggest new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
-### Other specificities in this version
+### Other specificities of version 3
 * Hosted on a website, so that people don’t have to download a full executable package that includes all the translations for a minimal use.
 * Does everything (unzipping, patching) client-side, just downloads the patch and applies it. That way, no ROM has to be transfered from and to the server.
 * *(For operators)* Scalable, can support more and more translations over time by simply adding patch files and a few lines in the database.
@@ -93,6 +93,17 @@ Nine of these languages allow their speakers to play the entire MOTHER series fr
 Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
 
 Many thanks and congrats to all the people involved!
+
+## Changelog
+* Version 3.1
+	* Added translation: MOTHER 3 in Russian
+	* Updated translations: Polish MOTHER 2 (1.1), Polish (1.1) and French (1.9.1) MOTHER 3
+	* Added stats page (recaps download counts for all translations)
+	* Added a new page to make it easier to add new translations
+	* Progress messages also on the right panel
+	* Other small UI improvements
+* Version 3.0
+	* Initial release
 
 ## Credits
 * Design
