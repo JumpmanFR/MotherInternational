@@ -1,4 +1,14 @@
 @font-face {
+	font-family: 'mainfont';
+	src: url("assets/fonts/mainfont-medium.woff2");
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'mainfont';
+	src: url("assets/fonts/mainfont-bold.woff2");
+	font-weight: bold;
+}
+@font-face {
 	font-family: 'titlefont';
 	font-display: block;
 	src: url('assets/fonts/titlefont.woff');
@@ -21,6 +31,11 @@
 html {
 	--arrow-forwards: '▸';
 	--arrow-backwards: '◂';
+}
+
+body {
+    font-family: mainfont, calamity, sans-serif;
+	font-weight: lighter;
 }
 
 :dir(rtl) { /* not supported by many browsers... */
@@ -238,7 +253,7 @@ a:not([href='#']):not([href='']):visited {
 
 #output-area .msg-container {
 	display: none;
-	margin-top: -0.4em;
+	margin-top: -0.3em;
 }
 
 #output-area.with-msg .msg-container {
@@ -376,7 +391,7 @@ a:not([href='#']):not([href='']):visited {
 	word-break: keep-all;
 }
 .no-flag-emojis .info-title {
-	font-family: serif, flags;
+	font-family: mainfont, flags;
 }
 .info-boxart {
 	width: 5rem;

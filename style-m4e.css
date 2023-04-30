@@ -1,18 +1,3 @@
-@font-face {
-	font-family: 'calamity';
-	src: url("assets/fonts/calamity-ext-regular.woff");
-}
-@font-face {
-	font-family: 'calamity';
-	src: url("assets/fonts/calamity-ext-bold.woff");
-	font-weight: bold;
-}
-
-body {
-    font-family: calamity, sans-serif;
-	font-weight: lighter;
-}
-
 a {
 	color: #EAB749;
 }
@@ -64,10 +49,6 @@ a:not([href='#']):not([href='']):visited {
 	background-color: #8F2A2B;
 }
 
-.no-flag-emojis .info-title {
-	font-family: calamity, flags;
-}
-
 #arrow-between-areas {
 	text-shadow: none;
 }
@@ -102,10 +83,6 @@ a:not([href='#']):not([href='']):visited {
 }
 .info-boxart {
 	filter: drop-shadow(2px 2px 0 black);
-}
-
-#output-area .msg-container {
-	margin-top: -0.3em;
 }
 
 #apply-btn {
