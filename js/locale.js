@@ -397,7 +397,7 @@ const LOCALIZATION = {
 		'txtUpdateInfo':			'Información de versión',
 		'txtReadDoc':				'Archivo Léeme',
 
-		'txtUsage':					'Uso: %',
+		'txtUsage':					'Usado: %',
 		'txtUsageXTimes':			'% veces',
 		'txtUsageUnknown':			'desconocido',
 
