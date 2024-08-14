@@ -1,4 +1,4 @@
-const VERSION = "3.1";
+const VERSION = "3.2";
 
 const ELT_ANIMATION_MASK = "animation-mask";
 const ELT_ANIMATION = "animation";
@@ -73,6 +73,7 @@ const LANG_SPANISH	 = 'es';
 const LANG_SP_SPAIN	 = 'es-ES';
 const LANG_SP_MEXICO = 'es-MX';
 const LANG_SP_ARGENT = 'es-AR';
+const LANG_CATALAN	 = 'ca';
 const LANG_PORTUGUES = 'pt';
 const LANG_PT_PORTUG = 'pt-PT';
 const LANG_PT_BRAZIL = 'pt-BR';

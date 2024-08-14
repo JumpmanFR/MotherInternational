@@ -1,0 +1,7 @@
+--- Туториал по установке патча с русским переводом ---
+https://github.com/MAGNAT2645/Earthbound-RUS/wiki/Установка
+
+--- НЕОБЯЗАТЕЛЬНО/ДОПОЛНИТЕЛЬНО: Туториал по установке патча MSU-1 ---
+https://github.com/MAGNAT2645/Earthbound-RUS/wiki/Патч-MSU--1
+
+Приятной игры :)

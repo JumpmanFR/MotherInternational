@@ -1,0 +1,102 @@
+Mother 1+2 - Deutsche Fanübersetzung
+Übersetzer: BetaDream
+Version: Ver.1.1.0
+
+
+-----Fragen, Bugs, Sonstiges, Kontakt-----
+Falls Du Fragen, Verbesserungsvorschläge oder Bugs bzw. Rechtschreibfehler melden
+willst, kontaktiere mich einfach bei:
+
+Twitter & Instagramm unter: @BetaDream_X
+
+
+-----Optionale Patches-----
+- Mother 2 Menu Patch.ips (Aus Tomatos Übersetzung. Fügt Mother 2 englische Menüs hinzu.)
+- M1 Color Restauration.ips (Ändert die Farben zu denen der Famicom-Version)
+- New Font Patch Ger.ips (Ändert die Schrift von Mother 1 um EarthBound mehr zu ähneln.)
+
+-----Wie Patche ich das Spiel?-----
+Zuerst benötigst du eine japanische, ungepatchte ROM von Mother 1+2.
+Wo du diese findest, bleibt Dir überlassen. Allerdings können Suchmaschienen wie Google
+bei der Suche helfen.
+
+1. Starte "Lunar IPS.exe"
+2. Wähle das Feld "Apply Patch" aus.
+3. Wähle die Patch Datei "Mother1 [Ger 1.1.0 - BetaDream].ips" aus.
+4. Wähle die japanische Mother 1+2 ROM aus.
+5. Die Nachricht "The file was successfuly patched!" sollte erscheinen.
+
+Viel Spaß!
+
+
+-----Wie spiele ich das Spiel?------
+Um das Spiel spielen zu können, wird ein Emulator wie beispielsweise mGBA oder
+VisualBoyAdvance-M benötigt. Alternativ lässt sich das Spiel mit einer Flash-Card,
+auch auf Hardware spielen.
+
+
+-----Prüfsumme-----
+Dieser Patch wurde erstellt für:
+
+Name:      Mother 1+2 (Japan)
+
+Title:     MOTHER12
+Game Code: AGB-A2UJ
+SHAI:      F27336B9C96CA2D06C34E07A61A78538DEAC32B3
+MD5:       F41E36204356974C94FABF7D144DD32A
+CRC32:     A44569C
+
+
+-----Verwendete Tools-----
+MOTHER 1+2 Tools v1.0
+VisualBoyAdvance-M
+mGBA
+TileLayerPro
+Translhextion
+Visual Studio
+
+-----Sonstige Credits-----
+Die Fanübersetzung basiert auf der englischen Fanübersetzung.
+
+Tomato - Englische Übersetzung / Hacking
+
+Jeffman - Hacking
+
+Anthiflo & Jumpman - Französische Übersetzung / Codes
+
+Lorenzoone - Italienische Übersetzung
+
+Chaos Rush - Color Restauration Patch
+
+
+-----Unterstützung-----
+Wenn Dir das Spiel gefällt, wäre es großartig wenn Du die Serie durch den Kauf von Merch
+oder den offiziellen Spielen unterstützt:
+
+- EarthBound Beginnings Notizbuch für MyNintendo Mitglieder:
+  https://mynintendostore.nintendo.de/earthbound-beginnings-notebook.html#_bersicht
+
+- Offizieller Hobonichi-Merch aus Japan
+  https://www.1101.com/mother_project/items/index_en.html
+  (Import über FedEx möglich, ist durch den Versand jedoch sehr teuer.)
+
+- Seit 2022 sind beide Spiele auch im Nintendo Switch Online-Service erhalten.
+  Weitere Infos unter:
+  https://www.nintendo.de/Nintendo-Switch-Online/Online-Spiel-1437884.html
+
+
+-----Sonstige Links-----
+Wer ein mehr über das Spiel und dessen Hintergründe erfahren will, kann sich gerne
+folgende Links anschauen. 
+
+Inofizielle englische Fantranslation:
+http://mother12.earthboundcentral.com/
+
+Mother Forever:
+https://mother4ever.net/about-mother-1-2/
+
+Starmen.net:
+http://starmen.net/mother12/
+
+EarthBound Central:
+https://earthboundcentral.com/category/mother-12/

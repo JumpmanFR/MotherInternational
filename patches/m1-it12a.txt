@@ -1,0 +1,31 @@
+===EARTH BOUND BEGINNINGS ITA===
+Traduzione amatoriale di GiAnMMV.
+Potete trovare il progetto su https://github.com/GiAnMMV/EarthBound-Beginnings-ITA/tree/main
+
+==Informazioni sulla ROM.
+Database match: EarthBound Beginnings (USA, Europe) (Virtual Console)
+Database: No-Intro: Nintendo Entertainment System (v. 20210216-231042)
+File SHA-1: 505CC723E0C8D66BAAAF9597F21A505A88291F64
+File CRC32: F5EF5002
+ROM SHA-1: 8E9BD7F4D3999C973C1F2C28A995311267586C87
+ROM CRC32: 53A9E2BA
+
+==Cronologia delle versioni.
+v1.1: Corrected errors regarding lining who caused crashes
+v1.2: Corrected minor bugs and graphical glitches, added missing translation for player name's UI, switched dollar symbol on the right side, changed several strings.
+v1.2a: Fixed some strings and the dollar sign in shop lists.
+
+==Strumenti usati.
+- "BBHack v1.0" by Uyuyuy99
+- "YY-CHR" by YY
+- "EarthBound Zero Pointer Calculator" by livvy94
+- "Mesen"
+- "Python" by Guido van Rossum
+
+==Collegamenti usati.
+- https://datacrystal.romhacking.net/wiki/EarthBound_Zero:ROM_map
+- https://shrines.rpgclassics.com/nes/ebz/
+- https://starmen.net/mother1/gameinfo/info/EBB-organized-dump.txt
+- https://soto.aikotoba.jp/mother/mother01.htm
+
+Nel caso riscontraste un qualunque errore, non esitate a contattarmi!
