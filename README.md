@@ -14,7 +14,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Features cute animations.
 * *(For operators)* Supports UPS and IPS patch formats.
 
-### New features
+### New features from this version 3 on the Web
 * Includes 37 translation projects, or 87 translation patches if you count all included patch versions (as of August 14th, 2024).
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
