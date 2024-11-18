@@ -1,0 +1,17 @@
+MOTHER 3 Italian Translation v1.2
+di Gianpaolo "snifit" Russo
+
+Modalità di applicazione della patch.
+
+Hard-patching:
+1. decomprimere il file nella stessa cartella della rom originale giapponese.
+2. usare un tool come NUPS patcher (http://www.romhacking.net/utilities/606/) per applicare il file .ups sulla rom .gba.
+3. avviare il gioco tramite emulatore; a questo punto il gioco dovrebbe essere in italiano.
+
+Soft-patching (supportato solo da alcuni emulatori, come VBA-M):
+1. decomprimere il file nella stessa cartella della rom originale giapponese.
+2. rinominare i due file di diversa estensione in modo che abbiano lo stesso nome.
+3. avviare il gioco tramite VBA-M o altro specifico emulatore; a questo punto il gioco dovrebbe essere in italiano.
+
+Buon divertimento. :)
+17/1/2024

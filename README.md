@@ -85,7 +85,7 @@ To find out about the detailed procedure, please read this document: [How to add
 	* French v1.0-v1.9 by MotherVF
 	* German v1.0-v1.1 by Madokami
 	* Italian v1.0-v1.1.1 by Lorenzooone
-	* Italian v1.0 by Snifit
+	* Italian v1.2 by Snifit ***(updated!)***
 	* Korean v19.03.01 by pjs
 	* Polish v1.1 by Voxar
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
@@ -99,9 +99,11 @@ Sometimes, this was all thanks to one single team working on several translation
 Many thanks and congrats to all the people involved!
 
 ## Changelog
+* Version 3.2.1
+	* Updated translation: Italian MOTHER 3 by Snifit (1.2)
 * Version 3.2
 	* Added translations: MOTHER 2 in Russian, MOTHER 1+2 in German (new translation), MOTHER 2 in Catalan, MOTHER 1 in Italian
-	* Update translation: English MOTHER 3 (1.3a)
+	* Updated translation: English MOTHER 3 (1.3a)
 * Version 3.1
 	* Added translation: MOTHER 3 in Russian
 	* Updated translations: Polish MOTHER 2 (1.1), Polish (1.1) and French (1.9.1) MOTHER 3
