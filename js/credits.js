@@ -10,10 +10,10 @@ addEvent(document, 'DOMContentLoaded', function() {
 	addEvent(el(ELT_ABOUT_CLOSE_BTN), 'click', function(e) {onClickCredits(e, false)});
 	addEvent(el(ELT_ABOUT_OVERLAY), 'click', function(e) {onClickCredits(e, false)});
 	addEvent(document, 'keydown', function(e) {if (e.key === 'Escape') onClickCredits(e, false)});
-	initCredits();
 });
 
 function onClickCredits(e, value) {
+	initCredits();
 	if (value) {	// open
 		el(ELT_ABOUT_WINDOW).classList.remove(CLASS_CLOSED_CREDITS);
 		el(ELT_ABOUT_OVERLAY).classList.remove(CLASS_CLOSED_CREDITS);
@@ -43,7 +43,9 @@ function initCredits() {
 			["https://github.com/JumpmanFR/MotherInternational", "https://opensource.org/licenses/mit-license.php"], [_("txtAboutSourceGitHub"), _("txtAboutSourceLicense")]);
 	}
 
-	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace('%', VERSION);
+	var localeModifiedDate = new Date(LAST_MODIFIED).toLocaleString(document.documentElement.getAttribute("lang"), {month: "long", year: "numeric"});
+
+	el(ELT_ABOUT_VERSION).textContent = _("txtAboutVersion").replace('%', VERSION).replace("‰", localeModifiedDate);
 
 	initListAllTranslations();
 

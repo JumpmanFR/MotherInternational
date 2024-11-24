@@ -1,3 +1,8 @@
+var LAST_MODIFIED = null;
+fetch(document.currentScript.src).then(r => {
+    LAST_MODIFIED = new Date(r.headers.get('Last-Modified'));
+})
+
 // Data table for the 4 supported games
 var GAMES_LIST = {
 	[ID_MOTHER_1]:	{japName:'MOTHER 1',	fullName:'MOTHER 1 / EarthBound Beginnings',shortName:'EarthBound Beginnings',	year:1989,	boxart:'m1.jpg', 	japBoxart:'m1j.jpg', included:[ID_MOTHER_1],},

@@ -86,7 +86,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?', /* the text in an alert window; % and ‰ are the author and base url */
 		'txtAboutTranslator1':		'If you’re a translator, feel free to %!', /* % is the text 'contact us' as a clickable link */
 		'txtAboutTranslator2':		'contact us', /* this is what I was just referring to */
-		'txtAboutVersion':			'Version %', /* % is a version number */
+		'txtAboutVersion':			'Version % – ‰', /* % is a version number */
 	},
 	'fr':
 	{
@@ -176,7 +176,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Voulez-vous accéder à la page de % sur ‰ ?',
 		'txtAboutTranslator1':		'Si vous êtes un traducteur, n’hésitez pas à % !',
 		'txtAboutTranslator2':		'nous contacter',
-		'txtAboutVersion':			'Version %',
+		'txtAboutVersion':			'Version % – ‰',
 	},
 	'it':
 	{
@@ -265,7 +265,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Vuoi accedere alla pagina di % su ‰?',
 		'txtAboutTranslator1':		'Se sei un traduttore, sentiti libero di %!',
 		'txtAboutTranslator2':		'contattarci',
-		'txtAboutVersion':			'Versione %',
+		'txtAboutVersion':			'Versione % – ‰',
 	},
 	'nl':
 	{
@@ -354,7 +354,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Wil je %’s webpagina bezoeken op ‰?',
 		'txtAboutTranslator1':		'Als je een vertaler bent, neem dan %!',
 		'txtAboutTranslator2':		'contact met ons op',
-		'txtAboutVersion':			'Versie %',
+		'txtAboutVersion':			'Versie % – ‰',
 	},
 	'es':
 	{
@@ -443,7 +443,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'¿Quieres accedar a la página web de % en ‰?',
 		'txtAboutTranslator1':		'Si eres un traductor, ¡no dudes en %!',
 		'txtAboutTranslator2':		'contactarnos',
-		'txtAboutVersion':			'Versión %',
+		'txtAboutVersion':			'Versión % – ‰',
 	},
  	'de':
 	{
@@ -532,7 +532,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Möchtest du die Website von % unter ‰ aufrufen?',
 		'txtAboutTranslator1':		'Wenn du ein Übersetzer bist, dann % gerne!',
 		'txtAboutTranslator2':		'kontaktiere uns',
-		'txtAboutVersion':			'Version %',
+		'txtAboutVersion':			'Version % – ‰',
 	},
 	'pl':
 	{
@@ -621,7 +621,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Czy chcesz wejść na stronę % na ‰?',
 		'txtAboutTranslator1':		'Jeśli jesteś tłumaczem, %!',
 		'txtAboutTranslator2':		'skontaktuj się z nami',
-		'txtAboutVersion':			'Wersja %',
+		'txtAboutVersion':			'Wersja % – ‰',
 	},
 	'pt':
 	{
@@ -710,6 +710,6 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Você quer visitar a página de % encontrada em ‰?',
 		'txtAboutTranslator1':		'Se você for tradutor(a), fique à vontade para %!',
 		'txtAboutTranslator2':		'nos contatar',
-		'txtAboutVersion':			'Versão %',
+		'txtAboutVersion':			'Versão % – ‰',
 	},
 }
