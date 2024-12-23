@@ -35,7 +35,6 @@ html {
 
 body {
     font-family: mainfont, calamity, sans-serif;
-	font-weight: lighter;
 }
 
 :dir(rtl) { /* not supported by many browsers... */

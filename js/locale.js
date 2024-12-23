@@ -778,7 +778,7 @@ const LOCALIZATION = {
 		'txtAbout':					'크레딧 & 정보',
 
 		'txtCredits':				'크레딧',
-		'txtCreditsDesign':			'Design',
+		'txtCreditsDesign':			'디자인',
 		'txtCreditsProgramming':	'프로그래밍',
 		'txtCreditsTexts':			'번역',
 		'txtCreditsAnimations':		'애니메이션',
