@@ -86,7 +86,7 @@ const LOCALIZATION = {
 		'txtAboutAllTransSiteAsk':	'Do you want to access %’s webpage at ‰?', /* the text in an alert window; % and ‰ are the author and base url */
 		'txtAboutTranslator1':		'If you’re a translator, feel free to %!', /* % is the text 'contact us' as a clickable link */
 		'txtAboutTranslator2':		'contact us', /* this is what I was just referring to */
-		'txtAboutVersion':			'Version % – ‰', /* % is a version number */
+		'txtAboutVersion':			'Version % – ‰', /* % is a version number; ‰ is a date in local format (automatic) */
 	},
 	'fr':
 	{
@@ -711,5 +711,94 @@ const LOCALIZATION = {
 		'txtAboutTranslator1':		'Se você for tradutor(a), fique à vontade para %!',
 		'txtAboutTranslator2':		'nos contatar',
 		'txtAboutVersion':			'Versão % – ‰',
+	},
+	'ko':
+	{
+		'txtHtmlTitle':				'Mother International',
+		'txtTitleBottom':			'International',
+		'txtSubtitle':				'MOTHER 통합 번역 패치 사이트',
+
+		'txtBrowse':				'찾아보기…',
+		'txtNoRom':					'MOTHER 게임의 ROM 파일을 선택해 주세요.',
+
+		'txtDropRom':				'MOTHER 게임의 ROM 파일을 넣어주세요.',
+		'txtApplyPatch':			'번역 적용하기',
+		'txtUpdate':				'업데이트하기',
+
+		'txtAnalyzingFile':			'파일 분석 중…',
+		'txtAnalyzingRom':			'ROM 파일 분석 중…',
+		'txtRomIdentified':			'ROM 파일 확인!',
+		'txtDownloading':			'패치 다운로드 중%…',
+		'txtUnzipping':				'압축 해제 중…',
+		'txtApplyingPatch':			'패치 적용%…',
+		'txtZipping':				'압축 중…',
+		'txtFinalizing':			'마무리 중…',
+		'txtEndMsg':				'ROM 파일을 성공적으로 패치했습니다!',
+
+		'txtChecksum':				'CRC-32 무결성 검사: %',
+
+		'txtAllTranslations':		'%에 지원되는 번역:',
+		'txtNoTranslation':			'선택된 번역이 없음',
+		'txtShowAllVersions':		'모든 버전 표시',
+
+		'txtDescVersion':			'v',
+		'txtDescBy':				'by', /*I can't translate it into Korean because the word order is opposite to English. */
+		'txtPatched':				'% 패치',
+		'txtUnpatched':				'%, 패치 안 됨',
+		'txtDescOfficial':			'공식',
+		'txtDescUpdate':			'(업데이트)',
+		'txtDescIncompatible':		'(호환되지 않음)',
+		'txtVisitSite':				'%의 웹페이지',
+		'txtVisitSiteAt':			'%으로',
+		'txtUpdateInfo':			'버전 정보',
+		'txtReadDoc':				'ReadMe 파일',
+
+		'txtUsage':					'사용 횟수: %',
+		'txtUsageXTimes':			'% 회', 
+		'txtUsageUnknown':			'알 수 없음',
+
+		'txtReadmeFile':			'readme',
+
+		'error_no_rom':				'ROM 파일을 선택하지 않음',
+		'error_no_rom_info':		'분석되지 않은 ROM 파일',
+		'error_already_patched':	'이미 패치된 ROM 파일',
+		'error_unknown_rom':		'알 수 없는 ROM 파일',
+		'error_no_rom_in_zip':		'zip 파일에서 ROM 파일을 찾을 수 없음',
+		'error_crc_output':			'잘못 출력된 ROM 파일',
+		'error_crc_input':			'잘못 입력된 ROM 파일',
+		'error_patching':			'패치 에러',
+		'error_no_patch_route':		'이미 패치된 ROM 파일은 패치할 수 없음',
+		'error_downloading':		'다운로드 에러',
+		'error_unzipping':			'압축 해제 에러',
+		'error_invalid_patch':		'불확실한 패치 파일',
+		'error_crc_patch':			'잘못된 패치 파일',
+		'warning_too_big':			'너무 큰 파일',
+		'Not Found':				'패치 파일을 찾을 수 없음',
+
+		'txtAbout':					'크레딧 & 정보',
+
+		'txtCredits':				'크레딧',
+		'txtCreditsDesign':			'Design',
+		'txtCreditsProgramming':	'프로그래밍',
+		'txtCreditsTexts':			'번역',
+		'txtCreditsAnimations':		'애니메이션',
+		'txtCreditsLegacy':			'구버전 개발',
+		'txtCreditsPlayer':			'플레이어',
+		'txtCreditsPlayerYou':		'당신!',
+
+		'txtAboutIntro':			'Mother International은 MOTHER 시리즈의 모든 게임을 번역할 수 있는 온라인 패치 사이트입니다.',
+		'txtAboutFreeProg':			'Mother International은 누구나 무료로 사용할 수 있는 사이트입니다.\r\n절대 판매용이 아닙니다.',
+		'txtAboutSource':			'소스 코드는 ‰에 따라 %됩니다.',
+		'txtAboutSourceGitHub':		'배포',
+		'txtAboutSourceLicense':	'MIT 라이선스',
+		'txtAboutTeams':			'이 사이트의 모든 권리는 각 번역 패치를 만든 팀에게 있습니다. 번역에 참여해 주신 분들에겐 특히 감사드립니다.',
+		'txtAboutSaturn':			'POTENTIAL!',
+		'txtAboutAllTranslations':	'지원하는 번역:',
+		'txtAboutAllTransLabel':	'– 확인하려면 클릭해주세요 –',
+		'txtAboutAllTransNoSite':	'%에 등록된 웹 페이지가 없습니다.',
+		'txtAboutAllTransSiteAsk':	'%의 웹페이지 ‰를 엑세스하시겠습니까?',
+		'txtAboutTranslator1':		'번역가라면 %에게 연락해 주세요!',
+		'txtAboutTranslator2':		'저희',
+		'txtAboutVersion':			'버전 % – ‰',
 	},
 }
