@@ -34,20 +34,6 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Scalable, can support more and more translations over time by simply adding patch files and a few lines in the database.
 * Open source project available [on GitHub](https://github.com/JumpmanFR/MotherInternational).
 
-## How to translate the UI into more languages
-The file is `js/locale.js`. It currently includes eight top-level entries, one for each supported language: `'en'`, `'fr'`, `'it'`, `'nl'`, `'es'`, `'de'`, `'pl'`, `'pt'`. All localized texts are listed there.
-
-To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is selected automatically based on their browser settings.\
-Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for already supported languages. If a field is omitted, the program will fallback to English for that field.
-
-To test your changes, you can force the program to load in the language of your choice. To that end, complete the URL in the address bar with `?lang=` followed by your 2-letter language code.
-
-## How to include more translation patches
-Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to follow a specific naming convention.\
-Then, `js/database.js` has to be updated to add new entries.
-
-To find out about the detailed procedure, please read this document: [How to add more translations to the database](doc_database.md).
-
 ## Supported translations
 * MOTHER 1 / EarthBound Beginnings
 	* French v1.0 by Terminus Traduction
@@ -99,9 +85,10 @@ Sometimes, this was all thanks to one single team working on several translation
 Many thanks and congrats to all the people involved!
 
 ## Changelog
-* Version 3.2.2
-	* Updated translation: Spanish MOTHER 3 (1.1)
+* Version 3.3
+	* Updated translation: Spanish MOTHER 3 (1.1, 1.1+fix)
 	* Added date of last update in credits
+	* UI now translated into Korean
 * Version 3.2.1
 	* Updated translation: Italian MOTHER 3 by Snifit (1.2)
 * Version 3.2
@@ -116,6 +103,20 @@ Many thanks and congrats to all the people involved!
 	* Other small UI improvements
 * Version 3.0
 	* Initial release
+
+## How to translate the UI into more languages
+The file is `js/locale.js`. It currently includes eight top-level entries, one for each supported language: `'en'`, `'fr'`, `'it'`, `'nl'`, `'es'`, `'de'`, `'pl'`, `'pt'`. All localized texts are listed there.
+
+To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is selected automatically based on their browser settings.\
+Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for already supported languages. If a field is omitted, the program will fallback to English for that field.
+
+To test your changes, you can force the program to load in the language of your choice. To that end, complete the URL in the address bar with `?lang=` followed by your 2-letter language code.
+
+## How to include more translation patches
+Translation patches need to be added to the `patches` folder, optionally zipped, and renamed to follow a specific naming convention.\
+Then, `js/database.js` has to be updated to add new entries.
+
+To find out about the detailed procedure, please read this document: [How to add more translations to the database](doc_database.md).
 
 ## Credits
 * Design
