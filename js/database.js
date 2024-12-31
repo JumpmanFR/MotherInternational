@@ -48,7 +48,7 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
-	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组'},
+	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',		website:'https://www.romhacking.net/translations/6642/'},
 	{projectId:'m3-ko',	game:ID_MOTHER_3,	lang:LANG_KOREAN,	latest:'19.03.01',author:'pjs',				website:'http://blog.naver.com/pjs0493/220392308242'},
 	{projectId:'m3-de',	game:ID_MOTHER_3,	lang:LANG_GERMAN,	latest:'1.1',	author:'Madokami',			website:'https://github.com/Madokamiiiiii/Mother3German/releases'},
 	{projectId:'m3-en',	game:ID_MOTHER_3,	lang:LANG_ENGLISH,	latest:'1.3a',	author:'Tomato',			website:'http://mother3.fobby.net/'},
