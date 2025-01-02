@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Support for UPS and IPS patch formats.
 
 ### New features from this version 3 on the Web
-* Includes 37 translation projects, or 89 translation patches if you count all included patch versions (as of December 22nd, 2024).
+* Includes 37 translation projects, or 90 translation patches if you count all included patch versions (as of January 2nd, 2025).
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Polish, Portuguese and Spanish (as of December 22nd, 2024).\
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Korean, Polish, Portuguese, Russian and Spanish (as of January 2nd, 2025).\
 *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible three of the biggest new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
@@ -88,7 +88,7 @@ Many thanks and congrats to all the people involved!
 * Version 3.3
 	* Updated translation: Spanish MOTHER 3 (1.1, 1.1+fix)
 	* Added date of last update in credits
-	* UI now translated into Korean
+	* UI now translated into Korean and Russian
 * Version 3.2.1
 	* Updated translation: Italian MOTHER 3 by Snifit (1.2)
 * Version 3.2
@@ -105,7 +105,7 @@ Many thanks and congrats to all the people involved!
 	* Initial release
 
 ## How to translate the UI into more languages
-The file is `js/locale.js`. It currently includes eight top-level entries, one for each supported language: `'en'`, `'fr'`, `'it'`, `'nl'`, `'es'`, `'de'`, `'pl'`, `'pt'`. All localized texts are listed there.
+The file is `js/locale.js`. It currently includes 10 top-level entries, one for each supported language: `'en'`, `'fr'`, `'it'`, `'nl'`, `'es'`, `'de'`, `'pl'`, `'pt'`, `'ko'`, `'ru'`. All localized texts are listed there.
 
 To add a new language, just add another entry and name it with a 2-letter language code as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). It’s important because the user’s language is selected automatically based on their browser settings.\
 Then, you’ll have to specify every localized text in the desired language, just like they are currently listed for already supported languages. If a field is omitted, the program will fallback to English for that field.
@@ -120,20 +120,22 @@ To find out about the detailed procedure, please read this document: [How to add
 
 ## Credits
 * Design
-	* [JumpmanFR](https://twitter.com/JumpmanFR)
+	* [JumpmanFR](http://jumpmanfr.bsky.social)
 	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO)
 * Programming
-	* [JumpmanFR](https://twitter.com/JumpmanFR)
+	* [JumpmanFR](http://jumpmanfr.bsky.social)
 	* Patching lib taken from [Marc Robledo](https://twitter.com/marc_robledo)’s [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/)
 * UI texts
-	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO), [JumpmanFR](https://twitter.com/JumpmanFR) (English)
+	* [Kody NOKOLO](https://twitter.com/KodyNOKOLO), [JumpmanFR](http://jumpmanfr.bsky.social) (English)
 	* [PrismaticAngel](https://www.romhacking.net/community/6327/) (Dutch)
-	* [JumpmanFR](https://twitter.com/JumpmanFR) (French)
+	* [JumpmanFR](http://jumpmanfr.bsky.social) (French)
 	* [GlostU](https://twitter.com/Glost_U), [Madokami](https://twitter.com/_madokami) (German)
 	* [Snifit](https://www.romhacking.net/community/3612/), [Benz](https://twitter.com/benzuccio) (Italian)
-	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
+	* [qhtjr](https://x.com/qhtjr1116) (Korean)
 	* [Voxar](https://twitter.com/VoxarPL) (Polish)
 	* [TragicManner](https://twitter.com/TragicManner), [Foffano](https://twitter.com/Foffano) (Portuguese)
+	* [Anasu Meruku](https://x.com/Anasu_Meruku) (Russian)
+	* [ShadowOne333](https://twitter.com/ShadowOne333) (Spanish)
 * Graphic elements
 	* [Benz](https://twitter.com/benzuccio) (SVG logo)
 	* [Sam the Salmon](https://twitter.com/SamThe_Salmon) (animations)
