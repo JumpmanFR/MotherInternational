@@ -390,7 +390,7 @@ a:not([href='#']):not([href='']):visited {
 	word-break: keep-all;
 }
 .no-flag-emojis .info-title {
-	font-family: mainfont, flags;
+	font-family: mainfont, flags, sans-serif;
 }
 .info-boxart {
 	width: 5rem;

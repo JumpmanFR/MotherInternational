@@ -830,7 +830,7 @@ const LOCALIZATION = {
 		'txtNoTranslation':			'Нет доступного перевода',
 		'txtShowAllVersions':		'Показать все версии',
 
-		'txtDescVersion':			'вер.',
+		'txtDescVersion':			'вер. ',
 		'txtDescBy':				'от',
 		'txtPatched':				'% патч',
 		'txtUnpatched':				'%, немодифицированный',
