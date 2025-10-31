@@ -1,4 +1,4 @@
-const VERSION = "3.3";
+const VERSION = "3.4";
 
 const ELT_ANIMATION_MASK = "animation-mask";
 const ELT_ANIMATION = "animation";
