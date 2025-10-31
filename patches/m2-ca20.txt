@@ -1,0 +1,101 @@
+  __  __  _____ _______ _    _ ______ _____
+ |  \/  |/     \__   __| |  | |  ____|  __ \
+ | \  / |       | | |  | |__| | |__  | |__) |
+ | |\/| |       | | |  |  __  |  __| |  _  /
+ | |  | |       | | |  | |  | | |____| | \ \
+ |_|  |_|\_____/  |_|  |_|  |_|______|_|  \_\
+
+                      ___
+                     |__ \
+                        ) |
+                       / /
+                      / /_
+                     |____|
+
+                          _        _  __
+                         | |      | | \_\
+    ___ _ __     ___ __ _| |_ __ _| | __ _
+   / _ \ '_ \   / __/ _` | __/ _` | |/ _` |
+  |  __/ | | | | (_| (_| | || (_| | | (_| |
+   \___|_| |_|  \___\__,_|\__\__,_|_|\__,_|
+_____________________________________
+
+ÍNDEX
+
+1. Introducció
+2. Com aplicar el pedaç
+3. Versions
+4. Problemes coneguts
+5. Agraïments
+6. Avís legal
+_____________________________________
+
+1. INTRODUCCIÓ
+
+Aquest pedaç consisteix en una traducció al català del videojoc RPG Mother 2, conegut a Amèrica del Nord com a Earthbound, creat per Shigesato Itoi, desenvolupat per Ape i HAL Laboratory i publicat per Nintendo a la seva consola de 16 bits Super Nintendo l'any 1994.
+
+El pedaç, així com el seu contingut ha estat creat mitjançant el software SnakeCoil 4.2.
+
+La traducció es basa majoritàriament en la traducció oficial del japonès a l'anglès realitzada per Marcus Lindblom l'any 1995. Tanmateix, s'han fet diversos canvis, en gran part basats en el treball Legends of Localization: Earthbound, realitzat per Clyde Mandelin l'any 2016, per tal d'obtenir una traducció més fidel a la original japonesa. S'han eliminat diversos elements de censura (per exemple, referències a l'alcohol, a marques registrades, a elements controvertits, etc), s'han corregit alguns errors de traducció menors comesos per Lindblom durant la seva traducció original i s'han canviat algunes referències a elements de la cultura popular japonesa/americana a la catalana per a reflectir de manera més acurada l'humor del joc.
+_____________________________________
+
+2. COM APLICAR EL PEDAÇ
+
+Aquest pedaç ha de ser aplicat sobre la ROM de la versió americana del joc, la qual podreu trobar com a Earthbound (USA) o Earthbound (U).
+
+Per a garantir-ne el funcionament, s'ha de fer servir una ROM sense capçalera (headerless). Per assegurar-vos de que la vostra ROM no té capçalera, i per esborrar-la en cas de que en tingui, es recomana emprar el software gratuït SNES ROM Utility, el qual podreu trobar a l'enllaç següent:
+https://www.romhacking.net/utilities/593/
+
+Obrirem la ROM anant a File -> Open a la barra superior del programa, obrirem la nostra ROM (recordeu que la ROM no pot obrir-se des d'una carpeta comprimida en .zip, .rar o similars, caldrà extreure-la). Quan el programa ja l'hagi carregat, activarem la opció "Remove Header" al menú de la dreta i premerem "OK" a la cantonada inferior dreta. Això generarà una nova ROM sense capçalera que podrem fer servir per aplicar el pedaç.
+
+Si la ROM no té capçalera, la opció "Remove Header" quedarà bloquejada, amb la qual cosa podrem ometre el pas anterior i passar directament a aplicar el pedaç.
+
+Per tal d'aplicar-lo, es recomana la utilització del software FLIPedaç, encara que existeixen altres programes que també poden servir, com Floating IPS, Lunar IPS, DeltaPatcher o fins i tot l'SNES ROM Utility.
+
+En aquest enllaç podreu descarregar de manera gratuïta l'instal·lador de FLIPedaç, juntament amb instruccions sobre com fer-lo servir i com aplicar el pedaç a la vostra ROM:
+https://cetrencada.cat/comunitat/?eina=flipeda%C3%A7
+_____________________________________
+
+3. VERSIONS
+
+1.0: Primera versió revisada disponible al públic.
+
+1.1: S'ha millorat considerablement l'script que assigna els articles als personatges jugables, als enemics i als objectes del joc.
+
+1.2: S'han corregit diverses errades del text del joc.
+
+2.0: S'han fet tota una sèrie de canvis per tal de fer el joc més fidel a la versió original japonesa i més coherent amb la traducció catalana del Mother 3 feta pel mateix autor. Aquests canvis consisteixen majoritàriament en canvis de noms de llocs, personatges, etc, així com una revisió més minuciosa del guió.
+A més d'això, s'ha fet una nova revisió de la gramàtica i ortografia del guió, s'han corregit diversos aspectes visuals del joc i s'ha eliminat el botó de córrer present a les versions anteriors de la traducció (essencialment, perquè no era present a cap de les versions oficials del joc i causava un error visual en fer servir el teletransport).
+_____________________________________
+
+4. PROBLEMES CONEGUTS
+
+L'script que gestiona el gènere dels articles dels enemics i els objectes, heretat de la traducció espanyola que s'ha fet servir de plantilla per a crear aquest pedaç, no funciona de manera correcta en alguns casos, malgrat els intents per part de diverses persones de corregir-lo. A partir de la versió 1.1 d'aquest pedaç, s'han millorat de manera considerable les funcions d'aquests scripts, però en alguns casos no s'ha pogut resoldre. Aquests són:
+
+  - L'absència d'articles amb gènere, majoritàriament a l'overworld, en casos que puguin afectar a més d'un personatge de l'equip.
+  - La impossibilitat de detectar si els noms customitzats dels personatges comencen amb vocal per tal d'aplicar la L amb apòstrof als seus articles, fent que sempre siguin "En" pels masculins i "La" pels femenins, el cas d'haver-hi article.
+  - L'absència d'article al nom del jugador, ja que en cap moment el joc pot determinar el seu gènere.
+
+Contràriament al que pugui semblar, però, l'absència d'article en el nom de l'enemic final del joc, Gyiyg, és una elecció deliberada per part del traductor, ja que en diversos moments del joc es fa referència a la desconeixença respecte a l'aspecte, identitat o gènere del personatge, sumat al fet de que no es tracta d'una persona en sí, sinó més aviat d'un concepte, entitat no corpòria o dimensió paral·lela d'interpretació subjectiva.
+
+_____________________________________
+
+5. AGRAÏMENTS
+
+Per a realitzar la següent traducció, han estat de gran ajut les contribucions de:
+
+- El Projecte Ce Trencada, especialment els usuaris Emilio López, Narx, jueghe i Ivan L. Negrell, per la revisió del joc i del seu codi de programació fins a on ha estat possible, i també de Furank i ArnauRapid per l'acollida de la traducció dins del projecte i la divulgació d'aquest.
+
+- Shadow One 333, l'autor del pedaç de la traducció espanyola, el qual va servir com a plantilla per a crear la catalana.
+
+- L'equip de desenvolupament del software CoilSnake, ja que sense aquest programa mai s'hauria pogut dur a terme la implementació de la traducció
+
+- A Adrià M.A., Júlia Oms i Mireia Oms, per a contribuir en la prova i comprovació de la traducció.
+
+- I, finalment, a tots aquells que gaudiran del joc, ja que sense ells, tot aquest treball de mesos d'esforç constant no tindria sentit.
+
+_____________________________________
+
+6. AVÍS LEGAL
+
+Aquest projecte ha estat realitzat de manera desinteressada i sense cap ànim de lucre. Llevat de la traducció, tot el contingut del joc, així com els seus personatges, història, etc, són propietat intel·lectual de Nintendo. No existeix cap incentiu per part del creador d'aquest projecte a la descàrrega il·legal de ROMs de videojocs a través d'internet.
