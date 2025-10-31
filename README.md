@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Support for UPS and IPS patch formats.
 
 ### New features from this version 3 on the Web
-* Includes 37 translation projects, or 90 translation patches if you count all included patch versions (as of January 2nd, 2025).
+* Includes 38 translation projects, or 94 translation patches if you count all included patch versions (as of October 31st, 2025).
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Korean, Polish, Portuguese, Russian and Spanish (as of January 2nd, 2025).\
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Korean, Polish, Portuguese, Russian and Spanish (as of October 31st, 2025).\
 *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible three of the biggest new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
@@ -44,7 +44,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 	* Latin American Spanish v2.2 by OAD
 	* European Spanish v0.99 by Jackic ***(new!)***
 * MOTHER 2 / EarthBound
-	* Catalan v1.2a by AndreuMB ***(new!)***
+	* Catalan v2.0 by Ce Trencada ***(new!)***
 	* French v1.1 by Team MAMBO
 	* German v1.0-v1.2.3 by GlostU ***(updated!)***
 	* Italian v1.0-v1.1 by CRefice
@@ -65,6 +65,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* European Spanish v0.5.1 by Z3R0 ***(new!)***
 * MOTHER 3
+	* Catalan v1.0 by Ce Trencada ***(new!)***
 	* Chinese v1.0(+fix) by 漫游汉化组
 	* Dutch v1.0 by PrismaticAngel ***(new!)***
 	* English v1.0-v1.3a by Tomato ***(updated!)***
@@ -76,15 +77,18 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 	* Polish v1.0-v1.1 by Voxar ***(new!)***
 	* Brazilian Portuguese v1.0 by EarthBound Brazil
 	* Russian v1.0-v1.06 by ThatOneMeganium ***(new!)***
-	* European Spanish v1.0-v1.1 by Jimmytrius and Danionel ***(updated!)***
+	* European Spanish v1.0-v1.21 by Jimmytrius and Danionel ***(updated!)***
 
 Thanks to these 31 talented teams and their dedicated work, the MOTHER series is now accessible to people speaking 13 different languages: Catalan, Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
 Ten of these languages allow their speakers to play the entire MOTHER series from beginnings to end: English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian and Spanish.\
-Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
+Sometimes, this was all thanks to one single team working on several translations: Tomato & co. for English, Ce Trencada for Catalan, MotherVF for French, pjs for Korean, Voxar for Polish and EarthBound Brazil for Portuguese. The last three even translated the entire series in their respective languages!
 
 Many thanks and congrats to all the people involved!
 
 ## Changelog
+* Version 3.4
+	* Added translation: MOTHER 3 in Catalan
+	* Updated translation: Spanish MOTHER 3 (1.2, 1.21)
 * Version 3.3
 	* Updated translation: Spanish MOTHER 3 (1.1, 1.1+fix)
 	* Added date of last update in credits

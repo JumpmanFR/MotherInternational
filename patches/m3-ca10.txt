@@ -1,0 +1,92 @@
+
+
+ ██▒░  ░▒██   ▒▓██████▓▒   ██████████ ██      ██  ████████  ██████▒         ░▓█████▓▒
+ ███▓▒▒▓███  ▒██████████▒      ██     ██      ██  ██        ██   ▒██       █▓▒░  ▒▓██
+ ████▓▓████  ████████████      ██     ██      ██  ██        ██    ██              ▓██
+ ██▒████▒██  ████████████      ██     ██████████  ███████   ██████▓▒          ▓████▓▒
+ ██  ██  ██  ████████████      ██     ██      ██  ██        ██  ▓██░              ▓██
+ ██      ██  ▒██████████▒      ██     ██      ██  ██        ██   ▒██       █▓▒   ▒▓██
+ ██      ██   ▒▓██████▓▒       ██     ██      ██  ████████  ██    ░██       ▒██████▓▒
+
+                                                                              ▓██▒
+                                                  ██               ████        ▓██
+                                                  ██                 ██
+ ░██████▒  ▒███████          ▓██████   ██████▓  ██████    ██████▓    ██       ██████▓
+ ██▒  ▒██  ███   ██         ▓██▒           ▒██    ██          ▒██    ██           ▒██
+ ████████  ██    ██         ██        ░███████    ██     ░███████    ██      ░███████
+ ██        ██    ██         ███░      ██▓░  ██    ██     ██▓░  ██    ██      ██▓░  ██
+ ░██████▓  ██    ██          ▓██████  ▓██████▓    ▓███   ▓██████▓    ▓███    ▓██████▓
+
+
+ÍNDEX
+
+1. Introducció
+2. Com aplicar el pedaç
+3. Versions
+4. Problemes coneguts
+5. Agraïments
+6. Avís legal
+_____________________________________
+
+1. INTRODUCCIÓ
+
+Aquest pedaç consisteix en una traducció al català del videojoc RPG Mother 3, creat per Shigesato Itoi i publicat per Nintendo l'any 2006 per la consola portàtil Game Boy Advance.
+
+Aquesta traducció s'ha realitzat partint de la traducció no oficial a l'anglès realitzada per Clyde Mandelin (també conegut com a Tomato) i emprant les diverses eines de traducció que va publicar un cop acabada la seva traducció.
+
+Per a més detalls sobre el projecte, visiteu la pàgina web:
+
+http://mother3.fobby.net
+
+Tanmateix, s'han fet alguns canvis de poca importància per tal d'adaptar algunes referències a la cultura popular nipona i per mantenir la coherència amb la traducció al català de l'entrega anterior de la saga (així com Mandelin també ho feu amb els mateixos objectius)
+_____________________________________
+
+2. COM APLICAR EL PEDAÇ
+
+Per aplicar el pedaç necessitareu:
+- Una ROM sense modificar de la versió original del joc OBTINGUDA LEGALMENT (ehem, ehem)
+- Un programa capaç d'aplicar pedaços en format UPS. Si no en teniu cap, podeu fer servir aquest:
+https://www.romhacking.net/utilities/606/
+
+Si no sabeu com aplicar el pedaç, aquí teniu una breu explicació de com fer-ho:
+
+ 1. Obriu el programa NUPS (el podreu descarregar a l'enllaç anterior) i seleccioneu l'opció "Apply a UPS patch to a file"
+
+ 2. En seleccionar aquesta opció, s'obrirà una finestreta nova amb dos camps per omplir:
+
+   - Al primer camp, etiquetat com a "File to patch", heu de seleccionar el fitxer de la ROM no modificada del joc (haurà de tenir l'extensió ".gba"). 
+
+   - Al segon camp, etiquetat com a "UPS patch", heu de seleccionar el fitxer del pedaç (l'arxiu amb extensió ".ups")
+
+ 3. Prem el botó "Patch" a la cantonada inferior dreta de la finestra. Si apareix el missatge "Patching has been done." voldrà dir que tot ha anat bé i que la ROM que abans era original i sense modificar ara és una ROM traduïda, la qual podràs gravar en un cartutx flaix per jugar en una consola original o bé obrir amb un emulador (si no en tens cap, et recomano l'mGBA).
+_____________________________________
+
+3. VERSIONS
+
+1.0: Primera versió revisada i corregida disponible al públic.
+_____________________________________
+
+4. PROBLEMES CONEGUTS
+
+Igual que a l'entrega anterior de la saga, no ha estat possible aplicar els articles dels personatges jugables en totes les situacions (especialment a l'overworld), així com el nom del jugador, el qual no presenta article en cap cas.
+_____________________________________
+
+5. AGRAÏMENTS
+
+Per les seves contribucions al projecte, m'agradaria donar les gràcies:
+
+- Al Projecte Ce Trencada, especialment els usuaris Andreu Silvestre i Emilio López, per realitzar una correcció minuciosa del text del joc.
+
+- A en Danionel, que, molt pacientment i de manera totalment desinteressada, em va ajudar amb tots els problemes tècnics que vaig tenir emprant les eines de traducció, donant al producte final una qualitat que no hauria pogut assolir pel meu compte.
+
+- A la Jessica Álvarez, per donar la seva gran veu a en Lucas a l'escena del "Roca-Fulla-Cisalles".
+
+- A en Clyde Mandelin, per permetre que tanta gent de tot el món pugui gaudir d'aquest joc en la seva pròpia llengua.
+
+- I, finalment, a tots aquells que gaudiran del joc, ja que, sense ells, tota aquesta feinada que ha durat més d'un any no tindria cap sentit.
+
+_____________________________________
+
+6. AVÍS LEGAL
+
+Aquest projecte ha estat realitzat de manera desinteressada i sense cap ànim de lucre. Llevat de la traducció, tot el contingut del joc, així com els seus personatges, història, etc, són propietat intel·lectual de Nintendo. No existeix cap incentiu per part del creador d'aquest projecte a la descàrrega il·legal de ROMs de videojocs a través d'internet.
