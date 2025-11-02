@@ -46,10 +46,9 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m12-itB',game:ID_MOTHER_1_2,lang:LANG_ITALIAN,	latest:'1.1',	author:'Team MODRE',		website:'https://discord.gg/FXGZ8a5'},
 	{projectId:'m12-ko',game:ID_MOTHER_1_2,	lang:LANG_KOREAN,	latest:'19.09.29',author:'아루미 & pjs',		website:'https://blog.naver.com/pjs0493/220591359815'},
 	{projectId:'m12-pt',game:ID_MOTHER_1_2,	lang:LANG_PT_BRAZIL,latest:'1.0',	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
+	{projectId:'m12-zh',game:ID_MOTHER_1_2,	lang:LANG_CHINESE,	latest:'2.0',	author:'主播萌杀',			website:'https://www.youtube.com/@mengshac'},
 
 	{projectId:'m3-ja',	game:ID_MOTHER_3,	lang:LANG_JAPANESE,					author:'Nintendo',			isOfficial:true},
-	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',		website:'https://www.romhacking.net/translations/6642/'},
-	{projectId:'m3-ko',	game:ID_MOTHER_3,	lang:LANG_KOREAN,	latest:'19.03.01',author:'pjs',				website:'http://blog.naver.com/pjs0493/220392308242'},
 	{projectId:'m3-ca',	game:ID_MOTHER_3,	lang:LANG_CATALAN,	latest:'1.0',	author:'Ce Trencada',			website:'https://comunitat.cetrencada.cat/?entrada=mother3'},
 	{projectId:'m3-de',	game:ID_MOTHER_3,	lang:LANG_GERMAN,	latest:'1.1',	author:'Madokami',			website:'https://github.com/Madokamiiiiii/Mother3German/releases'},
 	{projectId:'m3-en',	game:ID_MOTHER_3,	lang:LANG_ENGLISH,	latest:'1.3a',	author:'Tomato',			website:'http://mother3.fobby.net/'},
@@ -57,10 +56,12 @@ var PATCH_PROJECTS = PatchProject.createFromJson( [
 	{projectId:'m3-fr',	game:ID_MOTHER_3,	lang:LANG_FRENCH,	latest:'1.9.1',	author:'MotherVF',			website:'http://mother3vf.free.fr/'},
 	{projectId:'m3-itA',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.1.1',	author:'Lorenzooone',		website:'https://forum.starmen.net/forum/Games/Mother3FanTranslation/Mother-3-Ita-Patch-60/page/1'},
 	{projectId:'m3-itB',game:ID_MOTHER_3,	lang:LANG_ITALIAN,	latest:'1.2',	author:'Snifit', 			website:'https://snifit.altervista.org/mother-3-in-italiano/'},
+	{projectId:'m3-ko',	game:ID_MOTHER_3,	lang:LANG_KOREAN,	latest:'19.03.01',author:'pjs',				website:'http://blog.naver.com/pjs0493/220392308242'},
 	{projectId:'m3-nl',	game:ID_MOTHER_3,	lang:LANG_DUTCH,	latest:'1.0',	author:'PrismaticAngel',	website:'https://m3dutch.blogspot.com'},
 	{projectId:'m3-pl',	game:ID_MOTHER_3,	lang:LANG_POLISH,	latest:'1.1',	author:'Voxar',				website:'https://www.romhacking.net/translations/6161/'},
 	{projectId:'m3-pt',	game:ID_MOTHER_3,	lang:LANG_PT_BRAZIL,latest:'1.0', 	author:'EarthBound Brasil',	website:'https://www.earthboundbrasil.com'},
 	{projectId:'m3-ru',	game:ID_MOTHER_3,	lang:LANG_RUSSIAN,	latest:'1.06', 	author:'ThatOneMeganium',	website:'https://github.com/ThatOneMeganium/Mother3RUS'},
+	{projectId:'m3-zh',	game:ID_MOTHER_3,	lang:LANG_CHINESE,	latest:'1.0+fix',author:'漫游汉化组',		website:'https://www.romhacking.net/translations/6642/'},
 ], GAMES_LIST );
 
 // Table for all supported versions of the translations
@@ -134,11 +135,9 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x22282cf0',	projectId:'m12-itB',patchId:'m12-itB11',patchExt:'.zip', baseRom:'m12-ja',	hasDoc:false,	year:'2020',version:'1.1',	extraNote:'Solo MOTHER 1'},
 	{crc:'0xc0cf1f7e',	projectId:'m12-ko',	patchId:'m12-ko11', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2019',version:'19.09.29'},
 	{crc:'0x3be388bf',	projectId:'m12-pt',	patchId:'m12-pt10', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2011',version:'1.0',	extraNote:'Somente MOTHER 1'},
+	{crc:'0x2a338e90',	projectId:'m12-zh',	patchId:'m12-zh20', patchExt:'.zip', baseRom:'m12-ja',	hasDoc:true,	year:'2025',version:'2.0',	extraNote:'仅限MOTHER2'},
 
 	{crc:'0x42ac9cb9',	projectId:'m3-ja',	patchId:'m3-ja',	year:'2006'},
-	{crc:'0x21fdf96c',	projectId:'m3-zh',	patchId:'m3-zh10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2009',version:'1.0'},
-	{crc:'0xe2447179',	projectId:'m3-zh',	patchId:'m3-zh10f',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0+fix', extraNote:'Fix by 少年不知愁', website:'https://tieba.baidu.com/p/7313315937'},
-	{crc:'0x58f58635',	projectId:'m3-ko',	patchId:'m3-ko10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:false,	year:'2019',version:'19.03.01'},
 	{crc:'0x4f9f87b5',	projectId:'m3-ca',	patchId:'m3-ca10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2025',version:'1.0'},
 	{crc:'0x9163f829',	projectId:'m3-de',	patchId:'m3-de10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0'},
 	{crc:'0xb0b73624',	projectId:'m3-de',	patchId:'m3-de11',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.1'},
@@ -170,6 +169,7 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0xe7185f88',	projectId:'m3-itA',	patchId:'m3-itA111',patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2016',version:'1.1.1'},
 	{crc:'0x7dfea226',	projectId:'m3-itB',	patchId:'m3-itB10', patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2015',version:'1.0'},
 	{crc:'0x0752ce36',	projectId:'m3-itB',	patchId:'m3-itB12', patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2024',version:'1.2'},
+	{crc:'0x58f58635',	projectId:'m3-ko',	patchId:'m3-ko10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:false,	year:'2019',version:'19.03.01'},
 	{crc:'0x8b74324c',	projectId:'m3-nl',	patchId:'m3-nl10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2020',version:'1.0'},
 	{crc:'0xe5911653',	projectId:'m3-pl',	patchId:'m3-pl10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0'},
 	{crc:'0xb439dc34',	projectId:'m3-pl',	patchId:'m3-pl11',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.1'},
@@ -179,4 +179,6 @@ var PATCH_VERSIONS = PatchVersion.createFromJson( [
 	{crc:'0x00ef272f',	projectId:'m3-ru',	patchId:'m3-ru103',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.03'},
 	{crc:'0x704c26fc',	projectId:'m3-ru',	patchId:'m3-ru105',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.05'},
 	{crc:'0xaf92ca7b',	projectId:'m3-ru',	patchId:'m3-ru106',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2022',version:'1.06'},
+	{crc:'0x21fdf96c',	projectId:'m3-zh',	patchId:'m3-zh10',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2009',version:'1.0'},
+	{crc:'0xe2447179',	projectId:'m3-zh',	patchId:'m3-zh10f',	patchExt:'.zip', baseRom:'m3-ja',	hasDoc:true,	year:'2021',version:'1.0+fix', extraNote:'Fix by 少年不知愁', website:'https://tieba.baidu.com/p/7313315937'},
 ], PATCH_PROJECTS );

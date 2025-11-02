@@ -15,7 +15,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * *(For operators)* Support for UPS and IPS patch formats.
 
 ### New features from this version 3 on the Web
-* Includes 38 translation projects, or 94 translation patches if you count all included patch versions (as of October 31st, 2025).
+* Includes 39 translation projects, or 95 translation patches if you count all included patch versions (as of November 2nd, 2025).
 * Can *unpatch* ROMs and apply multiple patches successively, allowing to translate a game from any language to any other (no need to input the base Japanese ROM specifically).
 * Based on the same principle, can update your ROM if you’re using an older version of the same translation.
 * Supports special additional patches designed to be applied over existing translations (like better sound and such); the program automatically finds a route from your current ROM to the translation and special features you want.
@@ -24,7 +24,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 * Supports zipped ROMs.
 * Supports translation teams better by including links to their websites and readme files.
 * Compatible and suited for mobile devices, thanks to a responsive UI.
-* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Korean, Polish, Portuguese, Russian and Spanish (as of October 31st, 2025).\
+* Features a multilingual UI, currently in English, Dutch, French, German, Italian, Korean, Polish, Portuguese, Russian and Spanish (as of November 2nd, 2025).\
 *(For operators)* Other languages can be easily added; supports right-to-left writing.
 * *(For operators)* Also supports BPS and VCDIFF/xdelta patch formats, in addition to UPS and IPS. That said, only the UPS format can *unpatch* ROMS, making possible three of the biggest new features listed above. For now, all included patches have been converted to UPS so everything’s fine. But for future patches, you’ll probably want to import them as UPS patches all well. Otherwise, the program will fallback to more limited features in the impacted situations.
 
@@ -55,6 +55,7 @@ The patching mechanism relies on a modified version of Marc Robledo’s [Rom Pat
 	* Latin American Spanish v2.0-v4.0 by ShadowOne333
 	* European Spanish v1.0a by josete2k ***(new!)***
 * MOTHER 1+2
+	* Chinese v2.0 by 主播萌杀 ***(new!)***
 	* English v1.0.1 by Tomato
 	* French v1.0 by MotherVF ***(new!)***
 	* German v1.0 by domflo
@@ -88,6 +89,7 @@ Many thanks and congrats to all the people involved!
 ## Changelog
 * Version 3.4
 	* Added translation: MOTHER 3 in Catalan
+	* Added translation: MOTHER 1+2 in Chinese
 	* Updated translation: Spanish MOTHER 3 (1.2, 1.21)
 * Version 3.3
 	* Updated translation: Spanish MOTHER 3 (1.1, 1.1+fix)
